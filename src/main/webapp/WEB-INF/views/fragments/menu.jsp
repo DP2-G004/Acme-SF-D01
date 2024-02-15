@@ -20,7 +20,9 @@
 	<acme:menu-left>
 		<acme:menu-option code="master.menu.anonymous" access="isAnonymous()">
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-antporara" action="https://www.cadizcf.com/"/>
-			<acme:menu-suboption code="master.menu.anonymous.favourite-link-frajimmor2" action="https://forocoches.com/"/>		
+			<acme:menu-suboption code="master.menu.anonymous.favourite-link-frajimmor2" action="https://forocoches.com/"/>
+			<acme:menu-suboption code="master.menu.anonymous.favourite-link-javruigar2" action="https://www.sevillafc.com/"/>
+					
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.administrator" access="hasRole('Administrator')">
