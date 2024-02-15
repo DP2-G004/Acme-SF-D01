@@ -22,6 +22,7 @@
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-antporara" action="https://www.cadizcf.com/"/>
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-frajimmor2" action="https://forocoches.com/"/>
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-javruigar2" action="https://www.sevillafc.com/"/>
+			<acme:menu-suboption code="master.menu.anonymous.favourite-link-javsanmar5" action="https://www.youtube.com/watch?v=dQw4w9WgXcQ"/>
 					
 		</acme:menu-option>
 
