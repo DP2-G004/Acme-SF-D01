@@ -10,6 +10,8 @@
 
 master.license.title = Licencia
 master.license.text = \
+	Este es un proyecto grupal de estudiantes para la materia de Diseño y Pruebas.\
+	Tu información será utilizada únicamente con fines educativos.\
 	Puede usar este sistema de forma completamente gratuita respetando las leyes \
 	que sean aplicables.  No compartimos ninguna información sobre Ud. con ninguna \
 	otra empresa.  Almacenamos los siguientes datos en su browser: \
