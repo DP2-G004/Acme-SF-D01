@@ -24,6 +24,7 @@
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-javruigar2" action="https://www.sevillafc.com/"/>
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-javsanmar5" action="https://www.youtube.com/watch?v=dQw4w9WgXcQ"/>
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-josgardel8" action="https://xkcd.com/1739/"/>		
+
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.administrator" access="hasRole('Administrator')">
