@@ -1,13 +1,10 @@
 
-package acme.entities;
+package acme.entities.userstory;
 
-import java.util.Date;
-
-import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Past;
-import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Positive;
 
 import org.hibernate.validator.constraints.Length;
 
@@ -18,33 +15,29 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Claim extends AbstractEntity {
+public class UserStory extends AbstractEntity {
 	//Serialisation identifier
 
 	private static final long	serialVersionUID	= 1L;
 
 	//Attributes
 	@NotBlank
-	@Column(unique = true)
-	@Pattern(regexp = "C-\\d{4}")
-	private String				code;
-
-	@Past
-	private Date				instantiationMoment;
-
-	@NotBlank
 	@Length(max = 76)
-	private String				heading;
+	private String				title;
 
 	@NotBlank
 	@Length(max = 101)
 	private String				description;
 
+	@Positive
+	@Min(1)
+	private Integer				estimatedCost;
+
 	@NotBlank
 	@Length(max = 101)
-	private String				department;
+	private String				acceptanceCriteria;
 
-	private String				email;
+	private Priority			priority;
 
 	private String				link;
 }
