@@ -10,10 +10,10 @@
 
 master.company.title = La empresa
 master.company.text = \
-	Acme-SF-D01, es una empresa ficticia cuyo proyecto ayuda  \
+	Acme-SF, es una empresa ficticia cuyo proyecto ayuda  \
 	a los estudiantes de la asignatura D &amp; T2 a introducirse en instanciar \
 	un proyecto de inicio. 
-master.company.name = Acme-SF-D01, Inc.
-master.company.address = 01 Acme-SF-D01 Drive, Wondercity, Wonderland
+master.company.name = Acme SF, Inc.
+master.company.address = 01 Acme SF Drive, Wondercity, Wonderland
 master.company.phone = +1 000 111 222
-master.company.email = contact@acme-sf-d01.com
+master.company.email = contact@acme-sf.com
