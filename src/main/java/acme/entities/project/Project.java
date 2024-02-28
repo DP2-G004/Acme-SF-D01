@@ -40,5 +40,4 @@ public class Project extends AbstractEntity {
 
 	private String				link;
 
-	//relacion con user stories, el manager puede elicitar muchas de un proyecto
 }
