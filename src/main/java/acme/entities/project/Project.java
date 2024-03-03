@@ -2,6 +2,7 @@
 package acme.entities.project;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Positive;
@@ -9,6 +10,7 @@ import javax.validation.constraints.Positive;
 import org.hibernate.validator.constraints.Length;
 
 import acme.client.data.AbstractEntity;
+import acme.roles.Manager;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -30,7 +32,7 @@ public class Project extends AbstractEntity {
 
 	@NotBlank
 	@Length(max = 101)
-	private String				abstracto;
+	private String				summary;
 
 	//restriccion personalizada en servicio para que no se acepten los q tengan el campo a true
 	private Boolean				indication;
@@ -39,5 +41,10 @@ public class Project extends AbstractEntity {
 	private Integer				cost;
 
 	private String				link;
+
+	//Relationships
+
+	@ManyToOne(optional = false)
+	private Manager				manager;
 
 }
