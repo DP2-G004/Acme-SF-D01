@@ -1,8 +1,6 @@
 
 package acme.roles;
 
-import java.util.List;
-
 import javax.persistence.Entity;
 import javax.validation.constraints.NotBlank;
 
@@ -32,7 +30,7 @@ public class Manager extends AbstractRole {
 
 	@NotBlank
 	@Length(max = 101)
-	private List<String>		certifications;
+	private String				certifications;
 
 	private String				link;
 
