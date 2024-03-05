@@ -45,7 +45,6 @@ public class Objective extends AbstractEntity {
 	private Boolean				status;
 
 	//Need to be checked in service
-	@Temporal(TemporalType.TIMESTAMP)
 	@NotNull
 	private Duration			duration;
 
