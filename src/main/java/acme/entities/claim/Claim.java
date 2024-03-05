@@ -10,6 +10,7 @@ import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.URL;
 
 import acme.client.data.AbstractEntity;
 import lombok.Getter;
@@ -19,11 +20,11 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Claim extends AbstractEntity {
-	//Serialisation identifier
+	// Serialisation identifier
 
 	private static final long	serialVersionUID	= 1L;
 
-	//Attributes
+	// Attributes
 	@NotBlank
 	@Column(unique = true)
 	@Pattern(regexp = "C-\\d{4}")
@@ -46,5 +47,8 @@ public class Claim extends AbstractEntity {
 
 	private String				email;
 
+	@URL
 	private String				link;
+
+	// Relationships
 }

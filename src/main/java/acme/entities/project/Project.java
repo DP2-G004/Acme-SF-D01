@@ -1,13 +1,16 @@
 
 package acme.entities.project;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Positive;
 
 import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.URL;
 
 import acme.client.data.AbstractEntity;
 import acme.roles.Manager;
@@ -18,11 +21,12 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Project extends AbstractEntity {
-	//Serialisation identifier
+	// Serialisation identifier
 
 	private static final long	serialVersionUID	= 1L;
 
-	//Attributes
+	// Attributes
+	@Column(unique = true)
 	@Pattern(regexp = "[A-Z]{3}-\\d{4}")
 	private String				code;
 
@@ -40,10 +44,12 @@ public class Project extends AbstractEntity {
 	@Positive
 	private Integer				cost;
 
+	@URL
 	private String				link;
 
-	//Relationships
+	// Relationships
 
+	@Valid
 	@ManyToOne(optional = false)
 	private Manager				manager;
 
