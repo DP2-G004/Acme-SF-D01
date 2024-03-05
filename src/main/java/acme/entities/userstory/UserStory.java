@@ -24,11 +24,11 @@ public class UserStory extends AbstractEntity {
 	// Attributes
 
 	@NotBlank
-	@Length(max = 76)
+	@Length(max = 75)
 	private String				title;
 
 	@NotBlank
-	@Length(max = 101)
+	@Length(max = 100)
 	private String				description;
 
 	@Positive
@@ -36,7 +36,7 @@ public class UserStory extends AbstractEntity {
 	private Integer				estimatedCost;
 
 	@NotBlank
-	@Length(max = 101)
+	@Length(max = 100)
 	private String				acceptanceCriteria;
 
 	private Priority			priority;
