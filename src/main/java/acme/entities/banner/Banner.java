@@ -2,13 +2,17 @@
 package acme.entities.banner;
 
 import java.time.Duration;
-import java.time.LocalDateTime;
+import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 
 import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.URL;
 
 import acme.client.data.AbstractEntity;
 import lombok.Getter;
@@ -19,17 +23,25 @@ import lombok.Setter;
 @Setter
 public class Banner extends AbstractEntity {
 
+	// Serialisation identifier
+
+	private static final long	serialVersionUID	= 1L;
+
+	@Temporal(TemporalType.TIMESTAMP)
 	@Past
-	LocalDateTime	lastInstantiationMoment;
+	@NotNull
+	Date						lastInstantiationMoment;
 
-	Duration		displayPeriod;
+	Duration					displayPeriod;
 
-	String			pictureLink;
+	@URL
+	String						pictureLink;
 
 	@NotBlank
-	@Length(max = 76)
-	String			slogan;
+	@Length(max = 75)
+	String						slogan;
 
-	String			link;
+	@URL
+	String						link;
 
 }
