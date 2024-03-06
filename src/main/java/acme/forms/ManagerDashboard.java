@@ -14,19 +14,19 @@ public class ManagerDashboard extends AbstractForm {
 
 	//Attributes
 
-	Integer						totalMustPriorityUserStories;
-	Integer						totalShouldPriorityUserStories;
-	Integer						totalCouldPriorityUserStories;
-	Integer						totalWontPriorityUserStories;
+	int							totalMustPriorityUserStories;
+	int							totalShouldPriorityUserStories;
+	int							totalCouldPriorityUserStories;
+	int							totalWontPriorityUserStories;
 
-	Double						averageUserStoryCost;
-	Double						deviationUserStoryCost;
-	Double						minimumUserStoryCost;
-	Double						maximumUserStoryCost;
+	double						averageUserStoryCost;
+	double						deviationUserStoryCost;
+	double						minimumUserStoryCost;
+	double						maximumUserStoryCost;
 
-	Double						averageProjectCost;
-	Double						deviationProjectCost;
-	Double						minimumProjectCost;
-	Double						maximumProjectCost;
+	double						averageProjectCost;
+	double						deviationProjectCost;
+	double						minimumProjectCost;
+	double						maximumProjectCost;
 
 }

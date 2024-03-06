@@ -5,9 +5,10 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.validation.Valid;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Positive;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
@@ -26,6 +27,7 @@ public class Project extends AbstractEntity {
 	private static final long	serialVersionUID	= 1L;
 
 	// Attributes
+	@NotNull
 	@Column(unique = true)
 	@Pattern(regexp = "[A-Z]{3}-\\d{4}")
 	private String				code;
@@ -39,9 +41,9 @@ public class Project extends AbstractEntity {
 	private String				summary;
 
 	//restriccion personalizada en servicio para que no se acepten los q tengan el campo a true
-	private Boolean				indication;
+	private boolean				indication;
 
-	@Positive
+	@Min(0)
 	private Integer				cost;
 
 	@URL
