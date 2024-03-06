@@ -1,7 +1,6 @@
 
 package acme.entities.banner;
 
-import java.time.Duration;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -15,6 +14,7 @@ import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
 import acme.client.data.AbstractEntity;
+import acme.datatypes.Period;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -32,7 +32,8 @@ public class Banner extends AbstractEntity {
 	@NotNull
 	Date						lastInstantiationMoment;
 
-	Duration					displayPeriod;
+	@NotNull
+	Period						displayPeriod;
 
 	@URL
 	String						pictureLink;
