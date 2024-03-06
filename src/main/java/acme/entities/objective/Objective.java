@@ -1,16 +1,15 @@
 
-package acme.entities.claim;
+package acme.entities.objective;
 
+import java.time.Duration;
 import java.util.Date;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
-import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
@@ -22,38 +21,34 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Claim extends AbstractEntity {
-	// Serialisation identifier
+public class Objective extends AbstractEntity {
 
 	private static final long	serialVersionUID	= 1L;
 
-	// Attributes
-	@NotBlank
-	@Column(unique = true)
-	@Pattern(regexp = "^C-[0-9]{4}$", message = "patata bro ponlo bn no la lies")
-	private String				code;
-
+	@Temporal(TemporalType.DATE)
 	@Past
-	@Temporal(TemporalType.TIMESTAMP)
+	@NotNull
 	private Date				instantiationMoment;
 
 	@NotBlank
-	@Length(max = 75)
-	private String				heading;
+	@Length(max = 76)
+	private String				title;
 
 	@NotBlank
-	@Length(max = 100)
+	@Length(max = 101)
 	private String				description;
 
-	@NotBlank
-	@Length(max = 100)
-	private String				department;
+	@NotNull
+	private ObjectivePriority	priority;
 
-	@Email
-	private String				email;
+	@NotNull
+	private Boolean				status;
+
+	//Need to be checked in service
+	@NotNull
+	private Duration			duration;
 
 	@URL
 	private String				link;
 
-	// Relationships
 }
