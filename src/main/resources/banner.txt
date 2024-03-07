@@ -1,10 +1,10 @@
-      .o.                                                        .oooooo.      888P"Y88b        88888       .ooooo.     .ooooooo
-     .888.                                                      d8P'  d8P      888P             888  .8    d8P' `Y8b   .oooooooo
-    .8"888.        .ooooo   ooo  .oo.  .oo.     .ooooo.         888            888P             888   .8   888    888 .ooo  oooo
-   .8  `888.      d88  `"Y8 `888P"Y88bP"Y88b   d88' `88b  888   88888888888    888P"Y88b  888   888   .8   888    888       oooo
-  .88ooo`8888.    888        888   888   888   888ooo888  888           888    888        888   888  .8    888    888       oooo
- .8'      `888.   888   .o8  888   888   888   888              `88b    d88'   888              888 .8     888    888    .oooooooo.
-o88o      o8888o  `Y8bod8P' o888o o888o o888o  `Y8bod8P'         `Y8bod8P'    o888o             88888      `Y8bood8P'    .oooooooo.
+      .o.                                                        .oooooo.      888P"Y88b       
+     .888.                                                      d8P'  d8P      888P             
+    .8"888.        .ooooo   ooo  .oo.  .oo.     .ooooo.         888            888P             
+   .8  `888.      d88  `"Y8 `888P"Y88bP"Y88b   d88' `88b  888   88888888888    888P"Y88b  
+  .88ooo`8888.    888        888   888   888   888ooo888  888           888    888        
+ .8'      `888.   888   .o8  888   888   888   888              `88b    d88'   888              
+o88o      o8888o  `Y8bod8P' o888o o888o o888o  `Y8bod8P'         `Y8bod8P'    o888o             
 
 Application:          ${acme.application.versioned-name}
 Application endpoint: http://localhost:${server.port}${server.servlet.contextPath}
