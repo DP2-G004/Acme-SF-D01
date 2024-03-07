@@ -3,7 +3,7 @@ project-01,"AAA-0001","T","summary",true,23,null,manager-01
 project-02,"AAA-0002","Titulo de prueba","summary",true,23,null,manager-01
 project-03,"AAA-0003","Enhancing Urban Sustainability: IoT Integration for Smart City Development","summary",true,23,"https://www.recyglo.com/",manager-01
 project-04,"AAA-0004","Enhancing Urban Sustainability: IoT Integration for City Development","summary",true,23,"https://www.recyglo.com/",manager-01
-project-05,POR-5555,"title","summary",true,12,null,manager-02
+project-05,POR-5555,"Заголовок теста","summary",true,12,null,manager-02
 project-06,ZZZ-9997,"title","summary",true,12,null,manager-02
 project-07,ZZZ-9999,"title","summary",true,12,null,manager-02
 project-08,AAA-0000,"title","summary",true,12,null,manager-02
@@ -11,10 +11,10 @@ project-09,AAA-3333,"title","S",true,12,null,manager-01
 project-10,ABC-0005,"title","Abstracto resumen",true,12,null,manager-01
 project-11,ABC-0006,"title","Developing AI-based chatbot for customer service automation.",true,12,null,manager-01
 project-12,ABC-3333,"title","Developing and implementing an AI chatbot system to automate customer service inquiries.",true,12,null,manager-01
-project-13,DDD-3333,"title","summary",true,12,null,manager-02
+project-13,DDD-3333,"title","अवलोकन सारांश",true,12,null,manager-02
 project-14,DDD-3399,"title","summary",false,12,null,manager-02
-project-15,LLL-3333,"title","summary",true,1,null,manager-01
-project-16,BBB-3333,"title","summary",true,7,null,manager-01
+project-15,LLL-3333,"title","summary",true,0,null,manager-01
+project-16,BBB-3333,"title","ကို ယူနစ်သည်တွင် ပရိုဂရမ်အနှစ်မျိုးအား ရှိပါသည်။",true,7,null,manager-01
 project-17,FFF-3333,"title","summary",true,2147483620,null,manager-01
 project-18,QQQ-3333,"title","summary",true,2133483420,null,manager-01
 project-19,PPP-3333,"title","summary",true,1135483620,null,manager-01
