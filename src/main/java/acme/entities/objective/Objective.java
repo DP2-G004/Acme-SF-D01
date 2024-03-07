@@ -25,24 +25,23 @@ public class Objective extends AbstractEntity {
 
 	private static final long	serialVersionUID	= 1L;
 
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
 	@Past
 	@NotNull
 	private Date				instantiationMoment;
 
 	@NotBlank
-	@Length(max = 76)
+	@Length(max = 75)
 	private String				title;
 
 	@NotBlank
-	@Length(max = 101)
+	@Length(max = 100)
 	private String				description;
 
 	@NotNull
 	private ObjectivePriority	priority;
 
-	@NotNull
-	private Boolean				status;
+	private boolean				status;
 
 	//Need to be checked in service
 	@NotNull
