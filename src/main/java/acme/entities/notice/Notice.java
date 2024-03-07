@@ -1,10 +1,13 @@
 
 package acme.entities.notice;
 
-import java.time.LocalDateTime;
+import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 
 import org.hibernate.validator.constraints.Length;
@@ -18,23 +21,25 @@ import lombok.Setter;
 @Setter
 public class Notice extends AbstractEntity {
 
+	@Temporal(TemporalType.TIMESTAMP)
 	@Past
-	LocalDateTime	lastInstantiationMoment;
+	@NotNull
+	Date	lastInstantiationMoment;
 
 	@NotBlank
 	@Length(max = 76)
-	String			title;
+	String	title;
 
 	@NotBlank
 	@Length(max = 76)
-	String			author;
+	String	author;
 
 	@NotBlank
 	@Length(max = 101)
-	String			message;
+	String	message;
 
-	String			emailAdress;
+	String	emailAdress;
 
-	String			link;
+	String	link;
 
 }
