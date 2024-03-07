@@ -16,29 +16,31 @@ import org.hibernate.validator.constraints.URL;
 
 public class Risk {
 
+	private static final long	serialVersionUID	= 1L;
+
 	@NotBlank
 	@Column(unique = true)
 	@Pattern(regexp = "R-\\d{3}")
-	private String	code;
+	private String				code;
 
 	@NotNull
 	@Past
-	private Date	identificationDate;
+	private Date				identificationDate;
 
 	@NotNull
 	@Min(0)
-	private Double	impact;
+	private Double				impact;
 
 	@NotNull
 	@Min(0)
-	private Double	probability;
+	private Double				probability;
 
 	@NotBlank
 	@Max(100)
-	private String	description;
+	private String				description;
 
 	@URL
-	private String	link;
+	private String				link;
 
 
 	@Transient
