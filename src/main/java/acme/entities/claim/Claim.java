@@ -30,7 +30,7 @@ public class Claim extends AbstractEntity {
 	// Attributes
 	@NotBlank
 	@Column(unique = true)
-	@Pattern(regexp = "^C-[0-9]{4}$", message = "patata bro ponlo bn no la lies")
+	@Pattern(regexp = "^C-[0-9]{4}$", message = "Patron incorrecto, ha de comenzar por C y contener cuatro digitos enteros entre cero y nueve. Debe ser unico.")
 	private String				code;
 
 	@Past

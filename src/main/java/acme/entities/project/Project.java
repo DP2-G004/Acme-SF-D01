@@ -29,7 +29,7 @@ public class Project extends AbstractEntity {
 	// Attributes
 	@NotNull
 	@Column(unique = true)
-	@Pattern(regexp = "[A-Z]{3}-\\d{4}")
+	@Pattern(regexp = "^[A-Z]{3}-[0-9]{4}$", message = "Patron incorrecto, ha de comenzar por tres letras mayúsculas, seguidas de guion y cuatro digitos enteros entre cero y nueve")
 	private String				code;
 
 	@NotBlank
