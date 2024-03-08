@@ -12,6 +12,7 @@
 
 24.1.0	Upgraded to work with the new version of the Acme framework.
 Acme-SF-D01 First version of the Acme-SF project.
+Acme-SF-D02 Version of the Acme-SF project for the second deliverable.
 
 ** Year 2023
 
