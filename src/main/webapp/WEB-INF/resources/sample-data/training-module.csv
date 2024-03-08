@@ -1,0 +1,16 @@
+key,code,creationMoment,details,difficultyLevel,updateMoment,link,totalTime,key:project
+training-module-01,ASR-345,2015/07/10 00:00,"descripcion",BASIC,2016/07/10 00:00,https://www.sevillafc.com/,145,project-01
+training-module-02,ASR-346,2016/02/21 08:30,"otra descripcion",INTERMEDIATE,2017/02/21 08:30,https://www.example-link.com/,120,project-03
+training-module-03,ASR-347,2017/09/05 15:45,"descripción adicional",ADVANCED,2018/09/05 15:45,https://www.example-link.com/,180,project-04
+training-module-04,ASR-348,2018/04/14 12:20,"nueva descripción",BASIC,2019/04/14 12:20,https://www.example-link.com/,160,project-02
+training-module-05,ASR-349,2019/11/30 17:10,"descripción actualizada",INTERMEDIATE,2020/11/30 17:10,https://www.example-link.com/,135,project-05
+training-module-06,ASR-350,2018/05/18 10:55,"descripción detallada",ADVANCED,2021/05/18 10:55,https://www.example-link.com/,200,project-01
+training-module-07,ASR-351,2019/12/02 21:30,"información importante",BASIC,2020/12/02 21:30,,150,project-03
+training-module-08,ASR-352,2018/06/23 14:15,"nueva información",INTERMEDIATE,2022/06/23 14:15,https://www.example-link.com/,170,project-04
+training-module-09,ASR-353,2017/01/07 19:40,"más detalles",ADVANCED,2020/01/07 19:40,,190,project-02
+training-module-10,ASR-354,2018/08/16 23:05,"detalles actualizados",BASIC,2020/08/16 23:05,https://www.example-link.com/,155,project-05
+training-module-11,ASR-355,2019/03/25 06:50,"contenido nuevo",INTERMEDIATE,2020/03/25 06:50,https://www.example-link.com/,140,project-01
+training-module-12,ASR-356,2018/10/09 09:25,"más contenido",ADVANCED,2020/10/09 09:25,https://www.example-link.com/,210,project-03
+training-module-13,ASR-357,2019/05/03 13:00,"información actualizada",BASIC,2018/05/03 13:00,https://www.example-link.com/,165,project-04
+training-module-14,ASR-358,2019/12/18 18:35,"últimos detalles",INTERMEDIATE,2010/12/18 18:35,https://www.example-link.com/,175,project-02
+training-module-15,ASR-359,2017/07/07 22:20,"nueva actualización",ADVANCED,2020/07/07 22:20,,185,project-05
