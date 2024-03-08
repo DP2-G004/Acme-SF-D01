@@ -1,0 +1,3 @@
+key,key:userAccount,degree,specialisation,skills,email,link
+Developer-01,user-account-developer-01,Bachelor of Science in Computer Science,Web Development,JavaScript,webdev@example.com,
+Developer-02,user-account-developer-02,Software engineering,Backend,Python,web2@example.com,https://page.example.com
