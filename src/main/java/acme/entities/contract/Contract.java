@@ -59,7 +59,7 @@ public class Contract extends AbstractEntity {
 	private String				goals;
 
 	//que sea menor al coste del proyecto se gestionará en el servicio
-	@NotBlank
-	private Integer				budget;
+
+	private int					budget;
 
 }
