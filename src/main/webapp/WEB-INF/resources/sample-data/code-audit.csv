@@ -1,0 +1,11 @@
+key,key:project,key:auditor,code,type,mark,link
+code-audit-01,project-02,auditor-01,"ACB-362",STATYC,A,"https://github.com/DP2-G004/Acme-SF-D01"
+code-audit-02,project-07,auditor-02,"NCB-362",DINAMYC,B,"https://github.com/DP2-G004/Acme-SF-D01"
+code-audit-03,project-05,auditor-01,"DCB-245",DINAMYC,C,"https://github.com/DP2-G004/Acme-SF-D01"
+code-audit-04,project-03,auditor-02,"SCB-102",STATYC,B,"https://github.com/DP2-G004/Acme-SF-D01"
+code-audit-05,project-10,auditor-01,"DCB-511",DINAMYC,F,"https://github.com/DP2-G004/Acme-SF-D01"
+code-audit-06,project-01,auditor-02,"SCB-789",STATYC,B,"https://github.com/DP2-G004/Acme-SF-D01"
+code-audit-07,project-08,auditor-01,"NCB-444",DINAMYC,C,"https://github.com/DP2-G004/Acme-SF-D01"
+code-audit-08,project-06,auditor-02,"ACB-777",STATYC,A_PLUS,"https://github.com/DP2-G004/Acme-SF-D01"
+code-audit-09,project-04,auditor-01,"NCB-222",DINAMYC,F_MINUS,"https://github.com/DP2-G004/Acme-SF-D01"
+code-audit-10,project-09,auditor-02,"SCB-555",STATYC,B,"https://github.com/DP2-G004/Acme-SF-D01"

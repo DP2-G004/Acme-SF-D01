@@ -3,31 +3,18 @@ package acme.entities.audit_record;
 
 public enum Mark {
 
-	Apos {
+	A_PLUS("A+"), A("A"), B("B"), C("C"), F("F"), F_MINUS("F-");
 
-		@Override
-		public String toString() {
-			return "A+";
-		}
-	},
-	A, B, C, F {
 
-		@Override
-		public String toString() {
-			return "F-";
-		}
-	},
-	Fneg {
+	private final String displayValue;
 
-		@Override
-		public String toString() {
-			return "F-";
-		}
-	};
 
+	private Mark(final String displayValue) {
+		this.displayValue = displayValue;
+	}
 
 	@Override
 	public String toString() {
-		return super.toString();
+		return this.displayValue;
 	}
 }
