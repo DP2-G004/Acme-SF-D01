@@ -63,6 +63,6 @@ public class Sponsorship extends AbstractEntity {
 	//Relationships
 
 	@Valid
-	@ManyToOne(optional = true)
+	@ManyToOne(optional = false)
 	private Project				project;
 }
