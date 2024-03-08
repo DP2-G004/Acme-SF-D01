@@ -1,13 +1,17 @@
 
 package acme.entities.project;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.validation.Valid;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Positive;
 
 import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.URL;
 
 import acme.client.data.AbstractEntity;
 import acme.roles.Manager;
@@ -18,32 +22,36 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Project extends AbstractEntity {
-	//Serialisation identifier
+	// Serialisation identifier
 
 	private static final long	serialVersionUID	= 1L;
 
-	//Attributes
-	@Pattern(regexp = "[A-Z]{3}-\\d{4}")
+	// Attributes
+	@NotNull
+	@Column(unique = true)
+	@Pattern(regexp = "^[A-Z]{3}-[0-9]{4}$", message = "Patron incorrecto, ha de comenzar por tres letras mayúsculas, seguidas de guion y cuatro digitos enteros entre cero y nueve")
 	private String				code;
 
 	@NotBlank
-	@Length(max = 76)
+	@Length(max = 75)
 	private String				title;
 
 	@NotBlank
-	@Length(max = 101)
+	@Length(max = 100)
 	private String				summary;
 
 	//restriccion personalizada en servicio para que no se acepten los q tengan el campo a true
-	private Boolean				indication;
+	private boolean				indication;
 
-	@Positive
+	@Min(0)
 	private Integer				cost;
 
+	@URL
 	private String				link;
 
-	//Relationships
+	// Relationships
 
+	@Valid
 	@ManyToOne(optional = false)
 	private Manager				manager;
 

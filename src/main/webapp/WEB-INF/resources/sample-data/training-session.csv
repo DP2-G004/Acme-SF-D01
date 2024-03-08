@@ -1,0 +1,16 @@
+key,code,startPeriod,endPeriod,location,instructor,email,link,key:trainingModule
+training-session-01,TS-ASR-234,2016/08/02 00:00,2016/10/09 00:00,"Sevilla","Juan Manuel Fernández",jmfdez@gmail.com,https://ejemplo.com,training-module-01
+training-session-02,TS-ASR-235,2017/03/17 08:30,2017/05/25 08:30,"Barcelona","Ana López",analopez@gmail.com,https://www.example-link.com/,training-module-03
+training-session-03,TS-ASR-236,2018/10/30 15:45,2019/01/06 15:45,"Madrid","Carlos Rodríguez",carlosrodriguez@gmail.com,https://www.example-link.com/,training-module-04
+training-session-04,TS-ASR-237,2019/05/10 12:20,2019/07/17 12:20,"Valencia","Elena Gómez",elenagomez@gmail.com,https://www.example-link.com/,training-module-02
+training-session-05,TS-ASR-238,2020/12/26 17:10,2021/03/05 17:10,"Bilbao","Francisco Martínez",franmartinez@gmail.com,https://www.example-link.com/,training-module-05
+training-session-06,TS-ASR-239,2021/06/13 10:55,2021/08/20 10:55,"Sevilla","Gabriela Ramos",gabrielaramos@gmail.com,https://www.example-link.com/,training-module-01
+training-session-07,TS-ASR-240,2022/01/27 21:30,2022/04/06 21:30,"Barcelona","Héctor Sánchez",hectorsanchez@gmail.com,https://www.example-link.com/,training-module-03
+training-session-08,TS-ASR-241,2022/08/07 14:15,2022/10/14 14:15,"Madrid","Isabel Fernández",isabelfernandez@gmail.com,https://www.example-link.com/,training-module-04
+training-session-09,TS-ASR-242,2023/02/20 19:40,2023/05/01 19:40,"Valencia","Javier Rodríguez",javierrodriguez@gmail.com,https://www.example-link.com/,training-module-02
+training-session-10,TS-ASR-243,2023/09/07 23:05,2023/11/14 23:05,"Bilbao","Laura Martínez",lauramartinez@gmail.com,https://www.example-link.com/,training-module-05
+training-session-11,TS-ASR-244,2024/04/16 06:50,2024/06/24 06:50,"Sevilla","Manuel Gómez",manuelgomez@gmail.com,https://www.example-link.com/,training-module-01
+training-session-12,TS-ASR-245,2024/11/29 09:25,2025/02/06 09:25,"Barcelona","Natalia Sánchez",nataliasanchez@gmail.com,https://www.example-link.com/,training-module-03
+training-session-13,TS-ASR-246,2025/05/14 13:00,2025/07/21 13:00,"Madrid","Óscar Fernández",oscarfernandez@gmail.com,https://www.example-link.com/,training-module-04
+training-session-14,TS-ASR-247,2026/01/28 18:35,2026/04/07 18:35,"Valencia","Patricia Martínez",patriciamartinez@gmail.com,https://www.example-link.com/,training-module-02
+training-session-15,TS-ASR-248,2026/08/11 22:20,2026/10/18 22:20,"Bilbao","Quim García",quimgarcia@gmail.com,,training-module-05

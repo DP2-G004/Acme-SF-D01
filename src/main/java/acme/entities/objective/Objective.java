@@ -1,30 +1,34 @@
 
-package acme.entities.userstory;
+package acme.entities.objective;
+
+import java.time.Duration;
+import java.util.Date;
 
 import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.validation.Valid;
-import javax.validation.constraints.Min;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
 import acme.client.data.AbstractEntity;
-import acme.roles.Manager;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
-public class UserStory extends AbstractEntity {
-	// Serialisation identifier
+public class Objective extends AbstractEntity {
 
 	private static final long	serialVersionUID	= 1L;
 
-	// Attributes
+	@Temporal(TemporalType.TIMESTAMP)
+	@Past
+	@NotNull
+	private Date				instantiationMoment;
 
 	@NotBlank
 	@Length(max = 75)
@@ -34,23 +38,16 @@ public class UserStory extends AbstractEntity {
 	@Length(max = 100)
 	private String				description;
 
-	@Min(1)
 	@NotNull
-	private Integer				estimatedCost;
+	private ObjectivePriority	priority;
 
-	@NotBlank
-	@Length(max = 100)
-	private String				acceptanceCriteria;
+	private boolean				status;
 
+	//Need to be checked in service
 	@NotNull
-	private Priority			priority;
+	private Duration			duration;
 
 	@URL
 	private String				link;
-
-	// Relationships
-	@ManyToOne(optional = false)
-	@Valid
-	private Manager				manager;
 
 }
