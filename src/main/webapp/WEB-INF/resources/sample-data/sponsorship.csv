@@ -1,0 +1,16 @@
+key,code,moment,startDate,endDate,amount,type,email,link,key:project
+sponsorship-01,A-000,2020/08/11 20:44,2020/08/11 09:03,2020/08/11 11:12,0.12$,FINANCIAL,example@example.com,https://hola.com,project-10
+sponsorship-02,AA-100,2020/09/15 10:22,2020/09/15 00:00,2020/09/15 00:00,0.25$,FINANCIAL,sponsorship@example.com,https://random.com/124,project-08
+sponsorship-03,AAA-010,2020/10/20 15:38,2018/10/20 00:00,2018/10/20 00:00,0.10€,IN_KIND,example@sponsor.com,,project-10
+sponsorship-04,BAB-990,2020/11/25 08:55,2019/11/25 00:00,2019/11/25 00:00,0.20$,FINANCIAL,,,
+sponsorship-05,BA-230,2020/12/30 16:10,2021/12/30 00:00,2021/12/30 00:00,0.15€,IN_KIND,javier@jav.com,https://typing.com/url/url,
+sponsorship-06,ABC-999,1974/12/30 16:10,1975/12/30 00:00,1975/12/30 00:00,2.00€,IN_KIND,,,
+sponsorship-07,ZZZ-000,2016/02/10 08:30,2016/02/09 12:00,2016/02/10 12:00,600.99€,IN_KIND,,https://link.com/sponsorship7,project-01
+sponsorship-08,ZY-001,2017/05/20 14:45,2017/05/19 10:00,2017/06/20 10:00,132.00€,FINANCIAL,sponsorship@example.com,https://link.com/sponsorship8,
+sponsorship-09,Z-900,2018/08/30 18:20,2018/08/29 15:00,2018/08/30 15:00,568756.00$,FINANCIAL,sponsor@example.com,https://link.com/sponsorship9,
+sponsorship-10,ZA-999,2019/11/10 11:10,2019/11/09 08:00,2019/11/10 08:00,137123.38€,FINANCIAL,sponsors@example.com,,
+sponsorship-11,BB-123,2016/03/15 13:30,2016/03/14 09:00,2016/03/15 09:00,350.75$,IN_KIND,,https://link.com/sponsorship11,project-09
+sponsorship-12,CCC-456,2017/04/20 09:45,2017/04/19 08:00,2017/04/20 08:00,29.99€,FINANCIAL,,https://link.com/sponsorship12,project-08
+sponsorship-13,DD-789,2018/06/25 17:15,2018/06/24 15:30,2018/06/25 15:30,500.00$,IN_KIND,,https://link.com/sponsorship13,project-07
+sponsorship-14,EEE-987,2019/09/30 10:00,2019/09/29 08:00,2019/09/30 08:00,99.50€,IN_KIND,sponsors@example.com,https://link.com/sponsorship14,
+sponsorship-15,FFF-654,2021/01/05 14:00,2021/01/04 12:00,2021/01/05 12:00,999.99$,IN_KIND,sponsorship@example.com,,project-03

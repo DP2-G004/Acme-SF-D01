@@ -1,0 +1,11 @@
+key,instantiationMoment,title,description,priority,status,startDate,endDate,link
+objective-01,2020/08/11 20:44,Great,Be greater,LOW,true,2020/08/11 09:03,2020/08/11 11:12,https://example.com
+objective-02,2020/08/12 12:15,Complete,κόσμε,MEDIUM,true,2020/08/12 10:30,2020/08/12 13:45,https://example.com/2
+objective-03,2020/08/13 08:30,Learn,Study new material,HIGH,false,2020/08/13 14:00,2020/08/13 16:30,https://example.com/3
+objective-04,2020/08/14 09:20,你好，世界,Enhance skills,MEDIUM,true,2020/08/14 09:00,2020/08/14 17:00,https://example.com/4
+objective-05,2020/08/15 14:00,Привет,Conduct market analysis,HIGH,false,2020/08/15 10:00,2020/08/15 18:00,https://example.com/5
+objective-06,2020/08/16 11:30,Plan,你好，世界,MEDIUM,true,2020/08/16 08:00,2020/08/16 12:00,https://example.com/6
+objective-07,1978/08/16 11:30,A,A,LOW,true,1978/12/31 23:59,1979/01/01 00:00,https://url.com/6/8
+objective-08,1978/08/12 11:30,asakdlaskdsidufgnrelycbcnmlawpeorvtlystratitnbxyispksoiurtuslxokqnwasdyuhgs,asakdlaskdsidufgnrelycbcnmlawpeorvtlystratitnbxyispksoiurtuslxokqnwasdyuhgssjahdasjhdsjadsdaaaadkset,HIGH,true,1978/12/31 23:59,1979/01/01 00:00,
+objective-09,2000/08/16 11:30,b,asakdlaskdsidufgnrelycbcnmlawpeorvtlystratitnbxyispksoiurtuslxokqnwasdyuhgssjahdasjhdsjadsdaaaadkset,HIGH,true,1978/12/31 23:59,1979/01/01 00:00,https://url.com/url/url
+objective-10,1999/08/16 03:36,asakdlaskdsidufgnrelycbcnmlawpeorvtlystratitnbxyispksoiurtuslxokqnwasdyuhgs,z,HIGH,false,1978/12/31 23:59,1980/01/01 00:01,
