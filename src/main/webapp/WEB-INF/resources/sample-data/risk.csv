@@ -1,0 +1,16 @@
+key,code,identificationDate,impact,probability,description,link
+risk-01,R-713,2012/08/08 00:00,2,5,"My whole scrum team spent six hours which were not included in our salary.",https://www.weforum.org/agenda/2016/06/putting-in-extra-hours-at-work-and-not-being-paid-for-it-is-a-growing-trend/
+risk-02,R-714,2013/03/15 14:30,3,4,"Project deadline extended, causing additional stress and workload.",https://www.example-link.com/
+risk-03,R-715,2014/05/20 09:45,4,3,"Server downtime resulted in a temporary loss of data access.",
+risk-04,R-716,2015/09/10 18:20,2,5,"Unexpected software bug led to project delays and rework.",https://www.example-link.com/
+risk-05,R-717,2016/12/05 12:15,5,2,"Critical team member resignation affecting project continuity.",https://www.example-link.com/
+risk-06,R-718,2017/04/02 08:00,3,4,"Supplier delivery delays impacting project timelines.",
+risk-07,R-719,2018/08/17 16:45,4,3,"Communication breakdown within the team affecting collaboration.",https://www.example-link.com/
+risk-08,R-720,2019/11/25 10:30,2,5,"Insufficient training leading to errors and inefficiencies in the project.",https://www.example-link.com/
+risk-09,R-721,2020/02/18 22:10,3,4,"Scope creep causing project scope and objectives to be unclear.",https://www.example-link.com/
+risk-10,R-722,2020/06/12 14:50,4,3,"Data security breach resulting in compromised sensitive information.",https://www.example-link.com/
+risk-11,R-723,2019/09/30 19:20,2,5,"Legal compliance issues leading to potential legal action.",
+risk-12,R-794,2021/01/14 11:05,3,4,"Lack of team collaboration affecting overall project efficiency.",https://www.example-link.com/
+risk-13,R-725,2021/04/03 09:30,4,3,"Market fluctuations impacting project budget and financials.",https://www.example-link.com/
+risk-14,R-726,2020/07/21 17:15,2,5,"Unexpected natural disaster causing disruptions to project operations.",https://www.example-link.com/
+risk-15,R-727,2021/10/08 21:40,3,4,"Inadequate risk management leading to unforeseen project challenges.",https://www.example-link.com/
