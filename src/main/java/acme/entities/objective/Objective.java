@@ -1,7 +1,6 @@
 
 package acme.entities.objective;
 
-import java.time.Duration;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -43,9 +42,13 @@ public class Objective extends AbstractEntity {
 
 	private boolean				status;
 
-	//Need to be checked in service
 	@NotNull
-	private Duration			duration;
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date				startDate;
+
+	@NotNull
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date				endDate;
 
 	@URL
 	private String				link;
