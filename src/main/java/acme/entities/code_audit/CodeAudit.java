@@ -9,10 +9,10 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
-import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
 import acme.client.data.AbstractEntity;
+import acme.entities.audit_record.Mark;
 import acme.entities.project.Project;
 import acme.roles.Auditor;
 import lombok.Getter;
@@ -43,10 +43,8 @@ public class CodeAudit extends AbstractEntity {
 	@NotNull
 	CodeAuditType				type;
 
-	//En el servicio se gestionara que sea la moda y que solo valga los valores que se pueden
-	@NotBlank
-	@Length(max = 1)
-	String						mark;
+	//En el servicio se gestionara que sea la moda
+	Mark						mark;
 
 	@URL
 	String						link;
