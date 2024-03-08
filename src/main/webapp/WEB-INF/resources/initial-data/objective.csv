@@ -1,0 +1,6 @@
+key,instantiationMoment,title,description,priority,status,startDate,endDate,link
+objective-11,2021/03/08 09:00,Complete Quarterly Report,Prepare and submit quarterly financial report,LOW,true,2024/03/08 08:00,2024/03/08 12:00,https://example.com/quarterly_report
+objective-12,2020/03/08 10:30,Attend Project Meeting,Participate in project planning meeting,MEDIUM,true,2024/03/08 10:00,2024/03/08 11:30,https://example.com/project_meeting
+objective-13,2019/03/08 14:00,Research Market Trends,Analyze current market trends and competitors,HIGH,false,2024/03/08 14:00,2024/03/08 16:00,https://example.com/market_research
+objective-14,2018/03/08 09:00,Develop New Feature,Code and test new feature for software product,MEDIUM,true,2024/03/08 09:00,2024/03/08 18:00,https://example.com/new_feature
+objective-15,2017/03/08 15:30,Client Meeting,Discuss project requirements with client,HIGH,false,2024/03/08 15:30,2024/03/08 17:00,https://example.com/client_meeting
