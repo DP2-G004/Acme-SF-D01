@@ -35,8 +35,7 @@ public class UserStory extends AbstractEntity {
 	private String				description;
 
 	@Min(1)
-	@NotNull
-	private Integer				estimatedCost;
+	private int					estimatedCost;
 
 	@NotBlank
 	@Length(max = 100)
