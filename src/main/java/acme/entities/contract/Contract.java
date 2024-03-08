@@ -5,6 +5,7 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -31,13 +32,14 @@ public class Contract extends AbstractEntity {
 	private static final long	serialVersionUID	= 1L;
 
 	@ManyToOne(optional = false)
+	@JoinColumn(name = "project_code", referencedColumnName = "code")
 	private Project				project;
 
 	@NotBlank
 	@Unique
 	@Column(unique = true)
 	@Pattern(regexp = "[A-Z]{1,3}-[0-9]{3}")
-	private String				code;
+	private String				contractCode;
 
 	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
