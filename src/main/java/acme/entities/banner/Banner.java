@@ -14,7 +14,6 @@ import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
 import acme.client.data.AbstractEntity;
-import acme.datatypes.Period;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -32,9 +31,11 @@ public class Banner extends AbstractEntity {
 	@NotNull
 	Date						lastInstantiationMoment;
 
+	@Temporal(TemporalType.TIMESTAMP)
 	@NotNull
-	Period						displayPeriod;
+	Date						endOfInstantiation;
 
+	@NotBlank
 	@URL
 	String						pictureLink;
 
@@ -42,6 +43,7 @@ public class Banner extends AbstractEntity {
 	@Length(max = 75)
 	String						slogan;
 
+	@NotBlank
 	@URL
 	String						link;
 
