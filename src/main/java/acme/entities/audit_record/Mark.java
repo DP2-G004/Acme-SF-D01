@@ -12,10 +12,6 @@ public enum Mark {
 	},
 	A, B, C, F {
 
-		@Override
-		public String toString() {
-			return "F-";
-		}
 	},
 	Fneg {
 
