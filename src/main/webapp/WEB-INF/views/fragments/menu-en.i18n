@@ -38,6 +38,8 @@ master.menu.administrator.shut-down = Shut down
 
 master.menu.manager = Manager
 master.menu.manager.manager-dashboard = Dashboard
+master.menu.manager.project.list-mine = List my projects
+master.menu.manager.project.show = Show my projects
 
 # master.menu.provider ########################################################
 

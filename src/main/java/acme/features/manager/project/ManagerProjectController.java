@@ -21,7 +21,7 @@ public class ManagerProjectController extends AbstractController<Manager, Projec
 
 	@PostConstruct
 	public void initialise() {
-		super.addBasicCommand("list-mine", this.listMineService);
+		super.addCustomCommand("list-mine", "list", this.listMineService);
 		super.addBasicCommand("show", this.showService);
 	}
 }
