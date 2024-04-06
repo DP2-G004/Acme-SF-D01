@@ -15,9 +15,106 @@
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="acme" uri="http://acme-framework.org/"%>
 
-<acme:form>
-	<acme:input-textbox code="manager.project.form.label.totalMustPriorityUserStories" path="totalMustPriorityUserStories"/>
-	<acme:input-textbox code="manager.project.form.label.totalShouldPriorityUserStories" path="totalShouldPriorityUserStories"/>
-	<acme:input-textbox code="manager.project.form.label.totalCouldPriorityUserStories" path="totalCouldPriorityUserStories"/>	
-	<acme:input-textbox code="manager.project.form.label.totalWontPriorityUserStories" path="totalWontPriorityUserStories"/>	
-</acme:form>
+<h2>
+	<acme:message code="manager.dashboard.form.title"/>
+</h2>
+
+<table class="table table-sm">
+	<tr>
+		<th scope="row">
+			<acme:message code="manager.project.form.label.total-must-priority-user-stories"/>
+		</th>
+		<td>
+			<acme:print value="${totalMustPriorityUserStories}"/>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<acme:message code="manager.project.form.label.total-should-priority-user-stories"/>
+		</th>
+		<td>
+			<acme:print value="${totalShouldPriorityUserStories}"/>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<acme:message code="manager.project.form.label.total-could-priority-user-stories"/>
+		</th>
+		<td>
+			<acme:print value="${totalCouldPriorityUserStories}"/>
+		</td>
+	</tr>	
+	<tr>
+		<th scope="row">
+			<acme:message code="manager.project.form.label.total-wont-priority-user-stories"/>
+		</th>
+		<td>
+			<acme:print value="${totalWontPriorityUserStories}"/>
+		</td>
+	</tr>	
+	<tr>
+		<th scope="row">
+			<acme:message code="manager.project.form.label.minimum-user-story-cost"/>
+		</th>
+		<td>
+			<acme:print value="${minimumUserStoryCost}"/>
+		</td>
+	</tr>	
+	<tr>
+		<th scope="row">
+			<acme:message code="manager.project.form.label.maximum-user-story-cost"/>
+		</th>
+		<td>
+			<acme:print value="${maximumUserStoryCost}"/>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<acme:message code="manager.project.form.label.average-user-story-cost"/>
+		</th>
+		<td>
+			<acme:print value="${averageUserStoryCost}"/>
+		</td>
+	</tr>	
+	<tr>
+		<th scope="row">
+			<acme:message code="manager.project.form.label.deviation-user-story-cost"/>
+		</th>
+		<td>
+			<acme:print value="${deviationUserStoryCost}"/>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<acme:message code="manager.project.form.label.minimum-project-cost"/>
+		</th>
+		<td>
+			<acme:print value="${minimumProjectCost}"/>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<acme:message code="manager.project.form.label.maximum-project-cost"/>
+		</th>
+		<td>
+			<acme:print value="${maximumProjectCost}"/>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<acme:message code="manager.project.form.label.average-project-cost"/>
+		</th>
+		<td>
+			<acme:print value="${averageProjectCost}"/>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<acme:message code="manager.project.form.label.deviation-project-cost"/>
+		</th>
+		<td>
+			<acme:print value="${deviationProjectCost}"/>
+		</td>
+	</tr>
+	
+</table>

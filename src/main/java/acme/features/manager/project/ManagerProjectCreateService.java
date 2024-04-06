@@ -27,13 +27,11 @@ public class ManagerProjectCreateService extends AbstractService<Manager, Projec
 		Project p;
 		Manager m;
 		Principal principal;
-		//int id;
 		principal = super.getRequest().getPrincipal();
-		//id = super.getRequest().getData("id", int.class);
 		m = this.createRepository.findManagerById(principal.getActiveRoleId());
-		// maybe draft mode attribute to check it is not published?  
 		p = new Project();
 		p.setManager(m);
+		p.setDraftMode(true);
 
 		super.getBuffer().addData(p);
 	}
@@ -41,7 +39,7 @@ public class ManagerProjectCreateService extends AbstractService<Manager, Projec
 	@Override
 	public void bind(final Project p) {
 		assert p != null;
-		super.bind(p, "code", "title", "summary", "indication", "cost", "link");
+		super.bind(p, "code", "title", "summary", "indication", "cost", "link", "draftMode");
 	}
 
 	@Override
@@ -70,7 +68,7 @@ public class ManagerProjectCreateService extends AbstractService<Manager, Projec
 	@Override
 	public void unbind(final Project object) {
 		Dataset dataset;
-		dataset = super.unbind(object, "code", "title", "summary", "indication", "cost", "link");
+		dataset = super.unbind(object, "code", "title", "summary", "indication", "cost", "link", "draftMode");
 		super.getResponse().addData(dataset);
 	}
 }

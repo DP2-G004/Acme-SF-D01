@@ -17,6 +17,7 @@ manager.project.list.label.summary=Summary
 manager.project.list.label.indication=Indication
 manager.project.list.label.cost=Cost
 manager.project.list.label.link=Link
+manager.project.list.label.draftMode=Draft mode
 manager.project.list.button.create = Create Project
 
 manager.project.form.label.code=Code
@@ -25,3 +26,4 @@ manager.project.form.label.summary=Summary
 manager.project.form.label.indication=Indication
 manager.project.form.label.cost=Cost
 manager.project.form.label.link=Link
+manager.project.form.label.draftMode=Draft mode
