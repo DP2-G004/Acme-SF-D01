@@ -24,3 +24,9 @@ manager.project.form.label.indication=Indicacion
 manager.project.form.label.cost=Coste
 manager.project.form.label.link=Enlace
 manager.project.form.label.draftMode=Modo borrador
+manager.project.form.button.update = Actualizar
+manager.project.form.button.delete = Borrar
+manager.project.form.button.publish = Publicar
+
+manager.project.form.error.duplicated=El código está duplicado
+manager.project.form.error.containing-fatal-errors=¡El proyecto contiene errores fatales!

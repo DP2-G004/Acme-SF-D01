@@ -11,10 +11,10 @@ import acme.entities.project.Project;
 import acme.roles.Manager;
 
 @Service
-public class ManagerProjectCreateService extends AbstractService<Manager, Project> {
+public class ManagerProjectPublishService extends AbstractService<Manager, Project> {
 
 	@Autowired
-	ManagerProjectRepository createRepository;
+	ManagerProjectRepository publishRepository;
 
 
 	@Override
@@ -27,7 +27,7 @@ public class ManagerProjectCreateService extends AbstractService<Manager, Projec
 		Manager m;
 		Principal principal;
 		principal = super.getRequest().getPrincipal();
-		m = this.createRepository.findManagerById(principal.getActiveRoleId());
+		m = this.publishRepository.findManagerById(principal.getActiveRoleId());
 		p = new Project();
 		p.setManager(m);
 		p.setDraftMode(true);
@@ -46,22 +46,23 @@ public class ManagerProjectCreateService extends AbstractService<Manager, Projec
 		assert object != null;
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
 			Project p;
-			p = this.createRepository.findProjectByCode(object.getCode());
+			p = this.publishRepository.findProjectByCode(object.getCode());
 			super.state(p == null, "code", "manager.project.form.error.duplicated");
 
 		}
 		if (!super.getBuffer().getErrors().hasErrors("indication")) {
 			Project p;
-			p = this.createRepository.findProjectById(object.getId());
+			p = this.publishRepository.findProjectById(object.getId());
 			super.state(p.isIndication() == false, "indication", "manager.project.form.error.containing-fatal-errors");
 
 		}
+		//At least one user story
 	}
 
 	@Override
 	public void perform(final Project object) {
 		assert object != null;
-		this.createRepository.save(object);
+		this.publishRepository.save(object);
 	}
 
 	@Override

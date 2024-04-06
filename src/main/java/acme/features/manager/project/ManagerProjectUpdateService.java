@@ -4,35 +4,42 @@ package acme.features.manager.project;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.client.data.accounts.Principal;
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
 import acme.entities.project.Project;
 import acme.roles.Manager;
 
 @Service
-public class ManagerProjectCreateService extends AbstractService<Manager, Project> {
+public class ManagerProjectUpdateService extends AbstractService<Manager, Project> {
 
 	@Autowired
-	ManagerProjectRepository createRepository;
+	ManagerProjectRepository updateRepository;
 
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		Boolean status;
+		int masterId;
+		Project pr;
+		Manager manager;
+
+		masterId = super.getRequest().getData("id", int.class);
+		pr = this.updateRepository.findProjectById(masterId);
+		manager = pr == null ? null : pr.getManager();
+		status = pr != null && pr.isDraftMode() && super.getRequest().getPrincipal().hasRole(manager);
+
+		super.getResponse().setAuthorised(status);
 	}
+
 	@Override
 	public void load() {
-		Project p;
-		Manager m;
-		Principal principal;
-		principal = super.getRequest().getPrincipal();
-		m = this.createRepository.findManagerById(principal.getActiveRoleId());
-		p = new Project();
-		p.setManager(m);
-		p.setDraftMode(true);
+		Project object;
+		int id;
 
-		super.getBuffer().addData(p);
+		id = super.getRequest().getData("id", int.class);
+		object = this.updateRepository.findProjectById(id);
+
+		super.getBuffer().addData(object);
 	}
 
 	@Override
@@ -44,15 +51,9 @@ public class ManagerProjectCreateService extends AbstractService<Manager, Projec
 	@Override
 	public void validate(final Project object) {
 		assert object != null;
-		if (!super.getBuffer().getErrors().hasErrors("code")) {
-			Project p;
-			p = this.createRepository.findProjectByCode(object.getCode());
-			super.state(p == null, "code", "manager.project.form.error.duplicated");
-
-		}
 		if (!super.getBuffer().getErrors().hasErrors("indication")) {
 			Project p;
-			p = this.createRepository.findProjectById(object.getId());
+			p = this.updateRepository.findProjectById(object.getId());
 			super.state(p.isIndication() == false, "indication", "manager.project.form.error.containing-fatal-errors");
 
 		}
@@ -61,11 +62,12 @@ public class ManagerProjectCreateService extends AbstractService<Manager, Projec
 	@Override
 	public void perform(final Project object) {
 		assert object != null;
-		this.createRepository.save(object);
+		this.updateRepository.save(object);
 	}
 
 	@Override
 	public void unbind(final Project object) {
+		assert object != null;
 		Dataset dataset;
 		dataset = super.unbind(object, "code", "title", "summary", "indication", "cost", "link", "draftMode");
 		super.getResponse().addData(dataset);
