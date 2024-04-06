@@ -4,10 +4,10 @@ package acme.features.manager.project;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.client.data.accounts.Principal;
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
 import acme.entities.project.Project;
-import acme.entities.userstory.UserStory;
 import acme.roles.Manager;
 
 @Service
@@ -26,9 +26,11 @@ public class ManagerProjectCreateService extends AbstractService<Manager, Projec
 	public void load() {
 		Project p;
 		Manager m;
-		int id;
-		id = super.getRequest().getData("id", int.class);
-		m = this.createRepository.findManagerById(id);
+		Principal principal;
+		//int id;
+		principal = super.getRequest().getPrincipal();
+		//id = super.getRequest().getData("id", int.class);
+		m = this.createRepository.findManagerById(principal.getActiveRoleId());
 		// maybe draft mode attribute to check it is not published?  
 		p = new Project();
 		p.setManager(m);
@@ -39,25 +41,22 @@ public class ManagerProjectCreateService extends AbstractService<Manager, Projec
 	@Override
 	public void bind(final Project p) {
 		assert p != null;
-		//think of how to check the many to many with userStory
-		int userStoryId;
-		UserStory us;
-
 		super.bind(p, "code", "title", "summary", "indication", "cost", "link");
 	}
 
 	@Override
 	public void validate(final Project object) {
+		assert object != null;
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
 			Project p;
-			p = this.createRepository.findProjectById(object.getId());
+			p = this.createRepository.findProjectByCode(object.getCode());
 			super.state(p == null, "code", "manager.project.form.error.duplicated");
 
 		}
 		if (!super.getBuffer().getErrors().hasErrors("indication")) {
 			Project p;
 			p = this.createRepository.findProjectById(object.getId());
-			super.state(p.isIndication() == true, "indication", "manager.project.form.error.containing-fatal-errors");
+			super.state(p.isIndication() == false, "indication", "manager.project.form.error.containing-fatal-errors");
 
 		}
 	}

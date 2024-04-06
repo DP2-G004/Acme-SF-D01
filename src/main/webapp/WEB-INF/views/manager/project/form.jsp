@@ -16,10 +16,10 @@
 <%@taglib prefix="acme" uri="http://acme-framework.org/"%>
 
 <acme:form>
-	<acme:input-textbox code="manager.project.list.label.code" path="code"/>
-	<acme:input-textbox code="manager.project.list.label.title" path="title"/>
-	<acme:input-textbox code="manager.project.list.label.summary" path="summary"/>	
-	<acme:input-textbox code="manager.project.list.label.indication" path="indication"/>	
-	<acme:input-textbox code="manager.project.list.label.cost" path="cost"/>	
-	<acme:input-url code="manager.project.list.label.link" path="link"/>	
+	<acme:input-textbox code="manager.project.form.label.code" path="code"/>
+	<acme:input-textbox code="manager.project.form.label.title" path="title"/>
+	<acme:input-textbox code="manager.project.form.label.summary" path="summary"/>	
+	<acme:input-textbox code="manager.project.form.label.indication" path="indication"/>	
+	<acme:input-textbox code="manager.project.form.label.cost" path="cost"/>	
+	<acme:input-url code="manager.project.form.label.link" path="link"/>	
 </acme:form>

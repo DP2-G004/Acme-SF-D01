@@ -8,9 +8,9 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-manager.project.list.label.code=Codigo
-manager.project.list.label.title=Titulo
-manager.project.list.label.summary=Resumen
-manager.project.list.label.indication=Indicacion
-manager.project.list.label.cost=Coste
-manager.project.list.label.link=Enlace
+manager.dashboard.form.title = Project Dashboard 
+
+manager.dashboard.form.label.totalMustPriorityUserStories=Historias de usuario con prioridad MUST
+manager.dashboard.form.label.totalShouldPriorityUserStories=Historias de usuario con prioridad SHOULD
+manager.dashboard.form.label.totalCouldPriorityUserStories=Historias de usuario con prioridad COULD
+manager.dashboard.form.label.totalWontPriorityUserStories=Historias de usuario con prioridad WONT

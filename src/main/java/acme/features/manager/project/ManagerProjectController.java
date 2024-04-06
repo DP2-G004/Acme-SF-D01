@@ -14,9 +14,9 @@ import acme.roles.Manager;
 public class ManagerProjectController extends AbstractController<Manager, Project> {
 
 	@Autowired
-	ManagerProjectListMineService	listMineService;
+	private ManagerProjectListMineService	listMineService;
 	@Autowired
-	ManagerProjectShowService		showService;
+	private ManagerProjectShowService		showService;
 
 
 	@PostConstruct

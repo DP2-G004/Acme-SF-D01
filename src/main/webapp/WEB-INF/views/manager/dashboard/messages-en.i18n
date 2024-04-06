@@ -8,8 +8,9 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-manager.manager-dashboard.form.title.user-story = User Story Stadistics
-manager.manager-dashboard.form.label.totalMustPriorityUserStories=Must priority user stories
-manager.manager-dashboard.form.label.totalShouldPriorityUserStories=Should priority user stories
-manager.manager-dashboard.form.label.totalCouldPriorityUserStories=Could priority user stories
-manager.manager-dashboard.form.label.totalWontPriorityUserStories=Wont priority user stories
+manager.dashboard.form.title = Project Dashboard 
+
+manager.dashboard.form.label.totalMustPriorityUserStories=Must priority user stories
+manager.dashboard.form.label.totalShouldPriorityUserStories=Should priority user stories
+manager.dashboard.form.label.totalCouldPriorityUserStories=Could priority user stories
+manager.dashboard.form.label.totalWontPriorityUserStories=Wont priority user stories

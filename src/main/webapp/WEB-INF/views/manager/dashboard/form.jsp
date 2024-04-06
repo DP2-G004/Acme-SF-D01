@@ -15,17 +15,9 @@
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="acme" uri="http://acme-framework.org/"%>
 
-<h2>
-	<acme:message code="manager.manager-dashboard.form.title.user-story" />
-</h2>
-
-<table class="table table-sm">
-	<tr>
-		<th scope="row">
-			<acme:message code="manager.manager-dashboard.form.label.totalMustPriorityUserStories"/>
-		</th>
-		<td>
-			<acme:print value="${totalMustPriorityUserStories}"/>
-		</td>
-	</tr>
-</table>
+<acme:form>
+	<acme:input-textbox code="manager.project.form.label.totalMustPriorityUserStories" path="totalMustPriorityUserStories"/>
+	<acme:input-textbox code="manager.project.form.label.totalShouldPriorityUserStories" path="totalShouldPriorityUserStories"/>
+	<acme:input-textbox code="manager.project.form.label.totalCouldPriorityUserStories" path="totalCouldPriorityUserStories"/>	
+	<acme:input-textbox code="manager.project.form.label.totalWontPriorityUserStories" path="totalWontPriorityUserStories"/>	
+</acme:form>

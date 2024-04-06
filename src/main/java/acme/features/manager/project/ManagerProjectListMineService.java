@@ -6,6 +6,7 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.client.data.accounts.Principal;
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
 import acme.entities.project.Project;
@@ -15,36 +16,33 @@ import acme.roles.Manager;
 public class ManagerProjectListMineService extends AbstractService<Manager, Project> {
 
 	@Autowired
-	ManagerProjectRepository listMineRepository;
+	private ManagerProjectRepository listMineRepository;
 
 
 	@Override
 	public void authorise() {
-		boolean status;
-		int id;
-		Manager manager;
-		Project p;
-
-		id = super.getRequest().getData("id", int.class);
-		p = this.listMineRepository.findProjectById(id);
-		manager = p == null ? null : p.getManager();
-
-		status = p != null && super.getRequest().getPrincipal().hasRole(manager);
-		super.getResponse().setAuthorised(status);
+		super.getResponse().setAuthorised(true);
 	}
 
 	@Override
 	public void load() {
-		int managerId;
-		managerId = super.getRequest().getData("id", int.class);
-		Collection<Project> projects = this.listMineRepository.findAllProjectsByManagerId(managerId);
+		Collection<Project> projects;
+		Principal principal;
+
+		principal = super.getRequest().getPrincipal();
+		projects = this.listMineRepository.findProjectsByManagerId(principal.getActiveRoleId());
+
 		super.getBuffer().addData(projects);
 	}
 
 	@Override
 	public void unbind(final Project object) {
+		//assert object != null;
+
 		Dataset dataset;
+
 		dataset = super.unbind(object, "code", "title", "summary", "indication", "cost", "link");
+
 		super.getResponse().addData(dataset);
 	}
 }

@@ -38,8 +38,7 @@ master.menu.administrator.shut-down = Parar el sistema
 
 master.menu.manager = Manager
 master.menu.manager.manager-dashboard = Panel de indicadores
-master.menu.manager.project.list-mine = Listar mis proyectos
-master.menu.manager.project.show = Mostrar mis proyectos
+master.menu.manager.list-project = Listar mis proyectos
 
 # master.menu.provider ########################################################
 
