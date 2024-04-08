@@ -35,6 +35,12 @@ master.menu.administrator.populate-sample = Poblar BD (ejemplos)
 master.menu.administrator.shut-down = Parar el sistema
 master.menu.administrator.banner.list = Lista Banners
 
+# master.menu.manager ###################################################
+
+master.menu.manager = Manager
+master.menu.manager.dashboard = Panel de indicadores
+master.menu.manager.list-project = Listar mis proyectos
+
 # master.menu.provider ########################################################
 
 master.menu.provider = Proveedor
