@@ -14,14 +14,26 @@ import acme.roles.Manager;
 public class ManagerProjectController extends AbstractController<Manager, Project> {
 
 	@Autowired
-	ManagerProjectListMineService	listMineService;
+	private ManagerProjectListMineService	listMineService;
 	@Autowired
-	ManagerProjectShowService		showService;
+	private ManagerProjectShowService		showService;
+	@Autowired
+	private ManagerProjectCreateService		createService;
+	@Autowired
+	private ManagerProjectUpdateService		updateService;
+	@Autowired
+	private ManagerProjectDeleteService		deleteService;
+	@Autowired
+	private ManagerProjectPublishService	publishService;
 
 
 	@PostConstruct
 	public void initialise() {
 		super.addCustomCommand("list-mine", "list", this.listMineService);
+		super.addCustomCommand("publish", "update", this.publishService);
 		super.addBasicCommand("show", this.showService);
+		super.addBasicCommand("create", this.createService);
+		super.addBasicCommand("update", this.updateService);
+		super.addBasicCommand("delete", this.deleteService);
 	}
 }

@@ -1,8 +1,6 @@
 
 package acme.features.manager.project;
 
-import java.util.Collection;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,31 +18,35 @@ public class ManagerProjectShowService extends AbstractService<Manager, Project>
 
 	@Override
 	public void authorise() {
-		boolean status;
-		int id;
+		Boolean status;
+		int masterId;
+		Project pr;
 		Manager manager;
-		Project p;
 
-		id = super.getRequest().getData("id", int.class);
-		p = this.showRepository.findProjectById(id);
-		manager = p == null ? null : p.getManager();
+		masterId = super.getRequest().getData("id", int.class);
+		pr = this.showRepository.findProjectById(masterId);
+		manager = pr == null ? null : pr.getManager();
+		status = pr != null && pr.isDraftMode() && super.getRequest().getPrincipal().hasRole(manager);
 
-		status = p != null && super.getRequest().getPrincipal().hasRole(manager);
 		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
 	public void load() {
-		int managerId;
-		managerId = super.getRequest().getData("id", int.class);
-		Collection<Project> projects = this.showRepository.findAllProjectsByManagerId(managerId);
-		super.getBuffer().addData(projects);
+		Project object;
+		int id;
+
+		id = super.getRequest().getData("id", int.class);
+		object = this.showRepository.findProjectById(id);
+
+		super.getBuffer().addData(object);
 	}
 
 	@Override
 	public void unbind(final Project object) {
+		assert object != null;
 		Dataset dataset;
-		dataset = super.unbind(object, "code", "title", "summary", "indication", "cost", "link");
+		dataset = super.unbind(object, "code", "title", "summary", "indication", "cost", "link", "draftMode");
 		super.getResponse().addData(dataset);
 	}
 }

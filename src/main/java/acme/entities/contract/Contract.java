@@ -15,6 +15,8 @@ import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
 
 import org.checkerframework.common.aliasing.qual.Unique;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 import org.hibernate.validator.constraints.Length;
 
 import acme.client.data.AbstractEntity;
@@ -33,6 +35,7 @@ public class Contract extends AbstractEntity {
 
 	@ManyToOne(optional = false)
 	@JoinColumn(name = "project_code", referencedColumnName = "code")
+	@OnDelete(action = OnDeleteAction.CASCADE)
 	private Project				project;
 
 	@NotBlank

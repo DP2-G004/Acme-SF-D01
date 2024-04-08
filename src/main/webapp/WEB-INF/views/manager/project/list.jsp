@@ -1,5 +1,5 @@
 <%--
-- menu.jsp
+- list.jsp
 -
 - Copyright (C) 2012-2024 Rafael Corchuelo.
 -
@@ -22,5 +22,9 @@
 	<acme:list-column code="manager.project.list.label.indication" path="indication" width="10%"/>	
 	<acme:list-column code="manager.project.list.label.cost" path="cost" width="10%"/>	
 	<acme:list-column code="manager.project.list.label.link" path="link" width="10%"/>	
+	<acme:list-column code="manager.project.list.label.draft-mode" path="draftMode" width="10%"/>		
 </acme:list>
 
+<jstl:if test="${_command == 'list-mine'}">
+	<acme:button code="manager.project.list.button.create" action="/manager/project/create"/>
+</jstl:if>	
