@@ -19,17 +19,25 @@ public class AdminBannerShowService extends AbstractService<Administrator, Banne
 	@Override
 	public void authorise() {
 
-		int bannerId = super.getRequest().getData("id", int.class);
-		Banner banner = this.adminBannerRepository.findOneBannerById(bannerId);
-		Boolean status = banner != null && super.getRequest().getPrincipal().hasRole(Administrator.class);
+		int bannerId;
+		bannerId = super.getRequest().getData("id", int.class);
+
+		Banner banner;
+		banner = this.adminBannerRepository.findOneBannerById(bannerId);
+
+		Boolean status;
+		status = banner != null && super.getRequest().getPrincipal().hasRole(Administrator.class);
 
 		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
 	public void load() {
-		int bannerId = super.getRequest().getData("id", int.class);
-		Banner banner = this.adminBannerRepository.findOneBannerById(bannerId);
+		int bannerId;
+		bannerId = super.getRequest().getData("id", int.class);
+
+		Banner banner;
+		banner = this.adminBannerRepository.findOneBannerById(bannerId);
 
 		super.getBuffer().addData(banner);
 	}
@@ -38,7 +46,8 @@ public class AdminBannerShowService extends AbstractService<Administrator, Banne
 	public void unbind(final Banner object) {
 		assert object != null;
 
-		Dataset dataset = super.unbind(object, "lastInstantiationMoment", "endOfInstantiation", "pictureLink", "slogan", "link");
+		Dataset dataset;
+		dataset = super.unbind(object, "lastInstantiationMoment", "endOfInstantiation", "pictureLink", "slogan", "link");
 		super.getResponse().addData(dataset);
 	}
 

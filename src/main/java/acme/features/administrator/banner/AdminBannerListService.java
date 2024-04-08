@@ -20,14 +20,16 @@ public class AdminBannerListService extends AbstractService<Administrator, Banne
 
 	@Override
 	public void authorise() {
-		boolean status = super.getRequest().getPrincipal().hasRole(Administrator.class);
+		boolean status;
+		status = super.getRequest().getPrincipal().hasRole(Administrator.class);
 
 		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
 	public void load() {
-		Collection<Banner> objects = this.adminBannerRepository.findAllBanners();
+		Collection<Banner> objects;
+		objects = this.adminBannerRepository.findAllBanners();
 
 		super.getBuffer().addData(objects);
 	}
@@ -36,7 +38,8 @@ public class AdminBannerListService extends AbstractService<Administrator, Banne
 	public void unbind(final Banner object) {
 		assert object != null;
 
-		Dataset dataset = super.unbind(object, "lastInstantiationMoment", "endOfInstantiation", "pictureLink", "slogan", "link");
+		Dataset dataset;
+		dataset = super.unbind(object, "pictureLink", "slogan", "link");
 		super.getResponse().addData(dataset);
 	}
 

@@ -24,7 +24,6 @@ master.menu.anonymous.favourite-link-javruigar2 = 77822983E: Ruiz Garrido, Javie
 master.menu.anonymous.favourite-link-javsanmar5 = 08368306D: Santos Martín, Javier
 master.menu.anonymous.favourite-link-josgardel8 = 29589177E: García de Tejada Delgado, José
 
-
 # master.menu.administrator ###################################################
 
 master.menu.administrator = Administrator
@@ -33,6 +32,7 @@ master.menu.administrator.user-accounts = User accounts
 master.menu.administrator.populate-initial = Populate DB (initial)
 master.menu.administrator.populate-sample = Populate DB (samples)
 master.menu.administrator.shut-down = Shut down
+master.menu.administrator.banner.list = Banner List
 
 # master.menu.provider ########################################################
 
