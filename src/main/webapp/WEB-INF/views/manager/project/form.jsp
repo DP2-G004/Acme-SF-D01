@@ -19,10 +19,10 @@
 	<acme:input-textbox code="manager.project.form.label.code" path="code"/>
 	<acme:input-textbox code="manager.project.form.label.title" path="title"/>
 	<acme:input-textbox code="manager.project.form.label.summary" path="summary"/>		
-	<acme:input-textbox code="manager.project.form.label.cost" path="cost"/>	
+	<acme:input-integer code="manager.project.form.label.cost" path="cost"/>	
 	<acme:input-url code="manager.project.form.label.link" path="link"/>	
 	<acme:input-checkbox code="manager.project.form.label.indication" path="indication"/>
-	<acme:input-checkbox code="manager.project.form.label.draftMode" path="draftMode"/>	
+	<acme:input-checkbox code="manager.project.form.label.draft-mode" path="draftMode"/>	
 	
 	<jstl:choose>
         <jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish')}">

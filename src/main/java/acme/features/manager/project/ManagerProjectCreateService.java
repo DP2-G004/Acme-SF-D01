@@ -38,7 +38,7 @@ public class ManagerProjectCreateService extends AbstractService<Manager, Projec
 	@Override
 	public void bind(final Project p) {
 		assert p != null;
-		super.bind(p, "code", "title", "summary", "indication", "cost", "link", "draftMode");
+		super.bind(p, "code", "title", "summary", "indication", "cost", "link");
 	}
 
 	@Override
@@ -48,12 +48,6 @@ public class ManagerProjectCreateService extends AbstractService<Manager, Projec
 			Project p;
 			p = this.createRepository.findProjectByCode(object.getCode());
 			super.state(p == null, "code", "manager.project.form.error.duplicated");
-
-		}
-		if (!super.getBuffer().getErrors().hasErrors("indication")) {
-			Project p;
-			p = this.createRepository.findProjectById(object.getId());
-			super.state(p.isIndication() == false, "indication", "manager.project.form.error.containing-fatal-errors");
 
 		}
 	}

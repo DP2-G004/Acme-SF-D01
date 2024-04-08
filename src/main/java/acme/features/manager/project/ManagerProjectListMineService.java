@@ -37,7 +37,7 @@ public class ManagerProjectListMineService extends AbstractService<Manager, Proj
 
 	@Override
 	public void unbind(final Project object) {
-		//assert object != null;
+		assert object != null;
 
 		Dataset dataset;
 

@@ -20,13 +20,13 @@ public class ManagerProjectUpdateService extends AbstractService<Manager, Projec
 	public void authorise() {
 		Boolean status;
 		int masterId;
-		Project pr;
+		Project p;
 		Manager manager;
 
 		masterId = super.getRequest().getData("id", int.class);
-		pr = this.updateRepository.findProjectById(masterId);
-		manager = pr == null ? null : pr.getManager();
-		status = pr != null && pr.isDraftMode() && super.getRequest().getPrincipal().hasRole(manager);
+		p = this.updateRepository.findProjectById(masterId);
+		manager = p == null ? null : p.getManager();
+		status = p != null && p.isDraftMode() && super.getRequest().getPrincipal().hasRole(manager);
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -45,18 +45,21 @@ public class ManagerProjectUpdateService extends AbstractService<Manager, Projec
 	@Override
 	public void bind(final Project p) {
 		assert p != null;
-		super.bind(p, "code", "title", "summary", "indication", "cost", "link", "draftMode");
+		super.bind(p, "code", "title", "summary", "indication", "cost", "link");
 	}
 
 	@Override
 	public void validate(final Project object) {
 		assert object != null;
-		if (!super.getBuffer().getErrors().hasErrors("indication")) {
+		if (!super.getBuffer().getErrors().hasErrors("code")) {
 			Project p;
-			p = this.updateRepository.findProjectById(object.getId());
-			super.state(p.isIndication() == false, "indication", "manager.project.form.error.containing-fatal-errors");
+			p = this.updateRepository.findProjectByCode(object.getCode());
+			super.state(p == null, "code", "manager.project.form.error.duplicated");
 
 		}
+		if (!super.getBuffer().getErrors().hasErrors("draft-mode"))
+			super.state(object.isDraftMode(), "draft-mode", "manager.project.form.error.draft-mode");
+
 	}
 
 	@Override
@@ -69,7 +72,7 @@ public class ManagerProjectUpdateService extends AbstractService<Manager, Projec
 	public void unbind(final Project object) {
 		assert object != null;
 		Dataset dataset;
-		dataset = super.unbind(object, "code", "title", "summary", "indication", "cost", "link", "draftMode");
+		dataset = super.unbind(object, "code", "title", "summary", "indication", "cost", "link", "draft-mode");
 		super.getResponse().addData(dataset);
 	}
 }

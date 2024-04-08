@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import acme.client.repositories.AbstractRepository;
 import acme.entities.project.Project;
-import acme.entities.userstory.UserStory;
+import acme.entities.project_userstory_link.ProjectUserStoryLink;
 import acme.roles.Manager;
 
 @Repository
@@ -27,7 +27,6 @@ public interface ManagerProjectRepository extends AbstractRepository {
 	@Query("select p from Project p where p.code = :projectCode")
 	Project findProjectByCode(String projectCode);
 
-	@Query("select p.userStory from Project p where p.userstory.id = :projectId")
-	Collection<UserStory> findUserStoriesByProjectId(int projectId);
-
+	@Query("select pusl from ProjectUserStoryLink pusl where pusl.project.id = :projectId")
+	Collection<ProjectUserStoryLink> findUserStoriesByProjectId(int projectId);
 }
