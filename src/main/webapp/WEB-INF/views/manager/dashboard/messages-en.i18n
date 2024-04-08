@@ -10,17 +10,17 @@
 
 manager.dashboard.form.title = Project Dashboard 
 
-manager.project.form.label.total-must-priority-user-stories=Total must priority user stories
-manager.project.form.label.total-should-priority-user-stories=Total should priority user stories
-manager.project.form.label.total-could-priority-user-stories=Total could priority user stories
-manager.project.form.label.total-wont-priority-user-stories=Total wont priority User Stories
+manager.dashboard.form.label.total-must-priority-user-stories=Total must priority user stories
+manager.dashboard.form.label.total-should-priority-user-stories=Total should priority user stories
+manager.dashboard.form.label.total-could-priority-user-stories=Total could priority user stories
+manager.dashboard.form.label.total-wont-priority-user-stories=Total wont priority User Stories
 
-manager.project.form.label.minimum-user-story-cost=Minimum user story cost
-manager.project.form.label.maximum-user-story-cost=Maximum user story cost
-manager.project.form.label.average-user-story-cost=Average user story cost
-manager.project.form.label.deviation-user-story-cost=Deviation user story cost
+manager.dashboard.form.label.minimum-user-story-cost=Minimum user story cost
+manager.dashboard.form.label.maximum-user-story-cost=Maximum user story cost
+manager.dashboard.form.label.average-user-story-cost=Average user story cost
+manager.dashboard.form.label.deviation-user-story-cost=Deviation user story cost
 
-manager.project.form.label.minimum-project-cost=Minimum project Cost
-manager.project.form.label.maximum-project-cost=Maximum project Cost
-manager.project.form.label.average-project-cost=Average project Cost
-manager.project.form.label.deviation-project-cost=Deviation project Cost
+manager.dashboard.form.label.minimum-project-cost=Minimum project Cost
+manager.dashboard.form.label.maximum-project-cost=Maximum project Cost
+manager.dashboard.form.label.average-project-cost=Average project Cost
+manager.dashboard.form.label.deviation-project-cost=Deviation project Cost

@@ -25,7 +25,8 @@
 	<acme:input-checkbox code="manager.project.form.label.draft-mode" path="draftMode"/>	
 	
 	<jstl:choose>
-        <jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish')}">
+		<jstl:when test="${_command == 'show' && draftMode == false}"></jstl:when>
+        <jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && draftMode == true}">
             <acme:submit code="manager.project.form.button.update" action="/manager/project/update"/>
             <acme:submit code="manager.project.form.button.delete" action="/manager/project/delete"/>
             <acme:submit code="manager.project.form.button.publish" action="/manager/project/publish"/>

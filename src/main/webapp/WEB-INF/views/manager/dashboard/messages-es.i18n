@@ -10,17 +10,17 @@
 
 manager.dashboard.form.title = Project Dashboard 
 
-manager.project.form.label.total-must-priority-user-stories=Número total de historias de usuario con prioridad "Obligatoria" 
-manager.project.form.label.total-should-priority-user-stories=Número total de historias de usuario con prioridad "Debería" 
-manager.project.form.label.total-could-priority-user-stories=Número total de historias de usuario con prioridad "Podría"
-manager.project.form.label.total-wont-priority-user-stories=Número total de historias de usuario con prioridad "No haré"
+manager.dashboard.form.label.total-must-priority-user-stories=Número total de historias de usuario con prioridad "Obligatoria" 
+manager.dashboard.form.label.total-should-priority-user-stories=Número total de historias de usuario con prioridad "Debería" 
+manager.dashboard.form.label.total-could-priority-user-stories=Número total de historias de usuario con prioridad "Podría"
+manager.dashboard.form.label.total-wont-priority-user-stories=Número total de historias de usuario con prioridad "No haré"
 
-manager.project.form.label.minimum-user-story-cost=Coste mínimo de historia de usuario
-manager.project.form.label.maximum-user-story-cost=Coste máximo de historia de usuario
-manager.project.form.label.average-user-story-cost=Coste medio de historia de usuario
-manager.project.form.label.deviation-user-story-cost=Desviación típica del coste de historia de usuario
+manager.dashboard.form.label.minimum-user-story-cost=Coste mínimo de historia de usuario
+manager.dashboard.form.label.maximum-user-story-cost=Coste máximo de historia de usuario
+manager.dashboard.form.label.average-user-story-cost=Coste medio de historia de usuario
+manager.dashboard.form.label.deviation-user-story-cost=Desviación típica del coste de historia de usuario
 
-manager.project.form.label.minimum-project-cost=Coste mínimo de proyecto
-manager.project.form.label.maximum-project-cost=Coste máximo de proyecto
-manager.project.form.label.average-project-cost=Coste medio de proyecto
-manager.project.form.label.deviation-project-cost=Desviación típica del coste de proyecto
+manager.dashboard.form.label.minimum-project-cost=Coste mínimo de proyecto
+manager.dashboard.form.label.maximum-project-cost=Coste máximo de proyecto
+manager.dashboard.form.label.average-project-cost=Coste medio de proyecto
+manager.dashboard.form.label.deviation-project-cost=Desviación típica del coste de proyecto

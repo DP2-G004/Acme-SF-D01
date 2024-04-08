@@ -1,8 +1,6 @@
 
 package acme.features.manager.userstory;
 
-import java.util.Collection;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,31 +18,33 @@ public class ManagerUserStoryShowService extends AbstractService<Manager, UserSt
 
 	@Override
 	public void authorise() {
-		boolean status;
-		int id;
-		Manager manager;
-		UserStory us;
+		//		boolean status;
+		//		int id;
+		//		Manager manager;
+		//		UserStory us;
+		//
+		//		id = super.getRequest().getData("id", int.class);
+		//		us = this.showRepository.findUserStoryById(id);
+		//		manager = us == null ? null : us.getManager();
+		//		status = us != null && us.isDraftMode() && super.getRequest().getPrincipal().hasRole(manager);
 
-		id = super.getRequest().getData("id", int.class);
-		us = this.showRepository.findUserStoryById(id);
-		manager = us == null ? null : us.getManager();
-
-		status = us != null && super.getRequest().getPrincipal().hasRole(manager);
-		super.getResponse().setAuthorised(status);
+		super.getResponse().setAuthorised(true);
 	}
 
 	@Override
 	public void load() {
-		int managerId;
-		managerId = super.getRequest().getData("id", int.class);
-		Collection<UserStory> userStories = this.showRepository.findAllUserStoriesByManagerId(managerId);
-		super.getBuffer().addData(userStories);
+		UserStory us;
+		int id;
+		id = super.getRequest().getData("id", int.class);
+		us = this.showRepository.findUserStoryById(id);
+		super.getBuffer().addData(us);
 	}
 
 	@Override
 	public void unbind(final UserStory object) {
+		assert object != null;
 		Dataset dataset;
-		dataset = super.unbind(object, "title", "description", "estimatedCost", "acceptanceCriteria", "priority", "link");
+		dataset = super.unbind(object, "title", "description", "estimated-cost", "acceptance-criteria", "priority", "link", "draft-mode");
 		super.getResponse().addData(dataset);
 	}
 }

@@ -6,6 +6,7 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.client.data.accounts.Principal;
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
 import acme.entities.userstory.UserStory;
@@ -20,31 +21,26 @@ public class ManagerUserStoryListMineService extends AbstractService<Manager, Us
 
 	@Override
 	public void authorise() {
-		boolean status;
-		int id;
-		Manager manager;
-		UserStory us;
-
-		id = super.getRequest().getData("id", int.class);
-		us = this.listMineRepository.findUserStoryById(id);
-		manager = us == null ? null : us.getManager();
-
-		status = us != null && super.getRequest().getPrincipal().hasRole(manager);
-		super.getResponse().setAuthorised(status);
+		super.getResponse().setAuthorised(true);
 	}
 
 	@Override
 	public void load() {
-		int managerId;
-		managerId = super.getRequest().getData("id", int.class);
-		Collection<UserStory> userStories = this.listMineRepository.findAllUserStoriesByManagerId(managerId);
+		Collection<UserStory> userStories;
+		Principal principal;
+
+		principal = super.getRequest().getPrincipal();
+		userStories = this.listMineRepository.findUserStoriesByManagerId(principal.getActiveRoleId());
+
 		super.getBuffer().addData(userStories);
 	}
 
 	@Override
 	public void unbind(final UserStory object) {
+		assert object != null;
 		Dataset dataset;
-		dataset = super.unbind(object, "title", "description", "estimatedCost", "acceptanceCriteria", "priority", "link");
+
+		dataset = super.unbind(object, "title", "description", "estimated-cost", "acceptance-criteria", "priority", "link", "draft-mode");
 		super.getResponse().addData(dataset);
 	}
 }
