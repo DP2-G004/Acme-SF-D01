@@ -31,6 +31,7 @@ manager.project.form.button.update = Update
 manager.project.form.button.delete = Delete
 manager.project.form.button.publish = Publish
 manager.project.form.button.create = Create Project
+manager.project.form.button.list-user-stories=List User Stories
 
 manager.project.form.error.duplicated=Code is duplicated
 manager.project.form.error.containing-fatal-errors=Project contains fatal errors!
