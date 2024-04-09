@@ -58,13 +58,14 @@ public class ManagerUserStoryCreateService extends AbstractService<Manager, User
 
 	@Override
 	public void unbind(final UserStory object) {
+		assert object != null;
 		Dataset dataset;
 		SelectChoices choices;
 		choices = SelectChoices.from(Priority.class, object.getPriority());
-		dataset = super.unbind(object, "title", "description", "estimated-cost", "acceptance-criteria", "link", "draft-mode");
-		dataset.put("priority", choices.getSelected().getKey());
+
+		dataset = super.unbind(object, "title", "description", "estimated-cost", "acceptance-criteria", "priority", "link", "draft-mode");
 		dataset.put("priorities", choices);
+
 		super.getResponse().addData(dataset);
-		super.getResponse().addGlobal("projectId", super.getRequest().getData("projectId", int.class));
 	}
 }

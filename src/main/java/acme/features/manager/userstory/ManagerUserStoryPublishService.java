@@ -1,14 +1,13 @@
 
 package acme.features.manager.userstory;
 
-import java.util.Collection;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
-import acme.entities.project_userstory_link.ProjectUserStoryLink;
+import acme.client.views.SelectChoices;
+import acme.entities.userstory.Priority;
 import acme.entities.userstory.UserStory;
 import acme.roles.Manager;
 
@@ -53,10 +52,7 @@ public class ManagerUserStoryPublishService extends AbstractService<Manager, Use
 	@Override
 	public void validate(final UserStory object) {
 		assert object != null;
-		//At least one project
-		Collection<ProjectUserStoryLink> projects = this.publishRepository.findProjectsByUserStoryId(object.getId());
-		int numProjects = projects.size();
-		super.state(numProjects > 0, "*", "manager.user-story.error.not-enough-projects");
+
 	}
 
 	@Override
@@ -70,7 +66,12 @@ public class ManagerUserStoryPublishService extends AbstractService<Manager, Use
 	public void unbind(final UserStory object) {
 		assert object != null;
 		Dataset dataset;
+		SelectChoices choices;
+		choices = SelectChoices.from(Priority.class, object.getPriority());
+
 		dataset = super.unbind(object, "title", "description", "estimated-cost", "acceptance-criteria", "priority", "link", "draft-mode");
+		dataset.put("priorities", choices);
+
 		super.getResponse().addData(dataset);
 	}
 }

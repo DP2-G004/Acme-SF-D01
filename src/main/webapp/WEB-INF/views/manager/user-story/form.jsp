@@ -26,7 +26,6 @@
 	
 	<jstl:choose>
 		<jstl:when test="${_command == 'show' && draftMode == false}">
-			<acme:button code="manager.user-story.form.button.project" action="/manager/user-story/list?masterId=${id}"/>			
 		</jstl:when>
         <jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && draftMode == true}">
             <acme:submit code="manager.user-story.form.button.update" action="/manager/user-story/update"/>

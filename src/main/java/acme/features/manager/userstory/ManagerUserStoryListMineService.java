@@ -6,7 +6,6 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.client.data.accounts.Principal;
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
 import acme.entities.userstory.UserStory;
@@ -27,10 +26,8 @@ public class ManagerUserStoryListMineService extends AbstractService<Manager, Us
 	@Override
 	public void load() {
 		Collection<UserStory> userStories;
-		Principal principal;
-
-		principal = super.getRequest().getPrincipal();
-		userStories = this.listMineRepository.findUserStoriesByManagerId(principal.getActiveRoleId());
+		int id = super.getRequest().getData("projectId", int.class);
+		userStories = this.listMineRepository.findUserStoriesByProjectId(id);
 
 		super.getBuffer().addData(userStories);
 	}

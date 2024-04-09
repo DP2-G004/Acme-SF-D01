@@ -63,7 +63,7 @@ public class ManagerProjectDeleteService extends AbstractService<Manager, Projec
 		int projectId = super.getRequest().getData("id", int.class);
 		Collection<ProjectUserStoryLink> userStories;
 
-		userStories = this.deleteRepository.findUserStoriesByProjectId(projectId);
+		userStories = this.deleteRepository.findLinkedUserStoriesByProjectId(projectId);
 		this.deleteRepository.deleteAll(userStories);
 		this.deleteRepository.delete(object);
 	}
