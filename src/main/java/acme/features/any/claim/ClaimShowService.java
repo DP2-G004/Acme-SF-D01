@@ -1,8 +1,6 @@
 
 package acme.features.any.claim;
 
-import java.util.Collection;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,11 +23,11 @@ public class ClaimShowService extends AbstractService<Any, Claim> {
 
 	@Override
 	public void load() {
-		Collection<Claim> claims;
+		Claim claim;
+		int id = super.getRequest().getData("id", int.class);
+		claim = this.showRepository.findClaimByAnyone(id);
 
-		claims = this.showRepository.findAllClaims();
-
-		super.getBuffer().addData(claims);
+		super.getBuffer().addData(claim);
 	}
 
 	@Override
