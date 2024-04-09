@@ -1,0 +1,9 @@
+
+administrator.banner.list.title = Banners
+administrator.banner.form.title = Banners
+
+administrator.banner.form.label.slogan = Slogan
+administrator.banner.form.label.pictureLink = Picture URL
+administrator.banner.form.label.link = Document URL
+administrator.banner.form.label.lastInstantiationMoment = Last Instantiation Moment
+administrator.banner.form.label.endOfInstantiation = End Of Instantiation
