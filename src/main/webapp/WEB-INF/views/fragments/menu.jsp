@@ -26,6 +26,10 @@
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-josgardel8" action="https://xkcd.com/1739/"/>		
 
 		</acme:menu-option>
+		
+		<acme:menu-option code="master.menu.any.claims">
+			<acme:menu-suboption code="master.menu.any.list-claim" action="/any/claim/list"/>	
+    	</acme:menu-option>
 
 		<acme:menu-option code="master.menu.administrator" access="hasRole('Administrator')">
 			<acme:menu-suboption code="master.menu.administrator.user-accounts" action="/administrator/user-account/list"/>
@@ -48,7 +52,7 @@
 		
 		<acme:menu-option code="master.menu.manager" access="hasRole('Manager')">
 			<acme:menu-suboption code="master.menu.manager.list-project" action="/manager/project/list-mine"/>
-			<acme:menu-suboption code="master.menu.manager.dashboard" action="/manager/dashboard/show"/>
+			<acme:menu-suboption code="master.menu.manager.show-manager-dashboard" action="/manager/manager-dashboard/show"/>
 		</acme:menu-option>
 	</acme:menu-left>
 

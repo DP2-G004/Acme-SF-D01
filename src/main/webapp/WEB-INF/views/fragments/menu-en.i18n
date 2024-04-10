@@ -24,6 +24,10 @@ master.menu.anonymous.favourite-link-javruigar2 = 77822983E: Ruiz Garrido, Javie
 master.menu.anonymous.favourite-link-javsanmar5 = 08368306D: Santos Martín, Javier
 master.menu.anonymous.favourite-link-josgardel8 = 29589177E: García de Tejada Delgado, José
 
+# master.menu.any #######################################################
+
+master.menu.any.claims=Claims
+
 # master.menu.administrator ###################################################
 
 master.menu.administrator = Administrator
@@ -37,7 +41,7 @@ master.menu.administrator.banner.list = Banner List
 # master.menu.manager ###################################################
 
 master.menu.manager = Manager
-master.menu.manager.dashboard = Dashboard
+master.menu.manager.show-manager-dashboard = Dashboard
 master.menu.manager.list-project = List my projects
 
 # master.menu.provider ########################################################

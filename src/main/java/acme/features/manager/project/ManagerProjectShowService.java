@@ -18,17 +18,17 @@ public class ManagerProjectShowService extends AbstractService<Manager, Project>
 
 	@Override
 	public void authorise() {
-		Boolean status;
-		int masterId;
-		Project pr;
-		Manager manager;
+		//		Boolean status;
+		//		int id;
+		//		Project pr;
+		//		Manager manager;
+		//
+		//		id = super.getRequest().getData("id", int.class);
+		//		pr = this.showRepository.findProjectById(id);
+		//		manager = pr == null ? null : pr.getManager();
+		//		status = pr != null && pr.isDraftMode() && super.getRequest().getPrincipal().hasRole(manager);
 
-		masterId = super.getRequest().getData("id", int.class);
-		pr = this.showRepository.findProjectById(masterId);
-		manager = pr == null ? null : pr.getManager();
-		status = pr != null && pr.isDraftMode() && super.getRequest().getPrincipal().hasRole(manager);
-
-		super.getResponse().setAuthorised(status);
+		super.getResponse().setAuthorised(true);
 	}
 
 	@Override
@@ -46,7 +46,7 @@ public class ManagerProjectShowService extends AbstractService<Manager, Project>
 	public void unbind(final Project object) {
 		assert object != null;
 		Dataset dataset;
-		dataset = super.unbind(object, "code", "title", "summary", "indication", "cost", "link", "draftMode");
+		dataset = super.unbind(object, "code", "title", "summary", "indication", "cost", "link", "draft-mode");
 		super.getResponse().addData(dataset);
 	}
 }
