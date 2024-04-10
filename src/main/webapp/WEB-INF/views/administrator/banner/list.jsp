@@ -5,6 +5,8 @@
 
 <acme:list>
 	<acme:list-column code="administrator.banner.list.label.slogan" path="slogan"/>	
-	<acme:list-column code="administrator.banner.list.label.link-picture" path="pictureLink"/>
-	<acme:list-column code="administrator.banner.list.label.link-documento" path="link"/>
+	<acme:list-column code="administrator.banner.list.label.pictureLink" path="pictureLink"/>
+	<acme:list-column code="administrator.banner.list.label.link" path="link"/>
+	<acme:list-column code="administrator.banner.list.label.lastInstantiationMoment" path="lastInstantiationMoment"/>
+	<acme:list-column code="administrator.banner.list.label.endOfInstantiation" path="endOfInstantiation"/>
 </acme:list>
