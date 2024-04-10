@@ -1,5 +1,14 @@
+# administrator.banner.list ############################################
 
 administrator.banner.list.title = Banners
+
+administrator.banner.list.label.slogan = Slogan
+administrator.banner.list.label.pictureLink = Picture URL
+administrator.banner.list.label.link = Document URL
+administrator.banner.list.label.lastInstantiationMoment = Last Instantiation Moment
+administrator.banner.list.label.endOfInstantiation = End Of Instantiation
+
+# administrator.banner.form ############################################
 administrator.banner.form.title = Banners
 
 administrator.banner.form.label.slogan = Slogan
