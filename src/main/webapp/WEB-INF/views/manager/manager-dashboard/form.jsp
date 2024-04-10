@@ -15,9 +15,6 @@
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="acme" uri="http://acme-framework.org/"%>
 
-<h2>
-	<acme:message code="manager.dashboard.form.title"/>
-</h2>
 
 <table class="table table-sm">
 	<tr>
@@ -118,3 +115,4 @@
 	</tr>
 	
 </table>
+<acme:return/>

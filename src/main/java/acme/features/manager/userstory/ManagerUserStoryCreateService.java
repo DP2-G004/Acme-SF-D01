@@ -40,7 +40,7 @@ public class ManagerUserStoryCreateService extends AbstractService<Manager, User
 	@Override
 	public void bind(final UserStory us) {
 		assert us != null;
-		super.bind(us, "title", "description", "estimated-cost", "acceptance-criteria", "priority", "link");
+		super.bind(us, "title", "description", "estimatedCost", "acceptanceCriteria", "priority", "link");
 	}
 
 	@Override
@@ -63,7 +63,7 @@ public class ManagerUserStoryCreateService extends AbstractService<Manager, User
 		SelectChoices choices;
 		choices = SelectChoices.from(Priority.class, object.getPriority());
 
-		dataset = super.unbind(object, "title", "description", "estimated-cost", "acceptance-criteria", "priority", "link", "draft-mode");
+		dataset = super.unbind(object, "title", "description", "estimatedCost", "acceptanceCriteria", "priority", "link", "draft-mode");
 		dataset.put("priorities", choices);
 
 		super.getResponse().addData(dataset);

@@ -27,8 +27,8 @@
 
 		</acme:menu-option>
 		
-		<acme:menu-option code="master.menu.any.claims">
-			<acme:menu-suboption code="master.menu.any.list-claim" action="/any/claim/list"/>	
+		<acme:menu-option code="master.menu.any">
+			<acme:menu-suboption code="master.menu.any.claim" action="/any/claim/list"/>	
     	</acme:menu-option>
 
 		<acme:menu-option code="master.menu.administrator" access="hasRole('Administrator')">
