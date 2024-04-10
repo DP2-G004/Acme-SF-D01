@@ -26,7 +26,8 @@ master.menu.anonymous.favourite-link-josgardel8 = 29589177E: García de Tejada D
 
 # master.menu.any #######################################################
 
-master.menu.any.claims=Claims
+master.menu.any=Any
+master.menu.any.claim=Claims
 
 # master.menu.administrator ###################################################
 

@@ -8,8 +8,8 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-any.claim.form.title = Formulario de protestas
-any.claim.list.title = Listado de protestas
+any.claim.form.title = Formulario de reclamaciones
+any.claim.list.title = Listado de reclamaciones
 
 any.claim.list.label.code=Código
 any.claim.list.label.instantion-moment=Momento de instanciación
