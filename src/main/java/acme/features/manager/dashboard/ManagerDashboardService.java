@@ -26,9 +26,7 @@ public class ManagerDashboardService extends AbstractService<Manager, ManagerDas
 	@Override
 	public void load() {
 		ManagerDashboard dashboard;
-		Manager manager;
 		int managerId;
-		int id;
 		// the information I want to show in the dashboard
 		int totalMustPriorityUserStories;
 		int totalShouldPriorityUserStories;
@@ -46,9 +44,6 @@ public class ManagerDashboardService extends AbstractService<Manager, ManagerDas
 		double maximumProjectCost;
 		// getting the manager whose data I want to show
 
-		//		id = super.getRequest().getData("id", int.class);
-		//		manager = this.repository.findManagerById(id);
-		//		managerId = manager.getId();
 		managerId = super.getRequest().getPrincipal().getActiveRoleId();
 		dashboard = new ManagerDashboard();
 
