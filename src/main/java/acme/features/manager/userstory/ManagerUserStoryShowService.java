@@ -20,7 +20,19 @@ public class ManagerUserStoryShowService extends AbstractService<Manager, UserSt
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		//		Boolean status;
+		//		int id;
+		//		UserStory us;
+		//		Manager manager;
+		//
+		//		id = super.getRequest().getData("id", int.class);
+		//		us = this.showRepository.findUserStoryById(id);
+		//		manager = us == null ? null : us.getManager();
+		//		status = us != null && super.getRequest().getPrincipal().hasRole(manager);
+
+		boolean status;
+		status = super.getRequest().getPrincipal().hasRole(Manager.class);
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
@@ -39,7 +51,7 @@ public class ManagerUserStoryShowService extends AbstractService<Manager, UserSt
 		SelectChoices choices;
 		choices = SelectChoices.from(Priority.class, object.getPriority());
 
-		dataset = super.unbind(object, "title", "description", "estimated-cost", "acceptance-criteria", "priority", "link", "draft-mode");
+		dataset = super.unbind(object, "title", "description", "estimatedCost", "acceptanceCriteria", "priority", "link", "draft-mode");
 		dataset.put("priorities", choices);
 
 		super.getResponse().addData(dataset);

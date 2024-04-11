@@ -20,7 +20,9 @@ public class ManagerUserStoryListMineService extends AbstractService<Manager, Us
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean status;
+		status = super.getRequest().getPrincipal().hasRole(Manager.class);
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
@@ -37,7 +39,7 @@ public class ManagerUserStoryListMineService extends AbstractService<Manager, Us
 		assert object != null;
 		Dataset dataset;
 
-		dataset = super.unbind(object, "title", "description", "estimated-cost", "acceptance-criteria", "priority", "link", "draft-mode");
+		dataset = super.unbind(object, "title", "description", "estimatedCost", "acceptanceCriteria", "priority", "link", "draft-mode");
 		super.getResponse().addData(dataset);
 	}
 }
