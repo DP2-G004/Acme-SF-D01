@@ -21,7 +21,9 @@ public class ManagerProjectListMineService extends AbstractService<Manager, Proj
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean status;
+		status = super.getRequest().getPrincipal().hasRole(Manager.class);
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
