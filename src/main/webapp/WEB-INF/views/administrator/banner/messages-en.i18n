@@ -7,6 +7,7 @@ administrator.banner.list.label.pictureLink = Picture URL
 administrator.banner.list.label.link = Document URL
 administrator.banner.list.label.lastInstantiationMoment = Last Instantiation Moment
 administrator.banner.list.label.endOfInstantiation = End Of Instantiation
+administrator.banner.list.button.create = Create Banner
 
 # administrator.banner.form ############################################
 administrator.banner.form.title = Banners
@@ -16,3 +17,7 @@ administrator.banner.form.label.pictureLink = Picture URL
 administrator.banner.form.label.link = Document URL
 administrator.banner.form.label.lastInstantiationMoment = Last Instantiation Moment
 administrator.banner.form.label.endOfInstantiation = End Of Instantiation
+
+administrator.banner.form.button.delete = Delete
+administrator.banner.form.button.update = Update
+administrator.banner.form.button.create = Create
