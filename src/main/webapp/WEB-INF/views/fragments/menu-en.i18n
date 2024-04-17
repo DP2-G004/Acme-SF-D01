@@ -43,7 +43,7 @@ master.menu.administrator.banner.list = Banner List
 
 master.menu.manager = Manager
 master.menu.manager.show-manager-dashboard = Dashboard
-master.menu.manager.list-project = List my projects
+master.menu.manager.list-project = Projects
 
 # master.menu.provider ########################################################
 

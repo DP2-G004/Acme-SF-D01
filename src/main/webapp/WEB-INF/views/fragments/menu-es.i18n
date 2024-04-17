@@ -44,7 +44,7 @@ master.menu.administrator.banner.list = Lista Banners
 
 master.menu.manager = Manager
 master.menu.manager.show-manager-dashboard = Panel de indicadores
-master.menu.manager.list-project = Listar mis proyectos
+master.menu.manager.list-project = Proyectos
 
 # master.menu.provider ########################################################
 

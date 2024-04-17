@@ -30,6 +30,6 @@ public interface ManagerProjectRepository extends AbstractRepository {
 	@Query("select pusl from ProjectUserStoryLink pusl where pusl.project.id = :projectId")
 	Collection<ProjectUserStoryLink> findLinkedUserStoriesByProjectId(int projectId);
 
-	@Query("select pusl from ProjectUserStoryLink pusl where pusl.project.id = :projectId")
+	@Query("select pusl.userStory from ProjectUserStoryLink pusl where pusl.project.id = :projectId")
 	Collection<UserStory> findUserStoriesByProjectId(int projectId);
 }
