@@ -1,3 +1,5 @@
+authenticated.objective.list.title = Objetivos
+authenticated.objective.form.title = Objetivo
 
 authenticated.objective.list.label.title = Título
 authenticated.objective.list.label.description = Descripción

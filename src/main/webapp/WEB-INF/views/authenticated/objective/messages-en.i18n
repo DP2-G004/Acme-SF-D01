@@ -1,3 +1,5 @@
+authenticated.objective.list.title = Objectives
+authenticated.objective.form.title = Objective
 
 authenticated.objective.list.label.title = Title
 authenticated.objective.list.label.description = Description
