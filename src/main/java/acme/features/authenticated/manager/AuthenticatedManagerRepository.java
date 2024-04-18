@@ -12,9 +12,7 @@ import acme.roles.Manager;
 public interface AuthenticatedManagerRepository extends AbstractRepository {
 
 	@Query("select ua from UserAccount ua where ua.id = :id")
-	UserAccount findUserAccountById(int id);
+	UserAccount findOneUserAccountById(int id);
 	@Query("select m from Manager m where m.userAccount.id = :id")
-	Manager findManagerByUserAccount(int id);
-	@Query("select m from Manager m where m.id = :id")
-	Manager findManagerById(int id);
+	Manager findOneManagerByUserAccountId(int id);
 }

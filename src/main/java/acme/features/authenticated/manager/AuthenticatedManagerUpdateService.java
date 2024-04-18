@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import acme.client.data.accounts.Authenticated;
 import acme.client.data.accounts.Principal;
+import acme.client.data.accounts.UserAccount;
 import acme.client.data.models.Dataset;
 import acme.client.helpers.PrincipalHelper;
 import acme.client.services.AbstractService;
@@ -15,45 +16,66 @@ import acme.roles.Manager;
 public class AuthenticatedManagerUpdateService extends AbstractService<Authenticated, Manager> {
 
 	@Autowired
-	private AuthenticatedManagerRepository updateRepository;
+	private AuthenticatedManagerRepository repository;
+
+	// AbstractService interface ----------------------------------------------
 
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean status;
+
+		status = super.getRequest().getPrincipal().hasRole(Manager.class);
+
+		super.getResponse().setAuthorised(status);
 	}
 	@Override
 	public void load() {
 		Manager object;
 		Principal principal;
 		int userAccountId;
+		UserAccount userAccount;
 
 		principal = super.getRequest().getPrincipal();
 		userAccountId = principal.getAccountId();
-		object = this.updateRepository.findManagerByUserAccount(userAccountId);
+		userAccount = this.repository.findOneUserAccountById(userAccountId);
+
+		object = new Manager();
+		object.setUserAccount(userAccount);
 
 		super.getBuffer().addData(object);
 	}
+
 	@Override
 	public void bind(final Manager object) {
 		assert object != null;
+
 		super.bind(object, "degree", "overview", "certifications", "link");
 	}
+
 	@Override
 	public void validate(final Manager object) {
 		assert object != null;
 	}
+
 	@Override
 	public void perform(final Manager object) {
 		assert object != null;
-		this.updateRepository.save(object);
+
+		this.repository.save(object);
 	}
+
 	@Override
 	public void unbind(final Manager object) {
+		assert object != null;
+
 		Dataset dataset;
+
 		dataset = super.unbind(object, "degree", "overview", "certifications", "link");
-		super.getRequest().addData(dataset);
+
+		super.getResponse().addData(dataset);
 	}
+
 	@Override
 	public void onSuccess() {
 		if (super.getRequest().getMethod().equals("POST"))

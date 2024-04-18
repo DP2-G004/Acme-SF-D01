@@ -16,7 +16,9 @@ import acme.roles.Manager;
 public class AuthenticatedManagerCreateService extends AbstractService<Authenticated, Manager> {
 
 	@Autowired
-	private AuthenticatedManagerRepository createRepository;
+	private AuthenticatedManagerRepository repository;
+
+	// AbstractService interface ----------------------------------------------
 
 
 	@Override
@@ -27,6 +29,7 @@ public class AuthenticatedManagerCreateService extends AbstractService<Authentic
 
 		super.getResponse().setAuthorised(status);
 	}
+
 	@Override
 	public void load() {
 		Manager object;
@@ -36,33 +39,44 @@ public class AuthenticatedManagerCreateService extends AbstractService<Authentic
 
 		principal = super.getRequest().getPrincipal();
 		userAccountId = principal.getAccountId();
-		userAccount = this.createRepository.findUserAccountById(userAccountId);
+		userAccount = this.repository.findOneUserAccountById(userAccountId);
 
 		object = new Manager();
 		object.setUserAccount(userAccount);
 
 		super.getBuffer().addData(object);
 	}
+
 	@Override
 	public void bind(final Manager object) {
 		assert object != null;
+
 		super.bind(object, "degree", "overview", "certifications", "link");
 	}
+
 	@Override
 	public void validate(final Manager object) {
 		assert object != null;
 	}
+
 	@Override
 	public void perform(final Manager object) {
 		assert object != null;
-		this.createRepository.save(object);
+
+		this.repository.save(object);
 	}
+
 	@Override
 	public void unbind(final Manager object) {
+		assert object != null;
+
 		Dataset dataset;
+
 		dataset = super.unbind(object, "degree", "overview", "certifications", "link");
-		super.getRequest().addData(dataset);
+
+		super.getResponse().addData(dataset);
 	}
+
 	@Override
 	public void onSuccess() {
 		if (super.getRequest().getMethod().equals("POST"))
