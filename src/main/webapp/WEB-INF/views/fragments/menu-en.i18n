@@ -33,6 +33,7 @@ master.menu.any.claim=Claims
 
 master.menu.authenticated=Authenticated
 master.menu.authenticated.objective=Objectives
+master.menu.authenticated.risk=Risks
 
 # master.menu.administrator ###################################################
 

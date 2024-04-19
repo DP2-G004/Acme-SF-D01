@@ -34,6 +34,7 @@ master.menu.any.claim=Reclamaciones
 
 master.menu.authenticated=Autenticado
 master.menu.authenticated.objective=Objetivos
+master.menu.authenticated.risk=Riesgos
 
 # master.menu.administrator ###################################################
 
