@@ -1,8 +1,5 @@
-administrator.risk.list.title = Riesgos
-administrator.risk.form.title = Riesgos
-
 authenticated.risk.list.title = Riesgos
-authenticated.risk.form.title = Riesgos
+authenticated.risk.form.title = Riesgo
 
 administrator.risk.list.label.impact = Impacto
 administrator.risk.list.label.probability = Probabilidad

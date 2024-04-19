@@ -1,5 +1,5 @@
 administrator.risk.list.title = Risks
-administrator.risk.form.title = Risks
+administrator.risk.form.title = Risk
 
 administrator.risk.list.label.impact = Impact
 administrator.risk.list.label.probability = Probability
