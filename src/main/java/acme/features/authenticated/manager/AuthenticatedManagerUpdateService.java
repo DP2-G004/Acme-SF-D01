@@ -33,15 +33,10 @@ public class AuthenticatedManagerUpdateService extends AbstractService<Authentic
 		Manager object;
 		Principal principal;
 		int userAccountId;
-		//UserAccount userAccount;
 
 		principal = super.getRequest().getPrincipal();
 		userAccountId = principal.getAccountId();
-		//userAccount = this.repository.findOneUserAccountById(userAccountId);
 		object = this.repository.findOneManagerByUserAccountId(userAccountId);
-
-		//object = new Manager();
-		//object.setUserAccount(userAccount);
 
 		super.getBuffer().addData(object);
 	}
