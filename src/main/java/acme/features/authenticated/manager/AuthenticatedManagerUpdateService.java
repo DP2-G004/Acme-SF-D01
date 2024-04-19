@@ -6,7 +6,6 @@ import org.springframework.stereotype.Service;
 
 import acme.client.data.accounts.Authenticated;
 import acme.client.data.accounts.Principal;
-import acme.client.data.accounts.UserAccount;
 import acme.client.data.models.Dataset;
 import acme.client.helpers.PrincipalHelper;
 import acme.client.services.AbstractService;
@@ -34,14 +33,15 @@ public class AuthenticatedManagerUpdateService extends AbstractService<Authentic
 		Manager object;
 		Principal principal;
 		int userAccountId;
-		UserAccount userAccount;
+		//UserAccount userAccount;
 
 		principal = super.getRequest().getPrincipal();
 		userAccountId = principal.getAccountId();
-		userAccount = this.repository.findOneUserAccountById(userAccountId);
+		//userAccount = this.repository.findOneUserAccountById(userAccountId);
+		object = this.repository.findOneManagerByUserAccountId(userAccountId);
 
-		object = new Manager();
-		object.setUserAccount(userAccount);
+		//object = new Manager();
+		//object.setUserAccount(userAccount);
 
 		super.getBuffer().addData(object);
 	}
