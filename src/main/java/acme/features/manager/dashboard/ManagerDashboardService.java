@@ -19,22 +19,14 @@ public class ManagerDashboardService extends AbstractService<Manager, ManagerDas
 	@Override
 	public void authorise() {
 		boolean status;
-		int managerId;
-		Manager manager;
-
-		managerId = super.getRequest().getData("id", int.class);
-		manager = this.repository.findManagerById(managerId);
-
-		status = super.getRequest().getPrincipal().hasRole(manager);
+		status = super.getRequest().getPrincipal().hasRole(Manager.class);
 		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
 	public void load() {
 		ManagerDashboard dashboard;
-		Manager manager;
 		int managerId;
-		int id;
 		// the information I want to show in the dashboard
 		int totalMustPriorityUserStories;
 		int totalShouldPriorityUserStories;
@@ -52,10 +44,7 @@ public class ManagerDashboardService extends AbstractService<Manager, ManagerDas
 		double maximumProjectCost;
 		// getting the manager whose data I want to show
 
-		id = super.getRequest().getData("id", int.class);
-		manager = this.repository.findManagerById(id);
-		managerId = manager.getId();
-
+		managerId = super.getRequest().getPrincipal().getActiveRoleId();
 		dashboard = new ManagerDashboard();
 
 		totalMustPriorityUserStories = this.repository.numMustPriorityUserStories(managerId);
@@ -89,6 +78,7 @@ public class ManagerDashboardService extends AbstractService<Manager, ManagerDas
 	}
 	@Override
 	public void unbind(final ManagerDashboard object) {
+		assert object != null;
 		Dataset dataset;
 		dataset = super.unbind(object, "totalMustPriorityUserStories", "totalShouldPriorityUserStories", "totalCouldPriorityUserStories", "totalWontPriorityUserStories", "averageUserStoryCost", "deviationUserStoryCost", "minimumUserStoryCost",
 			"maximumUserStoryCost", "averageProjectCost", "deviationProjectCost", "minimumProjectCost", "maximumProjectCost");

@@ -61,7 +61,7 @@ public class ManagerProjectCreateService extends AbstractService<Manager, Projec
 	@Override
 	public void unbind(final Project object) {
 		Dataset dataset;
-		dataset = super.unbind(object, "code", "title", "summary", "indication", "cost", "link", "draftMode");
+		dataset = super.unbind(object, "code", "title", "summary", "indication", "cost", "link", "draft-mode");
 		super.getResponse().addData(dataset);
 	}
 }

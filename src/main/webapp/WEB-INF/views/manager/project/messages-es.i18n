@@ -8,6 +8,9 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
+manager.project.form.title = Formulario de proyecto 
+manager.project.list.title = Listado de proyectos
+
 manager.project.list.label.code=Codigo
 manager.project.list.label.title=Titulo
 manager.project.list.label.summary=Resumen
@@ -28,6 +31,8 @@ manager.project.form.button.update = Actualizar
 manager.project.form.button.delete = Borrar
 manager.project.form.button.publish = Publicar
 manager.project.form.button.create = Crear Proyecto
+manager.project.form.button.list-user-stories=Listar historias de usuario
+
 
 manager.project.form.error.duplicated=El código está duplicado
 manager.project.form.error.containing-fatal-errors=¡El proyecto contiene errores fatales!

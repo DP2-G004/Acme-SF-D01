@@ -21,7 +21,9 @@ public class ManagerProjectListMineService extends AbstractService<Manager, Proj
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean status;
+		status = super.getRequest().getPrincipal().hasRole(Manager.class);
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
@@ -41,7 +43,7 @@ public class ManagerProjectListMineService extends AbstractService<Manager, Proj
 
 		Dataset dataset;
 
-		dataset = super.unbind(object, "code", "title", "summary", "indication", "cost", "link", "draftMode");
+		dataset = super.unbind(object, "code", "title", "summary", "indication", "cost", "link", "draft-mode");
 
 		super.getResponse().addData(dataset);
 	}

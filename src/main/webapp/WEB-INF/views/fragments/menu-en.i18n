@@ -24,6 +24,16 @@ master.menu.anonymous.favourite-link-javruigar2 = 77822983E: Ruiz Garrido, Javie
 master.menu.anonymous.favourite-link-javsanmar5 = 08368306D: Santos Martín, Javier
 master.menu.anonymous.favourite-link-josgardel8 = 29589177E: García de Tejada Delgado, José
 
+# master.menu.any #######################################################
+
+master.menu.any=Any
+master.menu.any.claim=Claims
+
+# master.menu.authenticated #######################################################
+
+master.menu.authenticated=Authenticated
+master.menu.authenticated.objective=Objectives
+
 # master.menu.administrator ###################################################
 
 master.menu.administrator = Administrator
@@ -38,8 +48,8 @@ master.menu.administrator.risk.list = Risks List
 # master.menu.manager ###################################################
 
 master.menu.manager = Manager
-master.menu.manager.dashboard = Dashboard
-master.menu.manager.list-project = List my projects
+master.menu.manager.show-manager-dashboard = Dashboard
+master.menu.manager.list-project = Projects
 
 # master.menu.provider ########################################################
 
@@ -59,3 +69,5 @@ master.menu.user-account.provider = Provider data
 master.menu.user-account.become-provider = Become a provider
 master.menu.user-account.consumer = Consumer data
 master.menu.user-account.become-consumer = Become a consumer
+master.menu.user-account.become-manager= Become a manager
+master.menu.user-account.manager= Manager data

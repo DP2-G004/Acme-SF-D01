@@ -25,6 +25,16 @@ master.menu.anonymous.favourite-link-javsanmar5 = 08368306D: Santos Martín, Jav
 master.menu.anonymous.favourite-link-josgardel8 = 29589177E: García de Tejada Delgado, José
 
 
+# master.menu.any #######################################################
+
+master.menu.any=Cualquiera
+master.menu.any.claim=Reclamaciones
+
+# master.menu.authenticated #######################################################
+
+master.menu.authenticated=Autenticado
+master.menu.authenticated.objective=Objetivos
+
 # master.menu.administrator ###################################################
 
 master.menu.administrator = Administrador
@@ -39,8 +49,8 @@ master.menu.administrator.risk.list = Lista de riesgos
 # master.menu.manager ###################################################
 
 master.menu.manager = Manager
-master.menu.manager.dashboard = Panel de indicadores
-master.menu.manager.list-project = Listar mis proyectos
+master.menu.manager.show-manager-dashboard = Panel de indicadores
+master.menu.manager.list-project = Proyectos
 
 # master.menu.provider ########################################################
 
@@ -60,3 +70,5 @@ master.menu.user-account.provider = Datos de proveedor
 master.menu.user-account.become-provider = Hazte proveedor
 master.menu.user-account.consumer = Datos de consumidor
 master.menu.user-account.become-consumer = Hazte consumidor
+master.menu.user-account.become-manager= Hazte manager
+master.menu.user-account.manager= Datos de manager

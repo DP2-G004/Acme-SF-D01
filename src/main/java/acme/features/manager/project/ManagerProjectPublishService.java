@@ -10,6 +10,7 @@ import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
 import acme.entities.project.Project;
 import acme.entities.project_userstory_link.ProjectUserStoryLink;
+import acme.entities.userstory.UserStory;
 import acme.roles.Manager;
 
 @Service
@@ -54,17 +55,18 @@ public class ManagerProjectPublishService extends AbstractService<Manager, Proje
 	public void validate(final Project object) {
 		assert object != null;
 		if (!super.getBuffer().getErrors().hasErrors("indication")) {
-			Project p;
-			p = this.publishRepository.findProjectById(object.getId());
-			super.state(p.isIndication() == false, "indication", "manager.project.form.error.containing-fatal-errors");
+			boolean containsFatalErrors = object.isIndication();
+			super.state(!containsFatalErrors, "indication", "manager.project.form.error.containing-fatal-errors");
 
 		}
 		//At least one user story
-		Collection<ProjectUserStoryLink> userStories = this.publishRepository.findUserStoriesByProjectId(object.getId());
-		int numUserStories = userStories.size();
+		Collection<ProjectUserStoryLink> userStoriesLinkedToProject = this.publishRepository.findLinkedUserStoriesByProjectId(object.getId());
+		int numUserStories = userStoriesLinkedToProject.size();
 		super.state(numUserStories > 0, "*", "manager.project.error.not-enough-user-stories");
-		//check all of them are published, add draft mode and get the whole user story stuff done 
-		// add user story stuff in the form 
+		//check all of them are published
+		Collection<UserStory> userStories = this.publishRepository.findUserStoriesByProjectId(object.getId());
+		boolean checkAllUserStoriesPublished = userStories.stream().anyMatch(x -> x.isDraftMode());
+		super.state(!checkAllUserStoriesPublished, "*", "manager.project.error.not-all-published-user-stories");
 	}
 
 	@Override
