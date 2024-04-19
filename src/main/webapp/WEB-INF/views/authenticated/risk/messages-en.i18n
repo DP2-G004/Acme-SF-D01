@@ -1,0 +1,15 @@
+authenticated.risk.list.title = Risks
+authenticated.risk.form.title = Risk
+
+administrator.risk.list.label.impact = Impact
+administrator.risk.list.label.probability = Probability
+administrator.risk.list.label.description = Description
+administrator.risk.list.label.getValue() = Value
+
+
+administrator.risk.form.label.description = Description
+administrator.risk.form.label.link = Link
+administrator.risk.form.label.probability = Probability
+administrator.risk.form.label.impact = Impact
+administrator.risk.form.label.identificationDate = Date
+administrator.risk.form.label.getValue = Value
