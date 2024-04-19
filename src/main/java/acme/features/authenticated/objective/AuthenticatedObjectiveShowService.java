@@ -29,7 +29,7 @@ public class AuthenticatedObjectiveShowService extends AbstractService<Authentic
 		objective = this.repository.findObjectiveById(objectiveId);
 
 		boolean status;
-		status = super.getRequest().getPrincipal().hasRole(Authenticated.class);
+		status = objective != null && super.getRequest().getPrincipal().hasRole(Authenticated.class);
 
 		super.getResponse().setAuthorised(status);
 	}
