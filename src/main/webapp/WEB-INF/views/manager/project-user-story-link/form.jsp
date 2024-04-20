@@ -18,9 +18,9 @@
 <acme:form>
 	<jstl:choose>
 		<jstl:when test="${_command=='show'}">
-			<acme:submit code="manager.link.form.button.delete" action="manager/project-user-story-link/delete?projectId=${projectId}"/>
+			<acme:submit code="manager.link.form.button.delete" action="manager/project-user-story-link/delete?projectId=${id}"/>
 		</jstl:when>
-		<jstl:when test="${_command=='show'}">
+		<jstl:when test="${_command=='create'}">
 			<acme:input-select code="manager.link.form.label.userStory" path="userStory" choices="${userStories}"/>
 			<acme:submit code="manager.link.form.button.create" action="manager/project-user-story-link/create?projectId=${projectId}"/>			
 		</jstl:when>
