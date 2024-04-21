@@ -10,3 +10,5 @@
 	<acme:list-column code="administrator.banner.list.label.lastInstantiationMoment" path="lastInstantiationMoment"/>
 	<acme:list-column code="administrator.banner.list.label.endOfInstantiation" path="endOfInstantiation"/>
 </acme:list>
+
+<acme:button code="administrator.banner.list.button.create" action="/administrator/banner/create"/>
