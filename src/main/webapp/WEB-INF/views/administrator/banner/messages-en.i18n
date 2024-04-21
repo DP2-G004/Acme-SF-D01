@@ -21,3 +21,6 @@ administrator.banner.form.label.endOfInstantiation = End Of Instantiation
 administrator.banner.form.button.delete = Delete
 administrator.banner.form.button.update = Update
 administrator.banner.form.button.create = Create
+
+administrator.banner.form.error.last-instantiation-moment.invalid = Error with Last Instantiation Moment
+administrator.banner.form.error.period.invalid = Error with End Of Instantiation, the minimun period between last Instantiation Moment and End of Intantiation must be a week

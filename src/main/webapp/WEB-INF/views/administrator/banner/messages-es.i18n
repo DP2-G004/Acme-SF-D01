@@ -21,3 +21,6 @@ administrator.banner.form.label.endOfInstantiation = Fin de la Instancia
 administrator.banner.form.button.delete = Borrar
 administrator.banner.form.button.update = Actualizar
 administrator.banner.form.button.create = Crear
+
+administrator.banner.form.error.last-instantiation-moment.invalid = Error con Ultima Instancia
+administrator.banner.form.error.period.invalid = Error con Fin de la Instancia, el periodo entre la ultima instancia y su fin debe de ser como minimo una semana

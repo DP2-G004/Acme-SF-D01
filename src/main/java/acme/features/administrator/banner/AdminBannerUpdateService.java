@@ -52,13 +52,13 @@ public class AdminBannerUpdateService extends AbstractService<Administrator, Ban
 		assert object != null;
 
 		if (!super.getBuffer().getErrors().hasErrors("lastInstantiationMoment"))
-			super.state(MomentHelper.isAfter(object.getLastInstantiationMoment(), object.getEndOfInstantiation()), "lastInstantiationMoment", "administrator.banner.form.error.last-instantiation-moment.invalid");
+			super.state(MomentHelper.isAfter(object.getEndOfInstantiation(), object.getLastInstantiationMoment()), "lastInstantiationMoment", "administrator.banner.form.error.last-instantiation-moment.invalid");
 
-		if (!super.getBuffer().getErrors().hasErrors("periodoFinal")) {
+		if (!super.getBuffer().getErrors().hasErrors("endOfInstantiation")) {
 
 			//Display period must last for at least one week
 			Date maximumDeadline = MomentHelper.deltaFromMoment(object.getLastInstantiationMoment(), 7, ChronoUnit.DAYS);
-			super.state(MomentHelper.isAfter(object.getEndOfInstantiation(), maximumDeadline), "periodoFinal", "administrator.banner.form.error.period.invalid");
+			super.state(MomentHelper.isAfter(object.getEndOfInstantiation(), maximumDeadline), "endOfInstantiation", "administrator.banner.form.error.period.invalid");
 		}
 
 	}
