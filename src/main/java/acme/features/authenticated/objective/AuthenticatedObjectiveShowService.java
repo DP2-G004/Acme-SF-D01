@@ -22,24 +22,20 @@ public class AuthenticatedObjectiveShowService extends AbstractService<Authentic
 	@Override
 	public void authorise() {
 
-		System.out.println("CCCCCCCCCCC");
+		int objectiveId;
+		objectiveId = super.getRequest().getData("id", int.class);
 
-		//		int objectiveId;
-		//		objectiveId = super.getRequest().getData("id", int.class);
-		//
-		//		Objective objective;
-		//		objective = this.repository.findObjectiveById(objectiveId);
+		Objective objective;
+		objective = this.repository.findObjectiveById(objectiveId);
 
 		boolean status;
-		status = super.getRequest().getPrincipal().hasRole(Authenticated.class);
+		status = objective != null && super.getRequest().getPrincipal().hasRole(Authenticated.class);
 
 		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
 	public void load() {
-
-		System.out.println("AAAAAAAA");
 
 		int objectiveId;
 		objectiveId = super.getRequest().getData("id", int.class);
