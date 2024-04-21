@@ -61,7 +61,6 @@
 			<acme:menu-suboption code="master.menu.manager.list-project" action="/manager/project/list-mine"/>
 			<acme:menu-suboption code="master.menu.manager.show-manager-dashboard" action="/manager/manager-dashboard/show"/>
 		</acme:menu-option>
-	
 	</acme:menu-left>
 
 	<acme:menu-right>
