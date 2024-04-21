@@ -1,0 +1,19 @@
+----------------LIST----------------
+sponsor.sponsorship.list.title=Sponsorships
+
+sponsor.sponsorship.list.label.code=Code
+sponsor.sponsorship.list.label.amount=Amount
+sponsor.sponsorship.list.label.type=Type
+
+
+----------------FORM----------------
+sponsor.sponsorship.form.title= Sponsorship
+
+sponsor.sponsorship.form.label.code=Code
+sponsor.sponsorship.form.label.moment=Instantation moment
+sponsor.sponsorship.form.label.startDate= Start date
+sponsor.sponsorship.form.label.endDate = End date
+sponsor.sponsorship.form.label.amount = Amount
+sponsor.sponsorship.form.label.type = Type
+sponsor.sponsorship.form.label.email= Email
+sponsor.sponsorship.form.label.link = Link
