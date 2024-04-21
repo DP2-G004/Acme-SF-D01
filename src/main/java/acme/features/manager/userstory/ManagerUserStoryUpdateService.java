@@ -21,12 +21,12 @@ public class ManagerUserStoryUpdateService extends AbstractService<Manager, User
 	@Override
 	public void authorise() {
 		Boolean status;
-		int masterId;
+		int id;
 		UserStory us;
 		Manager manager;
 
-		masterId = super.getRequest().getData("id", int.class);
-		us = this.updateRepository.findUserStoryById(masterId);
+		id = super.getRequest().getData("id", int.class);
+		us = this.updateRepository.findUserStoryById(id);
 		manager = us == null ? null : us.getManager();
 		status = us != null && us.isDraftMode() && super.getRequest().getPrincipal().hasRole(manager);
 
@@ -70,10 +70,10 @@ public class ManagerUserStoryUpdateService extends AbstractService<Manager, User
 		Dataset dataset;
 		SelectChoices choices;
 		choices = SelectChoices.from(Priority.class, object.getPriority());
+
 		dataset = super.unbind(object, "title", "description", "estimatedCost", "acceptanceCriteria", "priority", "link", "draft-mode");
-		dataset.put("priority", choices.getSelected().getKey());
 		dataset.put("priorities", choices);
+
 		super.getResponse().addData(dataset);
-		super.getResponse().addGlobal("projectId", super.getRequest().getData("projectId", int.class));
 	}
 }

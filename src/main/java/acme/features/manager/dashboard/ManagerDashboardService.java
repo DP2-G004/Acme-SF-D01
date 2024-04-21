@@ -18,23 +18,15 @@ public class ManagerDashboardService extends AbstractService<Manager, ManagerDas
 
 	@Override
 	public void authorise() {
-		//		boolean status;
-		//		int managerId;
-		//		Manager manager;
-		//
-		//		managerId = super.getRequest().getData("id", int.class);
-		//		manager = this.repository.findManagerById(managerId);
-		//
-		//		status = super.getRequest().getPrincipal().hasRole(manager);
-		super.getResponse().setAuthorised(true);
+		boolean status;
+		status = super.getRequest().getPrincipal().hasRole(Manager.class);
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
 	public void load() {
 		ManagerDashboard dashboard;
-		Manager manager;
 		int managerId;
-		int id;
 		// the information I want to show in the dashboard
 		int totalMustPriorityUserStories;
 		int totalShouldPriorityUserStories;
@@ -52,10 +44,7 @@ public class ManagerDashboardService extends AbstractService<Manager, ManagerDas
 		double maximumProjectCost;
 		// getting the manager whose data I want to show
 
-		id = super.getRequest().getData("id", int.class);
-		manager = this.repository.findManagerById(id);
-		managerId = manager.getId();
-
+		managerId = super.getRequest().getPrincipal().getActiveRoleId();
 		dashboard = new ManagerDashboard();
 
 		totalMustPriorityUserStories = this.repository.numMustPriorityUserStories(managerId);
@@ -91,8 +80,8 @@ public class ManagerDashboardService extends AbstractService<Manager, ManagerDas
 	public void unbind(final ManagerDashboard object) {
 		assert object != null;
 		Dataset dataset;
-		dataset = super.unbind(object, "total-must-priority-user-stories", "total-should-priority-user-stories", "total-could-priority-user-stories", "total-wont-priority-user-stories", "average-user-story-cost", "deviation-user-story-cost",
-			"minimum-user-story-cost", "maximum-user-story-cost", "average-project-cost", "deviation-project-cost", "minimum-project-cost", "maximum-project-cost");
+		dataset = super.unbind(object, "totalMustPriorityUserStories", "totalShouldPriorityUserStories", "totalCouldPriorityUserStories", "totalWontPriorityUserStories", "averageUserStoryCost", "deviationUserStoryCost", "minimumUserStoryCost",
+			"maximumUserStoryCost", "averageProjectCost", "deviationProjectCost", "minimumProjectCost", "maximumProjectCost");
 		super.getResponse().addData(dataset);
 	}
 }
