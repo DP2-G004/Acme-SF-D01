@@ -30,8 +30,7 @@
 		</jstl:when>
         <jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && draftMode == true}">
             <acme:button code="manager.project.form.button.list-user-stories" action="/manager/user-story/list-mine?projectId=${id}"/>
-            <acme:button code="manager.project.form.button.add-user-stories" action="/manager/project-user-story-link/create?projectId=${id}"/>
-            <acme:button code="manager.project.form.button.delete-user-stories" action="/manager/project-user-story-link/list-by-project?projectId=${id}"/>
+            <acme:button code="manager.project.form.button.link-project-user-stories" action="/manager/project-user-story-link/list-by-project?projectId=${id}"/>
             <acme:submit code="manager.project.form.button.update" action="/manager/project/update"/>
             <acme:submit code="manager.project.form.button.delete" action="/manager/project/delete"/>
             <acme:submit code="manager.project.form.button.publish" action="/manager/project/publish"/>

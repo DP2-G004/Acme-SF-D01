@@ -11,6 +11,13 @@
 manager.link.list.label.userStory= User story
 manager.link.form.label.userStory= User story
 
+manager.link.list.label.project=Project
+manager.link.form.label.project=Project
+
+manager.link.label.create= Create
+manager.link.form.button.create= Create
+manager.link.form.button.update= Update
+
 manager.link.form.button.delete= Delete
 manager.link.form.button.create= Assign
 

@@ -41,7 +41,7 @@ public class ManagerProjectUserStoryLinkListService extends AbstractService<Mana
 	@Override
 	public void unbind(final ProjectUserStoryLink object) {
 		assert object != null;
-		Dataset dataset = super.unbind(object, "userStory");
+		Dataset dataset = super.unbind(object, "project", "userStory");
 		super.getResponse().addData(dataset);
 	}
 }

@@ -6,7 +6,6 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.client.data.accounts.Principal;
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
@@ -16,41 +15,59 @@ import acme.entities.userstory.UserStory;
 import acme.roles.Manager;
 
 @Service
-public class ManagerProjectUserStoryLinkShowService extends AbstractService<Manager, ProjectUserStoryLink> {
+public class ManagerProjectUserStoryLinkUpdateService extends AbstractService<Manager, ProjectUserStoryLink> {
 
 	@Autowired
-	private ManagerProjectUserStoryLinkRepository showRepository;
+	private ManagerProjectUserStoryLinkRepository updateRepository;
 
 
 	@Override
 	public void authorise() {
-		int id = super.getRequest().getData("id", int.class);
-		ProjectUserStoryLink link = this.showRepository.findLinkById(id);
-
-		Principal principal = super.getRequest().getPrincipal();
-		int userAccountId = principal.getAccountId();
-
-		boolean status = link != null && principal.hasRole(Manager.class) && link.getProject().getManager().getUserAccount().getId() == userAccountId;
+		boolean status = super.getRequest().getPrincipal().hasRole(Manager.class);
 
 		super.getResponse().setAuthorised(status);
 	}
+
 	@Override
 	public void load() {
+
 		int id = super.getRequest().getData("id", int.class);
-		ProjectUserStoryLink link = this.showRepository.findLinkById(id);
+		ProjectUserStoryLink link = this.updateRepository.findLinkById(id);
+
 		super.getBuffer().addData(link);
+
 	}
+
+	@Override
+	public void bind(final ProjectUserStoryLink object) {
+		assert object != null;
+
+		super.bind(object, "project", "userStory");
+	}
+
+	@Override
+	public void validate(final ProjectUserStoryLink object) {
+		assert object != null;
+	}
+
+	@Override
+	public void perform(final ProjectUserStoryLink object) {
+		assert object != null;
+		this.updateRepository.save(object);
+	}
+
 	@Override
 	public void unbind(final ProjectUserStoryLink object) {
 		assert object != null;
+
+		Dataset dataset;
+
 		int id = super.getRequest().getPrincipal().getActiveRoleId();
 		SelectChoices projectChoices;
 		SelectChoices userStoriesChoices;
 
-		Collection<Project> projects = this.showRepository.findProjectsByManagerId(id);
-		Collection<UserStory> userStories = this.showRepository.findUserStoriesByManagerId(id);
-
-		Dataset dataset;
+		Collection<Project> projects = this.updateRepository.findProjectsByManagerId(id);
+		Collection<UserStory> userStories = this.updateRepository.findUserStoriesByManagerId(id);
 
 		projectChoices = SelectChoices.from(projects, "title", object.getProject());
 		userStoriesChoices = SelectChoices.from(userStories, "title", object.getUserStory());

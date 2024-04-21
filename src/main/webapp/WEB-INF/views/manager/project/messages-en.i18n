@@ -37,5 +37,4 @@ manager.project.form.error.duplicated=Code is duplicated
 manager.project.form.error.containing-fatal-errors=Project contains fatal errors!
 manager.project.error.not-enough-user-stories=Project must have at least one user story
 
-manager.project.form.button.add-user-stories=Add user stories
-manager.project.form.button.delete-user-stories=Remove user stories
+manager.project.form.button.link-project-user-stories=Link user stories 

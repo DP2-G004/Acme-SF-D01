@@ -16,5 +16,8 @@
 <%@taglib prefix="acme" uri="http://acme-framework.org/"%>
 
 <acme:list>
+	<acme:list-column code="manager.link.list.label.project" path="project"/>
 	<acme:list-column code="manager.link.list.label.userStory" path="userStory"/>
 </acme:list>
+
+<acme:button code="manager.link.label.create" action="/manager/project-user-story-link/create"/>
