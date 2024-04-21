@@ -61,6 +61,11 @@
 			<acme:menu-suboption code="master.menu.manager.list-project" action="/manager/project/list-mine"/>
 			<acme:menu-suboption code="master.menu.manager.show-manager-dashboard" action="/manager/manager-dashboard/show"/>
 		</acme:menu-option>
+	
+		<acme:menu-option code="master.menu.auditor" access="hasRole('Auditor')">
+			<acme:menu-suboption code="master.menu.auditor.code-audit.list" action="/auditor/code/list-mine"/>
+			
+		</acme:menu-option>
 	</acme:menu-left>
 
 	<acme:menu-right>

@@ -43,9 +43,10 @@ public class CodeAudit extends AbstractEntity {
 	@NotNull
 	CodeAuditType				type;
 
-	//En el servicio se gestionara que sea la moda
 	Mark						mark;
 
 	@URL
 	String						link;
+
+	private boolean				draftMode;
 }
