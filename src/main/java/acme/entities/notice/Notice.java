@@ -27,10 +27,10 @@ public class Notice extends AbstractEntity {
 
 	private static final long	serialVersionUID	= 1L;
 
-	@Temporal(TemporalType.TIMESTAMP)
 	@Past
+	@Temporal(TemporalType.TIMESTAMP)
 	@NotNull
-	Date						lastInstantiationMoment;
+	Date						instantiationMoment;
 
 	@NotBlank
 	@Length(max = 75)
@@ -45,7 +45,7 @@ public class Notice extends AbstractEntity {
 	String						message;
 
 	@Email
-	String						emailAddress;
+	String						email;
 
 	@URL
 	String						link;
