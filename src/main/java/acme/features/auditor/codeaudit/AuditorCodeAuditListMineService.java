@@ -1,5 +1,5 @@
 
-package acme.features.auditor.code_audit;
+package acme.features.auditor.codeaudit;
 
 import java.util.Collection;
 
@@ -10,7 +10,6 @@ import acme.client.data.accounts.Principal;
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
 import acme.entities.code_audit.CodeAudit;
-import acme.entities.project.Project;
 import acme.roles.Auditor;
 
 @Service
@@ -37,14 +36,15 @@ public class AuditorCodeAuditListMineService extends AbstractService<Auditor, Co
 
 		super.getBuffer().addData(objects);
 	}
-	
+
 	@Override
 	public void unbind(final CodeAudit object) {
 		assert object != null;
 
 		Dataset dataset;
 
-		dataset = super.unbind(object, "code", "type", "mark", "link", "draft-mode");
+		dataset = super.unbind(object, "code", "type", "link", "draft-mode");
+		dataset.put("project", object.getProject().getCode());
 
 		super.getResponse().addData(dataset);
 	}

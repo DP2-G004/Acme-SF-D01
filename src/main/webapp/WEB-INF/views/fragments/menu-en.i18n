@@ -52,6 +52,10 @@ master.menu.manager = Manager
 master.menu.manager.show-manager-dashboard = Dashboard
 master.menu.manager.list-project = Projects
 
+# master.menu.auditor ##########################################################
+master.menu.auditor = Auditor
+master.menu.auditor.code-audit.list = List my Code Audits
+
 # master.menu.provider ########################################################
 
 master.menu.provider = Provider
