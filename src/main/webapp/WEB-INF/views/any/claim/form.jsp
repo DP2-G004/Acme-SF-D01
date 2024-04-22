@@ -26,8 +26,8 @@
 	<acme:input-checkbox code="any.claim.list.label.confirmation" path="confirmation"/>	
 	
 	<jstl:choose>		
-        <jstl:when test="${_command == 'show' && confirmation == true}"/>
-        <jstl:when test="${_command=='create'}">
+        <jstl:when test="${_command == 'show' }"/>
+        <jstl:when test="${_command=='create'&& confirmation == false}">
 			<acme:submit code="any.claim.form.button.create" action="/any/claim/create"/>			
 		</jstl:when>
     </jstl:choose>

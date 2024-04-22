@@ -35,3 +35,4 @@ manager.user-story.form.button.delete=Delete
 manager.user-story.form.button.publish=Publish
 
 manager.user-story.form.button.project=Projects
+manager.user-story.form.button.create-by-project=Create

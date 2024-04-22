@@ -69,7 +69,7 @@ public class ManagerProjectUserStoryLinkUpdateService extends AbstractService<Ma
 		Collection<Project> projects = this.updateRepository.findProjectsByManagerId(id);
 		Collection<UserStory> userStories = this.updateRepository.findUserStoriesByManagerId(id);
 
-		projectChoices = SelectChoices.from(projects, "title", object.getProject());
+		projectChoices = SelectChoices.from(projects, "code", object.getProject());
 		userStoriesChoices = SelectChoices.from(userStories, "title", object.getUserStory());
 
 		dataset = super.unbind(object, "project", "userStory");

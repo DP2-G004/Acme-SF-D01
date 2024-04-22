@@ -52,7 +52,7 @@ public class ManagerProjectUserStoryLinkShowService extends AbstractService<Mana
 
 		Dataset dataset;
 
-		projectChoices = SelectChoices.from(projects, "title", object.getProject());
+		projectChoices = SelectChoices.from(projects, "code", object.getProject());
 		userStoriesChoices = SelectChoices.from(userStories, "title", object.getUserStory());
 
 		dataset = super.unbind(object, "project", "userStory");

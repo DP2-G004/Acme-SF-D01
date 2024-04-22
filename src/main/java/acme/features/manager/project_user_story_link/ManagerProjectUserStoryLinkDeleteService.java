@@ -45,7 +45,7 @@ public class ManagerProjectUserStoryLinkDeleteService extends AbstractService<Ma
 	@Override
 	public void bind(final ProjectUserStoryLink object) {
 		assert object != null;
-		super.bind(object, "project", "userStory");
+		//super.bind(object, "project", "userStory");
 	}
 
 	@Override
@@ -72,7 +72,7 @@ public class ManagerProjectUserStoryLinkDeleteService extends AbstractService<Ma
 		Collection<Project> projects = this.deleteRepository.findProjectsByManagerId(id);
 		Collection<UserStory> userStories = this.deleteRepository.findUserStoriesByManagerId(id);
 
-		projectChoices = SelectChoices.from(projects, "title", object.getProject());
+		projectChoices = SelectChoices.from(projects, "code", object.getProject());
 		userStoriesChoices = SelectChoices.from(userStories, "title", object.getUserStory());
 
 		dataset = super.unbind(object, "project", "userStory");

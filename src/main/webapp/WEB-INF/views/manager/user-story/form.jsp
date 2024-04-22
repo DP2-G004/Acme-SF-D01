@@ -35,6 +35,9 @@
         <jstl:when test="${_command == 'create'}">
             <acme:submit code="manager.user-story.form.button.create" action="/manager/user-story/create"/>
         </jstl:when>
+        <jstl:when test="${_command == 'create-by-project'}">
+            <acme:submit code="manager.user-story.form.button.create-by-project" action="/manager/user-story/create-by-project?projectId=${projectId}"/>
+        </jstl:when>
     </jstl:choose>
 </acme:form>
 

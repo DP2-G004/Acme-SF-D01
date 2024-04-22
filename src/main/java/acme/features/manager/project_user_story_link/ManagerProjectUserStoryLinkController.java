@@ -27,7 +27,7 @@ public class ManagerProjectUserStoryLinkController extends AbstractController<Ma
 
 	@PostConstruct
 	public void initialise() {
-		super.addCustomCommand("list-by-project", "list", this.listService);
+		super.addBasicCommand("list", this.listService);
 		super.addBasicCommand("show", this.showService);
 		super.addBasicCommand("create", this.createService);
 		super.addBasicCommand("delete", this.deleteService);

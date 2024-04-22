@@ -12,26 +12,32 @@ import acme.client.views.SelectChoices;
 import acme.entities.project.Project;
 import acme.entities.project_userstory_link.ProjectUserStoryLink;
 import acme.entities.userstory.UserStory;
+import acme.features.manager.project.ManagerProjectRepository;
 import acme.roles.Manager;
 
 @Service
 public class ManagerProjectUserStoryLinkCreateService extends AbstractService<Manager, ProjectUserStoryLink> {
 
 	@Autowired
-	private ManagerProjectUserStoryLinkRepository createRepository;
+	private ManagerProjectUserStoryLinkRepository	createRepository;
+	@Autowired
+	private ManagerProjectRepository				projectRepository;
 
 
 	@Override
 	public void authorise() {
-		boolean status = super.getRequest().getPrincipal().hasRole(Manager.class);
+		//boolean status = super.getRequest().getPrincipal().hasRole(Manager.class);
 
-		super.getResponse().setAuthorised(status);
+		super.getResponse().setAuthorised(true);
 	}
 
 	@Override
 	public void load() {
 
 		ProjectUserStoryLink link = new ProjectUserStoryLink();
+		//		int id=super.getRequest().getData("projectId",int.class);
+		//		Project p=this.createRepository.findProjectById(id);
+		//		link.setProject(p);
 
 		super.getBuffer().addData(link);
 
@@ -47,6 +53,12 @@ public class ManagerProjectUserStoryLinkCreateService extends AbstractService<Ma
 	@Override
 	public void validate(final ProjectUserStoryLink object) {
 		assert object != null;
+		if (!super.getBuffer().getErrors().hasErrors("code")) {
+			Project p;
+			p = this.projectRepository.findProjectByCode(object.getProject().getCode());
+			super.state(p == null, "code", "manager.project.form.error.duplicated");
+
+		}
 	}
 
 	@Override
@@ -69,7 +81,7 @@ public class ManagerProjectUserStoryLinkCreateService extends AbstractService<Ma
 		Collection<Project> projects = this.createRepository.findProjectsByManagerId(id);
 		Collection<UserStory> userStories = this.createRepository.findUserStoriesByManagerId(id);
 
-		projectChoices = SelectChoices.from(projects, "title", object.getProject());
+		projectChoices = SelectChoices.from(projects, "code", object.getProject());
 		userStoriesChoices = SelectChoices.from(userStories, "title", object.getUserStory());
 
 		dataset = super.unbind(object, "project", "userStory");

@@ -12,10 +12,10 @@ import acme.entities.userstory.UserStory;
 import acme.roles.Manager;
 
 @Service
-public class ManagerUserStoryListMineService extends AbstractService<Manager, UserStory> {
+public class ManagerUserStoryListService extends AbstractService<Manager, UserStory> {
 
 	@Autowired
-	ManagerUserStoryRepository listMineRepository;
+	private ManagerUserStoryRepository listRepository;
 
 
 	@Override
@@ -27,9 +27,8 @@ public class ManagerUserStoryListMineService extends AbstractService<Manager, Us
 
 	@Override
 	public void load() {
-		Collection<UserStory> userStories;
-		int id = super.getRequest().getData("projectId", int.class);
-		userStories = this.listMineRepository.findUserStoriesByProjectId(id);
+		final int managerId = super.getRequest().getPrincipal().getAccountId();
+		Collection<UserStory> userStories = this.listRepository.findUserStoriesByManagerId(managerId);
 
 		super.getBuffer().addData(userStories);
 	}
@@ -39,7 +38,7 @@ public class ManagerUserStoryListMineService extends AbstractService<Manager, Us
 		assert object != null;
 		Dataset dataset;
 
-		dataset = super.unbind(object, "title", "description", "estimatedCost", "acceptanceCriteria", "priority", "link", "draft-mode");
+		dataset = super.unbind(object, "title", "description", "estimatedCost", "acceptanceCriteria", "priority", "link");
 		super.getResponse().addData(dataset);
 	}
 }
