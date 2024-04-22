@@ -18,6 +18,7 @@ any.claim.list.label.description=Description
 any.claim.list.label.department=Department
 any.claim.list.label.email=Email
 any.claim.list.label.link=Link
+any.claim.list.label.confirmation=Confirmation
 
 any.claim.form.label.code=Code
 any.claim.form.label.instantion-moment=Instantiation moment
@@ -26,3 +27,8 @@ any.claim.form.label.description=Description
 any.claim.form.label.department=Department
 any.claim.form.label.email=Email
 any.claim.form.label.link=Link
+any.claim.form.label.confirmation=Confirmation
+
+any.claim.form.error.containing-no-confirmation=Your confirmation is required to publish a claim
+any.claim.label.create= Create
+any.claim.form.button.create= Create
