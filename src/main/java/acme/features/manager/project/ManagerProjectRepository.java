@@ -2,7 +2,6 @@
 package acme.features.manager.project;
 
 import java.util.Collection;
-import java.util.Set;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -43,24 +42,27 @@ public interface ManagerProjectRepository extends AbstractRepository {
 	Collection<UserStory> findUserStoriesByProjectId(int projectId);
 	//
 	//
-	@Query("select c from Contract c where c.project.id = :id")
-	Collection<Contract> findManyContractsByProjectId(int id);
-	@Query("select pl from ProgressLog pl where pl.contract.id IN :ids")
-	Collection<ProgressLog> findManyProgressLogsByContractIds(Set<Integer> ids);
+	@Query("select c from CodeAudit c where c.project.id = :projectId")
+	Collection<CodeAudit> findAllCodeAuditsFromProjectId(int projectId);
 
-	@Query("select ss from Sponsorship ss where ss.project.id = :id")
-	Collection<Sponsorship> findManySponsorshipsByProjectId(int id);
-	@Query("select i from Invoice i where i.sponsorship.id IN :ids")
-	Collection<Invoice> findManyInvoicesBySponsorshipIds(Set<Integer> ids);
+	@Query("select a from AuditRecord a where a.codeAudit.id = :codeAuditId")
+	Collection<AuditRecord> findAllAuditRecordsFromCodeAuditId(int codeAuditId);
 
-	@Query("select ca from CodeAudit ca where ca.project.id = :id")
-	Collection<CodeAudit> findManyCodeAuditsByProjectId(int id);
-	@Query("select ar from AuditRecord ar where ar.codeAudit.id IN :id")
-	Collection<AuditRecord> findManyAuditsRecordsByCodeAuditsId(Set<Integer> id);
+	@Query("select c from Contract c where c.project.id = :projectId")
+	Collection<Contract> findAllContractsByProjectId(int projectId);
 
-	@Query("select tm from TrainingModule tm where tm.project.id = :id")
-	Collection<TrainingModule> findManyTrainingModuleByProjectId(int id);
-	@Query("select ts from TrainingSession ts where ts.trainingModule.id IN :id")
-	Collection<TrainingSession> findManyTrainingSessionByTrainingModuleId(Set<Integer> id);
+	@Query("select p from ProgressLog p where p.contract.id = :contractId")
+	Collection<ProgressLog> findAllProgressLogsByContractId(int contractId);
 
+	@Query("select s from Sponsorship s where s.project.id = :projectId")
+	Collection<Sponsorship> findAllSponsorshipsByProjectId(int projectId);
+
+	@Query("select i from Invoice i where i.sponsorship.id = :sponsorshipId")
+	Collection<Invoice> findAllInvoicesBySponsorshipId(int sponsorshipId);
+
+	@Query("select tm from TrainingModule tm where tm.project.id = :projectId")
+	Collection<TrainingModule> findAllTrainingModulesByProjectId(int projectId);
+
+	@Query("select ts from TrainingSession ts where ts.trainingModule.id = :tmId")
+	Collection<TrainingSession> findAllTrainingSessionsByTrainingModuleId(int tmId);
 }
