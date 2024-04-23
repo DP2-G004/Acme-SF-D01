@@ -45,11 +45,8 @@ public class AuditorCodeAuditUpdateService extends AbstractService<Auditor, Code
 	public void bind(final CodeAudit object) {
 		assert object != null;
 
-		int projectId;
-		Project project;
-
-		projectId = super.getRequest().getData("project", int.class);
-		project = this.repository.findOneProjectById(projectId);
+		int projectId = super.getRequest().getData("project", int.class);
+		Project project = this.repository.findOneProjectById(projectId);
 
 		object.setProject(project);
 		super.bind(object, "code", "executionDate", "type", "correctiveActions", "link");
@@ -61,7 +58,7 @@ public class AuditorCodeAuditUpdateService extends AbstractService<Auditor, Code
 
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
 			CodeAudit isCodeUnique;
-			//Codigo actualizado unico
+			//Codigo revisar actualizado unico
 			isCodeUnique = this.repository.findDifferentCodeAuditByCodeAndId(object.getCode(), object.getId());
 			super.state(isCodeUnique == null, "code", "validation.codeaudit.code.duplicate");
 		}
