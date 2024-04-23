@@ -26,7 +26,7 @@
 </acme:list>
 
 <jstl:if test="${_command == 'list-by-project'}">
-	<acme:button code="manager.user-story.form.button.create-by-project" action="/manager/user-story/create-by-project?projectId=${projectId}"/>
+	<acme:button code="manager.user-story.list.button.create-user-stories-by-project-form" action="/manager/user-story/create-in-projects?projectId=${projectId}"/>
 </jstl:if>	
 <jstl:if test="${_command == 'list'}">
 	<acme:button code="manager.user-story.list.button.create" action="/manager/user-story/create"/>

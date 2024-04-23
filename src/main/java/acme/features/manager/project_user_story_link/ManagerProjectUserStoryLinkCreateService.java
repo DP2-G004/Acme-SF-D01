@@ -33,14 +33,8 @@ public class ManagerProjectUserStoryLinkCreateService extends AbstractService<Ma
 
 	@Override
 	public void load() {
-
 		ProjectUserStoryLink link = new ProjectUserStoryLink();
-		//		int id=super.getRequest().getData("projectId",int.class);
-		//		Project p=this.createRepository.findProjectById(id);
-		//		link.setProject(p);
-
 		super.getBuffer().addData(link);
-
 	}
 
 	@Override
@@ -59,6 +53,8 @@ public class ManagerProjectUserStoryLinkCreateService extends AbstractService<Ma
 			super.state(p == null, "code", "manager.project.form.error.duplicated");
 
 		}
+		if (!super.getBuffer().getErrors().hasErrors("project"))
+			super.state(!object.getProject().isIndication(), "project", "manager.project.form.error.containing-fatal-errors");
 	}
 
 	@Override

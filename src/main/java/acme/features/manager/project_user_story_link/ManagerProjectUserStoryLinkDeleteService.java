@@ -45,7 +45,7 @@ public class ManagerProjectUserStoryLinkDeleteService extends AbstractService<Ma
 	@Override
 	public void bind(final ProjectUserStoryLink object) {
 		assert object != null;
-		//super.bind(object, "project", "userStory");
+		super.bind(object, "project", "userStory");
 	}
 
 	@Override
