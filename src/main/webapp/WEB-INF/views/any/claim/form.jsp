@@ -23,11 +23,11 @@
 	<acme:input-textbox code="any.claim.list.label.department" path="department"/>	
 	<acme:input-textbox code="any.claim.list.label.email" path="email"/>
 	<acme:input-url code="any.claim.list.label.link" path="link"/>
-	<acme:input-checkbox code="any.claim.list.label.confirmation" path="confirmation"/>	
+	<acme:input-checkbox code="any.claim.form.label.publishIndication" path="publishIndication"/>	
 	
 	<jstl:choose>		
         <jstl:when test="${_command == 'show' }"/>
-        <jstl:when test="${_command=='create'&& confirmation == false}">
+        <jstl:when test="${_command=='create'&& publishIndication == true}">
 			<acme:submit code="any.claim.form.button.create" action="/any/claim/create"/>			
 		</jstl:when>
     </jstl:choose>
