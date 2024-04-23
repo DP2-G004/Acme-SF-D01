@@ -1,0 +1,12 @@
+any.contract.form.label.code = Código
+any.contract.list.label.code = Código
+any.contract.form.label.instantiation = Momento de creación
+any.contract.form.label.details = Detalles
+any.contract.form.label.providerName = Nombre del proveedor
+any.contract.form.label.customerName = Nombre del cliente
+any.contract.form.label.goals = Objetivos
+any.contract.form.label.budget = Presupuesto
+any.contract.form.label.draftMode = Es borrador
+any.contract.list.label.draftMode = Es borrador
+any.contract.form.title = Módulo de contrato
+any.contract.list.title = Módulos de contrato

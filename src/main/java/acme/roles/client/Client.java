@@ -1,5 +1,5 @@
 
-package acme.roles;
+package acme.roles.client;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -32,8 +32,8 @@ public class Client extends AbstractRole {
 	@NotBlank
 	@Length(max = 75)
 	private String				companyName;
-	@NotBlank
-	private String				type;
+	@NotNull
+	private ClientType			type;
 
 	@NotBlank
 	@Email

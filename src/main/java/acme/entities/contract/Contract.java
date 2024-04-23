@@ -9,6 +9,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
@@ -20,7 +21,9 @@ import org.hibernate.annotations.OnDeleteAction;
 import org.hibernate.validator.constraints.Length;
 
 import acme.client.data.AbstractEntity;
+import acme.client.data.datatypes.Money;
 import acme.entities.project.Project;
+import acme.roles.client.Client;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -49,20 +52,22 @@ public class Contract extends AbstractEntity {
 	@Past
 	private Date				instantiationMoment;
 
-	@NotBlank
-	@Length(max = 75)
-	private String				providerName;
+	@Valid
+	@ManyToOne
+	@JoinColumn(name = "provider_name_id", nullable = false)
+	private Project				providerName;
 
-	@NotBlank
-	@Length(max = 75)
-	private String				customerName;
+	@Valid
+	@ManyToOne
+	@JoinColumn(name = "customer_name_id", nullable = false)
+	private Client				customerName;
 
 	@NotBlank
 	@Length(max = 100)
 	private String				goals;
 
-	//que sea menor al coste del proyecto se gestionará en el servicio
+	public Money				budget;
 
-	private int					budget;
+	private boolean				draftMode;
 
 }

@@ -10,7 +10,7 @@ import acme.client.data.accounts.UserAccount;
 import acme.client.data.models.Dataset;
 import acme.client.helpers.PrincipalHelper;
 import acme.client.services.AbstractService;
-import acme.roles.Client;
+import acme.roles.client.Client;
 
 @Service
 public class AuthenticatedClientCreateService extends AbstractService<Authenticated, Client> {

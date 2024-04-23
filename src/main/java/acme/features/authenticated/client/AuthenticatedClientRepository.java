@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import acme.client.data.accounts.UserAccount;
 import acme.client.repositories.AbstractRepository;
-import acme.roles.Client;
+import acme.roles.client.Client;
 
 @Repository
 public interface AuthenticatedClientRepository extends AbstractRepository {

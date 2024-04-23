@@ -1,0 +1,19 @@
+client.progress.list.label.record = Record
+client.progress.form.label.record = Record
+client.progress.form.label.completeness = Completeness
+client.progress.form.label.comment = Comment
+client.progress.form.label.registration = Registration date
+client.progress.form.label.responsable = Responsible person
+
+client.progress.form.button.update = Update
+client.progress.form.button.create = Create
+client.progress.list.button.create = Create
+client.progress.form.button.delete = Delete
+client.progress.form.button.publish = Publish
+
+client.progress.form.error.duplicated-code = Duplicated code
+any.contract.form.label.registration
+client.progress.list.title = Progress logs
+client.progress.form.title = Progress log
+client.progress.list.label.project = Project
+client.progress.list.label.draftMode = Is draft

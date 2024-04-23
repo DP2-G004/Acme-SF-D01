@@ -1,0 +1,13 @@
+any.contract.form.label.code = Code
+any.contract.list.label.code = Code
+any.contract.form.label.instantiation = Creation moment
+any.contract.form.label.details = Details
+any.contract.form.label.providerName = Provider name
+any.contract.form.label.customerName = Customer name
+any.contract.form.label.goals = Goals
+any.contract.form.label.budget = Budget
+any.contract.form.label.draftMode = Is draft
+any.contract.list.label.draftMode = Is draft
+
+any.contract.form.title = Contract module
+any.contract.list.title = Contract modules

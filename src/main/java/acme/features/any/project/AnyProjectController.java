@@ -1,5 +1,5 @@
 
-package acme.features.authenticated.client;
+package acme.features.any.project;
 
 import javax.annotation.PostConstruct;
 
@@ -7,26 +7,26 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import acme.client.controllers.AbstractController;
-import acme.client.data.accounts.Authenticated;
-import acme.roles.client.Client;
+import acme.client.data.accounts.Any;
+import acme.entities.project.Project;
 
 @Controller
-public class AuthenticatedClientController extends AbstractController<Authenticated, Client> {
+public class AnyProjectController extends AbstractController<Any, Project> {
+
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private AuthenticatedClientCreateService	createService;
+	protected AnyProjectListService	listService;
 
 	@Autowired
-	private AuthenticatedClientUpdateService	updateService;
+	protected AnyProjectShowService	showService;
 
 	// Constructors -----------------------------------------------------------
 
 
 	@PostConstruct
 	protected void initialise() {
-		super.addBasicCommand("create", this.createService);
-		super.addBasicCommand("update", this.updateService);
+		super.addBasicCommand("list", this.listService);
+		super.addBasicCommand("show", this.showService);
 	}
-
 }

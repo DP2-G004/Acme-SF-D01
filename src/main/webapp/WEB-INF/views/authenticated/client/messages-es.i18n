@@ -1,10 +1,10 @@
-authenticated.consumer.form.title = Detalles de cliente
+authenticated.client.form.title = Detalles de cliente
 
-authenticated.consumer.form.label.identification = Identificación
-authenticated.consumer.form.label.companyName = Nombre de la compañía
-authenticated.consumer.form.label.type = Tipo
-authenticated.consumer.form.label.email = Email
-authenticated.consumer.form.label.link = Link
+authenticated.client.form.label.identification = Identificación
+authenticated.client.form.label.companyName = Nombre de la compañía
+authenticated.client.form.label.type = Tipo
+authenticated.client.form.label.email = Email
+authenticated.client.form.label.link = Link
 
-authenticated.consumer.form.button.create = Registrar
-authenticated.consumer.form.button.update = Actualizar
+authenticated.client.form.button.create = Registrar
+authenticated.client.form.button.update = Actualizar

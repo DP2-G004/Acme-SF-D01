@@ -1,0 +1,13 @@
+any.project.form.label.code = Code
+any.project.list.label.code = Code
+any.project.form.label.title = Title
+any.project.list.label.title = Title
+any.project.form.label.abstract = Abstract
+any.project.form.label.link = Link
+any.project.form.label.totalCost = Total cost
+any.project.form.label.hasErrors = Has errors
+any.project.form.label.draftMode = Is draft
+any.project.list.label.draftMode = Is draft
+
+any.project.form.title = Proyect
+any.project.list.title = Proyects

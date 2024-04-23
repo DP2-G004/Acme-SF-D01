@@ -29,6 +29,8 @@ master.menu.anonymous.favourite-link-josgardel8 = 29589177E: García de Tejada D
 
 master.menu.any=Cualquiera
 master.menu.any.claim=Reclamaciones
+master.menu.any.list.project=Proyectos
+master.menu.any.list.contract=Contratos
 
 # master.menu.authenticated #######################################################
 
@@ -47,6 +49,14 @@ master.menu.administrator.populate-sample = Poblar BD (ejemplos)
 master.menu.administrator.shut-down = Parar el sistema
 master.menu.administrator.banner.list = Lista Banners
 master.menu.administrator.risk.list = Lista de riesgos
+
+
+# master.menu.client ##########################################################
+
+master.menu.client = Cliente
+master.menu.list.contract = Tus contratos
+master.menu.list.progress = Tus progresos
+master.menu.show.client-dashboard = Panel de indicadores
 
 # master.menu.manager ###################################################
 
