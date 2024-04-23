@@ -23,3 +23,6 @@
 	<acme:list-column code="auditor.code-audit.list.mark" path="mark"/>	
 	<acme:list-column code="auditor.code-audit.list.link" path="link"/>	
 </acme:list>
+
+<acme:button code="auditor.code-audit.list.button.create" action="/auditor/code-audit/create"/>
+

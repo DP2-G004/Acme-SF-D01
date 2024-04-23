@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.client.data.models.Dataset;
+import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
 import acme.entities.code_audit.CodeAudit;
@@ -17,26 +18,29 @@ import acme.roles.Auditor;
 @Service
 public class AuditorCodeAuditCreateService extends AbstractService<Auditor, CodeAudit> {
 
+	// Internal state ---------------------------------------------------------
+
 	@Autowired
-	AuditorCodeAuditRepository repository;
+	private AuditorCodeAuditRepository repository;
+
+	// AbstractService interface ----------------------------------------------
 
 
 	@Override
 	public void authorise() {
-		boolean status;
-		status = super.getRequest().getPrincipal().hasRole(Auditor.class);
-
-		super.getResponse().setAuthorised(status);
+		super.getResponse().setAuthorised(true);
 	}
 
 	@Override
 	public void load() {
-		CodeAudit object = new CodeAudit();
+		CodeAudit object;
+		Auditor auditor;
 
-		object.setDraftMode(false);
-
-		Auditor auditor = this.repository.findAuditorById(super.getRequest().getPrincipal().getActiveRoleId());
+		auditor = this.repository.findAuditorById(super.getRequest().getPrincipal().getActiveRoleId());
+		object = new CodeAudit();
+		object.setDraftMode(true);
 		object.setAuditor(auditor);
+
 		super.getBuffer().addData(object);
 	}
 
@@ -44,21 +48,21 @@ public class AuditorCodeAuditCreateService extends AbstractService<Auditor, Code
 	public void bind(final CodeAudit object) {
 		assert object != null;
 
-		int projectId = super.getRequest().getData("project", int.class);
-		Project project = this.repository.findOneProjectById(projectId);
-		object.setProject(project);
-		super.bind(object, "code", "type", "link", "draftMode", "executionDate", "correctiveActions");
-
+		super.bind(object, "code", "executionDate", "type", "correctiveActions", "link", "project");
 	}
-
 	@Override
 	public void validate(final CodeAudit object) {
 		assert object != null;
 
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
-			final boolean duplicatedCode = this.repository.findAllCodeAudits().stream().anyMatch(e -> e.getCode().equals(object.getCode()));
-			super.state(!duplicatedCode, "code", "validation.codeaudit.code.duplicate");
+			CodeAudit existing;
+
+			existing = this.repository.findOneCodeAuditByCode(object.getCode());
+			super.state(existing == null, "code", "Auditor.CodeAudit.form.error.duplicated");
 		}
+
+		if (!super.getBuffer().getErrors().hasErrors("executionDate"))
+			super.state(MomentHelper.isPast(object.getExecutionDate()), "executionDate", "Auditor.CodeAudit.form.error.too-close");
 
 	}
 
@@ -73,14 +77,21 @@ public class AuditorCodeAuditCreateService extends AbstractService<Auditor, Code
 	public void unbind(final CodeAudit object) {
 		assert object != null;
 
-		Collection<Project> allProjects = this.repository.findAllProjects();
-		SelectChoices projects = SelectChoices.from(allProjects, "code", object.getProject());
-		SelectChoices choices = SelectChoices.from(CodeAuditType.class, object.getType());
+		Collection<Project> projects;
+		SelectChoices choices;
+		SelectChoices types;
+		Dataset dataset;
 
-		Dataset dataset = super.unbind(object, "code", "draftMode", "execution", "type", "correctiveActions", "link");
-		dataset.put("project", projects.getSelected().getKey());
-		dataset.put("projects", projects);
-		dataset.put("auditTypes", choices);
+		types = SelectChoices.from(CodeAuditType.class, object.getType());
+
+		projects = this.repository.findAllProjects();
+		choices = SelectChoices.from(projects, "code", object.getProject());
+
+		dataset = super.unbind(object, "code", "executionDate", "correctiveActions", "link", "draftMode");
+		dataset.put("type", types.getSelected().getKey());
+		dataset.put("auditTypes", types);
+		dataset.put("project", choices.getSelected().getKey());
+		dataset.put("projects", choices);
 
 		super.getResponse().addData(dataset);
 	}

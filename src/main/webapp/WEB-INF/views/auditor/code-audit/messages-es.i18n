@@ -1,6 +1,7 @@
 # auditor.code-audit.list ############################################
 
 auditor.code-audit.list.title = Code Audits
+auditor.code-audit.list.button.create = Crear Code Audit
 
 auditor.code-audit.list.code = Codigo
 auditor.code-audit.list.project = Proyecto
@@ -10,6 +11,8 @@ auditor.code-audit.list.link = Link
 auditor.code-audit.list.draft-mode = Draft-mode
 
 # auditor.code-audit.form ############################################
+
+auditor.code-audit.form.title = Code Audit
 
 auditor.code-audit.form.button.audit-records = Lista Audit Records
 auditor.code-audit.form.button.update = Actualizar
