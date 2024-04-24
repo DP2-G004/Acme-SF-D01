@@ -68,6 +68,15 @@
 			<acme:menu-suboption code="master.menu.sponsor.list-sponsorship" action="/sponsor/sponsorship/list-mine"/>
 		</acme:menu-option>
 		
+		<acme:menu-option code="master.menu.auditor" access="hasRole('Auditor')">
+			<acme:menu-suboption code="master.menu.auditor.code-audit.list" action="/auditor/code-audit/list-mine"/>
+			<acme:menu-suboption code="master.menu.auditor.audit-record.list-my-audit-records" action="/auditor/audit-record/list-mine"/>
+			<acme:menu-separator/>
+			<acme:menu-suboption code="master.menu.auditor.code-audit.create" action="/auditor/code-audit/create"/>
+			<acme:menu-suboption code="master.menu.auditor.audit-record.create" action="/auditor/audit-record/create"/>
+			<acme:menu-separator/>
+		</acme:menu-option>
+		
 	</acme:menu-left>
 
 	<acme:menu-right>
