@@ -4,13 +4,16 @@ package acme.features.auditor.audit_record;
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+import acme.client.data.accounts.Principal;
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
 import acme.entities.audit_record.AuditRecord;
 import acme.roles.Auditor;
 
-public class AuditorAuditrecordListService extends AbstractService<Auditor, AuditRecord> {
+@Service
+public class AuditorAuditRecordListMineService extends AbstractService<Auditor, AuditRecord> {
 
 	@Autowired
 	private AuditorAuditRecordRepository repository;
@@ -18,16 +21,15 @@ public class AuditorAuditrecordListService extends AbstractService<Auditor, Audi
 
 	@Override
 	public void authorise() {
-		boolean status;
-		status = super.getRequest().getPrincipal().hasRole(Auditor.class);
 
-		super.getResponse().setAuthorised(status);
+		super.getResponse().setAuthorised(true);
 	}
 
 	@Override
 	public void load() {
-		//CORREGIR
-		Collection<AuditRecord> objects = this.repository.findAllAuditRecords();
+
+		Principal principal = super.getRequest().getPrincipal();
+		Collection<AuditRecord> objects = this.repository.findManyAuditRecordsByAuditorId(principal.getActiveRoleId());
 
 		super.getBuffer().addData(objects);
 	}
@@ -36,8 +38,8 @@ public class AuditorAuditrecordListService extends AbstractService<Auditor, Audi
 	public void unbind(final AuditRecord object) {
 		assert object != null;
 
-		Dataset dataset = super.unbind(object, "lastInstantiationMoment", "endOfInstantiation", "pictureLink", "slogan", "link");
+		Dataset dataset = super.unbind(object, "code", "mark");
+
 		super.getResponse().addData(dataset);
 	}
-
 }
