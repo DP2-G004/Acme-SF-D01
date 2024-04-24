@@ -29,7 +29,7 @@ public interface ManagerProjectUserStoryLinkRepository extends AbstractRepositor
 	Collection<ProjectUserStoryLink> findLinksByProjectId(int id);
 	@Query("select pus.project.manager from ProjectUserStoryLink pus where pus.id =:id")
 	Manager findProjectManagerByLinkId(int id);
-	@Query("select pus from ProjectUserStoryLink pus where pus.project.manager.userAccount.id = :id and pus.userStory.manager.userAccount.id = :id")
+	@Query("select pus from ProjectUserStoryLink pus where pus.project.manager.id = :id and pus.userStory.manager.id = :id")
 	Collection<ProjectUserStoryLink> findLinksByManagerId(int id);
 	@Query("select pus from ProjectUserStoryLink pus where pus.id=:id")
 	Collection<ProjectUserStoryLink> findLinksById(int id);

@@ -26,14 +26,16 @@ public class ManagerProjectUserStoryLinkListService extends AbstractService<Mana
 	}
 	@Override
 	public void load() {
-		int id = super.getRequest().getData("id", int.class);
-		Collection<ProjectUserStoryLink> links = this.listRepository.findLinksById(id);
+		int id = super.getRequest().getPrincipal().getActiveRoleId();
+		Collection<ProjectUserStoryLink> links = this.listRepository.findLinksByManagerId(id);
 		super.getBuffer().addData(links);
 	}
 	@Override
 	public void unbind(final ProjectUserStoryLink object) {
 		assert object != null;
 		Dataset dataset = super.unbind(object, "project", "userStory");
+		dataset.put("code", object.getProject().getCode());
+		dataset.put("title", object.getUserStory().getTitle());
 		super.getResponse().addData(dataset);
 	}
 }
