@@ -1,7 +1,10 @@
 
 package acme.forms;
 
+import java.util.Map;
+
 import acme.client.data.AbstractForm;
+import acme.entities.code_audit.CodeAuditType;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -9,17 +12,19 @@ import lombok.Setter;
 @Setter
 public class AuditorDashboard extends AbstractForm {
 
-	private static final long	serialVersionUID	= 1L;
+	private static final long			serialVersionUID	= 1L;
 
-	int							numTotalCodeAudits;
+	int									numTotalCodeAudits;
 
-	double						averageNumAuditRecords;
-	double						derivationNumAuditRecords;
-	int							minNumAuditRecords;
-	int							maxNumAuditRecords;
+	double								averageNumAuditRecords;
+	double								derivationNumAuditRecords;
+	int									minNumAuditRecords;
+	int									maxNumAuditRecords;
 
-	double						averagePeriodLength;
-	double						derivationPeriodLength;
-	int							minPeriodLength;
-	int							maxPeriodLength;
+	double								averagePeriodLength;
+	double								derivationPeriodLength;
+	int									minPeriodLength;
+	int									maxPeriodLength;
+
+	private Map<CodeAuditType, Integer>	numAuditsPerType;
 }
