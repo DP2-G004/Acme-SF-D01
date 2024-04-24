@@ -13,18 +13,18 @@ import lombok.Setter;
 public class AuditorDashboard extends AbstractForm {
 
 	private static final long			serialVersionUID	= 1L;
-
-	int									numTotalCodeAudits;
+	//Algunos valores son Integer para admitir valores nulos mientras no se pueda calcular nada
+	Integer								numTotalCodeAudits;
 
 	double								averageNumAuditRecords;
 	double								derivationNumAuditRecords;
-	int									minNumAuditRecords;
-	int									maxNumAuditRecords;
+	Integer								minNumAuditRecords;
+	Integer								maxNumAuditRecords;
 
 	double								averagePeriodLength;
 	double								derivationPeriodLength;
-	int									minPeriodLength;
-	int									maxPeriodLength;
+	double								minPeriodLength;
+	double								maxPeriodLength;
 
-	private Map<CodeAuditType, Integer>	numAuditsPerType;
+	private Map<CodeAuditType, Integer>	numAuditsPorTipo;
 }
