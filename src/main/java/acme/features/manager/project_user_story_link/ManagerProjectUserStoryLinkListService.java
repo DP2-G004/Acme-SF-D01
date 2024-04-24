@@ -8,7 +8,9 @@ import org.springframework.stereotype.Service;
 
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
+import acme.entities.project.Project;
 import acme.entities.project_userstory_link.ProjectUserStoryLink;
+import acme.entities.userstory.UserStory;
 import acme.roles.Manager;
 
 @Service
@@ -30,12 +32,24 @@ public class ManagerProjectUserStoryLinkListService extends AbstractService<Mana
 		Collection<ProjectUserStoryLink> links = this.listRepository.findLinksByManagerId(id);
 		super.getBuffer().addData(links);
 	}
+
 	@Override
 	public void unbind(final ProjectUserStoryLink object) {
 		assert object != null;
-		Dataset dataset = super.unbind(object, "project", "userStory");
-		dataset.put("code", object.getProject().getCode());
-		dataset.put("title", object.getUserStory().getTitle());
+
+		Project project;
+		UserStory userStory;
+		int projectUserStoryId;
+		Dataset dataset;
+
+		projectUserStoryId = object.getId();
+		project = this.listRepository.findOneProjectByProjectUserStoryId(projectUserStoryId);
+		userStory = this.listRepository.findOneUserStoryByProjectUserStoryId(projectUserStoryId);
+
+		dataset = super.unbind(object, "userStory", "project");
+		dataset.put("project", project.getCode());
+		dataset.put("userStory", userStory.getTitle());
+
 		super.getResponse().addData(dataset);
 	}
 }

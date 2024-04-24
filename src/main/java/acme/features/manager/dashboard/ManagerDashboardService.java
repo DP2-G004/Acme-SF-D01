@@ -56,10 +56,10 @@ public class ManagerDashboardService extends AbstractService<Manager, ManagerDas
 		Collection<UserStory> userStories = this.repository.findUserStoriesByManagerId(managerId);
 
 		if (!projects.isEmpty()) {
-			averageProjectCost = this.repository.averageProjectCost(managerId);
-			deviationProjectCost = this.repository.deviationProjectCost(managerId);
-			minimumProjectCost = this.repository.minimumProjectCost(managerId);
-			maximumProjectCost = this.repository.maximumProjectCost(managerId);
+			averageProjectCost = this.repository.averageProjectCost(managerId, false);
+			deviationProjectCost = this.repository.deviationProjectCost(managerId, false);
+			minimumProjectCost = this.repository.minimumProjectCost(managerId, false);
+			maximumProjectCost = this.repository.maximumProjectCost(managerId, false);
 
 			dashboard.setAverageProjectCost(averageProjectCost);
 			dashboard.setDeviationProjectCost(deviationProjectCost);
@@ -72,15 +72,15 @@ public class ManagerDashboardService extends AbstractService<Manager, ManagerDas
 			dashboard.setMaximumProjectCost(Double.NaN);
 		}
 		if (!userStories.isEmpty()) {
-			totalMustPriorityUserStories = this.repository.numUserStoriesByPriority(managerId, Priority.MUST);
-			totalShouldPriorityUserStories = this.repository.numUserStoriesByPriority(managerId, Priority.SHOULD);
-			totalCouldPriorityUserStories = this.repository.numUserStoriesByPriority(managerId, Priority.COULD);
-			totalWontPriorityUserStories = this.repository.numUserStoriesByPriority(managerId, Priority.WONT);
+			totalMustPriorityUserStories = this.repository.numUserStoriesByPriority(managerId, Priority.MUST, false);
+			totalShouldPriorityUserStories = this.repository.numUserStoriesByPriority(managerId, Priority.SHOULD, false);
+			totalCouldPriorityUserStories = this.repository.numUserStoriesByPriority(managerId, Priority.COULD, false);
+			totalWontPriorityUserStories = this.repository.numUserStoriesByPriority(managerId, Priority.WONT, false);
 
-			averageUserStoryCost = this.repository.avgUserStoryCost(managerId);
-			deviationUserStoryCost = this.repository.deviationUserStoryCostByManager(managerId);
-			minimumUserStoryCost = this.repository.minUserStoryCost(managerId);
-			maximumUserStoryCost = this.repository.maxUserStoryCost(managerId);
+			averageUserStoryCost = this.repository.avgUserStoryCost(managerId, false);
+			deviationUserStoryCost = this.repository.deviationUserStoryCostByManager(managerId, false);
+			minimumUserStoryCost = this.repository.minUserStoryCost(managerId, false);
+			maximumUserStoryCost = this.repository.maxUserStoryCost(managerId, false);
 
 			dashboard.setTotalMustPriorityUserStories(totalMustPriorityUserStories);
 			dashboard.setTotalShouldPriorityUserStories(totalShouldPriorityUserStories);

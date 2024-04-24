@@ -33,9 +33,7 @@ manager.project.form.button.publish = Publicar
 manager.project.form.button.create = Crear Proyecto
 manager.project.form.button.list-user-stories=Listar historias de usuario
 
-
 manager.project.form.error.duplicated=El código está duplicado
 manager.project.form.error.containing-fatal-errors=¡El proyecto contiene errores fatales!
 manager.project.error.not-enough-user-stories=El proyecto debe tener como mínimo una historia de usuario
-
-manager.project.form.button.link-project-user-stories=Enlazar historias de usuario
+manager.project.error.not-all-published-user-stories=Todas las historias de usuario deben estar publicadas para publicar un proyecto

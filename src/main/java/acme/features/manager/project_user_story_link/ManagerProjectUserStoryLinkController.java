@@ -18,11 +18,9 @@ public class ManagerProjectUserStoryLinkController extends AbstractController<Ma
 	@Autowired
 	private ManagerProjectUserStoryLinkShowService		showService;
 	@Autowired
-	private ManagerProjectUserStoryLinkShowService		createService;
+	private ManagerProjectUserStoryLinkCreateService	createService;
 	@Autowired
-	private ManagerProjectUserStoryLinkShowService		deleteService;
-	@Autowired
-	private ManagerProjectUserStoryLinkUpdateService	updateService;
+	private ManagerProjectUserStoryLinkDeleteService	deleteService;
 
 
 	@PostConstruct
@@ -31,6 +29,5 @@ public class ManagerProjectUserStoryLinkController extends AbstractController<Ma
 		super.addBasicCommand("show", this.showService);
 		super.addBasicCommand("create", this.createService);
 		super.addBasicCommand("delete", this.deleteService);
-		super.addBasicCommand("update", this.updateService);
 	}
 }

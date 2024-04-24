@@ -16,7 +16,6 @@ manager.link.form.label.project=Proyecto
 
 manager.link.label.create= Crear
 manager.link.form.button.create= Crear
-manager.link.form.button.update= Actualizar
 
 manager.link.form.button.delete=Borrar
 manager.link.form.button.create=Asignar
@@ -25,3 +24,5 @@ manager.project-user-story-link.list.title=Asignaciones
 manager.project-user-story-link.form.title=Asignación
 
 manager.project.form.error.duplicated-user-story= Historia de usuario duplicada
+manager.link.form.error.existing-project-assignment=La asignación ya existe
+manager.link.form.error.published-project=No puedes asignar historias de usuario a un proyecto ya publicado

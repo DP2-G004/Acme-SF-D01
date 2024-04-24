@@ -22,7 +22,6 @@
 	<acme:input-textbox code="manager.user-story.form.label.acceptance-criteria" path="acceptanceCriteria"/>	
 	<acme:input-select code="manager.user-story.form.label.priority" path="priority" choices="${priorities}"/>
 	<acme:input-url code="manager.user-story.form.label.link" path="link"/>	
-	<acme:input-checkbox code="manager.user-story.form.label.draft-mode" path="draftMode"/>	
 	
 	<jstl:choose>
 		<jstl:when test="${_command == 'show' && draftMode == false}">
@@ -31,6 +30,7 @@
             <acme:submit code="manager.user-story.form.button.update" action="/manager/user-story/update"/>
             <acme:submit code="manager.user-story.form.button.delete" action="/manager/user-story/delete"/>
             <acme:submit code="manager.user-story.form.button.publish" action="/manager/user-story/publish"/>
+            <acme:input-checkbox code="manager.user-story.form.label.draft-mode" path="draftMode"/>	
         </jstl:when>
         <jstl:when test="${_command == 'create'}">
             <acme:submit code="manager.user-story.form.button.create" action="/manager/user-story/create"/>

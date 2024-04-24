@@ -20,4 +20,6 @@
 	<acme:list-column code="manager.link.list.label.userStory" path="userStory"/>
 </acme:list>
 
-<acme:button code="manager.link.label.create" action="/manager/project-user-story-link/create"/>
+<jstl:if test="${_command == 'list'}">
+	<acme:button code="manager.link.list.label.create" action="/manager/project-user-story-link/create"/>
+</jstl:if>
