@@ -53,7 +53,7 @@ public class AuditorCodeAuditShowService extends AbstractService<Auditor, CodeAu
 
 		Collection<Mark> marks = this.repository.findMarksByAuditId(object.getId());
 		markMode = MarkMode.calculateMode(marks);
-		Collection<Project> allProjects = this.repository.findAllProjects();
+		Collection<Project> allProjects = this.repository.findAllPublishedProjects();
 		projects = SelectChoices.from(allProjects, "code", object.getProject());
 		choices = SelectChoices.from(CodeAuditType.class, object.getType());
 
