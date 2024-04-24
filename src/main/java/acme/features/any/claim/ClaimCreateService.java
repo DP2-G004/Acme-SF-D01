@@ -34,8 +34,8 @@ public class ClaimCreateService extends AbstractService<Any, Claim> {
 	@Override
 	public void validate(final Claim object) {
 		assert object != null;
-		if (!super.getBuffer().getErrors().hasErrors("publish-indication"))
-			super.state(object.isPublishIndication(), "publish-indication", "any.claim.form.error.indication");
+		if (!super.getBuffer().getErrors().hasErrors("publishIndication"))
+			super.state(object.isPublishIndication(), "publishIndication", "any.claim.form.error.indication");
 	}
 	@Override
 	public void perform(final Claim object) {
