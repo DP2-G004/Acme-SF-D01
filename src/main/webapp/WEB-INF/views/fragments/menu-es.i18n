@@ -58,6 +58,14 @@ master.menu.manager.list-project = Proyectos
 master.menu.provider = Proveedor
 master.menu.provider.favourite-link = Enlace favorito
 
+# master.menu.auditor ##########################################################
+
+master.menu.auditor = Auditor
+master.menu.auditor.code-audit.list = Listar mis Code Audits
+master.menu.auditor.audit-record.list-my-audit-records = Listar mis Code Audits
+master.menu.auditor.code-audit.create = Crear Code Audit
+master.menu.auditor.audit-record.create = Crear Audit Record
+
 # master.menu.consumer ##########################################################
 
 master.menu.consumer = Consumidor

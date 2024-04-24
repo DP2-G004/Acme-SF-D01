@@ -1,0 +1,31 @@
+# auditor.code-audit.list ############################################
+
+auditor.code-audit.list.title = Code Audits
+auditor.code-audit.list.button.create = Create Code Audit
+
+auditor.code-audit.list.code = Code
+auditor.code-audit.list.project = Project
+auditor.code-audit.list.type = Type
+auditor.code-audit.list.mark = Mark
+auditor.code-audit.list.link = Link
+auditor.code-audit.list.draft-mode = Draft-mode
+
+# auditor.code-audit.form ############################################
+
+auditor.code-audit.form.title = Code Audit
+
+auditor.code-audit.form.button.audit-records = List Audit Records
+auditor.code-audit.form.button.update = Update
+auditor.code-audit.form.button.delete = Delete
+auditor.code-audit.form.button.publish = Publish
+auditor.code-audit.form.button.create = Create
+
+# auditor.code-audit.label ###########################################
+
+auditor.code-audit.label.code = Code
+auditor.code-audit.label.executionDate = Execution Date
+auditor.code-audit.label.type = Type
+auditor.code-audit.label.markMode = Mark
+auditor.code-audit.label.correctiveActions = Corrective Actions
+auditor.code-audit.label.link = Link
+auditor.code-audit.label.project = Project
