@@ -81,7 +81,7 @@ public class AuditorCodeAuditUpdateService extends AbstractService<Auditor, Code
 		SelectChoices projects;
 		Dataset dataset;
 
-		Collection<Project> allProjects = this.repository.findAllProjects();
+		Collection<Project> allProjects = this.repository.findAllPublishedProjects();
 		projects = SelectChoices.from(allProjects, "code", object.getProject());
 		choices = SelectChoices.from(CodeAuditType.class, object.getType());
 

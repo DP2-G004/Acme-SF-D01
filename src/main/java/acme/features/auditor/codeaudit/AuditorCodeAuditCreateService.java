@@ -84,7 +84,7 @@ public class AuditorCodeAuditCreateService extends AbstractService<Auditor, Code
 
 		types = SelectChoices.from(CodeAuditType.class, object.getType());
 
-		projects = this.repository.findAllProjects();
+		projects = this.repository.findAllPublishedProjects();
 		choices = SelectChoices.from(projects, "code", object.getProject());
 
 		dataset = super.unbind(object, "code", "executionDate", "correctiveActions", "link", "draftMode");
