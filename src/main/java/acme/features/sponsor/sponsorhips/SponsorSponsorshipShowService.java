@@ -6,7 +6,9 @@ import org.springframework.stereotype.Service;
 
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
+import acme.client.views.SelectChoices;
 import acme.entities.sponsorship.Sponsorship;
+import acme.entities.sponsorship.SponsorshipType;
 import acme.roles.Sponsor;
 
 @Service
@@ -46,8 +48,20 @@ public class SponsorSponsorshipShowService extends AbstractService<Sponsor, Spon
 	@Override
 	public void unbind(final Sponsorship object) {
 		assert object != null;
+
 		Dataset dataset;
-		dataset = super.unbind(object, "code", "moment", "startDate", "endDate", "amount", "type", "email", "link");
+		SelectChoices projects;
+		SelectChoices types;
+
+		types = SelectChoices.from(SponsorshipType.class, object.getType());
+		projects = SelectChoices.from(this.repository.findAllProjects(), "code", object.getProject());
+
+		dataset = super.unbind(object, "code", "moment", "startDate", "endDate", "amount", "type", "email", "link", "draftMode");
+
+		dataset.put("types", types);
+		dataset.put("projects", projects);
+		dataset.put("project", projects.getSelected().getKey());
+
 		super.getResponse().addData(dataset);
 	}
 }
