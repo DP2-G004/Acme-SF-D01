@@ -85,13 +85,12 @@ public class ManagerUserStoryCreateInProjectService extends AbstractService<Mana
 
 		Dataset dataset;
 		SelectChoices choices;
-		Project project;
+
 		int projectId;
 
 		choices = SelectChoices.from(Priority.class, object.getPriority());
 
 		projectId = super.getRequest().getData(ManagerUserStoryCreateInProjectService.PROJECT_ID, int.class);
-		project = this.createRepository.findProjectById(projectId);
 
 		dataset = super.unbind(object, "title", "description", "estimatedCost", "acceptanceCriteria", "priority", "link", "draft-mode");
 		dataset.put(ManagerUserStoryCreateInProjectService.PROJECT_ID, super.getRequest().getData(ManagerUserStoryCreateInProjectService.PROJECT_ID, int.class));
