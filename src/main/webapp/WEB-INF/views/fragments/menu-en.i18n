@@ -51,6 +51,8 @@ master.menu.administrator.risk.list = Risks List
 master.menu.manager = Manager
 master.menu.manager.show-manager-dashboard = Dashboard
 master.menu.manager.list-project = Projects
+master.menu.manager.list-user-story= User Stories
+master.menu.manager.list-links=Assignments
 
 # master.menu.developer ###################################################
 

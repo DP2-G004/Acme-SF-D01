@@ -52,6 +52,8 @@ master.menu.administrator.risk.list = Lista de riesgos
 master.menu.manager = Manager
 master.menu.manager.show-manager-dashboard = Panel de indicadores
 master.menu.manager.list-project = Proyectos
+master.menu.manager.list-user-story=Historias de usuario
+master.menu.manager.list-links=Asignaciones
 
 # master.menu.developer ###################################################
 

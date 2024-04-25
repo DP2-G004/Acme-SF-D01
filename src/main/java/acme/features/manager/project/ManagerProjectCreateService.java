@@ -1,6 +1,8 @@
 
 package acme.features.manager.project;
 
+import java.util.Locale;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -62,6 +64,13 @@ public class ManagerProjectCreateService extends AbstractService<Manager, Projec
 	public void unbind(final Project object) {
 		Dataset dataset;
 		dataset = super.unbind(object, "code", "title", "summary", "indication", "cost", "link", "draft-mode");
+
+		if (object.isIndication()) {
+			final Locale local = super.getRequest().getLocale();
+
+			dataset.put("indication", local.equals(Locale.ENGLISH) ? "Yes" : "Sí");
+		} else
+			dataset.put("indication", "No");
 		super.getResponse().addData(dataset);
 	}
 }

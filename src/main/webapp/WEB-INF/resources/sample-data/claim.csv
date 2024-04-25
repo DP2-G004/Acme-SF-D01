@@ -1,24 +1,24 @@
-key,code,instantiationMoment,heading,description,department,email,link
-claim-05,C-1001,2012/08/08 20:44,"Extra non-paid hours","My whole scrum team spent six hours which were not included in our salary.","Electronics Department","claimer1@acme.com","https://www.weforum.org/agenda/2016/06/putting-in-extra-hours-at-work-and-not-being-paid-for-it-is-a-growing-trend/"
-claim-06,C-0010,2012/08/08 20:44,"Extra non-paid hours","My whole scrum team spent six hours which were not included in our salary.","Electronics Department","claimer1@acme.com","https://www.weforum.org/agenda/2016/06/putting-in-extra-hours-at-work-and-not-being-paid-for-it-is-a-growing-trend/"
-claim-07,C-5000,2012/08/08 20:44,"Extra non-paid hours","My whole scrum team spent six hours which were not included in our salary.","Electronics Department","claimer1@acme.com","https://www.weforum.org/agenda/2016/06/putting-in-extra-hours-at-work-and-not-being-paid-for-it-is-a-growing-trend/"
-claim-08,C-9997,2012/08/08 20:44,"Extra non-paid hours","My whole scrum team spent six hours which were not included in our salary.","Electronics Department","claimer1@acme.com","https://www.weforum.org/agenda/2016/06/putting-in-extra-hours-at-work-and-not-being-paid-for-it-is-a-growing-trend/"
-claim-09,C-9999,2012/08/08 20:44,"Extra non-paid hours","My whole scrum team spent six hours which were not included in our salary.","Electronics Department","claimer1@acme.com","https://www.weforum.org/agenda/2016/06/putting-in-extra-hours-at-work-and-not-being-paid-for-it-is-a-growing-trend/"
-claim-10,C-0012,2015/06/23 13:00,"Budget overflow","The invested budget exceeded two times what was planned.","Electronics Department","claimer2@acme.com",null
-claim-11,C-0013,2022/06/23 12:00,"Budget overflow","The invested budget exceeded two times what was planned.","Electronics Department","claimer2@acme.com",null
-claim-12,C-0014,2022/07/23 13:00,"Budget overflow","The invested budget exceeded two times what was planned.","Electronics Department","claimer2@acme.com",null
-claim-13,C-0015,2022/07/29 23:59,"Budget overflow","The invested budget exceeded two times what was planned.","Electronics Department","claimer2@acme.com",null
-claim-14,C-3333,2012/11/25 14:00,"Budget overflow","The invested budget exceeded two times what was planned.","Electronics Department","claimer2@acme.com",null
-claim-15,C-3355,2012/11/25 14:05,"Budget overflow","The invested budget exceeded two times what was planned.","Electronics Department","claimer2@acme.com",null
-claim-16,C-0118,2019/04/22 00:00,"Advocating for integrity and equity in technology. Responsible change","description","department","claimer@acme.com",null
-claim-17,C-0115,2019/04/22 00:00,"Tech Ethics: Fair & Responsible","description","department","claimer@acme.com",null
-claim-18,C-0016,2019/04/22 00:00,"C","description","department","claimer@acme.com",null
-claim-19,C-0017,2019/04/22 00:00,"Advocating for integrity and equity in technology.","description","department","claimer@acme.com",null
-claim-20,C-0018,2019/04/22 00:00,"heading","Standing together for just tech policies and ethical practices in informatics.","department","claimer@acme.com",null
-claim-21,C-0019,2019/04/22 00:00,"heading","S","department","claimer@acme.com",null
-claim-22,C-0020,2019/04/22 00:00,"heading","Standing for tech policies","department","claimer@acme.com",null
-claim-23,C-0021,2019/04/22 00:00,"heading","Standing together for just tech policies and ethical practices","department","claimer@acme.com",null
-claim-24,C-0022,2019/04/22 00:00,"heading","description","Department of Electrical and Computer Engineering and Robotics","claimer@acme.com",null
-claim-25,C-0023,2019/04/22 00:00,"heading","description","D","claimer@acme.com",null
-claim-26,C-0024,2019/04/22 00:00,"heading","description","Department of Computational Data Science and Engineering with Artificial Intelligence","claimer@acme.com",null
-claim-27,C-0025,2019/04/22 00:00,"heading","description","Electronics Department","claimer@acme.com",null
+key,code,instantiationMoment,heading,description,department,email,link,publishIndication
+claim-05,C-1001,2012/08/08 20:44,"Extra non-paid hours","My whole scrum team spent six hours which were not included in our salary.","Electronics Department","claimer1@acme.com","https://www.weforum.org/agenda/2016/06/putting-in-extra-hours-at-work-and-not-being-paid-for-it-is-a-growing-trend/",false
+claim-06,C-0010,2012/08/08 20:44,"Extra non-paid hours","My whole scrum team spent six hours which were not included in our salary.","Electronics Department","claimer1@acme.com","https://www.weforum.org/agenda/2016/06/putting-in-extra-hours-at-work-and-not-being-paid-for-it-is-a-growing-trend/",false
+claim-07,C-5000,2012/08/08 20:44,"Extra non-paid hours","My whole scrum team spent six hours which were not included in our salary.","Electronics Department","claimer1@acme.com","https://www.weforum.org/agenda/2016/06/putting-in-extra-hours-at-work-and-not-being-paid-for-it-is-a-growing-trend/",false
+claim-08,C-9997,2012/08/08 20:44,"Extra non-paid hours","My whole scrum team spent six hours which were not included in our salary.","Electronics Department","claimer1@acme.com","https://www.weforum.org/agenda/2016/06/putting-in-extra-hours-at-work-and-not-being-paid-for-it-is-a-growing-trend/",false
+claim-09,C-9999,2012/08/08 20:44,"Extra non-paid hours","My whole scrum team spent six hours which were not included in our salary.","Electronics Department","claimer1@acme.com","https://www.weforum.org/agenda/2016/06/putting-in-extra-hours-at-work-and-not-being-paid-for-it-is-a-growing-trend/",false
+claim-10,C-0012,2015/06/23 13:00,"Budget overflow","The invested budget exceeded two times what was planned.","Electronics Department","claimer2@acme.com",null,false
+claim-11,C-0013,2022/06/23 12:00,"Budget overflow","The invested budget exceeded two times what was planned.","Electronics Department","claimer2@acme.com",null,false
+claim-12,C-0014,2022/07/23 13:00,"Budget overflow","The invested budget exceeded two times what was planned.","Electronics Department","claimer2@acme.com",null,false
+claim-13,C-0015,2022/07/29 23:59,"Budget overflow","The invested budget exceeded two times what was planned.","Electronics Department","claimer2@acme.com",null,false
+claim-14,C-3333,2012/11/25 14:00,"Budget overflow","The invested budget exceeded two times what was planned.","Electronics Department","claimer2@acme.com",null,false
+claim-15,C-3355,2012/11/25 14:05,"Budget overflow","The invested budget exceeded two times what was planned.","Electronics Department","claimer2@acme.com",null,false
+claim-16,C-0118,2019/04/22 00:00,"Advocating for integrity and equity in technology. Responsible change","description","department","claimer@acme.com",null,false
+claim-17,C-0115,2019/04/22 00:00,"Tech Ethics: Fair & Responsible","description","department","claimer@acme.com",null,false
+claim-18,C-0016,2019/04/22 00:00,"C","description","department","claimer@acme.com",null,false
+claim-19,C-0017,2019/04/22 00:00,"Advocating for integrity and equity in technology.","description","department","claimer@acme.com",null,false
+claim-20,C-0018,2019/04/22 00:00,"heading","Standing together for just tech policies and ethical practices in informatics.","department","claimer@acme.com",null,false
+claim-21,C-0019,2019/04/22 00:00,"heading","S","department","claimer@acme.com",null,false
+claim-22,C-0020,2019/04/22 00:00,"heading","Standing for tech policies","department","claimer@acme.com",null,false
+claim-23,C-0021,2019/04/22 00:00,"heading","Standing together for just tech policies and ethical practices","department","claimer@acme.com",null,false
+claim-24,C-0022,2019/04/22 00:00,"heading","description","Department of Electrical and Computer Engineering and Robotics","claimer@acme.com",null,false
+claim-25,C-0023,2019/04/22 00:00,"heading","description","D","claimer@acme.com",null,false
+claim-26,C-0024,2019/04/22 00:00,"heading","description","Department of Computational Data Science and Engineering with Artificial Intelligence","claimer@acme.com",null,false
+claim-27,C-0025,2019/04/22 00:00,"heading","description","Electronics Department","claimer@acme.com",null,false
