@@ -56,6 +56,14 @@ master.menu.manager.list-project = Projects
 
 master.menu.developer = Developer
 
+# master.menu.auditor ##########################################################
+
+master.menu.auditor = Auditor
+master.menu.auditor.code-audit.list = List my Code Audits
+master.menu.auditor.audit-record.list-my-audit-records = List my Audit Records
+master.menu.auditor.code-audit.create = Create Code Audit
+master.menu.auditor.audit-record.create = Create Audit Record
+
 # master.menu.provider ########################################################
 
 master.menu.provider = Provider
@@ -65,6 +73,11 @@ master.menu.provider.favourite-link = Favourite link
 
 master.menu.consumer = Consumer
 master.menu.consumer.favourite-link = Favourite link
+
+# master.menu.sponsor ##########################################################
+
+master.menu.sponsor= Sponsor
+master.menu.sponsor.list-sponsorship= List sponsorship
 
 # master.menu.user-account ####################################################
 
@@ -77,3 +90,5 @@ master.menu.user-account.become-consumer = Become a consumer
 master.menu.user-account.become-manager= Become a manager
 master.menu.user-account.become-manager= Become a developer
 master.menu.user-account.manager= Manager data
+master.menu.user-account.become-sponsor=Become sponsor
+master.menu.user-account.sponsor=Sponsor data

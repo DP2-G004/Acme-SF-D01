@@ -66,6 +66,20 @@
 			<acme:menu-suboption code="master.menu.developer.show-developer-dashboard" action="/developer/developer-dashboard/show"/>
 			<acme:menu-suboption code="master.menu.developer.training-module.list" action="/developer/training-module/list-mine"/>
 		</acme:menu-option>
+
+		<acme:menu-option code="master.menu.sponsor" access="hasRole('Sponsor')">
+			<acme:menu-suboption code="master.menu.sponsor.list-sponsorship" action="/sponsor/sponsorship/list-mine"/>
+		</acme:menu-option>
+		
+		<acme:menu-option code="master.menu.auditor" access="hasRole('Auditor')">
+			<acme:menu-suboption code="master.menu.auditor.code-audit.list" action="/auditor/code-audit/list-mine"/>
+			<acme:menu-suboption code="master.menu.auditor.audit-record.list-my-audit-records" action="/auditor/audit-record/list-mine"/>
+			<acme:menu-separator/>
+			<acme:menu-suboption code="master.menu.auditor.code-audit.create" action="/auditor/code-audit/create"/>
+			<acme:menu-suboption code="master.menu.auditor.audit-record.create" action="/auditor/audit-record/create"/>
+			<acme:menu-separator/>
+		</acme:menu-option>
+		
 	</acme:menu-left>
 
 	<acme:menu-right>
@@ -81,6 +95,8 @@
 			<acme:menu-suboption code="master.menu.user-account.become-manager" action="/authenticated/manager/create" access="!hasRole('Manager')"/>
 			<acme:menu-suboption code="master.menu.user-account.manager" action="/authenticated/manager/update" access="hasRole('Manager')"/>
 			<acme:menu-suboption code="master.menu.user-account.become-developer" action="/authenticated/developer/create" access="!hasRole('Developer')"/>
+			<acme:menu-suboption code="master.menu.user-account.become-sponsor" action="/authenticated/sponsor/create" access="!hasRole('Sponsor')"/>
+			<acme:menu-suboption code="master.menu.user-account.sponsor" action="/authenticated/sponsor/update" access="hasRole('Sponsor')"/>
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.sign-out" action="/authenticated/system/sign-out" access="isAuthenticated()"/>

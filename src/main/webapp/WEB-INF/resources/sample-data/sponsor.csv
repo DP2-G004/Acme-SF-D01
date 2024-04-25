@@ -1,3 +1,3 @@
 key,key:userAccount,name,expectedBenefits,web,email
-Sponsor-01,user-account-sponsor-01,Company Alpha,Increased brand exposure,http://www.companyalpha.com,sponsorship@companyalpha.com
-Sponsor-02,user-account-sponsor-02,Organization Beta,Maximize your brand exposure through a networking opportunities array so we can be really productive,http://www.organizationbeta.org,contact@organizationbeta.org
+sponsor-01,user-account-sponsor-01,Company Alpha,Increased brand exposure,http://www.companyalpha.com,sponsorship@companyalpha.com
+sponsor-02,user-account-sponsor-02,Organization Beta,Maximize your brand exposure through a networking opportunities array so we can be really productive,http://www.organizationbeta.org,contact@organizationbeta.org
