@@ -52,6 +52,10 @@ master.menu.manager = Manager
 master.menu.manager.show-manager-dashboard = Dashboard
 master.menu.manager.list-project = Projects
 
+# master.menu.developer ###################################################
+
+master.menu.developer = Developer
+
 # master.menu.provider ########################################################
 
 master.menu.provider = Provider
@@ -71,4 +75,5 @@ master.menu.user-account.become-provider = Become a provider
 master.menu.user-account.consumer = Consumer data
 master.menu.user-account.become-consumer = Become a consumer
 master.menu.user-account.become-manager= Become a manager
+master.menu.user-account.become-manager= Become a developer
 master.menu.user-account.manager= Manager data

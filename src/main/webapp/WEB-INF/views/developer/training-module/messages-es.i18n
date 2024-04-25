@@ -1,0 +1,29 @@
+developer.training-module.form.title = Formulario de los módulos de entrenamiento
+developer.training-module.list.title = Listado de los módulos de entrenamiento
+
+developer.trainingModule.list.label.code=Código
+developer.trainingModule.list.label.difficultyLevel=Nivel de dificultad
+developer.trainingModule.list.label.totalTime=Tiempo total para completarlo
+developer.trainingModule.list.label.draftMode=Modo borrador
+developer.trainingModule.list.button.create=Crear
+
+developer.trainingModule.form.label.code=Código
+developer.trainingModule.form.label.difficultyLevel=Nivel de dificultad
+developer.trainingModule.form.label.totalTime=Tiempo total para completarlo
+developer.trainingModule.form.label.creationMoment=Momento de creación
+developer.trainingModule.form.label.updateMoment=Momento de actualización
+developer.trainingModule.form.label.link=Link
+developer.training-module.form.label.project=Proyecto 
+developer.trainingModule.form.label.details=Detalles 
+
+developer.trainingModule.form.button.create=Crear
+developer.trainingModule.form.button.update=Actualizar
+developer.trainingModule.form.button.delete=Eliminar
+developer.trainingModule.form.button.publish=Publicar
+
+developer.trainingModule.form.error.duplicated=Ese código ya está en uso
+developer.trainingModule.form.error.end-before-start=Fecha de creación o actualización inválida
+developer.trainingModule.form.error.already-have-training-sessions=No se puede borrar porque ya existe una sesión de entrenamiento publicada
+developer.trainingModule.form.error.negative-total-time=El tiempo tiene que ser mayor o igual a 0
+developer.trainingModule.error.not-enough-training-sessions=No se puede publicar sin ninguna sesión de entrenamiento asociada
+developer.trainingModule.form.error.null-project=Todos los módulos de entrenamiento deben pertenecer a algún proyecto
