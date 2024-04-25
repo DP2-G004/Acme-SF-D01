@@ -102,7 +102,7 @@ public class ManagerProjectUserStoryLinkCreateService extends AbstractService<Ma
 		userStories = this.repository.findUserStoriesByManagerId(managerId);
 		choicesUS = SelectChoices.from(userStories, "title", object.getUserStory());
 
-		projects = this.repository.findProjectsByManagerId(managerId);
+		projects = this.repository.findNotPublishedProjectsByManagerId(managerId, true);
 		choicesP = SelectChoices.from(projects, "code", object.getProject());
 
 		dataset = super.unbind(object, "userStory", "project");

@@ -61,6 +61,11 @@ public class ManagerProjectUserStoryLinkDeleteService extends AbstractService<Ma
 	@Override
 	public void validate(final ProjectUserStoryLink object) {
 		assert object != null;
+
+		Project project = object.getProject();
+
+		if (!super.getBuffer().getErrors().hasErrors("project"))
+			super.state(project.isDraftMode(), "project", "manager.link.form.error.delete-published-project");
 	}
 
 	@Override

@@ -14,7 +14,7 @@ manager.link.form.label.userStory= Historia de usuario
 manager.link.list.label.project=Proyecto
 manager.link.form.label.project=Proyecto
 
-manager.link.label.create= Crear
+manager.link.list.label.create= Crear
 manager.link.form.button.create= Crear
 
 manager.link.form.button.delete=Borrar

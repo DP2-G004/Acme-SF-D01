@@ -26,3 +26,4 @@ manager.project-user-story-link.form.title= Assignment
 manager.project.form.error.duplicated-user-story= Duplicated user story
 manager.link.form.error.existing-project-assignment=This assignment already exists
 manager.link.form.error.published-project=You cannot assign user stories to a published project
+manager.link.form.error.delete-published-project=You cannot delete any assignment of a published project

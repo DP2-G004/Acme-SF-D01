@@ -27,12 +27,11 @@
 			<acme:button code="manager.project.form.button.list-user-stories" action="/manager/user-story/list-by-project?projectId=${id}"/>
 		</jstl:when>
         <jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && draftMode == true}">
+        	<acme:input-checkbox code="manager.project.form.label.indication" path="indication"/>
             <acme:button code="manager.project.form.button.list-user-stories" action="/manager/user-story/list-by-project?projectId=${id}"/>
             <acme:submit code="manager.project.form.button.update" action="/manager/project/update"/>
             <acme:submit code="manager.project.form.button.delete" action="/manager/project/delete"/>
-            <acme:submit code="manager.project.form.button.publish" action="/manager/project/publish"/>
-            <acme:input-checkbox code="manager.project.form.label.indication" path="indication"/>
-			<acme:input-checkbox code="manager.project.form.label.draft-mode" path="draftMode"/>
+            <acme:submit code="manager.project.form.button.publish" action="/manager/project/publish"/>         			
         </jstl:when>
         <jstl:when test="${_command == 'create'}">
         	<acme:input-checkbox code="manager.project.form.label.indication" path="indication"/>
