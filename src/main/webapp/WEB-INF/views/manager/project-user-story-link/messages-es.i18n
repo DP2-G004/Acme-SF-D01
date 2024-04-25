@@ -26,3 +26,4 @@ manager.project-user-story-link.form.title=Asignación
 manager.project.form.error.duplicated-user-story= Historia de usuario duplicada
 manager.link.form.error.existing-project-assignment=La asignación ya existe
 manager.link.form.error.published-project=No puedes asignar historias de usuario a un proyecto ya publicado
+manager.link.form.error.delete-published-project=No puedes borrar la asignación de un proyecto publicado
