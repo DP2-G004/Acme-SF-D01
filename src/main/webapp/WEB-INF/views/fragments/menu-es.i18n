@@ -25,6 +25,20 @@ master.menu.anonymous.favourite-link-javsanmar5 = 08368306D: Santos Martín, Jav
 master.menu.anonymous.favourite-link-josgardel8 = 29589177E: García de Tejada Delgado, José
 
 
+# master.menu.any #######################################################
+
+master.menu.any=Cualquiera
+master.menu.any.claim=Reclamaciones
+
+
+# master.menu.authenticated #######################################################
+
+master.menu.authenticated=Autenticado
+master.menu.authenticated.objective=Objetivos
+master.menu.authenticated.risk=Riesgos
+master.menu.authenticated.notice=Noticias
+master.menu.authenticated.list.contract=Contratos
+
 # master.menu.administrator ###################################################
 
 master.menu.administrator = Administrador
@@ -33,16 +47,52 @@ master.menu.administrator.user-accounts = Cuentas de usuario
 master.menu.administrator.populate-initial = Poblar BD (inicial)
 master.menu.administrator.populate-sample = Poblar BD (ejemplos)
 master.menu.administrator.shut-down = Parar el sistema
+master.menu.administrator.banner.list = Lista Banners
+master.menu.administrator.risk.list = Lista de riesgos
+
+# master.menu.manager ###################################################
+
+master.menu.manager = Manager
+master.menu.manager.show-manager-dashboard = Panel de indicadores
+master.menu.manager.list-project = Proyectos
+master.menu.manager.list-user-story=Historias de usuario
+master.menu.manager.list-links=Asignaciones
+
+# master.menu.developer ###################################################
+
+master.menu.developer = Desarrollador
+master.menu.developer.show-developer-dashboard = Panel de indicadores
+master.menu.developer.training-module.list = Módulos de entrenamiento
 
 # master.menu.provider ########################################################
 
 master.menu.provider = Proveedor
 master.menu.provider.favourite-link = Enlace favorito
 
+# master.menu.auditor ##########################################################
+
+master.menu.auditor = Auditor
+master.menu.auditor.code-audit.list = Listar mis Code Audits
+master.menu.auditor.audit-record.list-my-audit-records = Listar mis Code Audits
+master.menu.auditor.code-audit.create = Crear Code Audit
+master.menu.auditor.audit-record.create = Crear Audit Record
+
 # master.menu.consumer ##########################################################
 
 master.menu.consumer = Consumidor
 master.menu.consumer.favourite-link = Enlace favorito
+
+# master.menu.sponsor ##########################################################
+
+master.menu.sponsor= Patrocinadores
+master.menu.sponsor.list-sponsorship= Listado de patrocinios
+
+# master.menu.client ##########################################################
+
+master.menu.client = Cliente
+master.menu.list.contract = Contratos
+master.menu.list.progress = Progresos
+master.menu.show.client-dashboard = Tablero de datos
 
 # master.menu.user-account ####################################################
 
@@ -52,3 +102,10 @@ master.menu.user-account.provider = Datos de proveedor
 master.menu.user-account.become-provider = Hazte proveedor
 master.menu.user-account.consumer = Datos de consumidor
 master.menu.user-account.become-consumer = Hazte consumidor
+master.menu.user-account.become-manager= Hazte manager
+master.menu.user-account.become-developer= Hazte desarrollador
+master.menu.user-account.manager= Datos de manager
+master.menu.user-account.become-sponsor=Hazte sponsor
+master.menu.user-account.sponsor=Datos de sponsor
+master.menu.user-account.client=Datos de cliente
+master.menu.user-account.become-client=Hazte cliente

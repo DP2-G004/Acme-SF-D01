@@ -1,0 +1,30 @@
+developer.training-session.list.title=Training sessions
+developer.training-session.list.label.instructor=Instructor
+developer.training-session.list.label.draft-mode=Draft mode
+developer.training-session.list.label.code=Code
+developer.training-session.list.label.location=Location
+
+developer.training-session.list.button.create=Create
+developer.trainingSession.form.button.create=Create
+developer.trainingSession.form.button.update=Update
+developer.trainingSession.form.button.delete=Delete
+developer.trainingSession.form.button.publish=Publish
+
+developer.training-session.form.title=Training Session
+developer.trainingSession.form.label.code=Code
+developer.trainingSession.form.label.startPeriod=Start period
+developer.trainingSession.form.label.endPeriod=End period
+developer.trainingSession.form.label.location=Location
+developer.trainingSession.form.label.instructor=Instructor
+developer.trainingSession.form.label.email=Email
+developer.trainingSession.form.label.link=Link
+
+developer.trainingSession.form.error.duplicated-code=Code already in use
+developer.trainingSession.form.error.end-before-start=Invalid period
+developer.trainingSession.form.error.small-display-period=Period must be at least 1 week
+developer.trainingSession.form.error.start-before-creation=Training session can't be created before training module
+developer.trainingSession.form.error.small-display-period-training-module=Training session have to be created at least 1 week after training module creation
+developer.trainingSession.form.error.one-training-session-minimum=Can't delete the unique training session of the training module
+
+
+

@@ -1,0 +1,17 @@
+authenticated.objective.list.title = Objetivos
+authenticated.objective.form.title = Objetivo
+
+authenticated.objective.list.label.title = Título
+authenticated.objective.list.label.description = Descripción
+authenticated.objective.list.label.status = Estado
+authenticated.objective.list.label.link = Enlace
+
+
+authenticated.objective.form.label.instantiationMoment = Momento de instanciación
+authenticated.objective.form.label.title = Título
+authenticated.objective.form.label.description = Descripción
+authenticated.objective.form.label.priority = Prioridad
+authenticated.objective.form.label.status = Estado
+authenticated.objective.form.label.startDate = Fecha de comienzo
+authenticated.objective.form.label.endDate = Fecha final
+authenticated.objective.form.label.link = Enlace

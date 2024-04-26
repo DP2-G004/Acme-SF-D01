@@ -24,6 +24,18 @@ master.menu.anonymous.favourite-link-javruigar2 = 77822983E: Ruiz Garrido, Javie
 master.menu.anonymous.favourite-link-javsanmar5 = 08368306D: Santos Martín, Javier
 master.menu.anonymous.favourite-link-josgardel8 = 29589177E: García de Tejada Delgado, José
 
+# master.menu.any #######################################################
+
+master.menu.any=Any
+master.menu.any.claim=Claims
+
+# master.menu.authenticated #######################################################
+
+master.menu.authenticated=Authenticated
+master.menu.authenticated.objective=Objectives
+master.menu.authenticated.risk=Risks
+master.menu.authenticated.notice=Notices
+master.menu.authenticated.list.contract=Contracts
 
 # master.menu.administrator ###################################################
 
@@ -33,6 +45,30 @@ master.menu.administrator.user-accounts = User accounts
 master.menu.administrator.populate-initial = Populate DB (initial)
 master.menu.administrator.populate-sample = Populate DB (samples)
 master.menu.administrator.shut-down = Shut down
+master.menu.administrator.banner.list = Banner List
+master.menu.administrator.risk.list = Risks List
+
+# master.menu.manager ###################################################
+
+master.menu.manager = Manager
+master.menu.manager.show-manager-dashboard = Dashboard
+master.menu.manager.list-project = Projects
+master.menu.manager.list-user-story= User Stories
+master.menu.manager.list-links=Assignments
+
+# master.menu.developer ###################################################
+
+master.menu.developer = Developer
+master.menu.developer.show-developer-dashboard = Dashboard
+master.menu.developer.training-module.list = Training modules
+
+# master.menu.auditor ##########################################################
+
+master.menu.auditor = Auditor
+master.menu.auditor.code-audit.list = List my Code Audits
+master.menu.auditor.audit-record.list-my-audit-records = List my Audit Records
+master.menu.auditor.code-audit.create = Create Code Audit
+master.menu.auditor.audit-record.create = Create Audit Record
 
 # master.menu.provider ########################################################
 
@@ -44,6 +80,18 @@ master.menu.provider.favourite-link = Favourite link
 master.menu.consumer = Consumer
 master.menu.consumer.favourite-link = Favourite link
 
+# master.menu.sponsor ##########################################################
+
+master.menu.sponsor= Sponsor
+master.menu.sponsor.list-sponsorship= List sponsorship
+
+# master.menu.client ##########################################################
+
+master.menu.client = Client
+master.menu.list.contract = Contracts
+master.menu.list.progress = Progress
+master.menu.show.client-dashboard = Dashboard
+
 # master.menu.user-account ####################################################
 
 master.menu.user-account = Account
@@ -52,3 +100,10 @@ master.menu.user-account.provider = Provider data
 master.menu.user-account.become-provider = Become a provider
 master.menu.user-account.consumer = Consumer data
 master.menu.user-account.become-consumer = Become a consumer
+master.menu.user-account.become-manager= Become a manager
+master.menu.user-account.become-developer= Become a developer
+master.menu.user-account.manager= Manager data
+master.menu.user-account.become-sponsor=Become sponsor
+master.menu.user-account.sponsor=Sponsor data
+master.menu.user-account.client=Client data
+master.menu.user-account.become-client=Become client

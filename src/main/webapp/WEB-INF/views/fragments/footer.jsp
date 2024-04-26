@@ -38,3 +38,11 @@
 		<acme:footer-copyright code="master.company.name"/>
 	</acme:footer-logo>
 </acme:footer-panel>
+
+<jstl:if test="${banner != null}">
+	<div class="panel-body" style="margin: 1em 0em 1em 0em; text-align: center;">	
+		<a href="${banner.link}" target="_blank">
+			<img src="${banner.pictureLink}" alt="${banner.slogan}" class="img-fluid rounded" style="border-style: solid; width: 300px; height: auto; max-width: 100%; max-height: 200px;"/>
+		</a>
+	</div>
+</jstl:if>
