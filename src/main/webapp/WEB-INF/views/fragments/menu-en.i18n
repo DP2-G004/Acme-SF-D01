@@ -85,6 +85,7 @@ master.menu.consumer.favourite-link = Favourite link
 
 master.menu.sponsor= Sponsor
 master.menu.sponsor.list-sponsorship= List sponsorship
+master.menu.sponsor.show-sponsor-dashboard=Dashboard
 
 # master.menu.client ##########################################################
 
