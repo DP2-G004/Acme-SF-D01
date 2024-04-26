@@ -59,6 +59,7 @@ master.menu.auditor.code-audit.list = List my Code Audits
 master.menu.auditor.audit-record.list-my-audit-records = List my Audit Records
 master.menu.auditor.code-audit.create = Create Code Audit
 master.menu.auditor.audit-record.create = Create Audit Record
+master.menu.auditor.dashboard = Dashboard
 
 # master.menu.provider ########################################################
 

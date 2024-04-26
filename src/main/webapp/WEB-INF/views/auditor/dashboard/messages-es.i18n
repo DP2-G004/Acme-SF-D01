@@ -1,0 +1,16 @@
+# auditor.dashboard.form #################################
+
+auditor.dashboard.form.title = Auditor Dashboard
+
+auditor.dashboard.form.label.numTotalCodeAudits = Numero Total Code Audits
+auditor.dashboard.form.label.totalNumCodeAuditsTypeStatic = Numero Total Static Code Audits
+auditor.dashboard.form.label.totalNumCodeAuditsTypeDynamic = Numero Total Dynamic Code Audits
+
+auditor.dashboard.form.label.averageNumAuditRecords = Media Audit Records
+auditor.dashboard.form.label.deviationNumAuditRecords = Desviacion Audit Records
+auditor.dashboard.form.label.minNumAuditRecords = Numero minimo de Audit Records 
+auditor.dashboard.form.label.maxNumAuditRecords = Numero maximo de Audit Records
+auditor.dashboard.form.label.averagePeriodLength = Promedio de Duracion
+auditor.dashboard.form.label.deviationPeriodLength = Desviacion de Duracion
+auditor.dashboard.form.label.minPeriodLength = Duracion minima
+auditor.dashboard.form.label.maxPeriodLength = Duracion maxima
