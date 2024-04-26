@@ -5,7 +5,7 @@
 <%@taglib prefix="acme" uri="http://acme-framework.org/"%>
 
 <acme:list>
-	<acme:list-column code="authenticated.notice.list.label.instantiationMoment" path="instantiationMoment"/>
+	<acme:list-column code="authenticated.notice.list.label.instantiationMoment" path="lastInstantiationMoment"/>
 	<acme:list-column code="authenticated.notice.list.label.title" path="title"/>		
 	<acme:list-column code="authenticated.notice.list.label.author" path="author"/>	
 	<acme:list-column code="authenticated.notice.list.label.message" path="message"/>	

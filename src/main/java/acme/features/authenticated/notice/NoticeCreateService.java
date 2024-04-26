@@ -31,7 +31,7 @@ public class NoticeCreateService extends AbstractService<Authenticated, Notice> 
 	@Override
 	public void bind(final Notice n) {
 		assert n != null;
-		super.bind(n, "instantiationMoment", "title", "author", "message", "email", "link");
+		super.bind(n, "lastInstantiationMoment", "title", "author", "message", "email", "link");
 	}
 
 	@Override
@@ -48,7 +48,7 @@ public class NoticeCreateService extends AbstractService<Authenticated, Notice> 
 	@Override
 	public void unbind(final Notice object) {
 		Dataset dataset;
-		dataset = super.unbind(object, "instantiationMoment", "title", "author", "message", "email", "link");
+		dataset = super.unbind(object, "lastInstantiationMoment", "title", "author", "message", "email", "link");
 		super.getResponse().addData(dataset);
 	}
 }

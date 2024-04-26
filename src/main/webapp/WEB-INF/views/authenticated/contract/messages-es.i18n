@@ -1,0 +1,12 @@
+authenticated.contract.form.label.code = Código
+authenticated.contract.list.label.code = Código
+authenticated.contract.form.label.instantiation = Momento de creación
+authenticated.contract.form.label.details = Detalles
+authenticated.contract.form.label.providerName = Nombre del proveedor
+authenticated.contract.form.label.customerName = Nombre del cliente
+authenticated.contract.form.label.goals = Objetivos
+authenticated.contract.form.label.budget = Presupuesto
+authenticated.contract.form.label.draftMode = Es borrador
+authenticated.contract.list.label.draftMode = Es borrador
+authenticated.contract.form.title = Módulo de contrato
+authenticated.contract.list.title = Módulos de contrato

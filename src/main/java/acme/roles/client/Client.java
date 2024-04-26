@@ -23,7 +23,7 @@ public class Client extends AbstractRole {
 	//Serialisation identifier
 
 	private static final long	serialVersionUID	= 1L;
-  
+
 	@NotNull
 	@Column(unique = true)
 	@Pattern(regexp = "CLI-[0-9]{4}")
@@ -32,7 +32,7 @@ public class Client extends AbstractRole {
 	@NotBlank
 	@Length(max = 75)
 	private String				companyName;
-	@NotBlank
+	@NotNull
 	private ClientType			type;
 
 	@NotBlank

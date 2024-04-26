@@ -4,7 +4,7 @@
 <%@taglib prefix="acme" uri="http://acme-framework.org/"%>
 
 <acme:form>
-	<acme:input-moment code="authenticated.notice.list.label.instantiationMoment" path="instantiationMoment"/>
+	<acme:input-moment code="authenticated.notice.list.label.instantiationMoment" path="lastInstantiationMoment"/>
 	<acme:input-textbox code="authenticated.notice.list.label.title" path="title"/>		
 	<acme:input-textbox code="authenticated.notice.list.label.author" path="author"/>	
 	<acme:input-textbox code="authenticated.notice.list.label.message" path="message"/>	

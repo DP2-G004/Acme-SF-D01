@@ -34,6 +34,8 @@ master.menu.any.claim=Claims
 master.menu.authenticated=Authenticated
 master.menu.authenticated.objective=Objectives
 master.menu.authenticated.risk=Risks
+master.menu.authenticated.notice=Notices
+master.menu.authenticated.list.contract=Contracts
 
 # master.menu.administrator ###################################################
 
@@ -81,6 +83,13 @@ master.menu.consumer.favourite-link = Favourite link
 master.menu.sponsor= Sponsor
 master.menu.sponsor.list-sponsorship= List sponsorship
 
+# master.menu.client ##########################################################
+
+master.menu.client = Client
+master.menu.list.contract = Contracts
+master.menu.list.progress = Progress
+master.menu.show.client-dashboard = Dashboard
+
 # master.menu.user-account ####################################################
 
 master.menu.user-account = Account
@@ -94,3 +103,5 @@ master.menu.user-account.become-manager= Become a developer
 master.menu.user-account.manager= Manager data
 master.menu.user-account.become-sponsor=Become sponsor
 master.menu.user-account.sponsor=Sponsor data
+master.menu.user-account.client=Client data
+master.menu.user-account.become-client=Become client

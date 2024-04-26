@@ -38,7 +38,7 @@ public class NoticeListService extends AbstractService<Authenticated, Notice> {
 
 		Dataset dataset;
 
-		dataset = super.unbind(object, "instantiationMoment", "title", "author", "message", "email", "link");
+		dataset = super.unbind(object, "lastInstantiationMoment", "title", "author", "message", "email", "link");
 
 		super.getResponse().addData(dataset);
 	}
