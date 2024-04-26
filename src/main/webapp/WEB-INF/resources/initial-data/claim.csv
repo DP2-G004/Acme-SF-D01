@@ -1,5 +1,5 @@
 key,code,instantiationMoment,heading,description,department,email,link
-claim-01,C-0001,2010/07/11 20:35,"Extra non-paid hours","The whole scrum team spent six extra hours which were not included in our salary.","AI Department","claimer1@acme.com","https://www.weforum.org/agenda/2016/06/putting-in-extra-hours-at-work-and-not-being-paid-for-it-is-a-growing-trend/"
-claim-02,C-0002,2022/06/23 12:00,"Budget overrun","The invested budget exceeded two times what was planned.","Electronics Department","claimer2@acme.com",null
-claim-03,C-0003,2019/04/22 13:35,"Fair salaries","Fair compensation for the work performed.","Applied Sciences Department","claimer3@acme.com",null
-claim-04,C-0004,2020/07/12 18:00,"Entrega con retraso","El proyecto se entrego tres dias posteriores a la fecha de entrega","Departamento de Gestion de Proyectos","claimer4@acme.com",null
+claim-01,C-0001,2010/07/11 20:35,Extra non-paid hours,The whole scrum team spent six extra hours which were not included in our salary.,AI Department,claimer1@acme.com,https://www.weforum.org/agenda/2016/06/putting-in-extra-hours-at-work-and-not-being-paid-for-it-is-a-growing-trend/
+claim-02,C-0002,2022/06/23 12:00,Budget overrun,The invested budget exceeded two times what was planned.,Electronics Department,claimer2@acme.com,null
+claim-03,C-0003,2019/04/22 13:35,Fair salaries,Fair compensation for the work performed.,Applied Sciences Department,claimer3@acme.com,null
+claim-04,C-0004,2020/07/12 18:00,Entrega con retraso,El proyecto se entrego tres dias posteriores a la fecha de entrega,Departamento de Gestion de Proyectos,claimer4@acme.com,null

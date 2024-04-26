@@ -9,6 +9,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.Valid;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
@@ -19,6 +20,7 @@ import org.hibernate.validator.constraints.URL;
 
 import acme.client.data.AbstractEntity;
 import acme.entities.project.Project;
+import acme.roles.Developer;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -54,9 +56,16 @@ public class TrainingModule extends AbstractEntity {
 	private String				link;
 
 	@NotNull
+	@Min(0)
 	private Integer				totalTime;
+
+	private Boolean				draftMode;
 
 	@Valid
 	@ManyToOne(optional = false)
 	private Project				project;
+
+	@ManyToOne(optional = false)
+	@Valid
+	private Developer			developer;
 }

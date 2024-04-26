@@ -24,3 +24,6 @@
 	<acme:list-column code="any.claim.list.label.email" path="email" width="10%"/>	
 	<acme:list-column code="any.claim.list.label.link" path="link" width="10%"/>		
 </acme:list>
+
+<acme:button code="any.claim.label.create" action="/any/claim/create"/>
+

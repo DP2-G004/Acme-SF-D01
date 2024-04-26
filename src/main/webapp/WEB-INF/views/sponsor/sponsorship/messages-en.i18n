@@ -17,3 +17,17 @@ sponsor.sponsorship.form.label.amount = Amount
 sponsor.sponsorship.form.label.type = Type
 sponsor.sponsorship.form.label.email= Email
 sponsor.sponsorship.form.label.link = Link
+sponsor.sponsorship.form.label.draftMode=Draft mode
+sponsor.sponsorship.form.label.project=Project
+
+
+----------------ERROR----------------
+sponsor.sponsorship.form.error.code=This code is already in use
+sponsor.sponsorship.form.error.draftMode=This sponsorship is already published
+
+
+----------------BUTTONS----------------
+sponsor.sponsorship.form.button.update=Update
+sponsor.sponsorship.form.button.delete=Delete
+sponsor.sponsorship.form.button.publish=Publish
+sponsor.sponsorship.list.button.create=Create

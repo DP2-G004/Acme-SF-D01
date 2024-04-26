@@ -66,8 +66,8 @@ public class AuditorDashboardShowService extends AbstractService<Auditor, Audito
 		Integer totalNumCodeAuditsStatic;
 		Integer totalNumCodeAuditsDynamic;
 
-		totalNumCodeAuditsStatic = object.getNumAuditsPorTipo().get(CodeAuditType.STATIC);
-		totalNumCodeAuditsDynamic = object.getNumAuditsPorTipo().get(CodeAuditType.DYNAMIC);
+		totalNumCodeAuditsStatic = object.getNumAuditsPorTipo().get(CodeAuditType.STATYC);
+		totalNumCodeAuditsDynamic = object.getNumAuditsPorTipo().get(CodeAuditType.DINAMYC);
 
 		dataset = super.unbind(object, "numTotalCodeAudits", //
 			"averageNumAuditRecords", "deviationNumAuditRecords", //

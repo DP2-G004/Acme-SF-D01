@@ -22,12 +22,14 @@
 	<acme:input-textbox code="any.claim.list.label.description" path="description"/>	
 	<acme:input-textbox code="any.claim.list.label.department" path="department"/>	
 	<acme:input-textbox code="any.claim.list.label.email" path="email"/>
-	<acme:input-url code="any.claim.list.label.link" path="link"/>	
-	
+	<acme:input-url code="any.claim.list.label.link" path="link"/>
+		
 	<jstl:choose>		
-        <jstl:when test="${acme:anyOf(_command, 'show|publish')}">
-            <acme:submit code="manager.user-story.form.button.publish" action="/manager/user-story/publish"/>
-        </jstl:when>
+        <jstl:when test="${_command == 'show' }"/>
+        <jstl:when test="${_command=='create'}">
+        	<acme:input-checkbox code="any.claim.form.label.confirmation" path="confirmation"/>
+			<acme:submit code="any.claim.form.button.create" action="/any/claim/create"/>			
+		</jstl:when>
     </jstl:choose>
 </acme:form>
 

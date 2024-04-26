@@ -59,11 +59,8 @@ public class AdminBannerCreateService extends AbstractService<Administrator, Ban
 				//Display period must last for at least one week
 				Date maximumDeadline = MomentHelper.deltaFromMoment(object.getLastInstantiationMoment(), 7, ChronoUnit.DAYS);
 				super.state(MomentHelper.isAfter(object.getEndOfInstantiation(), maximumDeadline), "endOfInstantiation", "administrator.banner.form.error.period.invalid");
-			} else
-				throw new IllegalStateException("endOfInstantiation has errors in the buffer");
-		} else
-			throw new IllegalStateException("lastInstantiationMoment has errors in the buffer");
-
+			}
+		}
 	}
 
 	@Override

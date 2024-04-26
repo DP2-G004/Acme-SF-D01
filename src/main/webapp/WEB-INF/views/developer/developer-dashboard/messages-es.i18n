@@ -1,0 +1,7 @@
+developer.developer-dashboard.form.title=Panel de indicadores
+developer.dashboard.form.label.total-number-of-training-modules-with-an-update-moment=Número total de módulos de entrenamiento que han sido actualizados
+developer.dashboard.form.label.total-number-of-training-sessions-with-a-link=Número total de módulos de entrenamiento que tienen link
+developer.dashboard.form.label.average-time-of-the-training-modules=Tiempo total medio
+developer.dashboard.form.label.deviation-time-of-the-training-modules=Desviación típica del tiempo total
+developer.dashboard.form.label.minimum-time-of-the-training-modules=Tiempo total mínimo
+developer.dashboard.form.label.maximum-time-of-the-training-modules=Tiempo total máximo

@@ -19,12 +19,28 @@ public class SponsorSponsorshipController extends AbstractController<Sponsor, Sp
 	@Autowired
 	private SponsorSponsorshipShowService		showService;
 
+	@Autowired
+	private SponsorSponsorshipCreateService		createService;
+
+	@Autowired
+	private SponsorSponsorshipUpdateService		updateService;
+
+	@Autowired
+	private SponsorSponsorshipPublishService	publishService;
+
+	@Autowired
+	private SponsorSponsorshipDeleteService		deleteService;
+
 
 	@PostConstruct
 	public void initialise() {
 		super.addBasicCommand("show", this.showService);
+		super.addBasicCommand("create", this.createService);
+		super.addBasicCommand("update", this.updateService);
+		super.addBasicCommand("delete", this.deleteService);
 
 		super.addCustomCommand("list-mine", "list", this.listMineService);
+		super.addCustomCommand("publish", "update", this.publishService);
 	}
 
 }

@@ -14,17 +14,19 @@ import acme.roles.Manager;
 public class ManagerUserStoryController extends AbstractController<Manager, UserStory> {
 
 	@Autowired
-	private ManagerUserStoryListMineService	listMineService;
+	private ManagerUserStoryListService				listService;
 	@Autowired
-	private ManagerUserStoryShowService		showService;
+	private ManagerUserStoryListByProjectService	listByProject;
 	@Autowired
-	private ManagerUserStoryCreateService	createService;
+	private ManagerUserStoryShowService				showService;
 	@Autowired
-	private ManagerUserStoryUpdateService	updateService;
+	private ManagerUserStoryCreateService			createService;
 	@Autowired
-	private ManagerUserStoryDeleteService	deleteService;
+	private ManagerUserStoryUpdateService			updateService;
 	@Autowired
-	private ManagerUserStoryPublishService	publishService;
+	private ManagerUserStoryDeleteService			deleteService;
+	@Autowired
+	private ManagerUserStoryPublishService			publishService;
 
 
 	@PostConstruct
@@ -33,7 +35,8 @@ public class ManagerUserStoryController extends AbstractController<Manager, User
 		super.addBasicCommand("create", this.createService);
 		super.addBasicCommand("update", this.updateService);
 		super.addBasicCommand("delete", this.deleteService);
-		super.addCustomCommand("list-mine", "list", this.listMineService);
+		super.addCustomCommand("list-by-project", "list", this.listByProject);
+		super.addBasicCommand("list", this.listService);
 		super.addCustomCommand("publish", "update", this.publishService);
 	}
 }

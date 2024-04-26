@@ -18,13 +18,13 @@ public class ClaimController extends AbstractController<Any, Claim> {
 	@Autowired
 	private ClaimShowService	showService;
 	@Autowired
-	private ClaimPublishService	publishService;
+	private ClaimCreateService	createService;
 
 
 	@PostConstruct
 	public void initialise() {
 		super.addBasicCommand("list", this.listService);
 		super.addBasicCommand("show", this.showService);
-		super.addCustomCommand("publish", "update", this.publishService);
+		super.addBasicCommand("create", this.createService);
 	}
 }

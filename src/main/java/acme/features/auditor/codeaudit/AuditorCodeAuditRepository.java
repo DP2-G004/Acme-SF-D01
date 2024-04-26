@@ -28,8 +28,8 @@ public interface AuditorCodeAuditRepository extends AbstractRepository {
 	@Query("select c from CodeAudit c")
 	Collection<CodeAudit> findAllCodeAudits();
 
-	@Query("select p from Project p")
-	Collection<Project> findAllProjects();
+	@Query("select p from Project p where p.draftMode = false")
+	Collection<Project> findAllPublishedProjects();
 
 	@Query("select c from CodeAudit c where c.id = :id")
 	CodeAudit findOneCodeAuditById(int id);

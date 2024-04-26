@@ -52,6 +52,14 @@ master.menu.administrator.risk.list = Lista de riesgos
 master.menu.manager = Manager
 master.menu.manager.show-manager-dashboard = Panel de indicadores
 master.menu.manager.list-project = Proyectos
+master.menu.manager.list-user-story=Historias de usuario
+master.menu.manager.list-links=Asignaciones
+
+# master.menu.developer ###################################################
+
+master.menu.developer = Desarrollador
+master.menu.developer.show-developer-dashboard = Panel de indicadores
+master.menu.developer.training-module.list = Módulos de entrenamiento
 
 # master.menu.provider ########################################################
 
@@ -86,6 +94,7 @@ master.menu.user-account.become-provider = Hazte proveedor
 master.menu.user-account.consumer = Datos de consumidor
 master.menu.user-account.become-consumer = Hazte consumidor
 master.menu.user-account.become-manager= Hazte manager
+master.menu.user-account.become-developer= Hazte desarrollador
 master.menu.user-account.manager= Datos de manager
 master.menu.user-account.become-sponsor=Hazte sponsor
 master.menu.user-account.sponsor=Datos de sponsor
