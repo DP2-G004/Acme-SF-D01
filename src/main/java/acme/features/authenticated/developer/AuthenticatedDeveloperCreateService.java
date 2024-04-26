@@ -69,8 +69,9 @@ public class AuthenticatedDeveloperCreateService extends AbstractService<Authent
 		assert object != null;
 
 		Dataset dataset;
-
 		dataset = super.unbind(object, "degree", "specialisation", "skills", "email", "link");
+
+		dataset.put("developer_id", object.getId());
 
 		super.getResponse().addData(dataset);
 	}

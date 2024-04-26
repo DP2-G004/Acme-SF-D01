@@ -6,10 +6,19 @@ administrator.risk.list.label.probability = Probability
 administrator.risk.list.label.description = Description
 administrator.risk.list.label.getValue() = Value
 
-
+administrator.risk.form.label.code = Code
 administrator.risk.form.label.description = Description
 administrator.risk.form.label.link = Link
 administrator.risk.form.label.probability = Probability
 administrator.risk.form.label.impact = Impact
 administrator.risk.form.label.identificationDate = Date
 administrator.risk.form.label.getValue = Value
+
+administrator.risk.list.button.create = Create
+administrator.risk.form.button.create = Create
+administrator.risk.form.button.update = Update
+administrator.risk.form.button.delete = Delete
+
+administrator.risk.form.error.duplicated-code = Code already in use
+administrator.risk.form.error.duplicated = Code already in use
+

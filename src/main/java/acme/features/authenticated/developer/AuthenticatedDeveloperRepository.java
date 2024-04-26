@@ -13,6 +13,7 @@ public interface AuthenticatedDeveloperRepository extends AbstractRepository {
 
 	@Query("select ua from UserAccount ua where ua.id = :id")
 	UserAccount findOneUserAccountById(int id);
+
 	@Query("select d from Developer d where d.userAccount.id = :id")
 	Developer findOneDeveloperByUserAccountId(int id);
 
