@@ -76,6 +76,7 @@
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.auditor.code-audit.create" action="/auditor/code-audit/create"/>
 			<acme:menu-suboption code="master.menu.auditor.audit-record.create" action="/auditor/audit-record/create"/>
+			<acme:menu-suboption code="master.menu.auditor.dashboard" action="/auditor/auditor-dashboard/show"/>
 			<acme:menu-separator/>
 		</acme:menu-option>
 		
