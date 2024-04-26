@@ -13,10 +13,11 @@ public class SponsorDashboard extends AbstractForm {
 
 	int							numInvoicesWithTaxLessOrEqualThan21;
 	int							numSponshorshipWithLink;
-	int							minSponsorshipAmount;
-	int							maxSponsorshipAmount;
-	int							minInvoiceQuantity;
-	int							maxInvoiceQuantity;
+
+	double						minInvoiceQuantity;
+	double						maxInvoiceQuantity;
+	double						minSponsorshipAmount;
+	double						maxSponsorshipAmount;
 
 	double						avgSponsorshipAmount;
 	double						deviationSponsorshipAmount;
