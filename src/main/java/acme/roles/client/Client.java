@@ -1,5 +1,5 @@
 
-package acme.roles;
+package acme.roles.client;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,7 +12,6 @@ import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
 import acme.client.data.AbstractRole;
-import acme.roles.ClientType.ClientType;
 import lombok.Getter;
 import lombok.Setter;
 
