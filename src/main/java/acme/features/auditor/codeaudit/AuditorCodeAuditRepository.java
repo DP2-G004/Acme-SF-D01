@@ -35,7 +35,7 @@ public interface AuditorCodeAuditRepository extends AbstractRepository {
 	CodeAudit findOneCodeAuditById(int id);
 
 	//Para calcular la moda
-	@Query("select a.mark from AuditRecord a where a.codeAudit.id = :auditId")
+	@Query("select a.mark from AuditRecord a where a.codeAudit.id = :auditId and a.draftMode = false")
 	Collection<Mark> findMarksByAuditId(int auditId);
 
 	//Para el update, mira si existe otro codeaudit con ese codigo que no sea el codeaudit que actualizamos

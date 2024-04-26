@@ -1,5 +1,5 @@
 
-package acme.roles;
+package acme.roles.client;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,7 +12,6 @@ import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
 import acme.client.data.AbstractRole;
-import acme.roles.ClientType.ClientType;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -24,7 +23,7 @@ public class Client extends AbstractRole {
 	//Serialisation identifier
 
 	private static final long	serialVersionUID	= 1L;
-  
+
 	@NotNull
 	@Column(unique = true)
 	@Pattern(regexp = "CLI-[0-9]{4}")
@@ -33,7 +32,7 @@ public class Client extends AbstractRole {
 	@NotBlank
 	@Length(max = 75)
 	private String				companyName;
-	@NotBlank
+	@NotNull
 	private ClientType			type;
 
 	@NotBlank

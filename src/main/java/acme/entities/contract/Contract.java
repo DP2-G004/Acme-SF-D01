@@ -9,60 +9,63 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
 
-import org.checkerframework.common.aliasing.qual.Unique;
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
 import org.hibernate.validator.constraints.Length;
 
 import acme.client.data.AbstractEntity;
+import acme.client.data.datatypes.Money;
 import acme.entities.project.Project;
+import acme.roles.client.Client;
 import lombok.Getter;
 import lombok.Setter;
 
-@Entity
 @Getter
 @Setter
+@Entity
 public class Contract extends AbstractEntity {
 
-	// Serialisation identifier
+	protected static final long	serialVersionUID	= 1L;
 
-	private static final long	serialVersionUID	= 1L;
+	@NotBlank
+	@Column(unique = true)
+	@Pattern(regexp = "^[A-Z]{1,3}-[0-9]{3}$")
+	protected String			contractCode;
 
-	@ManyToOne(optional = false)
-	@JoinColumn(name = "project_code", referencedColumnName = "code")
-	@OnDelete(action = OnDeleteAction.CASCADE)
+	@Past
+	@Temporal(TemporalType.TIMESTAMP)
+	protected Date				instantiation;
+
+	@Length(max = 75)
+	@NotBlank
+	protected String			providerName;
+
+	@Length(max = 75)
+	@NotBlank
+	protected String			customerName;
+
+	@Length(max = 100)
+	@NotBlank
+	protected String			goals;
+
+	private boolean				draftMode;
+
+	@Valid
+	@ManyToOne
+	@JoinColumn(name = "project_id", nullable = false)
 	private Project				project;
 
-	@NotBlank
-	@Unique
-	@Column(unique = true)
-	@Pattern(regexp = "[A-Z]{1,3}-[0-9]{3}")
-	private String				contractCode;
+	@Valid
+	@ManyToOne
+	@JoinColumn(name = "client_id", nullable = false)
+	private Client				client;
 
+	//Custom restriction buget must be less than the project cost, that will be implemented on services, on future deliverable
 	@NotNull
-	@Temporal(TemporalType.TIMESTAMP)
-	@Past
-	private Date				instantiationMoment;
-
-	@NotBlank
-	@Length(max = 75)
-	private String				providerName;
-
-	@NotBlank
-	@Length(max = 75)
-	private String				customerName;
-
-	@NotBlank
-	@Length(max = 100)
-	private String				goals;
-
-	//que sea menor al coste del proyecto se gestionará en el servicio
-
-	private int					budget;
+	private Money				budget;
 
 }
