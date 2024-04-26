@@ -99,7 +99,7 @@ public class ManagerProjectUserStoryLinkCreateService extends AbstractService<Ma
 
 		managerId = super.getRequest().getPrincipal().getActiveRoleId();
 
-		userStories = this.repository.findUserStoriesByManagerId(managerId);
+		userStories = this.repository.findPublishedUserStoriesByManagerId(managerId, false);
 		choicesUS = SelectChoices.from(userStories, "title", object.getUserStory());
 
 		projects = this.repository.findNotPublishedProjectsByManagerId(managerId, true);
