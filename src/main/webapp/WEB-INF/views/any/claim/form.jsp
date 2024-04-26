@@ -26,8 +26,8 @@
 		
 	<jstl:choose>		
         <jstl:when test="${_command == 'show' }"/>
-        <jstl:when test="${_command=='create'&& publishIndication == true}">
-        	<acme:input-checkbox code="any.claim.form.label.publishIndication" path="publishIndication"/>
+        <jstl:when test="${_command=='create'}">
+        	<acme:input-checkbox code="any.claim.form.label.confirmation" path="confirmation"/>
 			<acme:submit code="any.claim.form.button.create" action="/any/claim/create"/>			
 		</jstl:when>
     </jstl:choose>

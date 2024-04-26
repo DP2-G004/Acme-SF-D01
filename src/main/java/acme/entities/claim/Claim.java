@@ -55,6 +55,6 @@ public class Claim extends AbstractEntity {
 	@URL
 	private String				link;
 
-	private boolean				publishIndication;
+	//private boolean				publishIndication;
 	// Relationships
 }

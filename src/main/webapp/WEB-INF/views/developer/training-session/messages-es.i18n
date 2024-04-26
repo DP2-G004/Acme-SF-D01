@@ -1,0 +1,31 @@
+developer.training-session.list.title=Sesiones de entrenamiento
+developer.training-session.list.label.instructor=Instructor
+developer.training-session.list.label.draft-mode=Modo borrador
+developer.training-session.list.label.code=Código
+developer.training-session.list.label.location=Lugar
+
+developer.training-session.list.button.create=Crear
+developer.trainingSession.form.button.create=Crear
+developer.trainingSession.form.button.update=Actualizar
+developer.trainingSession.form.button.delete=Eliminar
+developer.trainingSession.form.button.publish=Publicar
+
+developer.training-session.form.title=Sesión de entrenamiento
+developer.trainingSession.form.label.code=Código
+developer.trainingSession.form.label.startPeriod=Inicio del período
+developer.trainingSession.form.label.endPeriod=Fin del período
+developer.trainingSession.form.label.location=Localización
+developer.trainingSession.form.label.instructor=Instructor
+developer.trainingSession.form.label.email=Email
+developer.trainingSession.form.label.link=Link
+
+developer.trainingSession.form.error.duplicated-code=Código en uso
+developer.trainingSession.form.error.end-before-start=Periodo inválido
+developer.trainingSession.form.error.small-display-period=Duración mínima de una semana
+developer.trainingSession.form.error.start-before-creation=La sesión de entrenamiento no pudo haber sido creada antes que el módulo de entrenamiento
+developer.trainingSession.form.error.small-display-period-training-module=La sesión de entrenamiento debe haber sido creada mínimo 1 semana después de la creación del módulo de entrenamiento
+developer.trainingSession.form.error.one-training-session-minimum=No se puede borrar la unica sesión de entrenamiento del módulo de entrenamiento
+
+
+
+

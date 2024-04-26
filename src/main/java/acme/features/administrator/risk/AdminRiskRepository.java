@@ -17,4 +17,7 @@ public interface AdminRiskRepository extends AbstractRepository {
 
 	@Query("select r from Risk r")
 	Collection<Risk> findAllRisks();
+
+	@Query("select r from Risk r where r.code = :code")
+	Risk findRiskByCode(String code);
 }

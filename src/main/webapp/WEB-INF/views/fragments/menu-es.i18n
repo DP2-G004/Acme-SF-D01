@@ -61,6 +61,8 @@ master.menu.manager.list-links=Asignaciones
 # master.menu.developer ###################################################
 
 master.menu.developer = Desarrollador
+master.menu.developer.show-developer-dashboard = Panel de indicadores
+master.menu.developer.training-module.list = Módulos de entrenamiento
 
 # master.menu.provider ########################################################
 

@@ -17,9 +17,15 @@
             <acme:submit code="developer.trainingModule.form.button.create" action="/developer/training-module/create"/>
         </jstl:if>
         
-        <jstl:if test="${acme:anyOf(_command, 'show|update|delete') && draftMode == true}">
+        <jstl:if test="${acme:anyOf(_command, 'show|update|delete|publish') && draftMode == true}">
+            <acme:button code="developer.trainingModule.form.button.trainingSession" action="/developer/training-session/list-by-training-module?trainingModuleId=${id}"/>
             <acme:submit code="developer.trainingModule.form.button.update" action="/developer/training-module/update"/>
             <acme:submit code="developer.trainingModule.form.button.delete" action="/developer/training-module/delete"/>
             <acme:submit code="developer.trainingModule.form.button.publish" action="/developer/training-module/publish"/>      
+        </jstl:if>
+        
+        <jstl:if test="${_command == 'show' && draftMode == false}">
+        	<acme:button code="developer.trainingModule.form.button.trainingSession" action="/developer/training-session/list-by-training-module?trainingModuleId=${id}"/>
+        	
         </jstl:if>
 </acme:form>

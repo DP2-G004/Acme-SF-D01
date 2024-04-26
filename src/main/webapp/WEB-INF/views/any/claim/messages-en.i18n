@@ -27,8 +27,8 @@ any.claim.form.label.description=Description
 any.claim.form.label.department=Department
 any.claim.form.label.email=Email
 any.claim.form.label.link=Link
-any.claim.form.label.publishIndication=Publish Indication
+any.claim.form.label.confirmation=Confirmation
 
-any.claim.form.error.indication=Remove the indication to publish a claim
+any.claim.form.error.confirmation=Confirm to publish a claim
 any.claim.label.create= Create
 any.claim.form.button.create= Create
