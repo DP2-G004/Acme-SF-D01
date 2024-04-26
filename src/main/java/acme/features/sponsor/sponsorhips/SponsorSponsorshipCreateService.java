@@ -41,6 +41,7 @@ public class SponsorSponsorshipCreateService extends AbstractService<Sponsor, Sp
 
 		object = new Sponsorship();
 		object.setSponsor(sponsor);
+		object.setDraftMode(true);
 
 		super.getBuffer().addData(object);
 	}
