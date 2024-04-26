@@ -55,6 +55,8 @@ public class Invoice extends AbstractEntity {
 	@URL
 	private String				link;
 
+	private Boolean				draftMode;
+
 
 	@Transient
 	public Money getTotalAmount() {
