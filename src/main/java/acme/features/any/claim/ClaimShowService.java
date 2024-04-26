@@ -36,7 +36,7 @@ public class ClaimShowService extends AbstractService<Any, Claim> {
 
 		Dataset dataset;
 
-		dataset = super.unbind(object, "code", "instantiation-moment", "heading", "description", "department", "email", "link");
+		dataset = super.unbind(object, "code", "instantiation-moment", "heading", "description", "department", "email", "link", "publishIndication");
 
 		super.getResponse().addData(dataset);
 	}

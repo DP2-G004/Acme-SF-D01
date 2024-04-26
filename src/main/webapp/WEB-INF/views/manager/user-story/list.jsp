@@ -21,10 +21,12 @@
 	<acme:list-column code="manager.user-story.list.label.estimated-cost" path="estimatedCost" width="10%"/>	
 	<acme:list-column code="manager.user-story.list.label.acceptance-criteria" path="acceptanceCriteria" width="10%"/>	
 	<acme:list-column code="manager.user-story.list.label.priority" path="priority" width="10%"/>	
-	<acme:list-column code="manager.user-story.list.label.link" path="link" width="10%"/>	
-	<acme:list-column code="manager.user-story.list.label.draft-mode" path="draftMode" width="10%"/>		
+	<acme:list-column code="manager.user-story.list.label.link" path="link" width="10%"/>			
 </acme:list>
 
-<jstl:if test="${_command == 'list-mine'}">
-	<acme:button code="manager.user-story.list.button.create" action="/manager/user-story/create"/>
+<jstl:if test="${_command == 'list-by-project'}">
+	<acme:button code="manager.user-story.list.button.create-user-stories-by-project-form" action="/manager/user-story/create-in-projects?projectId=${projectId}"/>
 </jstl:if>	
+<jstl:if test="${_command == 'list'}">
+	<acme:button code="manager.user-story.list.button.create" action="/manager/user-story/create"/>
+</jstl:if>

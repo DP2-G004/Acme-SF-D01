@@ -1,0 +1,31 @@
+----------------LIST----------------
+sponsor.sponsorship.list.title=Patrocinios
+
+sponsor.sponsorship.list.label.code=Código
+sponsor.sponsorship.list.label.amount=Cantidad
+sponsor.sponsorship.list.label.type=Tipo
+
+----------------FORM----------------
+sponsor.sponsorship.form.title= Patrocinio
+
+sponsor.sponsorship.form.label.code=Código
+sponsor.sponsorship.form.label.moment=Momento de instanciación
+sponsor.sponsorship.form.label.startDate= Fecha de inicio
+sponsor.sponsorship.form.label.endDate = Fecha de fin
+sponsor.sponsorship.form.label.amount = Cantidad
+sponsor.sponsorship.form.label.type = Tipo
+sponsor.sponsorship.form.label.email= Email
+sponsor.sponsorship.form.label.link = Link
+sponsor.sponsorship.form.label.draftMode=Modo edición
+sponsor.sponsorship.form.label.project=Proyecto
+
+----------------ERROR----------------
+sponsor.sponsorship.form.error.code=Este código ya está en uso
+sponsor.sponsorship.form.error.draftMode=Este patrocinio ya está publicado
+
+
+----------------BUTTONS----------------
+sponsor.sponsorship.form.button.update=Actualizar
+sponsor.sponsorship.form.button.delete=Borrar
+sponsor.sponsorship.form.button.publish=Publicar
+sponsor.sponsorship.list.button.create=Crear

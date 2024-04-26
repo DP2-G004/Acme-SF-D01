@@ -1,0 +1,24 @@
+# auditor.audit-record.list ##############################
+
+auditor.audit-record.list.title = Audit Records
+
+auditor.audit-record.list.label.code = Code
+auditor.audit-record.list.label.mark = Mark
+
+auditor.audit-record.list.button.create = Create Audit Record
+
+# auditor.audit-record.form ##############################
+
+auditor.audit-record.form.title = Audit Records
+
+auditor.audit-record.form.label.code = Code
+auditor.audit-record.form.label.link = Link
+auditor.audit-record.form.label.mark = Mark
+auditor.audit-record.form.label.startInstant = Start Instant
+auditor.audit-record.form.label.endInstant = End Instant
+auditor.audit-record.form.label.code-audit = Code Audit
+
+auditor.audit-record.form.button.update = Update
+auditor.audit-record.form.button.delete = Delete
+auditor.audit-record.form.button.publish = Publish
+auditor.audit-record.form.button.create = Create

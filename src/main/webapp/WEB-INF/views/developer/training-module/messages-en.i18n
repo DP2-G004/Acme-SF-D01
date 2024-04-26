@@ -1,0 +1,29 @@
+developer.training-module.form.title = Training module form 
+developer.training-module.list.title = Training modules list
+
+developer.trainingModule.list.label.code=Code
+developer.trainingModule.list.label.difficultyLevel=Level of difficulty
+developer.trainingModule.list.label.totalTime=Total time to complete
+developer.trainingModule.list.label.draftMode=Draft mode
+developer.trainingModule.list.button.create=Create
+
+developer.trainingModule.form.label.code=Code
+developer.trainingModule.form.label.difficultyLevel=Level of difficulty
+developer.trainingModule.form.label.totalTime=Total time to complete
+developer.trainingModule.form.label.creationMoment=Moment of creation
+developer.trainingModule.form.label.updateMoment=Moment of update
+developer.trainingModule.form.label.link=Link
+developer.training-module.form.label.project=Project 
+developer.trainingModule.form.label.details=Details 
+
+developer.trainingModule.form.button.create=Create
+developer.trainingModule.form.button.update=Update
+developer.trainingModule.form.button.delete=Delete
+developer.trainingModule.form.button.publish=Publish
+
+developer.trainingModule.form.error.duplicated=That code already exists
+developer.trainingModule.form.error.end-before-start=Wrong update or create moments
+developer.trainingModule.form.error.already-have-training-sessions=Can't delete because it already has training sessions published
+developer.trainingModule.form.error.negative-total-time=Time must be equal or greater than 0
+developer.trainingModule.error.not-enough-training-sessions=Can't publish without any training session associated 
+developer.trainingModule.form.error.null-project=Every training module must be in a project

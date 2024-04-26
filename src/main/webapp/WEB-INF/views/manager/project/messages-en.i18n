@@ -35,4 +35,5 @@ manager.project.form.button.list-user-stories=List User Stories
 
 manager.project.form.error.duplicated=Code is duplicated
 manager.project.form.error.containing-fatal-errors=Project contains fatal errors!
-manager.project.error.not-enough-user-stories=Project must have at least one user story
+manager.project.error.not-enough-user-stories=Project must have at least one user story 
+manager.project.error.not-all-published-user-stories=All user stories must be published to publish a project

@@ -1,0 +1,9 @@
+authenticated.developer.form.title = Desarrollador
+
+authenticated.developer.form.label.degree = Titulo
+authenticated.developer.form.label.specialisation = Especialidad
+authenticated.developer.form.label.skills = Habilidades
+authenticated.developer.form.label.email = Email
+authenticated.developer.form.label.link = Link
+
+authenticated.developer.form.button.create = Registro
