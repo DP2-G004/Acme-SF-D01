@@ -9,24 +9,23 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import acme.client.repositories.AbstractRepository;
+import acme.entities.code_audit.CodeAudit;
 import acme.entities.code_audit.CodeAuditType;
 
 @Repository
 public interface AuditorDashboardRepository extends AbstractRepository {
 
-	@Query("select c.type from CodeAudit c where c.auditor.id = :auditorId and c.draftMode = false")
-	Collection<CodeAuditType> findPublishedCodeAuditsAsTypes(int auditorId);
+	@Query("select c from CodeAudit c where c.auditor.id = :auditorId and c.draftMode = false")
+	Collection<CodeAudit> findPublishedCodeAudits(int auditorId);
 
-	default Map<CodeAuditType, Integer> totalTypes(final int managerId) {
+	default Map<CodeAuditType, Integer> totalTypes(final int auditorId) {
 		Map<CodeAuditType, Integer> result = new EnumMap<>(CodeAuditType.class);
-		Collection<CodeAuditType> Types = this.findPublishedCodeAuditsAsTypes(managerId);
+		Collection<CodeAudit> CodeAudits = this.findPublishedCodeAudits(auditorId);
 
 		for (CodeAuditType type : CodeAuditType.values())
 			result.put(type, 0);
-
-		for (CodeAuditType type : Types)
-			result.put(type, result.get(type) + 1);
-
+		for (CodeAudit c : CodeAudits)
+			result.put(c.getType(), result.get(c.getType()) + 1);
 		return result;
 	}
 

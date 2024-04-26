@@ -45,16 +45,26 @@ public class AuditorDashboardShowService extends AbstractService<Auditor, Audito
 
 		numAuditsPorTipo = this.repository.totalTypes(auditorId);
 		numTotalCodeAudits = this.repository.totalCodeAudits(auditorId);
-		averageNumAuditRecords = this.repository.averageAuditingRecords(auditorId);
-		deviationNumAuditRecords = this.computeDeviation(auditingRecordsPerAudit);
-		minNumAuditRecords = this.repository.minAuditingRecords(auditorId);
-		maxNumAuditRecords = this.repository.maxAuditingRecords(auditorId);
-		averagePeriodLength = this.repository.averageRecordPeriod(auditorId);
-		deviationPeriodLength = this.repository.deviationRecordPeriod(auditorId);
-		minPeriodLength = this.repository.minimumRecordPeriod(auditorId);
-		maxPeriodLength = this.repository.maximumRecordPeriod(auditorId);
+		averageNumAuditRecords = this.repository.averageAuditingRecords(auditorId) != null ? this.repository.averageAuditingRecords(auditorId) : 0.;
+		deviationNumAuditRecords = this.computeDeviation(auditingRecordsPerAudit) != null ? this.computeDeviation(auditingRecordsPerAudit) : 0.;
+		minNumAuditRecords = this.repository.minAuditingRecords(auditorId) != null ? this.repository.minAuditingRecords(auditorId) : 0;
+		maxNumAuditRecords = this.repository.maxAuditingRecords(auditorId) != null ? this.repository.maxAuditingRecords(auditorId) : 0;
+		averagePeriodLength = this.repository.averageRecordPeriod(auditorId) != null ? this.repository.averageRecordPeriod(auditorId) : 0.;
+		deviationPeriodLength = this.repository.deviationRecordPeriod(auditorId) != null ? this.repository.deviationRecordPeriod(auditorId) : 0.;
+		minPeriodLength = this.repository.minimumRecordPeriod(auditorId) != null ? this.repository.minimumRecordPeriod(auditorId) : 0;
+		maxPeriodLength = this.repository.maximumRecordPeriod(auditorId) != null ? this.repository.maximumRecordPeriod(auditorId) : 0;
 
 		dashboard = new AuditorDashboard();
+		dashboard.setNumAuditsPorTipo(numAuditsPorTipo);
+		dashboard.setNumTotalCodeAudits(numTotalCodeAudits);
+		dashboard.setAverageNumAuditRecords(averageNumAuditRecords);
+		dashboard.setDeviationNumAuditRecords(deviationNumAuditRecords);
+		dashboard.setMinNumAuditRecords(minNumAuditRecords);
+		dashboard.setMaxNumAuditRecords(maxNumAuditRecords);
+		dashboard.setAveragePeriodLength(averagePeriodLength);
+		dashboard.setDeviationPeriodLength(deviationPeriodLength);
+		dashboard.setMinPeriodLength(minPeriodLength);
+		dashboard.setMaxPeriodLength(maxPeriodLength);
 
 		super.getBuffer().addData(dashboard);
 	}
@@ -66,8 +76,8 @@ public class AuditorDashboardShowService extends AbstractService<Auditor, Audito
 		Integer totalNumCodeAuditsStatic;
 		Integer totalNumCodeAuditsDynamic;
 
-		totalNumCodeAuditsStatic = object.getNumAuditsPorTipo().get(CodeAuditType.STATYC);
-		totalNumCodeAuditsDynamic = object.getNumAuditsPorTipo().get(CodeAuditType.DINAMYC);
+		totalNumCodeAuditsStatic = object.getNumAuditsPorTipo().get(CodeAuditType.STATYC) != null ? object.getNumAuditsPorTipo().get(CodeAuditType.STATYC) : 0;
+		totalNumCodeAuditsDynamic = object.getNumAuditsPorTipo().get(CodeAuditType.DINAMYC) != null ? object.getNumAuditsPorTipo().get(CodeAuditType.DINAMYC) : 0;
 
 		dataset = super.unbind(object, "numTotalCodeAudits", //
 			"averageNumAuditRecords", "deviationNumAuditRecords", //

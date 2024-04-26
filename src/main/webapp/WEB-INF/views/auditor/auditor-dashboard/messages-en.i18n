@@ -1,6 +1,6 @@
 # auditor.dashboard.form #################################
 
-auditor.dashboard.form.title = Auditor Dashboard
+auditor.auditor-dashboard.form.title = Auditor Dashboard
 
 auditor.dashboard.form.label.numTotalCodeAudits = Total number of Code Audits
 auditor.dashboard.form.label.totalNumCodeAuditsTypeStatic = Total number of Static Code Audits
