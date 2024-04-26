@@ -23,7 +23,6 @@ public class ClaimCreateService extends AbstractService<Any, Claim> {
 	@Override
 	public void load() {
 		Claim c = new Claim();
-		c.setPublishIndication(true);
 		super.getBuffer().addData(c);
 	}
 	@Override
@@ -34,20 +33,21 @@ public class ClaimCreateService extends AbstractService<Any, Claim> {
 	@Override
 	public void validate(final Claim object) {
 		assert object != null;
-		if (!super.getBuffer().getErrors().hasErrors("publishIndication"))
-			super.state(object.isPublishIndication(), "publishIndication", "any.claim.form.error.indication");
+		if (!super.getBuffer().getErrors().hasErrors("confirmation")) {
+			boolean confirmation = super.getRequest().getData("confirmation", boolean.class);
+			super.state(confirmation, "publishIndication", "any.claim.form.error.confirmation");
+		}
 	}
 	@Override
 	public void perform(final Claim object) {
 		assert object != null;
-		object.setPublishIndication(false);
 		this.createRepository.save(object);
 	}
 	@Override
 	public void unbind(final Claim object) {
 		assert object != null;
 		Dataset dataset;
-		dataset = super.unbind(object, "code", "instantiationMoment", "heading", "description", "department", "email", "link", "publishIndication");
+		dataset = super.unbind(object, "code", "instantiationMoment", "heading", "description", "department", "email", "link");
 		super.getResponse().addData(dataset);
 	}
 }
