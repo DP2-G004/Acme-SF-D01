@@ -63,7 +63,7 @@ public class DeveloperTrainingModulePublishService extends AbstractService<Devel
 			final int trainingModuleId = super.getRequest().getData("id", int.class);
 			final boolean duplicatedCode = this.repository.findAllTrainingModule().stream().filter(e -> e.getId() != trainingModuleId).anyMatch(e -> e.getCode().equals(object.getCode()));
 
-			super.state(!duplicatedCode, "code", "developer.trainingModule.form.error.duplicated");
+			super.state(!duplicatedCode, "code", "developer.trainingModule.form.error.duplicated-code");
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("totalTime")) {

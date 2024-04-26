@@ -19,11 +19,23 @@ public class AdminRiskController extends AbstractController<Administrator, Risk>
 	@Autowired
 	private AdminRiskShowService	showService;
 
+	@Autowired
+	private AdminRiskCreateService	createService;
+
+	@Autowired
+	private AdminRiskUpdateService	updateService;
+
+	@Autowired
+	private AdminRiskDeleteService	deleteService;
+
 
 	@PostConstruct
 	protected void initialise() {
 		super.addBasicCommand("list", this.listService);
 		super.addBasicCommand("show", this.showService);
+		super.addBasicCommand("create", this.createService);
+		super.addBasicCommand("update", this.updateService);
+		super.addBasicCommand("delete", this.deleteService);
 	}
 
 }

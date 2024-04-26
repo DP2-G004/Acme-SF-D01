@@ -71,7 +71,7 @@ public class DeveloperTrainingModuleUpdateService extends AbstractService<Develo
 				if (trainingModule.getCode().equals(object.getCode()))
 					b = true;
 			if (!tm.getCode().equals(object.getCode()) && b)
-				super.state(tm == null, "code", "developer.trainingModule.form.error.duplicated");
+				super.state(tm == null, "code", "developer.trainingModule.form.error.duplicated-code");
 		}
 
 		final String CREATION_MOMENT = "creationMoment";
@@ -82,10 +82,11 @@ public class DeveloperTrainingModuleUpdateService extends AbstractService<Develo
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("project")) {
-			int id;
-			id = super.getRequest().getData("id", int.class);
-			TrainingModule tm = this.repository.findOneTrainingModuleById(id);
-			super.state(object.getProject().getId() == tm.getProject().getId(), "project", "developer.trainingModule.form.error.null-project");
+			int id = object.getProject().getId();
+			if (id > 0) {
+
+			} else
+				super.state(object == null, "project", "developer.trainingModule.form.error.project-null");
 		}
 	}
 

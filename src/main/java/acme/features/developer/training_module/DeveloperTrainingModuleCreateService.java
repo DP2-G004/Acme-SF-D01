@@ -33,26 +33,34 @@ public class DeveloperTrainingModuleCreateService extends AbstractService<Develo
 	@Override
 	public void load() {
 		TrainingModule tm;
-		Developer d;
+		Developer developerId;
 		Principal principal;
 		principal = super.getRequest().getPrincipal();
-		d = this.repository.findDeveloperById(principal.getActiveRoleId());
+		developerId = this.repository.findDeveloperById(principal.getActiveRoleId());
 		tm = new TrainingModule();
-		tm.setDeveloper(d);
+		tm.setDeveloper(developerId);
 		tm.setDraftMode(true);
 
 		super.getBuffer().addData(tm);
+		super.getResponse().addGlobal("developerId", developerId);
+
 	}
 
 	@Override
 	public void bind(final TrainingModule tm) {
 		assert tm != null;
+
 		int projectId = super.getRequest().getData("project", int.class);
 		Project project = this.repository.findProjectById(projectId);
 
-		super.bind(tm, "code", "creationMoment", "details", "difficultyLevel", "updateMoment", "link", "totalTime", "project");
+		Principal principal;
+		principal = super.getRequest().getPrincipal();
+		Developer developer = this.repository.findDeveloperById(principal.getActiveRoleId());
+
+		super.bind(tm, "code", "creationMoment", "details", "difficultyLevel", "updateMoment", "link", "totalTime", "project", "developer");
 
 		tm.setProject(project);
+		tm.setDeveloper(developer);
 	}
 
 	@Override
@@ -61,7 +69,7 @@ public class DeveloperTrainingModuleCreateService extends AbstractService<Develo
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
 			TrainingModule tm;
 			tm = this.repository.findTrainingModuleByCode(object.getCode());
-			super.state(tm == null, "code", "developer.TrainingModule.form.error.duplicated");
+			super.state(tm == null, "code", "developer.TrainingModule.form.error.duplicated-code");
 		}
 
 		final String CREATION_MOMENT = "creationMoment";
@@ -89,7 +97,7 @@ public class DeveloperTrainingModuleCreateService extends AbstractService<Develo
 
 		SelectChoices choices = SelectChoices.from(DifficultyLevel.class, object.getDifficultyLevel());
 
-		dataset = super.unbind(object, "code", "creationMoment", "details", "difficultyLevel", "updateMoment", "link", "totalTime", "draft-mode", "project");
+		dataset = super.unbind(object, "code", "creationMoment", "details", "difficultyLevel", "updateMoment", "link", "totalTime", "draft-mode", "project", "developer");
 
 		dataset.put("project", projectsChoices.getSelected().getKey());
 		dataset.put("projects", projectsChoices);

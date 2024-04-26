@@ -2,6 +2,7 @@
 package acme.features.developer.training_module;
 
 import java.util.Collection;
+import java.util.Locale;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,7 +17,7 @@ import acme.roles.Developer;
 public class DeveloperTrainingModuleListMineService extends AbstractService<Developer, TrainingModule> {
 
 	@Autowired
-	protected DeveloperTrainingModuleRepository Repository;
+	protected DeveloperTrainingModuleRepository repository;
 
 
 	@Override
@@ -33,7 +34,7 @@ public class DeveloperTrainingModuleListMineService extends AbstractService<Deve
 		Principal principal;
 
 		principal = super.getRequest().getPrincipal();
-		trainingModules = this.Repository.findAllTrainingModuleByDeveloper(principal.getActiveRoleId());
+		trainingModules = this.repository.findAllTrainingModuleByDeveloper(principal.getActiveRoleId());
 
 		super.getBuffer().addData(trainingModules);
 	}
@@ -45,11 +46,11 @@ public class DeveloperTrainingModuleListMineService extends AbstractService<Deve
 		Dataset dataset;
 		dataset = super.unbind(object, "code", "difficultyLevel", "totalTime");
 
-		//		if (!object.getDraftMode()) {
-		//			final Locale local = super.getRequest().getLocale();
-		//			dataset.put("draftMode", local.equals(Locale.ENGLISH) ? "Yes" : "Sí");
-		//		} else
-		//			dataset.put("draftMode", "No");
+		if (Boolean.TRUE.equals(object.getDraftMode())) {
+			final Locale local = super.getRequest().getLocale();
+			dataset.put("draftMode", local.equals(Locale.ENGLISH) ? "Yes" : "Sí");
+		} else
+			dataset.put("draftMode", "No");
 
 		super.getResponse().addData(dataset);
 	}

@@ -57,14 +57,6 @@ public class DeveloperTrainingModuleDeleteService extends AbstractService<Develo
 	@Override
 	public void validate(final TrainingModule object) {
 		assert object != null;
-		boolean b = false;
-		Collection<TrainingSession> ts = this.repository.findTrainingSessionsByTrainingModuleId(object.getId());
-		for (TrainingSession trainingSession : ts)
-			if (Boolean.TRUE.equals(trainingSession.getDraftMode()) && ts != null)
-				b = true;
-
-		super.state(b, "*", "developer.trainingModule.form.error.already-have-training-sessions");
-
 	}
 
 	@Override
