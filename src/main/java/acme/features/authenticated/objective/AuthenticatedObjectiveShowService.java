@@ -50,8 +50,6 @@ public class AuthenticatedObjectiveShowService extends AbstractService<Authentic
 	@Override
 	public void unbind(final Objective object) {
 
-		System.out.println("BBBBBBBBBB");
-
 		assert object != null;
 		Dataset dataset;
 		dataset = super.unbind(object, "instantiationMoment", "title", "description", "priority", "status", "startDate", "endDate", "link");
