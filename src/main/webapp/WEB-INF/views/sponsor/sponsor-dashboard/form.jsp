@@ -79,8 +79,7 @@
 	</tr>
 	<tr>
 		<th scope="row">
-			<acme:message code="sponsor.dashboard.form.label.deviation-invoice-quantity
-			"/>
+			<acme:message code="sponsor.dashboard.form.label.deviation-invoice-quantity"/>
 		</th>
 		<td>
 			<acme:print value="${deviationInvoiceQuantity}"/>

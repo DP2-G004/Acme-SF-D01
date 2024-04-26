@@ -11,7 +11,7 @@
 	<acme:input-double code="sponsor.invoice.form.label.tax" path="tax"/>
 	<acme:input-url code="sponsor.invoice.form.label.link" path="link"/>
 	<jstl:if test="${_command == 'show'}">
-		<acme:input-money code="sponsor.invoice.form.labe.totalAmount" path="totalAmount" readonly="true"/>
+		<acme:input-money code="sponsor.invoice.form.label.totalAmount" path="totalAmount" readonly="true"/>
 	</jstl:if>
 	<acme:input-checkbox code="sponsor.invoice.form.label.draftMode" path="draftMode" readonly="true"/>
 	

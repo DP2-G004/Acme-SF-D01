@@ -29,3 +29,6 @@ sponsor.sponsorship.form.button.update=Actualizar
 sponsor.sponsorship.form.button.delete=Borrar
 sponsor.sponsorship.form.button.publish=Publicar
 sponsor.sponsorship.list.button.create=Crear
+
+sponsor.sponsorship.form.button.list-invoices=Facturas
+sponsor.sponsorship.form.button.create=Crear
