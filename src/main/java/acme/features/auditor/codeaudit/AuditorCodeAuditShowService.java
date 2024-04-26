@@ -44,7 +44,6 @@ public class AuditorCodeAuditShowService extends AbstractService<Auditor, CodeAu
 
 	@Override
 	public void unbind(final CodeAudit object) {
-		assert object != null;
 
 		SelectChoices choices;
 		SelectChoices projects;
@@ -62,6 +61,8 @@ public class AuditorCodeAuditShowService extends AbstractService<Auditor, CodeAu
 		dataset.put("projects", projects);
 		dataset.put("auditTypes", choices);
 		dataset.put("markMode", markMode);
+
+		assert object != null;
 
 		super.getResponse().addData(dataset);
 	}
