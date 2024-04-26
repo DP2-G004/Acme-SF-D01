@@ -15,3 +15,7 @@ authenticated.objective.form.label.status = Status
 authenticated.objective.form.label.startDate = Start date
 authenticated.objective.form.label.endDate = End date
 authenticated.objective.form.label.link = Link
+
+
+authenticated.objective.list.button.create=Create
+authenticated.objective.form.button.create=Create
