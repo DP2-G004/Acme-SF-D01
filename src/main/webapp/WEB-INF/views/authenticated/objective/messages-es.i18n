@@ -15,3 +15,6 @@ authenticated.objective.form.label.status = Estado
 authenticated.objective.form.label.startDate = Fecha de comienzo
 authenticated.objective.form.label.endDate = Fecha final
 authenticated.objective.form.label.link = Enlace
+
+authenticated.objective.list.button.create=Crear
+authenticated.objective.form.button.create=Crear

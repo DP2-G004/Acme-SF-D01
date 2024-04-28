@@ -31,3 +31,5 @@ sponsor.sponsorship.form.button.update=Update
 sponsor.sponsorship.form.button.delete=Delete
 sponsor.sponsorship.form.button.publish=Publish
 sponsor.sponsorship.list.button.create=Create
+sponsor.sponsorship.form.button.list-invoices=Invoices
+sponsor.sponsorship.form.button.create=Create

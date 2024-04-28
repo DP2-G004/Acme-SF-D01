@@ -1,7 +1,29 @@
 ----------------LIST----------------
+sponsor.invoice.list.title=Facturas
+
+sponsor.invoice.list.label.code=Código
+sponsor.invoice.list.label.dueDate=Fecha de vencimiento
+sponsor.invoice.list.label.totalAmount=Monto total
 
 ----------------FORM----------------
+sponsor.invoice.form.title=Factura
+
+sponsor.invoice.form.label.code=Código
+sponsor.invoice.form.label.dueDate=Fecha de vencimiento
+sponsor.invoice.form.label.totalAmount=Cantidad total
+sponsor.invoice.form.label.registrationTime=Hora de registro
+sponsor.invoice.form.label.quantity=Cantidad
+sponsor.invoice.form.label.tax=Impuesto
+sponsor.invoice.form.label.link=Enlace
+sponsor.invoice.form.label.draftMode=Modo borrador
 
 ----------------ERROR----------------
+sponsor.invoice.form.error.code=Código ya en uso
+sponsor.invoice.form.error.invalid-due-date=Fecha de vencimiento inválida. Debe ser 30 días después del registro
 
 ----------------BUTTONS----------------
+sponsor.invoice.list.button.create=Crear
+sponsor.invoice.form.button.create=Crear
+sponsor.invoice.form.button.update=Actualizar
+sponsor.invoice.form.button.delete=Eliminar
+sponsor.invoice.form.button.publish=Publicar

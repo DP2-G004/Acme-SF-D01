@@ -13,3 +13,7 @@
 	<acme:input-moment code="authenticated.objective.form.label.endDate" path="endDate"/>	
 	<acme:input-url code="authenticated.objective.form.label.link" path="link"/>
 </acme:form>
+
+<jstl:if test="${_command == 'create'}">
+	<acme:submit code="authenticated.objective.form.button.create" action="/authenticated/objective/create"/>
+</jstl:if>	
