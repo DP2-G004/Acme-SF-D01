@@ -1,0 +1,28 @@
+# any.code-audit.list ############################################
+
+any.code-audit.list.title = Code Audits
+
+
+any.code-audit.list.code = Codigo
+any.code-audit.list.project = Proyecto
+any.code-audit.list.type = Tipo
+any.code-audit.list.mark = Calificacion
+any.code-audit.list.link = Link
+any.code-audit.list.draft-mode = Draft-mode
+
+# any.code-audit.form ############################################
+
+any.code-audit.form.title = Code Audit
+
+any.code-audit.form.button.audit-records = Lista Audit Records
+
+
+# auditor.code-audit.label ###########################################
+
+any.code-audit.label.code = Codigo
+any.code-audit.label.executionDate = Fecha de realizacion
+any.code-audit.label.type = Tipo
+any.code-audit.label.markMode = Calificacion
+any.code-audit.label.correctiveActions = Correcciones
+any.code-audit.label.link = Link
+any.code-audit.label.project = Proyecto
