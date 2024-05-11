@@ -28,6 +28,7 @@ master.menu.anonymous.favourite-link-josgardel8 = 29589177E: García de Tejada D
 
 master.menu.any=Any
 master.menu.any.claim=Claims
+master.menu.any.published-code-audits = Published Code Audits
 
 # master.menu.authenticated #######################################################
 
@@ -109,3 +110,5 @@ master.menu.user-account.become-sponsor=Become sponsor
 master.menu.user-account.sponsor=Sponsor data
 master.menu.user-account.client=Client data
 master.menu.user-account.become-client=Become client
+master.menu.user-account.become-auditor = Become Auditor
+master.menu.user-account.auditor = Auditor data

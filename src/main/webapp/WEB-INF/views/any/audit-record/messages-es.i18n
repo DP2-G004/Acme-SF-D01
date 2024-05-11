@@ -1,0 +1,19 @@
+# any.audit-record.list ##############################
+
+any.audit-record.list.title = Audit Records
+
+any.audit-record.list.label.code = Codigo
+any.audit-record.list.label.mark = Calificacion
+
+
+# any.audit-record.form ##############################
+
+any.audit-record.form.title = Audit Records
+
+any.audit-record.form.label.code = Codigo
+any.audit-record.form.label.link = Link
+any.audit-record.form.label.mark = Calificacion
+any.audit-record.form.label.startInstant = Instante de comienzo
+any.audit-record.form.label.endInstant = Instante de finalizacion
+any.audit-record.form.label.code-audit = Code Audit
+

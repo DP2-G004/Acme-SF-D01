@@ -16,10 +16,7 @@
 <%@taglib prefix="acme" uri="http://acme-framework.org/"%>
 
 <acme:list>
-	<acme:list-column code="auditor.audit-record.list.label.code" path="code"/>
-	<acme:list-column code="auditor.audit-record.list.label.mark" path="mark"/>
+	<acme:list-column code="any.audit-record.list.label.code" path="code"/>
+	<acme:list-column code="any.audit-record.list.label.mark" path="mark"/>
 </acme:list>
 
-	<jstl:if test="${_command == 'list-for-code-audits'}">
-		<acme:button code="auditor.audit-record.list.button.create" action="/auditor/audit-record/create"/>
-	</jstl:if>
