@@ -29,27 +29,28 @@ import acme.entities.banner.Banner;
 @Repository
 public interface BannerRepository extends AbstractRepository {
 
-	@Query("select count(b) from Banner b where b.lastInstantiationMoment <= :now and :now <= b.endOfInstantiation")
-	int countAdvertisements(Date now);
+	@Query("select count(b) from Banner b where b.lastInstantiationMoment <= :currentDate and b.endOfInstantiation >= :currentDate")
+	int countAdvertisements(Date currentDate);
 
-	@Query("select b from Banner b where b.lastInstantiationMoment <= :now and :now <= b.endOfInstantiation")
-	List<Banner> findManyBanners(PageRequest pageRequest, Date now);
+	@Query("select b from Banner b where b.lastInstantiationMoment <= :currentDate and b.endOfInstantiation >= :currentDate")
+	List<Banner> findManyBanners(PageRequest pageRequest, Date currentDate);
 
-	default Banner findRandomAdvertisement() {
+	default Banner findRandomBanner() {
 		Banner result;
-		int count;
-		int index;
+		int count, index;
 		PageRequest page;
 		List<Banner> list;
+		Date currentDate;
 
-		count = this.countAdvertisements(MomentHelper.getCurrentMoment());
+		currentDate = MomentHelper.getCurrentMoment();
+		count = this.countAdvertisements(currentDate);
 		if (count == 0)
 			result = null;
 		else {
 			index = RandomHelper.nextInt(0, count);
 
 			page = PageRequest.of(index, 1, Sort.by(Direction.ASC, "id"));
-			list = this.findManyBanners(page, MomentHelper.getCurrentMoment());
+			list = this.findManyBanners(page, currentDate);
 			result = list.isEmpty() ? null : list.get(0);
 		}
 

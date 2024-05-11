@@ -30,7 +30,7 @@ public class BannerAdvisor {
 		Banner result;
 
 		try {
-			result = this.repository.findRandomAdvertisement();
+			result = this.repository.findRandomBanner();
 		} catch (final Throwable oops) {
 			result = null;
 		}
