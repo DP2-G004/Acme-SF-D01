@@ -64,6 +64,8 @@ public class ManagerProjectDeleteService extends AbstractService<Manager, Projec
 	@Override
 	public void validate(final Project object) {
 		assert object != null;
+		if (!super.getBuffer().getErrors().hasErrors("draft-mode"))
+			super.state(object.isDraftMode(), "draft-mode", "manager.project.form.error.draft-mode");
 	}
 
 	@Override
