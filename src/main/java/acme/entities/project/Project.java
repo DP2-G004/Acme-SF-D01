@@ -46,7 +46,7 @@ public class Project extends AbstractEntity {
 	private boolean				indication;
 
 	@Min(0)
-	private Integer				cost;
+	private int					cost;
 
 	@URL
 	private String				link;
