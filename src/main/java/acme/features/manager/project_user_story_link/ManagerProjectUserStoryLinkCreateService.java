@@ -59,20 +59,20 @@ public class ManagerProjectUserStoryLinkCreateService extends AbstractService<Ma
 		project = object.getProject();
 		userStory = object.getUserStory();
 
-		if (!super.getBuffer().getErrors().hasErrors("project")) {
+		if (!super.getBuffer().getErrors().hasErrors("project") && !super.getBuffer().getErrors().hasErrors("userStory")) {
 			ProjectUserStoryLink existing;
-
+			super.state(object.getUserStory() != null, "userStory", "manager.project-user-story.create.error.null-user-story");
 			existing = this.repository.findOneLinkByProjectIdAndUserStoryId(project.getId(), userStory.getId());
 			super.state(existing == null, "project", "manager.link.form.error.existing-project-assignment");
 
 			super.state(project.isDraftMode() || !userStory.isDraftMode(), "project", "manager.link.form.error.published-project");
 		}
 
-		if (!super.getBuffer().getErrors().hasErrors("userStory")) {
+		if (!super.getBuffer().getErrors().hasErrors("userStory") && !super.getBuffer().getErrors().hasErrors("project")) {
 			ProjectUserStoryLink existing;
-
+			super.state(object.getProject() != null, "project", "manager.project-user-story.create.error.null-project");
 			existing = this.repository.findOneLinkByProjectIdAndUserStoryId(project.getId(), userStory.getId());
-			super.state(existing == null, "userStory", "manager.link.form.error.existing-project-assignation");
+			super.state(existing == null, "userStory", "manager.link.form.error.existing-project-assignment");
 
 			super.state(project.isDraftMode() || !userStory.isDraftMode(), "userStory", "manager.link.form.error.published-project");
 		}
