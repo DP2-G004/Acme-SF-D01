@@ -51,15 +51,15 @@ public class AdminBannerCreateService extends AbstractService<Administrator, Ban
 	public void validate(final Banner object) {
 		assert object != null;
 
-		if (!super.getBuffer().getErrors().hasErrors("lastInstantiationMoment")) {
+		if (!super.getBuffer().getErrors().hasErrors("lastInstantiationMoment") && !super.getBuffer().getErrors().hasErrors("endOfInstantiation")) {
 			super.state(MomentHelper.isAfter(object.getEndOfInstantiation(), object.getLastInstantiationMoment()), "lastInstantiationMoment", "administrator.banner.form.error.last-instantiation-moment.invalid");
 
-			if (!super.getBuffer().getErrors().hasErrors("endOfInstantiation")) {
+			//if (!super.getBuffer().getErrors().hasErrors("endOfInstantiation")) {
 
-				//Display period must last for at least one week
-				Date maximumDeadline = MomentHelper.deltaFromMoment(object.getLastInstantiationMoment(), 7, ChronoUnit.DAYS);
-				super.state(MomentHelper.isAfter(object.getEndOfInstantiation(), maximumDeadline), "endOfInstantiation", "administrator.banner.form.error.period.invalid");
-			}
+			//Display period must last for at least one week
+			Date maximumDeadline = MomentHelper.deltaFromMoment(object.getLastInstantiationMoment(), 7, ChronoUnit.DAYS);
+			super.state(MomentHelper.isAfter(object.getEndOfInstantiation(), maximumDeadline), "endOfInstantiation", "administrator.banner.form.error.period.invalid");
+			//}
 		}
 	}
 

@@ -64,6 +64,8 @@ public class AuditorCodeAuditCreateService extends AbstractService<Auditor, Code
 		if (!super.getBuffer().getErrors().hasErrors("executionDate"))
 			super.state(MomentHelper.isPast(object.getExecutionDate()), "executionDate", "Auditor.CodeAudit.form.error.too-close");
 
+		if (!super.getBuffer().getErrors().hasErrors("project"))
+			super.state(!(object.getProject() == null), "project", "Auditor.CodeAudit.form.unchosen-published-project");
 	}
 
 	@Override

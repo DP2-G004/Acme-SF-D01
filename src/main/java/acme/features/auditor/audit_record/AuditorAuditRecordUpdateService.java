@@ -70,10 +70,8 @@ public class AuditorAuditRecordUpdateService extends AbstractService<Auditor, Au
 			isCodeUnique = this.repository.findAuditRecordByCodeDifferentId(object.getCode(), object.getId());
 			super.state(isCodeUnique == null, "code", "validation.audit-record.code.duplicate");
 		}
-		if (!super.getBuffer().getErrors().hasErrors("startInstant"))
+		if (!super.getBuffer().getErrors().hasErrors("startInstant") && !super.getBuffer().getErrors().hasErrors("endInstant")) {
 			super.state(MomentHelper.isAfter(object.getEndInstant(), object.getStartInstant()), "startInstant", "validation.audit-record.moment.initial-after-final");
-
-		if (!super.getBuffer().getErrors().hasErrors("endInstant")) {
 
 			Date minimumEnd = MomentHelper.deltaFromMoment(object.getStartInstant(), 1, ChronoUnit.HOURS);
 			super.state(MomentHelper.isAfterOrEqual(object.getEndInstant(), minimumEnd), "endInstant", "validation.audit-record.moment.minimum-one-hour");
