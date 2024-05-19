@@ -53,23 +53,30 @@ public class AuditorAuditRecordCreateService extends AbstractService<Auditor, Au
 	public void validate(final AuditRecord object) {
 		assert object != null;
 
-		if (!super.getBuffer().getErrors().hasErrors("codeAudit"))
-			super.state(object.getCodeAudit().isDraftMode(), "codeAudit", "validation.auditrecord.published.audit-is-published");
+		if (!super.getBuffer().getErrors().hasErrors("codeAudit")) {
 
+			boolean codeAuditDraftMode = object.getCodeAudit() == null ? false : object.getCodeAudit().isDraftMode();
+
+			super.state(codeAuditDraftMode, "codeAudit", "validation.auditrecord.unselected-codeaudit");
+
+		}
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
 			AuditRecord isCodeUnique;
 			isCodeUnique = this.repository.findAuditRecordByCode(object.getCode());
 			super.state(isCodeUnique == null, "code", "validation.auditrecord.code.duplicate");
 		}
-		if (!super.getBuffer().getErrors().hasErrors("startInstant"))
+		if (!super.getBuffer().getErrors().hasErrors("startInstant") && !super.getBuffer().getErrors().hasErrors("endInstant")) {
 			super.state(MomentHelper.isAfter(object.getEndInstant(), object.getStartInstant()), "startInstant", "validation.auditrecord.moment.initial-after-final");
 
-		if (!super.getBuffer().getErrors().hasErrors("endInstant")) {
+			//if (!super.getBuffer().getErrors().hasErrors("endInstant")) {
 			Date minimumEnd;
 
 			minimumEnd = MomentHelper.deltaFromMoment(object.getStartInstant(), 1, ChronoUnit.HOURS);
 			super.state(MomentHelper.isAfterOrEqual(object.getEndInstant(), minimumEnd), "endInstant", "validation.auditrecord.moment.minimum-one-hour");
 		}
+
+		if (!super.getBuffer().getErrors().hasErrors("mark"))
+			super.state(object.getMark() != null, "mark", "validation.auditrecord.mark");
 	}
 
 	@Override

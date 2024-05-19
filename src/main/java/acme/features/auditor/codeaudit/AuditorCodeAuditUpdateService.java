@@ -65,6 +65,9 @@ public class AuditorCodeAuditUpdateService extends AbstractService<Auditor, Code
 		//IMPORTANTE AÑADIR TAMBIEN VALIDACION PARA SI ESTA PUBLICADO
 		if (!super.getBuffer().getErrors().hasErrors("draftMode"))
 			super.state(object.isDraftMode(), "draftMode", "validation.codeaudit.published");
+
+		if (!super.getBuffer().getErrors().hasErrors("project"))
+			super.state(!(object.getProject() == null), "project", "Auditor.CodeAudit.form.unchosen-published-project");
 	}
 
 	@Override
