@@ -25,6 +25,6 @@ developer.trainingSession.form.error.small-display-period=Period must be at leas
 developer.trainingSession.form.error.start-before-creation=Training session can't be created before training module
 developer.trainingSession.form.error.small-display-period-training-module=Training session have to be created at least 1 week after training module creation
 developer.trainingSession.form.error.one-training-session-minimum=Can't delete the unique training session of the training module
-
+developer.trainingSession.form.error.publish-ts=Can't publish a training session before the training module
 
 

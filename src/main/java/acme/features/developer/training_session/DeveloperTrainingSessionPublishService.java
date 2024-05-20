@@ -11,6 +11,7 @@ import acme.client.data.accounts.Principal;
 import acme.client.data.models.Dataset;
 import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
+import acme.entities.training_module.TrainingModule;
 import acme.entities.training_session.TrainingSession;
 import acme.roles.Developer;
 
@@ -67,6 +68,13 @@ public class DeveloperTrainingSessionPublishService extends AbstractService<Deve
 			if (!tm.getCode().equals(object.getCode()) && b)
 				super.state(tm == null, "code", "developer.trainingSession.form.error.duplicated-code");
 		}
+
+		TrainingModule tm;
+		int id;
+		id = super.getRequest().getData("id", int.class);
+		tm = this.repository.findTrainingModuleByTrainingSessionId(id);
+		if (tm.getDraftMode().equals(true))
+			super.state(!tm.getDraftMode(), "*", "developer.trainingSession.form.error.publish-ts");
 
 		final String PERIOD_START = "startPeriod";
 		final String PERIOD_END = "endPeriod";
