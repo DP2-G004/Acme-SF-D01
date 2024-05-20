@@ -58,6 +58,8 @@ public class ManagerProjectUserStoryLinkCreateService extends AbstractService<Ma
 
 		project = object.getProject();
 		userStory = object.getUserStory();
+		int managerId = super.getRequest().getPrincipal().getActiveRoleId();
+		Manager manager = this.repository.findOneManagerById(managerId);
 
 		super.state(object.getProject() != null, "*", "manager.project-user-story.create.error.null-project");
 		super.state(object.getUserStory() != null, "*", "manager.project-user-story.create.error.null-user-story");
@@ -65,6 +67,7 @@ public class ManagerProjectUserStoryLinkCreateService extends AbstractService<Ma
 		if (!super.getBuffer().getErrors().hasErrors("project") && !super.getBuffer().getErrors().hasErrors("userStory")) {
 			ProjectUserStoryLink existing;
 			existing = this.repository.findOneLinkByProjectIdAndUserStoryId(project.getId(), userStory.getId());
+			super.state(project.getManager().equals(manager) && userStory.getManager().equals(manager), "*", "manager.link.form.error.wrong-manager");
 			super.state(existing == null, "*", "manager.link.form.error.existing-project-assignment");
 			super.state(project.isDraftMode() || !userStory.isDraftMode(), "project", "manager.link.form.error.published-project");
 		}
