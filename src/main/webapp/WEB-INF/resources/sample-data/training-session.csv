@@ -1,16 +1,16 @@
 key,code,startPeriod,endPeriod,location,instructor,email,link,draft-mode,key:trainingModule
-training-session-01,TS-ASR-234,2011/07/02 00:00,2012/09/09 00:00,"Sevilla","Juan Manuel Fernández",jmfdez@gmail.com,https://ejemplo.com,true,training-module-01
-training-session-02,TS-ASR-235,2012/02/17 08:30,2013/04/25 08:30,"Barcelona","Ana López",analopez@gmail.com,https://www.example-link.com/,true,training-module-02
-training-session-03,TS-ASR-236,2013/07/30 15:45,2014/10/06 15:45,"Madrid","Carlos Rodríguez",carlosrodriguez@gmail.com,https://www.example-link.com/,true,training-module-02
-training-session-04,TS-ASR-237,2014/01/10 12:20,2015/03/17 12:20,"Valencia","Elena Gómez",elenagomez@gmail.com,https://www.example-link.com/,true,training-module-01
-training-session-05,TS-ASR-238,2015/08/26 17:10,2016/11/03 17:10,"Bilbao","Francisco Martínez",franmartinez@gmail.com,https://www.example-link.com/,false,training-module-03
-training-session-06,TS-ASR-239,2016/02/13 10:55,2017/04/22 10:55,"Sevilla","Gabriela Ramos",gabrielaramos@gmail.com,https://www.example-link.com/,true,training-module-02
-training-session-07,TS-ASR-240,2016/07/27 21:30,2017/10/04 21:30,"Barcelona","Héctor Sánchez",hectorsanchez@gmail.com,https://www.example-link.com/,true,training-module-01
-training-session-08,TS-ASR-241,2017/01/07 14:15,2018/03/14 14:15,"Madrid","Isabel Fernández",isabelfernandez@gmail.com,https://www.example-link.com/,false,training-module-02
-training-session-09,TS-ASR-242,2017/07/21 19:40,2018/08/31 19:40,"Valencia","Javier Rodríguez",javierrodriguez@gmail.com,https://www.example-link.com/,false,training-module-02
-training-session-10,TS-ASR-243,2018/01/09 23:05,2019/03/16 23:05,"Bilbao","Laura Martínez",lauramartinez@gmail.com,https://www.example-link.com/,true,training-module-05
-training-session-11,TS-ASR-244,2018/07/21 06:50,2019/09/28 06:50,"Sevilla","Manuel Gómez",manuelgomez@gmail.com,https://www.example-link.com/,true,training-module-04
-training-session-12,TS-ASR-245,2019/01/14 09:25,2020/03/21 09:25,"Barcelona","Natalia Sánchez",nataliasanchez@gmail.com,https://www.example-link.com/,true,training-module-05
-training-session-13,TS-ASR-246,2019/07/30 13:00,2020/10/07 13:00,"Madrid","Óscar Fernández",oscarfernandez@gmail.com,https://www.example-link.com/,true,training-module-04
-training-session-14,TS-ASR-247,2020/01/14 18:35,2021/03/23 18:35,"Valencia","Patricia Martínez",patriciamartinez@gmail.com,https://www.example-link.com/,false,training-module-05
-training-session-15,TS-ASR-248,2020/07/29 22:20,2021/10/05 22:20,"Bilbao","Quim García",quimgarcia@gmail.com,,false,training-module-05
+training-session-01,TS-ASR-234,2011/07/02 00:00,2012/09/09 00:00,Sevilla,Juan Manuel Fernández,jmfdez@gmail.com,https://ejemplo.com,true,training-module-01
+training-session-02,TS-ASR-235,2012/02/17 08:30,2013/04/25 08:30,Barcelona,Ana López,analopez@gmail.com,https://www.example-link.com/,false,training-module-02
+training-session-03,TS-ASR-236,2013/07/30 15:45,2014/10/06 15:45,Madrid,Carlos Rodríguez,carlosrodriguez@gmail.com,https://www.example-link.com/,false,training-module-02
+training-session-04,TS-ASR-237,2014/01/10 12:20,2015/03/17 12:20,Valencia,Elena Gómez,elenagomez@gmail.com,https://www.example-link.com/,true,training-module-01
+training-session-05,TS-ASR-238,2015/08/26 17:10,2016/11/03 17:10,Bilbao,Francisco Martínez,franmartinez@gmail.com,https://www.example-link.com/,true,training-module-03
+training-session-06,TS-ASR-239,2016/02/13 10:55,2017/04/22 10:55,Sevilla,Gabriela Ramos,gabrielaramos@gmail.com,https://www.example-link.com/,true,training-module-02
+training-session-07,TS-ASR-240,2016/07/27 21:30,2017/10/04 21:30,Barcelona,Héctor Sánchez,hectorsanchez@gmail.com,https://www.example-link.com/,true,training-module-01
+training-session-08,TS-ASR-241,2017/01/07 14:15,2018/03/14 14:15,Madrid,Isabel Fernández,isabelfernandez@gmail.com,https://www.example-link.com/,true,training-module-02
+training-session-09,TS-ASR-242,2017/07/21 19:40,2018/08/31 19:40,Valencia,Javier Rodríguez,javierrodriguez@gmail.com,https://www.example-link.com/,true,training-module-02
+training-session-10,TS-ASR-243,2018/01/09 23:05,2019/03/16 23:05,Bilbao,Laura Martínez,lauramartinez@gmail.com,https://www.example-link.com/,true,training-module-05
+training-session-11,TS-ASR-244,2018/07/21 06:50,2019/09/28 06:50,Sevilla,Manuel Gómez,manuelgomez@gmail.com,https://www.example-link.com/,true,training-module-04
+training-session-12,TS-ASR-245,2019/01/14 09:25,2020/03/21 09:25,Barcelona,Natalia Sánchez,nataliasanchez@gmail.com,https://www.example-link.com/,true,training-module-05
+training-session-13,TS-ASR-246,2019/07/30 13:00,2020/10/07 13:00,Madrid,Óscar Fernández,oscarfernandez@gmail.com,https://www.example-link.com/,true,training-module-04
+training-session-14,TS-ASR-247,2020/01/14 18:35,2021/03/23 18:35,Valencia,Patricia Martínez,patriciamartinez@gmail.com,https://www.example-link.com/,true,training-module-05
+training-session-15,TS-ASR-248,2020/07/29 22:20,2021/10/05 22:20,Bilbao,Quim García,quimgarcia@gmail.com,,true,training-module-05
