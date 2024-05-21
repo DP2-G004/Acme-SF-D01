@@ -25,11 +25,9 @@ public class DeveloperTrainingModuleCreateService extends AbstractService<Develo
 
 	@Override
 	public void authorise() {
-		boolean status;
-		status = super.getRequest().getPrincipal().hasRole(Developer.class);
-
-		super.getResponse().setAuthorised(status);
+		super.getResponse().setAuthorised(true);
 	}
+
 	@Override
 	public void load() {
 		TrainingModule tm;
@@ -57,10 +55,9 @@ public class DeveloperTrainingModuleCreateService extends AbstractService<Develo
 		principal = super.getRequest().getPrincipal();
 		Developer developer = this.repository.findDeveloperById(principal.getActiveRoleId());
 
-		super.bind(tm, "code", "creationMoment", "details", "difficultyLevel", "updateMoment", "link", "totalTime", "project", "developer");
+		super.bind(tm, "code", "creationMoment", "details", "difficultyLevel", "updateMoment", "link", "totalTime", "project");
 
 		tm.setProject(project);
-		tm.setDeveloper(developer);
 	}
 
 	@Override
@@ -97,7 +94,7 @@ public class DeveloperTrainingModuleCreateService extends AbstractService<Develo
 
 		SelectChoices choices = SelectChoices.from(DifficultyLevel.class, object.getDifficultyLevel());
 
-		dataset = super.unbind(object, "code", "creationMoment", "details", "difficultyLevel", "updateMoment", "link", "totalTime", "draft-mode", "project", "developer");
+		dataset = super.unbind(object, "code", "creationMoment", "details", "difficultyLevel", "updateMoment", "link", "totalTime", "draft-mode", "project");
 
 		dataset.put("project", projectsChoices.getSelected().getKey());
 		dataset.put("projects", projectsChoices);

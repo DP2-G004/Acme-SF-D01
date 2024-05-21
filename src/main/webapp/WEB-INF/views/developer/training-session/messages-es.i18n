@@ -25,7 +25,7 @@ developer.trainingSession.form.error.small-display-period=Duración mínima de u
 developer.trainingSession.form.error.start-before-creation=La sesión de entrenamiento no pudo haber sido creada antes que el módulo de entrenamiento
 developer.trainingSession.form.error.small-display-period-training-module=La sesión de entrenamiento debe haber sido creada mínimo 1 semana después de la creación del módulo de entrenamiento
 developer.trainingSession.form.error.one-training-session-minimum=No se puede borrar la unica sesión de entrenamiento del módulo de entrenamiento
-
+developer.trainingSession.form.error.publish-ts=No se puede publicar una sesión de entrenamiento antes que el módulo de entrenamiento
 
 
 
