@@ -26,7 +26,7 @@ public class ManagerProjectUpdateService extends AbstractService<Manager, Projec
 		masterId = super.getRequest().getData("id", int.class);
 		p = this.updateRepository.findProjectById(masterId);
 		manager = p == null ? null : p.getManager();
-		status = p != null && super.getRequest().getPrincipal().hasRole(manager);
+		status = p != null && super.getRequest().getPrincipal().hasRole(manager) && p.isDraftMode();
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -54,7 +54,7 @@ public class ManagerProjectUpdateService extends AbstractService<Manager, Projec
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
 			Project p;
 			p = this.updateRepository.findProjectByCode(object.getCode());
-			super.state(p == null, "code", "manager.project.form.error.duplicated");
+			super.state(p == null || p.equals(object), "code", "manager.project.form.error.duplicated");
 
 		}
 		if (!super.getBuffer().getErrors().hasErrors("draft-mode"))

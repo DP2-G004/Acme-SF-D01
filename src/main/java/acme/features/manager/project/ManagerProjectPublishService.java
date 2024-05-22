@@ -59,6 +59,12 @@ public class ManagerProjectPublishService extends AbstractService<Manager, Proje
 			super.state(!containsFatalErrors, "indication", "manager.project.form.error.containing-fatal-errors");
 
 		}
+		if (!super.getBuffer().getErrors().hasErrors("code")) {
+			Project p;
+			p = this.publishRepository.findProjectByCode(object.getCode());
+			super.state(p == null || p.equals(object), "code", "manager.project.form.error.duplicated");
+
+		}
 		//At least one user story
 		Collection<ProjectUserStoryLink> userStoriesLinkedToProject = this.publishRepository.findLinkedUserStoriesByProjectId(object.getId());
 		int numUserStories = userStoriesLinkedToProject.size();

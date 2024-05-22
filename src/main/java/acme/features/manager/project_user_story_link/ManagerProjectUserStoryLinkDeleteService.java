@@ -35,7 +35,7 @@ public class ManagerProjectUserStoryLinkDeleteService extends AbstractService<Ma
 		masterId = super.getRequest().getData("id", int.class);
 		pus = this.repository.findLinkById(masterId);
 		manager = pus == null ? null : this.repository.findOneManagerByLinkId(masterId);
-		status = pus != null && super.getRequest().getPrincipal().hasRole(manager);
+		status = pus != null && super.getRequest().getPrincipal().hasRole(manager) && pus.getProject().isDraftMode();
 
 		super.getResponse().setAuthorised(status);
 	}

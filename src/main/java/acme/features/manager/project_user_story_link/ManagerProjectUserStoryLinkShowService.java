@@ -59,6 +59,7 @@ public class ManagerProjectUserStoryLinkShowService extends AbstractService<Mana
 
 		dataset.put("projects", projectChoices);
 		dataset.put("userStories", userStoriesChoices);
+		dataset.put("draftMode", object.getProject().isDraftMode());
 
 		super.getResponse().addData(dataset);
 	}
