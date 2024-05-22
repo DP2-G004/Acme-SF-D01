@@ -21,13 +21,13 @@ public interface DeveloperTrainingModuleRepository extends AbstractRepository {
 	@Query("select tm from TrainingModule tm where tm.id = :trainingModuleId")
 	TrainingModule findOneTrainingModuleById(int trainingModuleId);
 
-	@Query("select tm.developer from TrainingModule tm where tm.developer.id = :activeRoleId")
-	Developer findDeveloperById(int activeRoleId);
+	@Query("SELECT d FROM Developer d WHERE d.id = :id")
+	Developer findDeveloperById(int id);
 
 	@Query("select tm from TrainingModule tm where tm.code = :code")
 	TrainingModule findTrainingModuleByCode(String code);
 
-	@Query("select p from Project p")
+	@Query("select p from Project p where p.draftMode = false")
 	Collection<Project> findAllProjects();
 
 	@Query("select p from Project p where p.id = :projectId")
