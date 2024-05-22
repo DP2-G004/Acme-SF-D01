@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="15.1">
-  <zoom_level>10</zoom_level>
+  <zoom_level>7</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>540</x>
-      <y>540</y>
-      <w>440</w>
-      <h>150</h>
+      <x>392</x>
+      <y>364</y>
+      <w>308</w>
+      <h>119</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Entity&gt;&gt;
 UserStory
@@ -17,17 +17,19 @@ UserStory
 -estimatedCost: int {Min(1)}
 -acceptanceCriteria: String {NotBlank,Length(max=100)}
 -priority: Priority {NotNull}
--link: String {URL}
+-link: String {URL, Length(max=255)}
+-draftMode: boolean
+
 </panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>570</x>
-      <y>160</y>
-      <w>370</w>
-      <h>150</h>
+      <x>413</x>
+      <y>84</y>
+      <w>259</w>
+      <h>119</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Entity&gt;&gt;
 Project
@@ -36,17 +38,18 @@ Project
 -title: String {NotBlank,Length(max=75)}
 -summary: String {NotBlank,Length(max=100)}
 -indication: boolean
--cost: Integer {Min(0)}
--link: String {URL}</panel_attributes>
+-cost: int {Min(0)}
+-link: String {URL, Length(max=255)}
+-draftMode: boolean</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>990</x>
-      <y>570</y>
-      <w>100</w>
-      <h>110</h>
+      <x>707</x>
+      <y>385</y>
+      <w>70</w>
+      <h>77</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Enum&gt;&gt;
 Priority
@@ -60,10 +63,10 @@ WONT</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>650</x>
-      <y>390</y>
-      <w>210</w>
-      <h>80</h>
+      <x>469</x>
+      <y>259</y>
+      <w>147</w>
+      <h>56</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Entity&gt;&gt;
 ProjectUserStoryLink
@@ -74,10 +77,10 @@ ProjectUserStoryLink
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>730</x>
-      <y>300</y>
-      <w>50</w>
-      <h>110</h>
+      <x>525</x>
+      <y>196</y>
+      <w>35</w>
+      <h>77</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=1
@@ -87,10 +90,10 @@ m2=0..n</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>730</x>
-      <y>460</y>
-      <w>50</w>
-      <h>100</h>
+      <x>525</x>
+      <y>308</y>
+      <w>35</w>
+      <h>70</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=1
@@ -100,10 +103,10 @@ m2=0..n</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1000</x>
-      <y>310</y>
-      <w>270</w>
-      <h>190</h>
+      <x>714</x>
+      <y>203</y>
+      <w>189</w>
+      <h>133</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Form&gt;&gt;
 ManagerDashboard
@@ -112,12 +115,12 @@ ManagerDashboard
 -totalShouldPriorityUserStories: int
 -totalCouldPriorityUserStories: int
 -totalWontPriorityUserStories: int
--averageUserStoryCost: double
--deviationUserStoryCost: double
+-averageUserStoryCost: Double
+-deviationUserStoryCost: Double
 -minimumUserStoryCost: double
 -maximumUserStoryCost: double
--averageProjectCost: double
--deviationProjectCost: double
+-averageProjectCost: Double
+-deviationProjectCost: Double
 -minimumProjectCost: double
 -maximumProjectCost: double</panel_attributes>
     <additional_attributes/>
@@ -125,10 +128,10 @@ ManagerDashboard
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>80</x>
-      <y>360</y>
-      <w>370</w>
-      <h>120</h>
+      <x>70</x>
+      <y>238</y>
+      <w>259</w>
+      <h>84</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Entity&gt;&gt;
 Manager
@@ -142,10 +145,10 @@ Manager
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>440</x>
-      <y>250</y>
-      <w>150</w>
-      <h>130</h>
+      <x>322</x>
+      <y>161</y>
+      <w>105</w>
+      <h>91</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=1
@@ -155,10 +158,10 @@ m2=0..n</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>330</x>
-      <y>470</y>
-      <w>230</w>
-      <h>170</h>
+      <x>245</x>
+      <y>315</y>
+      <w>161</w>
+      <h>119</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=1
@@ -168,10 +171,10 @@ m2=0..n</panel_attributes>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>980</x>
-      <y>150</y>
-      <w>190</w>
-      <h>50</h>
+      <x>700</x>
+      <y>91</y>
+      <w>133</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>indications with true value 
 must not be accepted</panel_attributes>
@@ -180,10 +183,10 @@ must not be accepted</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>930</x>
-      <y>160</y>
-      <w>70</w>
-      <h>90</h>
+      <x>665</x>
+      <y>98</y>
+      <w>49</w>
+      <h>63</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;70.0;50.0;10.0</additional_attributes>
