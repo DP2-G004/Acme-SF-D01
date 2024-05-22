@@ -25,14 +25,14 @@ public class DeveloperTrainingModuleUpdateService extends AbstractService<Develo
 	@Override
 	public void authorise() {
 		Boolean status;
-		int masterId;
+		int trainingModuleId;
 		TrainingModule tm;
 		Developer developer;
 
-		masterId = super.getRequest().getData("id", int.class);
-		tm = this.repository.findOneTrainingModuleById(masterId);
+		trainingModuleId = super.getRequest().getData("id", int.class);
+		tm = this.repository.findOneTrainingModuleById(trainingModuleId);
 		developer = tm == null ? null : tm.getDeveloper();
-		status = tm != null && super.getRequest().getPrincipal().hasRole(developer);
+		status = tm != null && tm.getDraftMode() && super.getRequest().getPrincipal().hasRole(developer);
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -54,7 +54,6 @@ public class DeveloperTrainingModuleUpdateService extends AbstractService<Develo
 		super.bind(tm, "code", "creationMoment", "details", "difficultyLevel", "updateMoment", "link", "totalTime", "project");
 	}
 
-	//NO OLVIDAR RELLENAR LOS MENSAJES DE ERROR
 	@Override
 	public void validate(final TrainingModule object) {
 		assert object != null;
@@ -74,20 +73,16 @@ public class DeveloperTrainingModuleUpdateService extends AbstractService<Develo
 				super.state(tm == null, "code", "developer.trainingModule.form.error.duplicated-code");
 		}
 
-		final String CREATION_MOMENT = "creationMoment";
-		final String UPDATE_MOMENT = "updateMoment";
-		if (!super.getBuffer().getErrors().hasErrors(CREATION_MOMENT) && !super.getBuffer().getErrors().hasErrors(UPDATE_MOMENT)) {
-			final boolean startBeforeEnd = MomentHelper.isAfter(object.getUpdateMoment(), object.getCreationMoment());
-			super.state(startBeforeEnd, UPDATE_MOMENT, "developer.trainingModule.form.error.end-before-start");
+		if (object.getUpdateMoment() != null) {
+			final String CREATION_MOMENT = "creationMoment";
+			final String UPDATE_MOMENT = "updateMoment";
+			if (!super.getBuffer().getErrors().hasErrors(CREATION_MOMENT) && !super.getBuffer().getErrors().hasErrors(UPDATE_MOMENT)) {
+				final boolean startBeforeEnd = MomentHelper.isAfter(object.getUpdateMoment(), object.getCreationMoment());
+				super.state(startBeforeEnd, UPDATE_MOMENT, "developer.trainingModule.form.error.end-before-start");
+			}
 		}
 
-		if (!super.getBuffer().getErrors().hasErrors("project")) {
-			int id = object.getProject().getId();
-			if (id > 0) {
-
-			} else
-				super.state(object == null, "project", "developer.trainingModule.form.error.project-null");
-		}
+		super.state(object.getProject() != null, "project", "developer.trainingModule.form.error.project-null");
 	}
 
 	@Override

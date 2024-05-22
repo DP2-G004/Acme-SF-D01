@@ -4,6 +4,7 @@ package acme.features.developer.training_session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.client.data.accounts.Principal;
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
 import acme.entities.training_session.TrainingSession;
@@ -18,9 +19,15 @@ public class DeveloperTrainingSessionShowService extends AbstractService<Develop
 
 	@Override
 	public void authorise() {
-		boolean status;
-		status = super.getRequest().getPrincipal().hasRole(Developer.class);
-		super.getResponse().setAuthorised(status);
+		int id = super.getRequest().getData("id", int.class);
+		TrainingSession trainingSession = this.repository.findTrainingSessionById(id);
+
+		final Principal principal = super.getRequest().getPrincipal();
+		final int userAccountId = principal.getAccountId();
+
+		final boolean authorise = trainingSession != null && trainingSession.getTrainingModule().getDeveloper().getUserAccount().getId() == userAccountId;
+
+		super.getResponse().setAuthorised(authorise);
 	}
 
 	@Override

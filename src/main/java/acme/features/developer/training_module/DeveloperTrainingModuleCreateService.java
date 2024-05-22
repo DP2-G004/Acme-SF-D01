@@ -66,16 +66,21 @@ public class DeveloperTrainingModuleCreateService extends AbstractService<Develo
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
 			TrainingModule tm;
 			tm = this.repository.findTrainingModuleByCode(object.getCode());
-			super.state(tm == null, "code", "developer.TrainingModule.form.error.duplicated-code");
+			super.state(tm == null, "code", "developer.trainingModule.form.error.duplicated-code");
+		}
+		if (object.getUpdateMoment() != null) {
+
+			final String CREATION_MOMENT = "creationMoment";
+			final String UPDATE_MOMENT = "updateMoment";
+
+			if (!super.getBuffer().getErrors().hasErrors(CREATION_MOMENT) && !super.getBuffer().getErrors().hasErrors(UPDATE_MOMENT)) {
+				final boolean startBeforeEnd = MomentHelper.isAfter(object.getUpdateMoment(), object.getCreationMoment());
+				super.state(startBeforeEnd, UPDATE_MOMENT, "developer.trainingModule.form.error.end-before-start");
+			}
 		}
 
-		final String CREATION_MOMENT = "creationMoment";
-		final String UPDATE_MOMENT = "updateMoment";
+		super.state(object.getProject() != null, "project", "developer.trainingModule.form.error.project-null");
 
-		if (!super.getBuffer().getErrors().hasErrors(CREATION_MOMENT) && !super.getBuffer().getErrors().hasErrors(UPDATE_MOMENT)) {
-			final boolean startBeforeEnd = MomentHelper.isAfter(object.getUpdateMoment(), object.getCreationMoment());
-			super.state(startBeforeEnd, UPDATE_MOMENT, "developer.trainingModule.form.error.end-before-start");
-		}
 	}
 
 	@Override
