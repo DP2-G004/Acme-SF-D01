@@ -73,10 +73,7 @@
 		
 		<acme:menu-option code="master.menu.auditor" access="hasRole('Auditor')">
 			<acme:menu-suboption code="master.menu.auditor.code-audit.list" action="/auditor/code-audit/list-mine"/>
-			<acme:menu-suboption code="master.menu.auditor.audit-record.list-my-audit-records" action="/auditor/audit-record/list-mine"/>
 			<acme:menu-separator/>
-			<acme:menu-suboption code="master.menu.auditor.code-audit.create" action="/auditor/code-audit/create"/>
-			<acme:menu-suboption code="master.menu.auditor.audit-record.create" action="/auditor/audit-record/create"/>
 			<acme:menu-suboption code="master.menu.auditor.dashboard" action="/auditor/auditor-dashboard/show"/>
 			<acme:menu-separator/>
 		</acme:menu-option>
