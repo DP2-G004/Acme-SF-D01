@@ -75,13 +75,18 @@ public class DeveloperTrainingModulePublishService extends AbstractService<Devel
 		Collection<TrainingSession> trainingSessions = this.repository.findTrainingSessionsByTrainingModuleId(object.getId());
 		super.state(!trainingSessions.isEmpty(), "*", "developer.trainingModule.error.not-enough-training-sessions");
 
-		final String CREATION_MOMENT = "creationMoment";
-		final String UPDATE_MOMENT = "updateMoment";
+		if (object.getUpdateMoment() != null) {
+			final String CREATION_MOMENT = "creationMoment";
+			final String UPDATE_MOMENT = "updateMoment";
 
-		if (!super.getBuffer().getErrors().hasErrors(CREATION_MOMENT) && !super.getBuffer().getErrors().hasErrors(UPDATE_MOMENT)) {
-			final boolean startBeforeEnd = MomentHelper.isAfter(object.getUpdateMoment(), object.getCreationMoment());
-			super.state(startBeforeEnd, UPDATE_MOMENT, "developer.trainingModule.form.error.end-before-start");
+			if (!super.getBuffer().getErrors().hasErrors(CREATION_MOMENT) && !super.getBuffer().getErrors().hasErrors(UPDATE_MOMENT)) {
+				final boolean startBeforeEnd = MomentHelper.isAfter(object.getUpdateMoment(), object.getCreationMoment());
+				super.state(startBeforeEnd, UPDATE_MOMENT, "developer.trainingModule.form.error.end-before-start");
+			}
 		}
+
+		super.state(object.getProject() != null, "project", "developer.trainingModule.form.error.project-null");
+
 	}
 
 	@Override
@@ -101,7 +106,7 @@ public class DeveloperTrainingModulePublishService extends AbstractService<Devel
 
 		Dataset dataset = super.unbind(object, "code", "creationMoment", "details", "difficultyLevel", "updateMoment", "link", "totalTime", "draftMode", "project");
 
-		dataset.put("difficultyLevelOptions", choices);
+		dataset.put("difficultyLevels", choices);
 		dataset.put("project", projectsChoices.getSelected().getKey());
 		dataset.put("projects", projectsChoices);
 		super.getResponse().addData(dataset);
