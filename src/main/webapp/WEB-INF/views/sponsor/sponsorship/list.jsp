@@ -5,8 +5,11 @@
 
 <acme:list>
 	<acme:list-column code="sponsor.sponsorship.list.label.code" path="code"/>
+	<acme:list-column code="sponsor.sponsorship.list.label.moment" path="moment"/>
 	<acme:list-column code="sponsor.sponsorship.list.label.amount" path="amount"/>
 	<acme:list-column code="sponsor.sponsorship.list.label.type" path="type"/>
+	<acme:list-column code="sponsor.sponsorship.list.label.draftMode" path="draftMode"/>
+	
 </acme:list>
 
 <jstl:if test="${_command == 'list-mine'}">

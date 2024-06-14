@@ -86,7 +86,7 @@ public class SponsorInvoiceUpdateService extends AbstractService<Sponsor, Invoic
 
 		assert object != null;
 		Dataset dataset;
-		dataset = super.unbind(object, "code", "registrationTime", "dueDate", "quantity", "tax", "link");
+		dataset = super.unbind(object, "code", "registrationTime", "dueDate", "quantity", "tax", "link", "draftMode");
 		dataset.put("sponsorshipDraftMode", object.getSponsorship().isDraftMode());
 		dataset.put("sponsorshipId", object.getSponsorship().getId());
 

@@ -49,8 +49,6 @@ public class AuthenticatedSponsorUpdateService extends AbstractService<Authentic
 
 		assert object != null;
 		super.bind(object, "name", "expectedBenefits", "web", "email");
-
-		System.out.println("yep, it arrived here!");
 	}
 
 	@Override

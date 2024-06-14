@@ -22,13 +22,14 @@ public class SponsorSponsorshipShowService extends AbstractService<Sponsor, Spon
 	public void authorise() {
 
 		int sponsorshipId;
-		sponsorshipId = super.getRequest().getData("id", int.class);
-
-		Sponsorship sponsorship;
-		sponsorship = this.repository.findSponsorshipById(sponsorshipId);
-
 		boolean status;
-		status = sponsorship != null && super.getRequest().getPrincipal().hasRole(Sponsor.class);
+		Sponsorship sponsorship;
+		Sponsor sponsor;
+
+		sponsorshipId = super.getRequest().getData("id", int.class);
+		sponsorship = this.repository.findSponsorshipById(sponsorshipId);
+		sponsor = sponsorship == null ? null : sponsorship.getSponsor();
+		status = sponsorship != null && super.getRequest().getPrincipal().hasRole(sponsor);
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -37,9 +38,9 @@ public class SponsorSponsorshipShowService extends AbstractService<Sponsor, Spon
 	public void load() {
 
 		int sponsorshipId;
-		sponsorshipId = super.getRequest().getData("id", int.class);
-
 		Sponsorship sponsorship;
+
+		sponsorshipId = super.getRequest().getData("id", int.class);
 		sponsorship = this.repository.findSponsorshipById(sponsorshipId);
 
 		super.getBuffer().addData(sponsorship);

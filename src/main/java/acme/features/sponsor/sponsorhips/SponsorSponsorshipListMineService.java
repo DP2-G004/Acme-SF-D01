@@ -2,6 +2,7 @@
 package acme.features.sponsor.sponsorhips;
 
 import java.util.Collection;
+import java.util.Locale;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,8 +22,11 @@ public class SponsorSponsorshipListMineService extends AbstractService<Sponsor, 
 
 	@Override
 	public void authorise() {
+
 		boolean status;
+
 		status = super.getRequest().getPrincipal().hasRole(Sponsor.class);
+
 		super.getResponse().setAuthorised(status);
 	}
 
@@ -39,11 +43,18 @@ public class SponsorSponsorshipListMineService extends AbstractService<Sponsor, 
 
 	@Override
 	public void unbind(final Sponsorship object) {
+
 		assert object != null;
 
 		Dataset dataset;
 
-		dataset = super.unbind(object, "code", "amount", "type");
+		dataset = super.unbind(object, "code", "moment", "amount", "type");
+
+		if (object.isDraftMode()) {
+			final Locale local = super.getRequest().getLocale();
+			dataset.put("draftMode", local.equals(Locale.ENGLISH) ? "Yes" : "Sí");
+		} else
+			dataset.put("draftMode", "No");
 
 		super.getResponse().addData(dataset);
 	}
