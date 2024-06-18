@@ -6,7 +6,6 @@ import org.springframework.stereotype.Service;
 
 import acme.client.data.accounts.Principal;
 import acme.client.data.models.Dataset;
-import acme.client.helpers.PrincipalHelper;
 import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
 import acme.entities.sponsorship.Sponsorship;
@@ -24,6 +23,7 @@ public class SponsorSponsorshipCreateService extends AbstractService<Sponsor, Sp
 	public void authorise() {
 
 		boolean status;
+
 		status = super.getRequest().getPrincipal().hasRole(Sponsor.class);
 
 		super.getResponse().setAuthorised(status);
@@ -89,13 +89,6 @@ public class SponsorSponsorshipCreateService extends AbstractService<Sponsor, Sp
 		dataset.put("project", projects.getSelected().getKey());
 
 		super.getResponse().addData(dataset);
-	}
-
-	@Override
-	public void onSuccess() {
-
-		if (super.getRequest().getMethod().equals("POST"))
-			PrincipalHelper.handleUpdate();
 	}
 
 }
