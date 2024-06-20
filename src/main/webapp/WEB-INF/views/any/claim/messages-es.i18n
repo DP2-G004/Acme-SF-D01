@@ -32,3 +32,4 @@ any.claim.form.label.confirmation=Confirmación
 any.claim.form.error.confirmation=Confirme para publicar la reclamación
 any.claim.label.create= Crear
 any.claim.form.button.create= Crear
+any.claim.publish.error.duplicated=Ya existe una reclamación con este código.

@@ -37,6 +37,10 @@ public class ClaimCreateService extends AbstractService<Any, Claim> {
 			boolean confirmation = super.getRequest().getData("confirmation", boolean.class);
 			super.state(confirmation, "publishIndication", "any.claim.form.error.confirmation");
 		}
+		if (!super.getBuffer().getErrors().hasErrors("code")) {
+			boolean duplicatedCode = this.createRepository.findAllClaims().stream().anyMatch(e -> e.getCode().equals(object.getCode()));
+			super.state(!duplicatedCode, "code", "any.claim.publish.error.duplicated");
+		}
 	}
 	@Override
 	public void perform(final Claim object) {
