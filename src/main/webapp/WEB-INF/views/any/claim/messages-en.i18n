@@ -32,3 +32,5 @@ any.claim.form.label.confirmation=Confirmation
 any.claim.form.error.confirmation=Confirm to publish a claim
 any.claim.label.create= Create
 any.claim.form.button.create= Create
+
+any.claim.publish.error.duplicated=There is an existing claim with this code
