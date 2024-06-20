@@ -1,16 +1,16 @@
 key,code,moment,startDate,endDate,amount,type,email,link,draftMode,key:project,key:sponsor
-sponsorship-01,A-000,2020/08/11 20:44,2020/08/11 09:03,2020/08/11 11:12,0.12$,FINANCIAL,example@example.com,https://hola.com,true,project-10,sponsor-01
-sponsorship-02,AA-100,2020/09/15 10:22,2020/09/15 00:00,2020/09/15 00:00,0.25$,FINANCIAL,sponsorship@example.com,https://random.com/124,false,project-08,sponsor-01
-sponsorship-03,AAA-010,2020/10/20 15:38,2018/10/20 00:00,2018/10/20 00:00,0.10€,IN_KIND,example@sponsor.com,,true,project-10,sponsor-02
-sponsorship-04,BAB-990,2020/11/25 08:55,2019/11/25 00:00,2019/11/25 00:00,0.20$,FINANCIAL,,,true,project-08,sponsor-01
-sponsorship-05,BA-230,2020/12/30 16:10,2021/12/30 00:00,2021/12/30 00:00,0.15€,IN_KIND,javier@jav.com,https://typing.com/url/url,true,project-08,sponsor-02
-sponsorship-06,ABC-999,1974/12/30 16:10,1975/12/30 00:00,1975/12/30 00:00,2.00€,IN_KIND,,,true,project-03,sponsor-02
-sponsorship-07,ZZZ-000,2016/02/10 08:30,2016/02/09 12:00,2016/02/10 12:00,600.99€,IN_KIND,,https://link.com/sponsorship7,true,project-01,sponsor-01
-sponsorship-08,ZY-001,2017/05/20 14:45,2017/05/19 10:00,2017/06/20 10:00,132.00€,FINANCIAL,sponsorship@example.com,https://link.com/sponsorship8,true,project-03,sponsor-01
-sponsorship-09,Z-900,2018/08/30 18:20,2018/08/29 15:00,2018/08/30 15:00,568756.00$,FINANCIAL,sponsor@example.com,https://link.com/sponsorship9,true,project-03,sponsor-01
-sponsorship-10,ZA-999,2019/11/10 11:10,2019/11/09 08:00,2019/11/10 08:00,137123.38€,FINANCIAL,sponsors@example.com,,true,project-01,sponsor-02
-sponsorship-11,BB-123,2016/03/15 13:30,2016/03/14 09:00,2016/03/15 09:00,350.75$,IN_KIND,,https://link.com/sponsorship11,true,project-09,sponsor-01
-sponsorship-12,CCC-456,2017/04/20 09:45,2017/04/19 08:00,2017/04/20 08:00,29.99€,FINANCIAL,,https://link.com/sponsorship12,true,project-08,sponsor-01
-sponsorship-13,DD-789,2018/06/25 17:15,2018/06/24 15:30,2018/06/25 15:30,500.00$,IN_KIND,,https://link.com/sponsorship13,true,project-07,sponsor-01
-sponsorship-14,EEE-987,2019/09/30 10:00,2019/09/29 08:00,2019/09/30 08:00,99.50€,IN_KIND,sponsors@example.com,https://link.com/sponsorship14,true,project-02,sponsor-02
-sponsorship-15,FFF-654,2021/01/05 14:00,2021/01/04 12:00,2021/01/05 12:00,999.99$,IN_KIND,sponsorship@example.com,,true,project-03,sponsor-02
+sponsorship-01,A-000,2020/08/11 20:44,2020/08/11 09:03,2020/08/11 11:12,USD 0.12,FINANCIAL,example@example.com,https://hola.com,true,project-10,sponsor-01
+sponsorship-02,AA-100,2020/09/15 10:22,2020/09/15 00:00,2020/09/15 00:00,USD 0.25,FINANCIAL,sponsorship@example.com,https://random.com/124,false,project-08,sponsor-01
+sponsorship-03,AAA-010,2020/10/20 15:38,2018/10/20 00:00,2018/10/20 00:00,GBP 0.10,IN_KIND,example@sponsor.com,,true,project-10,sponsor-02
+sponsorship-04,BAB-990,2020/11/25 08:55,2019/11/25 00:00,2019/11/25 00:00,USD 0.20,FINANCIAL,,,true,project-08,sponsor-01
+sponsorship-05,BA-230,2020/12/30 16:10,2021/12/30 00:00,2021/12/30 00:00,GBP 0.15,IN_KIND,javier@jav.com,https://typing.com/url/url,true,project-08,sponsor-02
+sponsorship-06,ABC-999,1974/12/30 16:10,1975/12/30 00:00,1975/12/30 00:00,GBP 2.00,IN_KIND,,,true,project-03,sponsor-02
+sponsorship-07,ZZZ-000,2016/02/10 08:30,2016/02/09 12:00,2016/02/10 12:00,GBP 600.99,IN_KIND,,https://link.com/sponsorship7,true,project-01,sponsor-01
+sponsorship-08,ZY-001,2017/05/20 14:45,2017/05/19 10:00,2017/06/20 10:00,EUR 132.00,FINANCIAL,sponsorship@example.com,https://link.com/sponsorship8,true,project-03,sponsor-01
+sponsorship-09,Z-900,2018/08/30 18:20,2018/08/29 15:00,2018/08/30 15:00,USD 568756.00,FINANCIAL,sponsor@example.com,https://link.com/sponsorship9,true,project-03,sponsor-01
+sponsorship-10,ZA-999,2019/11/10 11:10,2019/11/09 08:00,2019/11/10 08:00,EUR 137123.38,FINANCIAL,sponsors@example.com,,true,project-01,sponsor-02
+sponsorship-11,BB-123,2016/03/15 13:30,2016/03/14 09:00,2016/03/15 09:00,USD 350.75,IN_KIND,,https://link.com/sponsorship11,true,project-09,sponsor-01
+sponsorship-12,CCC-456,2017/04/20 09:45,2017/04/19 08:00,2017/04/20 08:00,EUR 29.99,FINANCIAL,,https://link.com/sponsorship12,true,project-08,sponsor-01
+sponsorship-13,DD-789,2018/06/25 17:15,2018/06/24 15:30,2018/06/25 15:30,USD 500.00,IN_KIND,,https://link.com/sponsorship13,true,project-07,sponsor-01
+sponsorship-14,EEE-987,2019/09/30 10:00,2019/09/29 08:00,2019/09/30 08:00,EUR 99.50,IN_KIND,sponsors@example.com,https://link.com/sponsorship14,true,project-02,sponsor-02
+sponsorship-15,FFF-654,2021/01/05 14:00,2021/01/04 12:00,2021/01/05 12:00,USD 999.99,IN_KIND,sponsorship@example.com,,true,project-03,sponsor-02
