@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import acme.client.repositories.AbstractRepository;
 import acme.entities.invoice.Invoice;
 import acme.entities.project.Project;
+import acme.entities.sistem_currency.SystemCurrency;
 import acme.entities.sponsorship.Sponsorship;
 import acme.roles.Sponsor;
 
@@ -36,4 +37,6 @@ public interface SponsorSponsorshipRepository extends AbstractRepository {
 	@Query("SELECT DISTINCT p FROM Project p WHERE p.draftMode = true")
 	Collection<Project> findAllProjectsDraftModeTrue();
 
+	@Query("SELECT sc FROM SystemCurrency sc")
+	SystemCurrency findSystemCurrency();
 }

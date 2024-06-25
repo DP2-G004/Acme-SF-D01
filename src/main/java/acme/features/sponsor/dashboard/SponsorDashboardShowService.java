@@ -31,18 +31,18 @@ public class SponsorDashboardShowService extends AbstractService<Sponsor, Sponso
 		sponsorId = super.getRequest().getPrincipal().getActiveRoleId();
 		dashboard = new SponsorDashboard();
 
-		int numInvoicesWithTaxLessOrEqualThan21 = this.repository.numOfInvoicesLessThan21Tax(sponsorId);
-		int numSponshorshipWithLink = this.repository.numOfLinkedSponsorships(sponsorId);
+		int numInvoicesWithTaxLessOrEqualThan21 = this.repository.numOfInvoicesLessThan21Tax(sponsorId) != null ? this.repository.numOfInvoicesLessThan21Tax(sponsorId) : 0;
+		int numSponshorshipWithLink = this.repository.numOfLinkedSponsorships(sponsorId) != null ? this.repository.numOfLinkedSponsorships(sponsorId) : 0;
 
-		double minInvoiceQuantity = this.repository.minQuantityInvoice(sponsorId);
-		double maxInvoiceQuantity = this.repository.maxQuantityInvoice(sponsorId);
-		double minSponsorshipAmount = this.repository.minAmountSponsorship(sponsorId);
-		double maxSponsorshipAmount = this.repository.maxAmountSponsorship(sponsorId);
+		double minInvoiceQuantity = this.repository.minQuantityInvoice(sponsorId) != null ? this.repository.minQuantityInvoice(sponsorId) : 0.0;
+		double maxInvoiceQuantity = this.repository.maxQuantityInvoice(sponsorId) != null ? this.repository.maxQuantityInvoice(sponsorId) : 0.0;
+		double minSponsorshipAmount = this.repository.minAmountSponsorship(sponsorId) != null ? this.repository.minAmountSponsorship(sponsorId) : 0.0;
+		double maxSponsorshipAmount = this.repository.maxAmountSponsorship(sponsorId) != null ? this.repository.maxAmountSponsorship(sponsorId) : 0.0;
 
-		double avgSponsorshipAmount = this.repository.averageAmountSponsorship(sponsorId);
-		double deviationSponsorshipAmount = this.repository.deviationAmountSponsorship(sponsorId);
-		double avgInvoiceQuantity = this.repository.averageQuantityInvoice(sponsorId);
-		double deviationInvoiceQuantity = this.repository.deviationQuantityInvoice(sponsorId);
+		double avgSponsorshipAmount = this.repository.averageAmountSponsorship(sponsorId) != null ? this.repository.averageAmountSponsorship(sponsorId) : 0.0;
+		double deviationSponsorshipAmount = this.repository.deviationAmountSponsorship(sponsorId) != null ? this.repository.deviationAmountSponsorship(sponsorId) : 0.0;
+		double avgInvoiceQuantity = this.repository.averageQuantityInvoice(sponsorId) != null ? this.repository.averageQuantityInvoice(sponsorId) : 0.0;
+		double deviationInvoiceQuantity = this.repository.deviationQuantityInvoice(sponsorId) != null ? this.repository.deviationQuantityInvoice(sponsorId) : 0.0;
 
 		dashboard.setNumInvoicesWithTaxLessOrEqualThan21(numInvoicesWithTaxLessOrEqualThan21);
 		dashboard.setNumSponshorshipWithLink(numSponshorshipWithLink);
