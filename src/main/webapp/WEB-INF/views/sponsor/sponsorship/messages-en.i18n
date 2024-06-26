@@ -4,13 +4,14 @@ sponsor.sponsorship.list.title=Sponsorships
 sponsor.sponsorship.list.label.code=Code
 sponsor.sponsorship.list.label.amount=Amount
 sponsor.sponsorship.list.label.type=Type
-
+sponsor.sponsorship.list.label.moment=Instantiation moment
+sponsor.sponsorship.list.label.draftMode=Draft mode
 
 ----------------FORM----------------
 sponsor.sponsorship.form.title= Sponsorship
 
 sponsor.sponsorship.form.label.code=Code
-sponsor.sponsorship.form.label.moment=Instantation moment
+sponsor.sponsorship.form.label.moment=Instantiation  moment
 sponsor.sponsorship.form.label.startDate= Start date
 sponsor.sponsorship.form.label.endDate = End date
 sponsor.sponsorship.form.label.amount = Amount
@@ -22,9 +23,15 @@ sponsor.sponsorship.form.label.project=Project
 
 
 ----------------ERROR----------------
-sponsor.sponsorship.form.error.code=This code is already in use
-sponsor.sponsorship.form.error.draftMode=This sponsorship is already published
+sponsor.sponsorship.form.error.code-already-exists=This code already exists
+sponsor.sponsorship.form.error.amount-must-be-positive=The amount must be positive
+sponsor.sponsorship.form.error.currency-not-supported=This currency is not supported
+sponsor.sponsorship.form.error.start-date-must-be-after-moment=The start date must be after the instantiation moment
+sponsor.sponsorship.form.error.endDate-must-be-after-startDate=The end date must be after the start date
+sponsor.sponsorship.form.error.duration-not-enough=The duration must be 30 days at least
 
+sponsor.sponsorship.form.error.total-invoices-amount-must-be-equal-sponsorship-amount=The amount of the invoices must sum the sponsorship amount
+sponsor.sponsorship.form.error.delete-sponsorship-with-published-invoices=Sponsorships with published invoices cannot be deleted
 
 ----------------BUTTONS----------------
 sponsor.sponsorship.form.button.update=Update
