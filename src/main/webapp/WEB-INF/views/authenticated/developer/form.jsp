@@ -24,4 +24,6 @@
 	
 	
 	<acme:submit test="${_command == 'create'}" code="authenticated.developer.form.button.create" action="/authenticated/developer/create"/>
+	<acme:submit test="${_command == 'update'}" code="authenticated.developer.form.button.update" action="/authenticated/developer/update"/>
+	
 </acme:form>
