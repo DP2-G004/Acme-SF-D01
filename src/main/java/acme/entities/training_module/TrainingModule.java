@@ -61,10 +61,12 @@ public class TrainingModule extends AbstractEntity {
 
 	private Boolean				draftMode;
 
+	@NotNull
 	@Valid
 	@ManyToOne(optional = false)
 	private Project				project;
 
+	@NotNull
 	@ManyToOne(optional = false)
 	@Valid
 	private Developer			developer;

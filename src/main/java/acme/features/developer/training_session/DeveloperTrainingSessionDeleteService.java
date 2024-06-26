@@ -1,8 +1,6 @@
 
 package acme.features.developer.training_session;
 
-import java.util.Collection;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -50,16 +48,6 @@ public class DeveloperTrainingSessionDeleteService extends AbstractService<Devel
 	@Override
 	public void validate(final TrainingSession object) {
 		assert object != null;
-		int res = 0;
-		boolean b = true;
-		Collection<TrainingSession> ts = this.repository.findAllTrainingSession();
-		for (TrainingSession trainingSession : ts)
-			if (trainingSession.getTrainingModule().getId() == object.getTrainingModule().getId())
-				res += 1;
-		if (res <= 1)
-			b = false;
-		super.state(b, "*", "developer.trainingSession.form.error.one-training-session-minimum");
-
 	}
 
 	@Override

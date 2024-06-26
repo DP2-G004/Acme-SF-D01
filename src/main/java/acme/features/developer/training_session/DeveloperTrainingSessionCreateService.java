@@ -88,6 +88,11 @@ public class DeveloperTrainingSessionCreateService extends AbstractService<Devel
 				super.state(startOneWeekBeforeEndMinimum, PERIOD_START, "developer.trainingSession.form.error.small-display-period-training-module");
 			}
 		}
+
+		int masterId = super.getRequest().getData("trainingModuleId", int.class);
+		TrainingModule trainingModule = this.repository.findTrainingModuleById(masterId);
+		final boolean noDraftTrainingModule = trainingModule.getDraftMode();
+		super.state(noDraftTrainingModule, "*", "developer.trainingSession.form.error.trainingModule-noDraft");
 	}
 
 	@Override

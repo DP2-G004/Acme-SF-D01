@@ -59,6 +59,7 @@ public class TrainingSession extends AbstractEntity {
 
 	private Boolean				draftMode;
 
+	@NotNull
 	@Valid
 	@ManyToOne(optional = false)
 	private TrainingModule		trainingModule;
