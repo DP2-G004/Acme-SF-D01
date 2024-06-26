@@ -65,7 +65,7 @@ public class SponsorSponsorshipPublishService extends AbstractService<Sponsor, S
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
 			Sponsorship sponsorship;
 			sponsorship = this.repository.findSponsorshipByCode(object.getCode());
-			super.state(sponsorship == null, "code", "sponsor.sponsorship.form.error.code-already-exists");
+			super.state(sponsorship == null || sponsorship.equals(object), "code", "sponsor.sponsorship.form.error.code-already-exists");
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("amount")) {
