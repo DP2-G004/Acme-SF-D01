@@ -34,7 +34,6 @@ public class AuditorAuditRecordCreateService extends AbstractService<Auditor, Au
 		int auditorId;
 		int codeAuditId;
 
-		System.out.println(super.getRequest());
 		codeAuditId = super.getRequest().getData("codeAuditId", int.class);
 
 		auditorId = request.getPrincipal().getActiveRoleId();
