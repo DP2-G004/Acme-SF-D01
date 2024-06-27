@@ -28,7 +28,6 @@ public class AuditorAuditRecordListForCodeAuditsService extends AbstractService<
 		Auditor auditor = codeAudit == null ? null : codeAudit.getAuditor();
 		boolean status = codeAudit != null && super.getRequest().getPrincipal().hasRole(auditor);
 
-		System.out.println(id);
 		super.getResponse().setAuthorised(status);
 	}
 
@@ -42,15 +41,6 @@ public class AuditorAuditRecordListForCodeAuditsService extends AbstractService<
 	}
 
 	@Override
-	public void unbind(final AuditRecord object) {
-		assert object != null;
-
-		Dataset dataset = super.unbind(object, "code", "mark");
-
-		super.getResponse().addData(dataset);
-	}
-
-	@Override
 	public void unbind(final Collection<AuditRecord> objects) {
 		assert objects != null;
 
@@ -59,6 +49,16 @@ public class AuditorAuditRecordListForCodeAuditsService extends AbstractService<
 		codeAuditId = this.getRequest().getData("codeAuditId", int.class);
 
 		super.getResponse().addGlobal("codeAuditId", codeAuditId);
+		System.out.println(super.getResponse());
+	}
+
+	@Override
+	public void unbind(final AuditRecord object) {
+		assert object != null;
+
+		Dataset dataset = super.unbind(object, "code", "mark");
+
+		super.getResponse().addData(dataset);
 	}
 
 }

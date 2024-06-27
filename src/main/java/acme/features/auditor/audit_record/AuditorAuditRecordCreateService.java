@@ -34,7 +34,8 @@ public class AuditorAuditRecordCreateService extends AbstractService<Auditor, Au
 		int auditorId;
 		int codeAuditId;
 
-		codeAuditId = this.getRequest().getData("code-auditId", int.class);
+		System.out.println(super.getRequest());
+		codeAuditId = super.getRequest().getData("codeAuditId", int.class);
 
 		auditorId = request.getPrincipal().getActiveRoleId();
 
@@ -51,7 +52,7 @@ public class AuditorAuditRecordCreateService extends AbstractService<Auditor, Au
 		int codeAuditId;
 		CodeAudit codeAudit;
 
-		codeAuditId = this.getRequest().getData("code-auditId", int.class);
+		codeAuditId = this.getRequest().getData("codeAuditId", int.class);
 		codeAudit = this.repository.findOneCodeAuditById(codeAuditId);
 
 		object = new AuditRecord();
@@ -59,7 +60,6 @@ public class AuditorAuditRecordCreateService extends AbstractService<Auditor, Au
 		object.setCodeAudit(codeAudit);
 
 		super.getBuffer().addData(object);
-
 	}
 
 	@Override
@@ -74,8 +74,10 @@ public class AuditorAuditRecordCreateService extends AbstractService<Auditor, Au
 
 	@Override
 	public void validate(final AuditRecord object) {
+		System.out.println(super.getRequest());
+
 		assert object != null;
-		CodeAudit existingCodeAudit = this.repository.findOneCodeAuditById(this.getRequest().getData("code-auditId", int.class));
+		CodeAudit existingCodeAudit = this.repository.findOneCodeAuditById(this.getRequest().getData("codeAuditId", int.class));
 
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
 			AuditRecord existing;
@@ -133,7 +135,7 @@ public class AuditorAuditRecordCreateService extends AbstractService<Auditor, Au
 
 		int codeAuditId;
 
-		codeAuditId = this.getRequest().getData("code-auditId", int.class);
+		codeAuditId = this.getRequest().getData("codeAuditId", int.class);
 
 		super.getResponse().addGlobal("codeAuditId", codeAuditId);
 	}
