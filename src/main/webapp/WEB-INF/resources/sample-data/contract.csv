@@ -1,0 +1,3 @@
+key,contractCode,instantiation,providerName,customerName,goals,budget,draftMode,key:project,key:client
+contract-01,AAA-000,2020/01/01 00:00,Provider,Customer,Objetivos,EUR 5,false,project-01,client-01
+contract-02,AAA-001,2020/01/01 00:00,Provider,Customer,Objetivos,EUR 2,false,project-01,client-01

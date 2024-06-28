@@ -1,0 +1,19 @@
+authenticated.progress.list.label.record = Record
+authenticated.progress.form.label.record = Record
+authenticated.progress.form.label.completeness = Completeness
+authenticated.progress.form.label.comment = Comment
+authenticated.progress.form.label.registration = Registration date
+authenticated.progress.form.label.responsable = Responsible person
+
+authenticated.progress.form.button.update = Update
+authenticated.progress.form.button.create = Create
+authenticated.progress.list.button.create = Create
+authenticated.progress.form.button.delete = Delete
+authenticated.progress.form.button.publish = Publish
+
+authenticated.progress.form.error.duplicated-code = Duplicated code
+authenticated.contract.form.label.registration
+authenticated.progress.list.title = Progress logs
+authenticated.progress.form.title = Progress log
+authenticated.progress.list.label.project = Project
+authenticated.progress.list.label.draftMode = Is draft
