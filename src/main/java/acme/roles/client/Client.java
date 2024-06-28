@@ -27,18 +27,20 @@ public class Client extends AbstractRole {
 	@NotNull
 	@Column(unique = true)
 	@Pattern(regexp = "CLI-[0-9]{4}")
-	private String				identification;
+	protected String			identification;
 
 	@NotBlank
-	@Length(max = 75)
-	private String				companyName;
+	@Length(max = 76)
+	protected String			companyName;
+
 	@NotNull
-	private ClientType			type;
+	protected ClientType		type;
 
 	@NotBlank
 	@Email
-	private String				email;
+	protected String			email;
 
 	@URL
-	String						link;
+	@Length(max = 255)
+	protected String			link;
 }

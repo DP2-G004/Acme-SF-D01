@@ -44,7 +44,7 @@ public class ClientProgressLogListByContractService extends AbstractService<Clie
 		Collection<Progress> progress;
 
 		final int contractId = super.getRequest().getData("contractId", int.class);
-		progress = this.repository.findProgresssByContractId(contractId).stream().toList();
+		progress = this.repository.findProgressByContractId(contractId).stream().toList();
 
 		super.getBuffer().addData(progress);
 	}
@@ -54,7 +54,7 @@ public class ClientProgressLogListByContractService extends AbstractService<Clie
 		assert object != null;
 
 		Collection<Contract> contracts = this.repository.findAllContract();
-		SelectChoices contractsChoices = SelectChoices.from(contracts, "code", object.getContract());
+		SelectChoices contractsChoices = SelectChoices.from(contracts, "contractCode", object.getContract());
 
 		final Dataset dataset = super.unbind(object, "record", "contract");
 		dataset.put("contract", contractsChoices.getSelected().getLabel());

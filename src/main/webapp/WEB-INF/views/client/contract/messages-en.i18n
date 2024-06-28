@@ -1,5 +1,5 @@
-client.contract.form.label.code = Code
-client.contract.list.label.code = Code
+client.contract.form.label.contractCode = Code
+client.contract.list.label.contractCode = Code
 client.contract.form.label.details = Details
 client.contract.form.label.providerName = Provider
 client.contract.form.label.customerName = Customer
@@ -7,7 +7,6 @@ client.contract.form.label.instantiation = Instantation
 client.contract.form.label.goals = Goals
 client.contract.form.label.budget = Budget
 client.contract.list.label.project = Project
-client.contract.form.label.project = Project
 client.contract.form.label.draftMode = Is draft
 client.contract.list.label.draftMode = Is draft
 

@@ -54,7 +54,7 @@ public class ClientProgressLogCreateService extends AbstractService<Client, Prog
 		assert object != null;
 
 		if (!super.getBuffer().getErrors().hasErrors("record")) {
-			final boolean duplicatedCode = this.repository.findAllProgresss().stream().anyMatch(e -> e.getRecord().equals(object.getRecord()));
+			final boolean duplicatedCode = this.repository.findAllProgress().stream().anyMatch(e -> e.getRecord().equals(object.getRecord()));
 
 			super.state(!duplicatedCode, "record", "client.progress.form.error.duplicated-code");
 		}

@@ -4,7 +4,7 @@
 <%@taglib prefix="acme" uri="http://acme-framework.org/"%>
 
 <acme:form>
-	<acme:input-textbox code="client.contract.form.label.code" path="code" />
+	<acme:input-textbox code="client.contract.form.label.contractCode" path="contractCode" />
 	<acme:input-textbox code="client.contract.form.label.providerName"
 		path="providerName" />
 	<acme:input-textbox code="client.contract.form.label.customerName"

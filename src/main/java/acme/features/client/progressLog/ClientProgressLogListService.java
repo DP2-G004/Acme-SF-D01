@@ -38,7 +38,7 @@ public class ClientProgressLogListService extends AbstractService<Client, Progre
 	@Override
 	public void load() {
 		final int clientId = super.getRequest().getPrincipal().getAccountId();
-		Collection<Progress> progress = this.repository.findProgresssByClientId(clientId);
+		Collection<Progress> progress = this.repository.findProgressByClientId(clientId);
 
 		super.getBuffer().addData(progress);
 	}
@@ -50,7 +50,7 @@ public class ClientProgressLogListService extends AbstractService<Client, Progre
 		final Dataset dataset = super.unbind(object, "record", "contract");
 
 		Collection<Contract> contracts = this.repository.findAllContract();
-		SelectChoices trainingModulesChoices = SelectChoices.from(contracts, "code", object.getContract());
+		SelectChoices trainingModulesChoices = SelectChoices.from(contracts, "contractCode", object.getContract());
 
 		dataset.put("contract", trainingModulesChoices.getSelected().getLabel());
 		dataset.put("contracts", trainingModulesChoices);

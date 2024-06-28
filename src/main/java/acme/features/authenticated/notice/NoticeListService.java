@@ -1,21 +1,28 @@
 
 package acme.features.authenticated.notice;
 
+import java.time.temporal.ChronoUnit;
 import java.util.Collection;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.client.data.accounts.Authenticated;
 import acme.client.data.models.Dataset;
+import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
 import acme.entities.notice.Notice;
 
 @Service
 public class NoticeListService extends AbstractService<Authenticated, Notice> {
 
+	// Internal state ---------------------------------------------------------
+
 	@Autowired
-	NoticeRepository listRepository;
+	private NoticeRepository repository;
+
+	// AbstractService interface ----------------------------------------------
 
 
 	@Override
@@ -25,11 +32,14 @@ public class NoticeListService extends AbstractService<Authenticated, Notice> {
 
 	@Override
 	public void load() {
-		Collection<Notice> claims;
+		Collection<Notice> objects;
+		Date thirtyDaysAgo;
 
-		claims = this.listRepository.findAllNotices();
+		thirtyDaysAgo = MomentHelper.deltaFromCurrentMoment(-30, ChronoUnit.DAYS);
 
-		super.getBuffer().addData(claims);
+		objects = this.repository.findNoticesBeforeTime(thirtyDaysAgo);
+
+		super.getBuffer().addData(objects);
 	}
 
 	@Override
@@ -38,8 +48,9 @@ public class NoticeListService extends AbstractService<Authenticated, Notice> {
 
 		Dataset dataset;
 
-		dataset = super.unbind(object, "lastInstantiationMoment", "title", "author", "message", "email", "link");
+		dataset = super.unbind(object, "lastInstantiationMoment", "title", "message", "email", "link", "author");
 
 		super.getResponse().addData(dataset);
 	}
+
 }

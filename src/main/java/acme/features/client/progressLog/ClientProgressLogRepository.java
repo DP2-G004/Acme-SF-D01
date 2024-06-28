@@ -16,7 +16,7 @@ import acme.roles.client.Client;
 public interface ClientProgressLogRepository extends AbstractRepository {
 
 	@Query("SELECT a FROM Progress a WHERE a.contract.id = :id")
-	Collection<Progress> findProgresssByContractId(int id);
+	Collection<Progress> findProgressByContractId(int id);
 
 	@Query("SELECT us FROM Progress us WHERE us.id = :id")
 	Progress findProgressById(int id);
@@ -25,13 +25,13 @@ public interface ClientProgressLogRepository extends AbstractRepository {
 	Contract findContractById(int id);
 
 	@Query("SELECT us FROM Progress us WHERE us.contract.client.userAccount.id = :id")
-	Collection<Progress> findProgresssByClientId(int id);
+	Collection<Progress> findProgressByClientId(int id);
 
 	@Query("SELECT d FROM Client d WHERE d.id = :id")
 	Client findClientById(int id);
 
 	@Query("SELECT t FROM Progress t")
-	Collection<Progress> findAllProgresss();
+	Collection<Progress> findAllProgress();
 
 	@Query("select p from Project p")
 	Collection<Project> findAllProjects();

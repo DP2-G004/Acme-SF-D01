@@ -1,5 +1,5 @@
-client.contract.form.label.code = Código
-client.contract.list.label.code = Código
+client.contract.form.label.contractCode = Código
+client.contract.list.label.contractCode = Código
 client.contract.form.label.details = Detalles
 client.contract.form.label.providerName = Proveedor
 client.contract.form.label.customerName = Cliente

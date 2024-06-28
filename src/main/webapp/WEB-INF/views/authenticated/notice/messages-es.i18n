@@ -15,5 +15,6 @@ authenticated.notice.form.label.message=Mensaje
 authenticated.notice.form.label.email=Email
 authenticated.notice.form.label.link=Link
 
+authenticated.notice.form.label.confirmation=Confirmación
 authenticated.notice.form.button.create = Crear noticia
 authenticated.notice.list.button.create = Crear noticia
