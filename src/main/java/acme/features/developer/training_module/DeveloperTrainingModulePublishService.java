@@ -2,6 +2,7 @@
 package acme.features.developer.training_module;
 
 import java.util.Collection;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -72,8 +73,12 @@ public class DeveloperTrainingModulePublishService extends AbstractService<Devel
 			super.state(!duplicatedCode, "totalTime", "developer.trainingModule.form.error.negative-total-time");
 		}
 
-		Collection<TrainingSession> trainingSessions = this.repository.findTrainingSessionsByTrainingModuleId(object.getId());
-		super.state(!trainingSessions.isEmpty(), "*", "developer.trainingModule.error.not-enough-training-sessions");
+		int masterId = super.getRequest().getData("id", int.class);
+		List<TrainingSession> ls = this.repository.findTrainingSessionsByTrainingModuleId(masterId).stream().toList();
+		final boolean someDraftTrainingSession = ls.stream().anyMatch(Session -> Session.getDraftMode());
+		final boolean noSession = ls.isEmpty();
+		super.state(!noSession, "*", "developer.trainingModule.form.error.trainingSession-empty");
+		super.state(!someDraftTrainingSession, "*", "developer.trainingModule.form.error.trainingSession-draft");
 
 		if (object.getUpdateMoment() != null) {
 			final String CREATION_MOMENT = "creationMoment";

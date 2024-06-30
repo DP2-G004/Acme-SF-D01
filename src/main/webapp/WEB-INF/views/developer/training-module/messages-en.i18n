@@ -30,3 +30,5 @@ developer.trainingModule.form.error.negative-total-time=Time must be equal or gr
 developer.trainingModule.error.not-enough-training-sessions=Can't publish without any training session associated 
 developer.trainingModule.form.error.null-project=Every training module must be in a project
 developer.trainingModule.form.error.project-null=You must choose a project
+developer.trainingModule.form.error.trainingSession-empty=Can't publish without any training session associated 
+developer.trainingModule.form.error.trainingSession-draft=Can't publish with associated training sessions in draft mode
