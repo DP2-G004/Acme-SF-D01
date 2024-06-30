@@ -1,8 +1,6 @@
 
 package acme.features.auditor.audit_record;
 
-import java.util.Collection;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,7 +9,6 @@ import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
 import acme.entities.audit_record.AuditRecord;
 import acme.entities.audit_record.Mark;
-import acme.entities.code_audit.CodeAudit;
 import acme.roles.Auditor;
 
 @Service
@@ -26,8 +23,8 @@ public class AuditorAuditRecordShowService extends AbstractService<Auditor, Audi
 
 		int id = super.getRequest().getData("id", int.class);
 		AuditRecord auditRecord = this.repository.findOneAuditRecordById(id);
-
-		boolean status = auditRecord != null && super.getRequest().getPrincipal().hasRole(auditRecord.getCodeAudit().getAuditor());
+		boolean auditBelongsToAuditor = auditRecord.getCodeAudit().getAuditor().getId() == super.getRequest().getPrincipal().getActiveRoleId();
+		boolean status = auditRecord != null && super.getRequest().getPrincipal().hasRole(auditRecord.getCodeAudit().getAuditor()) && auditBelongsToAuditor;
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -45,14 +42,14 @@ public class AuditorAuditRecordShowService extends AbstractService<Auditor, Audi
 	public void unbind(final AuditRecord object) {
 		assert object != null;
 
-		Collection<CodeAudit> unpublishedCodeAudits = this.repository.findAllCodeAudits();
-		SelectChoices codeAudits = SelectChoices.from(unpublishedCodeAudits, "code", object.getCodeAudit());
-		SelectChoices choices = SelectChoices.from(Mark.class, object.getMark());
+		SelectChoices marks;
+		Dataset dataset;
 
-		Dataset dataset = super.unbind(object, "code", "draftMode", "link", "mark", "startInstant", "endInstant");
-		dataset.put("codeAudit", codeAudits.getSelected().getKey());
-		dataset.put("codeaudits", codeAudits);
-		dataset.put("marks", choices);
+		marks = SelectChoices.from(Mark.class, object.getMark());
+
+		dataset = super.unbind(object, "code", "startInstant", "endInstant", "mark", "link", "draftMode");
+		dataset.put("marks", marks);
+		dataset.put("codeAuditDraftMode", object.getCodeAudit().isDraftMode());
 
 		super.getResponse().addData(dataset);
 	}
