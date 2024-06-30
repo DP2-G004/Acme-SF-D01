@@ -61,7 +61,7 @@ public class AuditorCodeAuditPublishService extends AbstractService<Auditor, Cod
 		//Revisar que la mark mode es C o mas para ser publicado
 		if (!super.getBuffer().getErrors().hasErrors("markMode"))
 			if (markMode != null) {
-				boolean isMarkAtLeastC = markMode.equals("C") || markMode.equals("B") || markMode.equals("A") || markMode.equals("A_PLUS");
+				boolean isMarkAtLeastC = markMode.equals("C") || markMode.equals("B") || markMode.equals("A") || markMode.equals("A+");
 				super.state(isMarkAtLeastC, "markMode", "validation.codeaudit.mark.mode.less-than-c");
 			} else
 				super.state(false, "markMode", "validation.codeaudit.mark.mode.less-than-c");
@@ -89,7 +89,7 @@ public class AuditorCodeAuditPublishService extends AbstractService<Auditor, Cod
 		String markMode = MarkMode.calculateMode(marks);
 
 		Collection<Project> allProjects = this.repository.findAllPublishedProjects();
-		SelectChoices projects = SelectChoices.from(allProjects, "title", object.getProject());
+		SelectChoices projects = SelectChoices.from(allProjects, "code", object.getProject());
 		SelectChoices choices = SelectChoices.from(CodeAuditType.class, object.getType());
 
 		Dataset dataset = super.unbind(object, "code", "draftMode", "executionDate", "type", "correctiveActions", "link");

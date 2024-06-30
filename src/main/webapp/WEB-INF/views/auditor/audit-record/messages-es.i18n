@@ -22,3 +22,17 @@ auditor.audit-record.form.button.update = Actualizar
 auditor.audit-record.form.button.delete = Eliminar
 auditor.audit-record.form.button.publish = Publicar
 auditor.audit-record.form.button.create = Crear
+
+auditor.auditRecord.form.error.duplicated-code = Este codigo ya existe
+auditor.auditRecord.form.error.startInstan-out-of-range = El instante de inicio debe ser antes de la fecha de ejecucion del code audit
+auditor.auditRecord.form.error.endDate-out-of-range = El instante de finalizacion debe ser una hora despues del instante de inicio
+auditor.auditRecord.form.error.invalid-dates = El periodo entre el instante de inicio y el instante de finalizacion debe ser de al menos una hora
+
+# validation.auditrecord #################################
+
+validation.auditrecord.published.audit-is-published = Esta code audit está publicada
+validation.auditrecord.draftMode = Este audit record está publicado
+
+# auditor.codeAudit.form.error ###########################
+
+auditor.codeAudit.form.error.codeAudit-draft-mode-is-set-to-false = No se puede crear un audit record para una code audit publicada

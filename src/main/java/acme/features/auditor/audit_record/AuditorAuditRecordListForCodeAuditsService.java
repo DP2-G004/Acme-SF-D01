@@ -49,7 +49,7 @@ public class AuditorAuditRecordListForCodeAuditsService extends AbstractService<
 		codeAuditId = this.getRequest().getData("codeAuditId", int.class);
 
 		super.getResponse().addGlobal("codeAuditId", codeAuditId);
-		System.out.println(super.getResponse());
+
 	}
 
 	@Override

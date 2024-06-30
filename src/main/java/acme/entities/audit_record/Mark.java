@@ -17,7 +17,12 @@ public enum Mark {
 		for (Mark mark : Mark.values())
 			if (mark.displayValue.equals(value))
 				return mark;
-		return null;
+		if (value.equals("A+"))
+			return Mark.A_PLUS;
+		if (value.equals("F-"))
+			return Mark.F_MINUS;
+		else
+			return null;
 	}
 
 	@Override

@@ -20,6 +20,18 @@ auditor.code-audit.form.button.delete = Eliminar
 auditor.code-audit.form.button.publish = Publicar
 auditor.code-audit.form.button.create = Crear
 
+Auditor.CodeAudit.form.error.duplicated = Este codigo ya existe
+Auditor.CodeAudit.form.error.too-close = ELa fecha de realizacion debe ser en el pasado
+Auditor.CodeAudit.form.unchosen-published-project = Seleccione un proyecto publicado
+
+# validation.codeaudit ###############################################
+
+validation.codeaudit.draftMode = No se puede eliminar un code audit publicado
+validation.codeaudit.mode.empty = No se puede calcular la calificacion sin audit records publicados
+validation.codeaudit.mark.mode.less-than-c = Nose puede publicar con una calificacion menor a C
+validation.codeaudit.publish.unpublished-audit-records = No se puede publicar sin tener ningun audit record publicado
+validation.codeaudit.published = No se puede actualizar un code audit que ya esta publicado
+
 # auditor.code-audit.label ###########################################
 
 auditor.code-audit.label.code = Codigo

@@ -67,13 +67,14 @@ public class AuditorAuditRecordCreateService extends AbstractService<Auditor, Au
 
 		String markString = this.getRequest().getData("mark", String.class);
 		Mark mark = Mark.parseAuditMark(markString);
-		super.bind(object, "code", "startInstant", "endInstant", "link");
+		//object.setMark(mark);
+
 		object.setMark(mark);
+		super.bind(object, "code", "startInstant", "endInstant", "link");
 	}
 
 	@Override
 	public void validate(final AuditRecord object) {
-		System.out.println(super.getRequest());
 
 		assert object != null;
 		CodeAudit existingCodeAudit = this.repository.findOneCodeAuditById(this.getRequest().getData("codeAuditId", int.class));
@@ -86,14 +87,14 @@ public class AuditorAuditRecordCreateService extends AbstractService<Auditor, Au
 
 		if (!super.getBuffer().getErrors().hasErrors("startInstant")) {
 			Date minDate = existingCodeAudit.getExecutionDate();
-			Date maxDate = new Date(122, 6, 29, 23, 01); //29/07/2022 23:01
-			super.state(MomentHelper.isAfterOrEqual(object.getStartInstant(), minDate) && MomentHelper.isBefore(object.getStartInstant(), maxDate), "startInstant", "auditor.auditRecord.form.error.startInstan-out-of-range");
+
+			super.state(MomentHelper.isAfterOrEqual(object.getStartInstant(), minDate), "startInstant", "auditor.auditRecord.form.error.startInstan-out-of-range");
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("endInstant")) {
 			Date minDate = MomentHelper.deltaFromMoment(existingCodeAudit.getExecutionDate(), 1, ChronoUnit.HOURS);
-			Date maxDate = new Date(122, 6, 30, 00, 01); //30/07/2022 00:01
-			super.state(MomentHelper.isAfterOrEqual(object.getEndInstant(), minDate) && MomentHelper.isBefore(object.getEndInstant(), maxDate), "endInstant", "auditor.auditRecord.form.error.endDate-out-of-range");
+
+			super.state(MomentHelper.isAfterOrEqual(object.getEndInstant(), minDate), "endInstant", "auditor.auditRecord.form.error.endDate-out-of-range");
 		}
 
 		if (!(super.getBuffer().getErrors().hasErrors("startInstant") || super.getBuffer().getErrors().hasErrors("endInstant"))) {
@@ -121,8 +122,9 @@ public class AuditorAuditRecordCreateService extends AbstractService<Auditor, Au
 
 		marks = SelectChoices.from(Mark.class, object.getMark());
 
-		dataset = super.unbind(object, "code", "startInstant", "endInstant", "mark", "link", "draftMode");
+		dataset = super.unbind(object, "code", "startInstant", "mark", "endInstant", "link", "draftMode");
 		dataset.put("marks", marks);
+		//dataset.put("mark", marks.getSelected().getKey());
 
 		super.getResponse().addData(dataset);
 
