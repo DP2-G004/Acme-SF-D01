@@ -7,8 +7,9 @@
 	<acme:input-textbox code="administrator.banner.form.label.slogan" path="slogan"/>
 	<acme:input-url code="administrator.banner.form.label.pictureLink" path="pictureLink"/>
 	<acme:input-url code="administrator.banner.form.label.link" path="link"/>
-	<acme:input-moment code="administrator.banner.form.label.lastInstantiationMoment" path="lastInstantiationMoment"/>
-	<acme:input-moment code="administrator.banner.form.label.endOfInstantiation" path="endOfInstantiation"/>	
+	<acme:input-moment code="administrator.banner.form.label.instantiationMoment" path="instantiationMoment"/>
+	<acme:input-moment code="administrator.banner.form.label.displayMoment" path="displayMoment"/>
+	<acme:input-moment code="administrator.banner.form.label.endOfDisplay" path="endOfDisplay"/>	
 
 	<jstl:choose>
 		<jstl:when test="${acme:anyOf(_command, 'show|update|delete')}">

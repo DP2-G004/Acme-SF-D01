@@ -7,8 +7,8 @@
 	<acme:list-column code="administrator.banner.list.label.slogan" path="slogan"/>	
 	<acme:list-column code="administrator.banner.list.label.pictureLink" path="pictureLink"/>
 	<acme:list-column code="administrator.banner.list.label.link" path="link"/>
-	<acme:list-column code="administrator.banner.list.label.lastInstantiationMoment" path="lastInstantiationMoment"/>
-	<acme:list-column code="administrator.banner.list.label.endOfInstantiation" path="endOfInstantiation"/>
+	<acme:list-column code="administrator.banner.list.label.lastInstantiationMoment" path="DisplayMoment"/>
+	<acme:list-column code="administrator.banner.list.label.endOfInstantiation" path="endOfDisplay"/>
 </acme:list>
 
 <acme:button code="administrator.banner.list.button.create" action="/administrator/banner/create"/>
