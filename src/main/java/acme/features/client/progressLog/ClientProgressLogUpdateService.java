@@ -55,8 +55,22 @@ public class ClientProgressLogUpdateService extends AbstractService<Client, Prog
 			final int progressId = super.getRequest().getData("id", int.class);
 			final boolean duplicatedCode = this.repository.findAllProgress().stream().filter(e -> e.getId() != progressId).anyMatch(e -> e.getRecord().equals(object.getRecord()));
 
-			super.state(!duplicatedCode, "record", "client.progress.form.error.duplicated-code");
+			super.state(!duplicatedCode, "record", "client.progress.form.error.duplicated");
 		}
+		if (!super.getBuffer().getErrors().hasErrors("completeness")) {
+			Double existing;
+			existing = this.repository.findMaxCompletenessPublished(object.getContract().getId()).or(0.);
+			super.state(object.getCompleteness() >= existing, "completeness", "client.progress.form.error.completeness-too-low");
+		}
+		if (!super.getBuffer().getErrors().hasErrors("registration"))
+			if (object.getRegistration() == null)
+				super.state(false, "registration", "client.progress.form.error.registration-format");
+			else {
+				final boolean registrationTooSoon = this.repository.findAllProgress().stream().filter(e -> e.getContract().getId() == object.getContract().getId())
+					.anyMatch(e -> e.getRegistration() != null && e.getRegistration().after(object.getRegistration()) && !e.isDraftMode()) || !object.getRegistration().after(object.getContract().getInstantiation());
+				super.state(!registrationTooSoon, "registration",
+					object.getRegistration().before(object.getContract().getInstantiation()) ? "client.progress.form.error.registration-moment-must-be-later-than-instantiation" : "client.progress.form.error.registration-moment-must-be-later");
+			}
 	}
 
 	@Override
@@ -70,7 +84,7 @@ public class ClientProgressLogUpdateService extends AbstractService<Client, Prog
 	public void unbind(final Progress object) {
 		assert object != null;
 
-		Dataset dataset = super.unbind(object, "record", "completeness", "comment", "responsable", "draftMode");
+		Dataset dataset = super.unbind(object, "record", "completeness", "comment", "registration", "responsable", "draftMode");
 
 		super.getResponse().addData(dataset);
 	}

@@ -1,10 +1,14 @@
 
 package acme.features.client.clientDashboard;
 
+import java.util.Collection;
+
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import acme.client.repositories.AbstractRepository;
+import acme.entities.contract.Contract;
+import acme.entities.contract.Progress;
 import acme.roles.client.Client;
 
 @Repository
@@ -36,5 +40,11 @@ public interface ClientDashboardRepository extends AbstractRepository {
 
 	@Query("select min(c.budget.amount) FROM Contract c WHERE c.client.userAccount.id = :id and c.draftMode = false")
 	Double findMinimumContractBudget(int id);
+
+	@Query("SELECT c FROM Contract c WHERE c.client.userAccount.id = :id and c.draftMode = false")
+	Collection<Contract> findAllContractsByClientId(int id);
+
+	@Query("SELECT us FROM Progress us WHERE us.contract.client.userAccount.id = :id")
+	Collection<Progress> findProgressByClientId(int id);
 
 }

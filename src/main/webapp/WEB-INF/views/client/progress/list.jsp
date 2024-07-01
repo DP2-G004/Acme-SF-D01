@@ -8,7 +8,3 @@
 	<acme:list-column code="client.progress.list.label.draftMode" path="draftMode"/>
 	<acme:list-column code="client.progress.list.label.project" path="contract" width="10%"/>
 </acme:list>
-
-<jstl:if test="${_command == 'list-by-contract'}">
-	<acme:button code="client.progressLog.list.button.create" action="/client/progress/create?contractId=${contractId}"/>
-</jstl:if>

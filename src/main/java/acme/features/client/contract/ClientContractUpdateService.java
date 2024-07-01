@@ -61,17 +61,23 @@ public class ClientContractUpdateService extends AbstractService<Client, Contrac
 	public void validate(final Contract object) {
 		assert object != null;
 
-		if (!super.getBuffer().getErrors().hasErrors("contractCode")) {
-			final int contractId = super.getRequest().getData("id", int.class);
-			final boolean duplicatedCode = this.repository.findAllContracts().stream().filter(e -> e.getId() != contractId).anyMatch(e -> e.getContractCode().equals(object.getContractCode()));
-
+		if (!super.getBuffer().getErrors().hasErrors("code")) {
+			boolean duplicatedCode = this.repository.findAllContracts().stream().anyMatch(e -> e.getContractCode().equals(object.getContractCode()));
+			if (duplicatedCode)
+				duplicatedCode = !this.repository.findContractById(object.getId()).getContractCode().equals(object.getContractCode());
 			super.state(!duplicatedCode, "contractCode", "client.contract.form.error.duplicated-code");
 		}
 
-		if (!super.getBuffer().getErrors().hasErrors("budget")) {
+		final boolean emptyProject = object.getProject() != null;
+		if (!emptyProject)
+			super.state(!emptyProject, "project", "client.contract.form.error.choose-project");
+
+		if (!super.getBuffer().getErrors().hasErrors("budget") && emptyProject) {
 			final boolean budget = object.getBudget().getAmount() > object.getProject().getCost();
 
 			super.state(!budget, "budget", "client.contract.form.error.budget-total-cost");
+			final boolean budget2 = object.getBudget().getAmount() < 0;
+			super.state(!budget2, "budget", "client.contract.form.error.budget-negative");
 		}
 
 	}

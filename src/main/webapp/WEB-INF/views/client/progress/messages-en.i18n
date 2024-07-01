@@ -10,9 +10,14 @@ client.progress.form.button.create = Create
 client.progress.list.button.create = Create
 client.progress.form.button.delete = Delete
 client.progress.form.button.publish = Publish
+client.progress.form.label.registration = Register date
 
-client.progress.form.error.duplicated-code = Duplicated code
-any.contract.form.label.registration
+client.progress.form.error.duplicated = Duplicated code
+client.progress.form.error.completeness-too-low = Completeness is lower than the previous log
+client.progress.form.error.registration-moment-must-be-later = Registration moment must be after last one
+client.progress.form.error.registration-moment-must-be-later-than-instantiation = Registration moment must be after instantiation of contract
+client.progress.form.error.registration-format = Date is invalid
+
 client.progress.list.title = Progress logs
 client.progress.form.title = Progress log
 client.progress.list.label.project = Project

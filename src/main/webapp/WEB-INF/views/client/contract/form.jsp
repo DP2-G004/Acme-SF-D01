@@ -20,10 +20,6 @@
 			test="${acme:anyOf(_command, 'show|update|delete|publish') && draftMode == true}">
 										<acme:input-moment code="client.contract.form.label.instantiation"
 		path="instantiation" readonly = "true"/>
-			<acme:button code="client.contract.form.button.add-progress"
-				action="/client/progress/create?contractId=${id}" />
-			<acme:button code="client.contract.form.button.progress"
-				action="/client/progress/list-by-contract?contractId=${id}" />
 			<acme:submit code="client.contract.form.button.update"
 				action="/client/contract/update" />
 			<acme:submit code="client.contract.form.button.delete"
@@ -38,8 +34,8 @@
 		<jstl:otherwise> 
 			<acme:input-moment code="client.contract.form.label.instantiation"
 		path="instantiation" readonly = "true"/>
-			<acme:button code="client.contract.form.button.progress"
-				action="/client/progress/list-by-contract?contractId=${id}" />
+				<acme:button code="client.contract.form.button.add-progress"
+				action="/client/progress/create?contractId=${id}" />
 		</jstl:otherwise>
 	</jstl:choose>
 

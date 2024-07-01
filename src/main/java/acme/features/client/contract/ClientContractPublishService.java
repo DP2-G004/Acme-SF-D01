@@ -2,7 +2,6 @@
 package acme.features.client.contract;
 
 import java.util.Collection;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,7 +11,6 @@ import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
 import acme.entities.contract.Contract;
-import acme.entities.contract.Progress;
 import acme.entities.project.Project;
 import acme.roles.client.Client;
 
@@ -67,11 +65,6 @@ public class ClientContractPublishService extends AbstractService<Client, Contra
 			final boolean budget = object.getBudget().getAmount() + contracts.stream().mapToDouble(x -> x.getBudget().getAmount()).sum() > object.getProject().getCost();
 			super.state(!budget, "budget", "client.contract.form.error.budget-total-cost");
 		}
-
-		int masterId = super.getRequest().getData("id", int.class);
-		List<Progress> ls = this.repository.findProgresssByContractId(masterId).stream().toList();
-		final boolean someDraftProgress = ls.stream().anyMatch(progress -> progress.isDraftMode());
-		super.state(!someDraftProgress, "*", "client.contract.form.error.child-draft");
 	}
 
 	@Override
