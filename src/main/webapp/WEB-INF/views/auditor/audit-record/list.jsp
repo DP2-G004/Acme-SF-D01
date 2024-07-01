@@ -20,6 +20,6 @@
 	<acme:list-column code="auditor.audit-record.list.label.mark" path="mark"/>
 </acme:list>
 
-	<jstl:if test="${_command == 'list-for-code-audits'}">
+	<jstl:if test="${_command == 'list-for-code-audits' && codeAuditDraftMode}">
 		<acme:button code="auditor.audit-record.list.button.create" action="/auditor/audit-record/create?codeAuditId=${codeAuditId}"/>
 	</jstl:if>

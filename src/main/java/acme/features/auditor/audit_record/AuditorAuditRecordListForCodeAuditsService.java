@@ -47,8 +47,9 @@ public class AuditorAuditRecordListForCodeAuditsService extends AbstractService<
 		int codeAuditId;
 
 		codeAuditId = this.getRequest().getData("codeAuditId", int.class);
-
+		Boolean codeAuditDraftMode = this.repository.findOneCodeAuditById(codeAuditId).isDraftMode();
 		super.getResponse().addGlobal("codeAuditId", codeAuditId);
+		super.getResponse().addGlobal("codeAuditDraftMode", codeAuditDraftMode);
 
 	}
 
