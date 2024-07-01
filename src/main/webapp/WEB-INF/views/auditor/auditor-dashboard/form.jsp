@@ -21,12 +21,12 @@
 	<acme:input-integer code="auditor.dashboard.form.label.totalNumCodeAuditsTypeDynamic" path="totalNumCodeAuditsTypeDynamic" readonly="true"/>
 
 	
-	<acme:input-double code="auditor.dashboard.form.label.averageNumAuditRecords" path="averageNumAuditRecords" readonly="true" placeholder="--"/>
-	<acme:input-double code="auditor.dashboard.form.label.deviationNumAuditRecords" path="deviationNumAuditRecords" readonly="true" placeholder="--"/>
+	<acme:input-double code="auditor.dashboard.form.label.averageNumAuditRecords" path="averageNumAuditRecords == 0 ? 'NaN' : averageNumAuditRecords" readonly="true" placeholder="--"/>
+	<acme:input-double code="auditor.dashboard.form.label.deviationNumAuditRecords" path="deviationNumAuditRecords == 0 ? 'NaN' : deviationNumAuditRecords" readonly="true" placeholder="--"/>
 	<acme:input-integer code="auditor.dashboard.form.label.minNumAuditRecords" path="minNumAuditRecords" readonly="true" placeholder="--"/>
 	<acme:input-integer code="auditor.dashboard.form.label.maxNumAuditRecords" path="maxNumAuditRecords" readonly="true" placeholder="--"/>
-	<acme:input-double code="auditor.dashboard.form.label.averagePeriodLength" path="averagePeriodLength" readonly="true" placeholder="--"/>
-	<acme:input-double code="auditor.dashboard.form.label.deviationPeriodLength" path="deviationPeriodLength" readonly="true" placeholder="--"/>
+	<acme:input-double code="auditor.dashboard.form.label.averagePeriodLength" path="averagePeriodLength == 0 ? 'NaN' : averagePeriodLength" readonly="true" placeholder="--"/>
+	<acme:input-double code="auditor.dashboard.form.label.deviationPeriodLength" path="deviationPeriodLength == 0 ? 'NaN' : deviationPeriodLength" readonly="true" placeholder="--"/>
 	<acme:input-integer code="auditor.dashboard.form.label.minPeriodLength" path="minPeriodLength" readonly="true" placeholder="--"/>
 	<acme:input-integer code="auditor.dashboard.form.label.maxPeriodLength" path="maxPeriodLength" readonly="true" placeholder="--"/>
 </acme:form>
