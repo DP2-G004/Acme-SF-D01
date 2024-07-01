@@ -26,6 +26,7 @@ Auditor.CodeAudit.form.unchosen-published-project = Seleccione un proyecto publi
 
 # validation.codeaudit ###############################################
 
+validation.codeaudit.code.duplicate = Este codigo ya existe
 validation.codeaudit.draftMode = No se puede eliminar un code audit publicado
 validation.codeaudit.mode.empty = No se puede calcular la calificacion sin audit records publicados
 validation.codeaudit.mark.mode.less-than-c = Nose puede publicar con una calificacion menor a C

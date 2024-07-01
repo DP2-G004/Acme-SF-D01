@@ -30,6 +30,7 @@ auditor.auditRecord.form.error.invalid-dates = El periodo entre el instante de i
 
 # validation.auditrecord #################################
 
+validation.audit-record.code.duplicate = Este codigo ya existe
 validation.auditrecord.published.audit-is-published = Esta code audit está publicada
 validation.auditrecord.draftMode = Este audit record está publicado
 

@@ -39,7 +39,7 @@ public class AdminBannerListService extends AbstractService<Administrator, Banne
 		assert object != null;
 
 		Dataset dataset;
-		dataset = super.unbind(object, "lastInstantiationMoment", "endOfInstantiation", "pictureLink", "slogan", "link");
+		dataset = super.unbind(object, "instantiationMoment", "displayMoment", "endOfDisplay", "pictureLink", "slogan", "link");
 		super.getResponse().addData(dataset);
 	}
 
