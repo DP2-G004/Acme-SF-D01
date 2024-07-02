@@ -70,7 +70,7 @@ public class SponsorSponsorshipPublishService extends AbstractService<Sponsor, S
 
 		if (!super.getBuffer().getErrors().hasErrors("amount")) {
 			// Amount must be positive
-			super.state(object.getAmount().getAmount() >= 0., "amount", "sponsor.sponsorship.form.error.amount-must-be-positive");
+			super.state(object.getAmount().getAmount() > 0., "amount", "sponsor.sponsorship.form.error.amount-must-be-positive");
 
 			// Currency not supported
 			List<Object> acceptedCurrencies = Arrays.asList(this.repository.findSystemCurrency().getAcceptedCurrencies().split("\\s*,\\s*"));
