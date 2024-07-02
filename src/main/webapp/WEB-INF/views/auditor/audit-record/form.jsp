@@ -21,16 +21,15 @@
 	<acme:input-select code="auditor.audit-record.form.label.mark" path="mark" choices="${marks}" />
 	<acme:input-moment code="auditor.audit-record.form.label.startInstant" path="startInstant" />
 	<acme:input-moment code="auditor.audit-record.form.label.endInstant" path="endInstant" />
-	<acme:input-select code="auditor.audit-record.form.label.code-audit" path="codeAudit" choices="${codeaudits}"/>
 	
 	<jstl:choose>
-		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && draftMode == true}">
+		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && draftMode}">
 			<acme:submit code="auditor.audit-record.form.button.update" action="/auditor/audit-record/update"/>
 			<acme:submit code="auditor.audit-record.form.button.delete" action="/auditor/audit-record/delete"/>
 			<acme:submit code="auditor.audit-record.form.button.publish" action="/auditor/audit-record/publish"/>
 		</jstl:when>
 		<jstl:when test="${_command == 'create'}">
-			<acme:submit code="auditor.audit-record.form.button.create" action="/auditor/audit-record/create"/>
+			<acme:submit code="auditor.audit-record.form.button.create" action="/auditor/audit-record/create?codeAuditId=${codeAuditId}"/>
 		</jstl:when>
 	</jstl:choose>
 </acme:form>

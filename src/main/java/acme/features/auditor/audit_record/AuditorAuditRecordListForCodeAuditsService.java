@@ -41,6 +41,19 @@ public class AuditorAuditRecordListForCodeAuditsService extends AbstractService<
 	}
 
 	@Override
+	public void unbind(final Collection<AuditRecord> objects) {
+		assert objects != null;
+
+		int codeAuditId;
+
+		codeAuditId = this.getRequest().getData("codeAuditId", int.class);
+		Boolean codeAuditDraftMode = this.repository.findOneCodeAuditById(codeAuditId).isDraftMode();
+		super.getResponse().addGlobal("codeAuditId", codeAuditId);
+		super.getResponse().addGlobal("codeAuditDraftMode", codeAuditDraftMode);
+
+	}
+
+	@Override
 	public void unbind(final AuditRecord object) {
 		assert object != null;
 

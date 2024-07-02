@@ -1,8 +1,6 @@
 
 package acme.features.auditor.audit_record;
 
-import java.util.Collection;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,7 +9,6 @@ import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
 import acme.entities.audit_record.AuditRecord;
 import acme.entities.audit_record.Mark;
-import acme.entities.code_audit.CodeAudit;
 import acme.roles.Auditor;
 
 @Service
@@ -45,11 +42,12 @@ public class AuditorAuditRecordDeleteService extends AbstractService<Auditor, Au
 	public void bind(final AuditRecord object) {
 		assert object != null;
 
-		int codeAuditId = super.getRequest().getData("codeAudit", int.class);
-		CodeAudit codeAudit = this.repository.findOneCodeAuditById(codeAuditId);
+		String markString = this.getRequest().getData("mark", String.class);
+		Mark mark = Mark.parseAuditMark(markString);
+		//object.setMark(mark);
 
-		object.setCodeAudit(codeAudit);
-		super.bind(object, "code", "link", "mark", "startInstant", "endInstant");
+		object.setMark(mark);
+		super.bind(object, "code", "startInstant", "endInstant", "link");
 	}
 
 	@Override
@@ -75,18 +73,14 @@ public class AuditorAuditRecordDeleteService extends AbstractService<Auditor, Au
 	public void unbind(final AuditRecord object) {
 		assert object != null;
 
-		SelectChoices choices;
-		SelectChoices codeAudits;
+		SelectChoices marks;
 		Dataset dataset;
 
-		Collection<CodeAudit> allCodeAudits = this.repository.findAllCodeAudits();
-		codeAudits = SelectChoices.from(allCodeAudits, "code", object.getCodeAudit());
-		choices = SelectChoices.from(Mark.class, object.getMark());
+		marks = SelectChoices.from(Mark.class, object.getMark());
 
-		dataset = super.unbind(object, "code", "draftMode", "link", "mark", "startInstant", "endInstant");
-		dataset.put("codeAudit", codeAudits.getSelected().getKey());
-		dataset.put("codeaudits", codeAudits);
-		dataset.put("marks", choices);
+		dataset = super.unbind(object, "code", "startInstant", "mark", "endInstant", "link", "draftMode");
+		dataset.put("marks", marks);
+		//dataset.put("mark", marks.getSelected().getKey());
 
 		super.getResponse().addData(dataset);
 	}

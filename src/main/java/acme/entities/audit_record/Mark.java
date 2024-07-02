@@ -13,6 +13,18 @@ public enum Mark {
 		this.displayValue = displayValue;
 	}
 
+	public static Mark parseAuditMark(final String value) {
+		for (Mark mark : Mark.values())
+			if (mark.displayValue.equals(value))
+				return mark;
+		if (value.equals("A+"))
+			return Mark.A_PLUS;
+		if (value.equals("F-"))
+			return Mark.F_MINUS;
+		else
+			return null;
+	}
+
 	@Override
 	public String toString() {
 		return this.displayValue;

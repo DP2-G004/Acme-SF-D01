@@ -30,4 +30,7 @@ developer.trainingModule.form.error.negative-total-time=El tiempo tiene que ser 
 developer.trainingModule.error.not-enough-training-sessions=No se puede publicar sin ninguna sesión de entrenamiento asociada
 developer.trainingModule.form.error.null-project=Todos los módulos de entrenamiento deben pertenecer a algún proyecto
 developer.trainingModule.form.error.project-null=Debe elegir un proyecto
+developer.trainingModule.form.error.trainingSession-empty=No se puede publicar sin ninguna sesión de entrenamiento asociada
+developer.trainingModule.form.error.trainingSession-draft=No se puede publicar con sesiones de entrenamiento asociadas que estén en modo borrador 
+
 

@@ -2,7 +2,6 @@
 package acme.features.auditor.audit_record;
 
 import java.time.temporal.ChronoUnit;
-import java.util.Collection;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import acme.client.data.models.Dataset;
 import acme.client.helpers.MomentHelper;
+import acme.client.helpers.PrincipalHelper;
 import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
 import acme.entities.audit_record.AuditRecord;
@@ -29,10 +29,13 @@ public class AuditorAuditRecordUpdateService extends AbstractService<Auditor, Au
 
 		int id = super.getRequest().getData("id", int.class);
 		AuditRecord auditRecord = this.repository.findOneAuditRecordById(id);
+		int auditorId = super.getRequest().getPrincipal().getActiveRoleId();
+		CodeAudit object = auditRecord.getCodeAudit();
 
-		boolean status = auditRecord != null && super.getRequest().getPrincipal().hasRole(auditRecord.getCodeAudit().getAuditor());
+		boolean status = auditRecord != null && super.getRequest().getPrincipal().hasRole(auditRecord.getCodeAudit().getAuditor()) && object.getAuditor().getId() == auditorId;
 
 		super.getResponse().setAuthorised(status);
+
 	}
 
 	@Override
@@ -42,40 +45,56 @@ public class AuditorAuditRecordUpdateService extends AbstractService<Auditor, Au
 		AuditRecord object = this.repository.findOneAuditRecordById(id);
 
 		super.getBuffer().addData(object);
+
 	}
 
 	@Override
 	public void bind(final AuditRecord object) {
 		assert object != null;
 
-		int codeAuditId = super.getRequest().getData("codeAudit", int.class);
-		CodeAudit codeAudit = this.repository.findOneCodeAuditById(codeAuditId);
+		String markString = this.getRequest().getData("mark", String.class);
+		Mark mark = Mark.parseAuditMark(markString);
+		//object.setMark(mark);
 
-		object.setCodeAudit(codeAudit);
-		super.bind(object, "code", "link", "mark", "startInstant", "endInstant");
+		object.setMark(mark);
+		super.bind(object, "code", "startInstant", "endInstant", "link");
+
 	}
 
 	@Override
 	public void validate(final AuditRecord object) {
+
 		assert object != null;
-
-		if (!super.getBuffer().getErrors().hasErrors("codeAudit"))
-			super.state(object.getCodeAudit().isDraftMode(), "codeAudit", "validation.audit-record.published.audit-is-published");
-
-		if (!super.getBuffer().getErrors().hasErrors("draftMode"))
-			super.state(object.isDraftMode(), "draftMode", "validation.audit-record.published");
+		int id = super.getRequest().getData("id", int.class);
+		AuditRecord auditRecord = this.repository.findOneAuditRecordById(id);
+		CodeAudit existingCodeAudit = auditRecord.getCodeAudit();
 
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
 			AuditRecord isCodeUnique;
 			isCodeUnique = this.repository.findAuditRecordByCodeDifferentId(object.getCode(), object.getId());
 			super.state(isCodeUnique == null, "code", "validation.audit-record.code.duplicate");
 		}
-		if (!super.getBuffer().getErrors().hasErrors("startInstant") && !super.getBuffer().getErrors().hasErrors("endInstant")) {
-			super.state(MomentHelper.isAfter(object.getEndInstant(), object.getStartInstant()), "startInstant", "validation.audit-record.moment.initial-after-final");
 
-			Date minimumEnd = MomentHelper.deltaFromMoment(object.getStartInstant(), 1, ChronoUnit.HOURS);
-			super.state(MomentHelper.isAfterOrEqual(object.getEndInstant(), minimumEnd), "endInstant", "validation.audit-record.moment.minimum-one-hour");
+		if (!super.getBuffer().getErrors().hasErrors("startInstant")) {
+			Date minDate = existingCodeAudit.getExecutionDate();
+			//Date maxDate = new Date(122, 6, 29, 23, 01); //29/07/2022 23:01
+			super.state(MomentHelper.isAfterOrEqual(object.getStartInstant(), minDate), "startInstant", "auditor.auditRecord.form.error.startInstan-out-of-range");
 		}
+
+		if (!super.getBuffer().getErrors().hasErrors("endInstant")) {
+			Date minDate = MomentHelper.deltaFromMoment(existingCodeAudit.getExecutionDate(), 1, ChronoUnit.HOURS);
+			//Date maxDate = new Date(122, 6, 30, 00, 01); //30/07/2022 00:01
+			super.state(MomentHelper.isAfterOrEqual(object.getEndInstant(), minDate), "endInstant", "auditor.auditRecord.form.error.endDate-out-of-range");
+		}
+
+		if (!(super.getBuffer().getErrors().hasErrors("startInstant") || super.getBuffer().getErrors().hasErrors("endInstant"))) {
+			Date minimunDuration;
+			minimunDuration = MomentHelper.deltaFromMoment(object.getStartInstant(), 1, ChronoUnit.HOURS);
+			super.state(MomentHelper.isAfterOrEqual(object.getEndInstant(), minimunDuration), "endInstant", "auditor.auditRecord.form.error.invalid-dates");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("codeAudit"))
+			super.state(existingCodeAudit != null && existingCodeAudit.isDraftMode() && !existingCodeAudit.getProject().isDraftMode(), "codeAudit", "auditor.codeAudit.form.error.codeAudit-draft-mode-is-set-to-false");
 	}
 
 	@Override
@@ -88,16 +107,24 @@ public class AuditorAuditRecordUpdateService extends AbstractService<Auditor, Au
 	public void unbind(final AuditRecord object) {
 		assert object != null;
 
-		Collection<CodeAudit> allCodeAudits = this.repository.findAllCodeAudits();
-		SelectChoices codeAudits = SelectChoices.from(allCodeAudits, "code", object.getCodeAudit());
-		SelectChoices choices = SelectChoices.from(Mark.class, object.getMark());
+		SelectChoices marks;
+		Dataset dataset;
 
-		Dataset dataset = super.unbind(object, "code", "draftMode", "link", "mark", "startInstant", "endInstant");
-		dataset.put("codeAudit", codeAudits.getSelected().getKey());
-		dataset.put("codeaudits", codeAudits);
-		dataset.put("marks", choices);
-		dataset.put("mark", choices.getSelected().getKey());
+		marks = SelectChoices.from(Mark.class, object.getMark());
+
+		dataset = super.unbind(object, "code", "startInstant", "mark", "endInstant", "link", "draftMode");
+		dataset.put("marks", marks);
+		//dataset.put("mark", marks.getSelected().getKey());
 
 		super.getResponse().addData(dataset);
+
 	}
+
+	@Override
+	public void onSuccess() {
+		//El framework usa post tambien para el update 
+		if (super.getRequest().getMethod().equals("POST"))
+			PrincipalHelper.handleUpdate();
+	}
+
 }

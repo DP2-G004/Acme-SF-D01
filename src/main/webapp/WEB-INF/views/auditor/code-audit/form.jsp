@@ -27,7 +27,7 @@
 	<acme:input-select code="auditor.code-audit.label.project" path="project" choices="${projects}"/>
 	
 	<jstl:choose>
-		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && draftMode == true}">
+		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && draftMode}">
 			<acme:button code="auditor.code-audit.form.button.audit-records" action="/auditor/audit-record/list-for-code-audits?codeAuditId=${id}"/>
 			<acme:submit code="auditor.code-audit.form.button.update" action="/auditor/code-audit/update"/>
 			<acme:submit code="auditor.code-audit.form.button.delete" action="/auditor/code-audit/delete"/>
@@ -35,6 +35,9 @@
 		</jstl:when>
 		<jstl:when test="${_command == 'create'}">
 			<acme:submit code="auditor.code-audit.form.button.create" action="/auditor/code-audit/create"/>
+		</jstl:when>
+		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && !draftMode}">
+			<acme:button code="auditor.code-audit.form.button.audit-records" action="/auditor/audit-record/list-for-code-audits?codeAuditId=${id}"/>
 		</jstl:when>
 	</jstl:choose>
 </acme:form>

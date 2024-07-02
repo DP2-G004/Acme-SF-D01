@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import acme.client.data.models.Dataset;
 import acme.client.helpers.MomentHelper;
+import acme.client.helpers.PrincipalHelper;
 import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
 import acme.entities.audit_record.AuditRecord;
@@ -26,14 +27,36 @@ public class AuditorAuditRecordCreateService extends AbstractService<Auditor, Au
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean status;
+
+		var request = super.getRequest();
+
+		int auditorId;
+		int codeAuditId;
+
+		codeAuditId = super.getRequest().getData("codeAuditId", int.class);
+
+		auditorId = request.getPrincipal().getActiveRoleId();
+
+		CodeAudit object = this.repository.findOneCodeAuditById(codeAuditId);
+
+		status = object != null && request.getPrincipal().hasRole(Auditor.class) && object.getAuditor().getId() == auditorId;
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
 	public void load() {
+		AuditRecord object;
+		int codeAuditId;
+		CodeAudit codeAudit;
 
-		AuditRecord object = new AuditRecord();
+		codeAuditId = this.getRequest().getData("codeAuditId", int.class);
+		codeAudit = this.repository.findOneCodeAuditById(codeAuditId);
+
+		object = new AuditRecord();
 		object.setDraftMode(true);
+		object.setCodeAudit(codeAudit);
 
 		super.getBuffer().addData(object);
 	}
@@ -42,41 +65,46 @@ public class AuditorAuditRecordCreateService extends AbstractService<Auditor, Au
 	public void bind(final AuditRecord object) {
 		assert object != null;
 
-		int codeAuditId = super.getRequest().getData("codeAudit", int.class);
-		CodeAudit codeAudit = this.repository.findOneCodeAuditById(codeAuditId);
+		String markString = this.getRequest().getData("mark", String.class);
+		Mark mark = Mark.parseAuditMark(markString);
+		//object.setMark(mark);
 
-		object.setCodeAudit(codeAudit);
-		super.bind(object, "code", "link", "mark", "startInstant", "endInstant");
+		object.setMark(mark);
+		super.bind(object, "code", "startInstant", "endInstant", "link");
 	}
 
 	@Override
 	public void validate(final AuditRecord object) {
+
 		assert object != null;
+		CodeAudit existingCodeAudit = this.repository.findOneCodeAuditById(this.getRequest().getData("codeAuditId", int.class));
 
-		if (!super.getBuffer().getErrors().hasErrors("codeAudit")) {
-
-			boolean codeAuditDraftMode = object.getCodeAudit() == null ? false : object.getCodeAudit().isDraftMode();
-
-			super.state(codeAuditDraftMode, "codeAudit", "validation.auditrecord.unselected-codeaudit");
-
-		}
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
-			AuditRecord isCodeUnique;
-			isCodeUnique = this.repository.findAuditRecordByCode(object.getCode());
-			super.state(isCodeUnique == null, "code", "validation.auditrecord.code.duplicate");
-		}
-		if (!super.getBuffer().getErrors().hasErrors("startInstant") && !super.getBuffer().getErrors().hasErrors("endInstant")) {
-			super.state(MomentHelper.isAfter(object.getEndInstant(), object.getStartInstant()), "startInstant", "validation.auditrecord.moment.initial-after-final");
-
-			//if (!super.getBuffer().getErrors().hasErrors("endInstant")) {
-			Date minimumEnd;
-
-			minimumEnd = MomentHelper.deltaFromMoment(object.getStartInstant(), 1, ChronoUnit.HOURS);
-			super.state(MomentHelper.isAfterOrEqual(object.getEndInstant(), minimumEnd), "endInstant", "validation.auditrecord.moment.minimum-one-hour");
+			AuditRecord existing;
+			existing = this.repository.findAuditRecordByCode(object.getCode());
+			super.state(existing == null, "code", "auditor.auditRecord.form.error.duplicated-code");
 		}
 
-		if (!super.getBuffer().getErrors().hasErrors("mark"))
-			super.state(object.getMark() != null, "mark", "validation.auditrecord.mark");
+		if (!super.getBuffer().getErrors().hasErrors("startInstant")) {
+			Date minDate = existingCodeAudit.getExecutionDate();
+
+			super.state(MomentHelper.isAfterOrEqual(object.getStartInstant(), minDate), "startInstant", "auditor.auditRecord.form.error.startInstan-out-of-range");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("endInstant")) {
+			Date minDate = MomentHelper.deltaFromMoment(existingCodeAudit.getExecutionDate(), 1, ChronoUnit.HOURS);
+
+			super.state(MomentHelper.isAfterOrEqual(object.getEndInstant(), minDate), "endInstant", "auditor.auditRecord.form.error.endDate-out-of-range");
+		}
+
+		if (!(super.getBuffer().getErrors().hasErrors("startInstant") || super.getBuffer().getErrors().hasErrors("endInstant"))) {
+			Date minimunDuration;
+			minimunDuration = MomentHelper.deltaFromMoment(object.getStartInstant(), 1, ChronoUnit.HOURS);
+			super.state(MomentHelper.isAfterOrEqual(object.getEndInstant(), minimunDuration), "endInstant", "auditor.auditRecord.form.error.invalid-dates");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("codeAudit"))
+			super.state(existingCodeAudit != null && existingCodeAudit.isDraftMode() && !existingCodeAudit.getProject().isDraftMode(), "codeAudit", "auditor.codeAudit.form.error.codeAudit-draft-mode-is-set-to-false");
 	}
 
 	@Override
@@ -89,17 +117,34 @@ public class AuditorAuditRecordCreateService extends AbstractService<Auditor, Au
 	public void unbind(final AuditRecord object) {
 		assert object != null;
 
-		Collection<CodeAudit> allCodeAudits = this.repository.findAllCodeAudits();
-		SelectChoices codeAudits = SelectChoices.from(allCodeAudits, "code", object.getCodeAudit());
-		SelectChoices choices = SelectChoices.from(Mark.class, object.getMark());
+		SelectChoices marks;
+		Dataset dataset;
 
-		Dataset dataset = super.unbind(object, "code", "draftMode", "link", "mark", "startInstant", "endInstant");
-		dataset.put("codAudit", codeAudits.getSelected().getKey());
-		dataset.put("codeaudits", codeAudits);
-		dataset.put("marks", choices);
-		dataset.put("mark", choices.getSelected().getKey());
+		marks = SelectChoices.from(Mark.class, object.getMark());
+
+		dataset = super.unbind(object, "code", "startInstant", "mark", "endInstant", "link", "draftMode");
+		dataset.put("marks", marks);
+		//dataset.put("mark", marks.getSelected().getKey());
 
 		super.getResponse().addData(dataset);
+
+	}
+
+	@Override
+	public void unbind(final Collection<AuditRecord> objects) {
+		assert objects != null;
+
+		int codeAuditId;
+
+		codeAuditId = this.getRequest().getData("codeAuditId", int.class);
+
+		super.getResponse().addGlobal("codeAuditId", codeAuditId);
+	}
+
+	@Override
+	public void onSuccess() {
+		if (super.getRequest().getMethod().equals("POST"))
+			PrincipalHelper.handleUpdate();
 	}
 
 }
