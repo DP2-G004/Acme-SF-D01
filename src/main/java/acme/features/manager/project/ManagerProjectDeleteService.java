@@ -12,8 +12,8 @@ import acme.client.services.AbstractService;
 import acme.entities.audit_record.AuditRecord;
 import acme.entities.code_audit.CodeAudit;
 import acme.entities.contract.Contract;
+import acme.entities.contract.Progress;
 import acme.entities.invoice.Invoice;
-import acme.entities.progress_log.ProgressLog;
 import acme.entities.project.Project;
 import acme.entities.project_userstory_link.ProjectUserStoryLink;
 import acme.entities.sponsorship.Sponsorship;
@@ -86,7 +86,7 @@ public class ManagerProjectDeleteService extends AbstractService<Manager, Projec
 
 		Collection<Contract> contracts = this.deleteRepository.findAllContractsByProjectId(projectId);
 		for (Contract contract : contracts) {
-			Collection<ProgressLog> progressLogs = this.deleteRepository.findAllProgressLogsByContractId(contract.getId());
+			Collection<Progress> progressLogs = this.deleteRepository.findAllProgressLogsByContractId(contract.getId());
 			this.deleteRepository.deleteAll(progressLogs);
 		}
 		this.deleteRepository.deleteAll(contracts);
