@@ -89,16 +89,18 @@ public class SponsorSponsorshipPublishService extends AbstractService<Sponsor, S
 		}
 
 		// startDate must be after moment
-		if (!super.getBuffer().getErrors().hasErrors("startDate"))
-			super.state(MomentHelper.isAfter(object.getStartDate(), object.getMoment()), "startDate", "sponsor.sponsorship.form.error.start-date-must-be-after-moment");
+		if (object.getMoment() != null && object.getStartDate() != null)
+			if (!super.getBuffer().getErrors().hasErrors("startDate"))
+				super.state(MomentHelper.isAfter(object.getStartDate(), object.getMoment()), "startDate", "sponsor.sponsorship.form.error.start-date-must-be-after-moment");
 
-		if (!super.getBuffer().getErrors().hasErrors("endDate")) {
-			// End date must be after start date
-			super.state(MomentHelper.isAfter(object.getEndDate(), object.getStartDate()), "startDate", "sponsor.sponsorship.form.error.endDate-must-be-after-startDate");
+		if (object.getEndDate() != null && object.getStartDate() != null)
+			if (!super.getBuffer().getErrors().hasErrors("endDate")) {
+				// End date must be after start date
+				super.state(MomentHelper.isAfter(object.getEndDate(), object.getStartDate()), "startDate", "sponsor.sponsorship.form.error.endDate-must-be-after-startDate");
 
-			// At least 1 month between start and end
-			super.state(MomentHelper.isLongEnough(object.getStartDate(), object.getEndDate(), 1, ChronoUnit.MONTHS), "startDate", "sponsor.sponsorship.form.error.duration-not-enough");
-		}
+				// At least 1 month between start and end
+				super.state(MomentHelper.isLongEnough(object.getStartDate(), object.getEndDate(), 1, ChronoUnit.MONTHS), "startDate", "sponsor.sponsorship.form.error.duration-not-enough");
+			}
 	}
 
 	@Override
