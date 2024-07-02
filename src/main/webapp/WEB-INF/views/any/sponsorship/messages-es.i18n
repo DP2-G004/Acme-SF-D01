@@ -1,0 +1,20 @@
+----------------LIST----------------
+any.sponsorship.list.title=Patrocinios
+
+any.sponsorship.list.label.code=Código
+any.sponsorship.list.label.amount=Cantidad
+any.sponsorship.list.label.type=Tipo
+any.sponsorship.list.label.moment=Momento de instanciación
+
+----------------FORM----------------
+any.sponsorship.form.title= Patrocinio
+
+any.sponsorship.form.label.code=Código
+any.sponsorship.form.label.moment=Momento de instanciación
+any.sponsorship.form.label.startDate= Fecha de inicio
+any.sponsorship.form.label.endDate = Fecha de fin
+any.sponsorship.form.label.amount = Cantidad
+any.sponsorship.form.label.type = Tipo
+any.sponsorship.form.label.email= Email
+any.sponsorship.form.label.link = Link
+any.sponsorship.form.label.project=Proyecto
