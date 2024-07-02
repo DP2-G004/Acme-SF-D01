@@ -24,6 +24,7 @@ client.contract.form.error.some-publish = Error, there are already some publish 
 client.contract.form.error.budget-negative = Error, budget can't be negative
 client.contract.form.error.draft-progress = Error, there's some progress logs that have not been published
 client.contract.form.error.choose-project = Error, you must choose a project
+client.contract.form.error.published-log = Error, there's a published progress log older than this
 
 
 client.contract.form.button.progress = List progress log contract

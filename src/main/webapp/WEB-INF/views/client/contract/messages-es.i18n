@@ -22,6 +22,7 @@ client.contract.form.error.some-publish = Error, ya hay algunos progresos public
 client.contract.form.error.budget-negative = Error, el presupuesto no puede ser negativo
 client.contract.form.error.draft-progress = Error, todavía quedan registros de progreso sin publicar
 client.contract.form.error.choose-project = Error, debes escoger un proyecto
+client.contract.form.error.published-log = Error, hay un registro de progreso ya publicado más antiguo
 client.contract.form.button.progress = Lista de registros de progreso del contrato
 client.contract.form.button.add-progress = Agregar registro de progreso
 client.contract.form.title = Módulo de contrato

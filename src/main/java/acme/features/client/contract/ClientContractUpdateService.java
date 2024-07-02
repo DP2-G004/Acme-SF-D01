@@ -79,7 +79,10 @@ public class ClientContractUpdateService extends AbstractService<Client, Contrac
 			final boolean budget2 = object.getBudget().getAmount() < 0;
 			super.state(!budget2, "budget", "client.contract.form.error.budget-negative");
 		}
-
+		if (!super.getBuffer().getErrors().hasErrors("instantiation")) {
+			final boolean tooLate = this.repository.findAllProgress(object.getId()).stream().anyMatch(e -> e.getRegistration().after(object.getInstantiation()));
+			super.state(!tooLate, "instantiation", "client.contract.form.error.published-log");
+		}
 	}
 
 	@Override
