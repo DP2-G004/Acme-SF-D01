@@ -1,0 +1,5 @@
+key,record,completeness,comment,registration,responsable,draftMode,key:contract
+progress-log-01,PG-AA-0000,50.00,Comentario,2020/02/02 00:00,Responsable,false,contract-01
+progress-log-02,PG-AA-0001,75.00,Comentario,2020/03/03 00:00,Responsable,false,contract-01
+progress-log-03,PG-AA-0002,35.35,Comentario,2020/03/03 00:00,Responsable,false,contract-02
+progress-log-04,PG-AA-0003,57.23,Comentario,2020/04/04 00:00,Responsable,false,contract-02
