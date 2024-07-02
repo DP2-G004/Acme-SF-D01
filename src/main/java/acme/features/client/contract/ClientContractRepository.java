@@ -22,7 +22,7 @@ public interface ClientContractRepository extends AbstractRepository {
 	Contract findContractById(int id);
 
 	@Query("SELECT a FROM Progress a WHERE a.contract.id = :id")
-	Collection<Progress> findProgresssByContractId(int id);
+	Collection<Progress> findProgressByContractId(int id);
 
 	@Query("SELECT d FROM Client d WHERE d.id = :id")
 	Client findClientById(int id);

@@ -38,7 +38,7 @@ public class ClientProgressLogListService extends AbstractService<Client, Progre
 	@Override
 	public void load() {
 		final int clientId = super.getRequest().getPrincipal().getAccountId();
-		Collection<Progress> progress = this.repository.findProgresssByClientId(clientId);
+		Collection<Progress> progress = this.repository.findProgressByClientId(clientId);
 
 		super.getBuffer().addData(progress);
 	}
