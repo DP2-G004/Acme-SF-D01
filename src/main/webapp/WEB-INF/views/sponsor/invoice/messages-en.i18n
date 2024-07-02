@@ -19,8 +19,12 @@ sponsor.invoice.form.label.draftMode=Draft mode
 
 
 ----------------ERROR----------------
-sponsor.invoice.form.error.code=Code already in use
-sponsor.invoice.form.error.invalid-due-date=Invalid due date. Must be 30 days after	registration
+sponsor.invoice.form.error.code-already-exists=Code already exists
+sponsor.invoice.form.error.duration-not-enough=The distance between due date and registration must be 30 days at least
+sponsor.invoice.form.error.dueDate-must-be-after-registration=The due date must be after the registration
+sponsor.invoice.form.error.amount-must-be-positive=The amount must be positive
+sponsor.invoice.form.error.currency-not-supported=The currency is not supported
+sponsor.invoice.form.error.sponsorship-currency-must-match-invoice-currency=The invoice currency must match the sponsorship one
 
 ----------------BUTTONS----------------
 sponsor.invoice.list.button.create=Create

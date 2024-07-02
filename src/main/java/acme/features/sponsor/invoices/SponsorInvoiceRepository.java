@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import acme.client.repositories.AbstractRepository;
 import acme.entities.invoice.Invoice;
+import acme.entities.sistem_currency.SystemCurrency;
 import acme.entities.sponsorship.Sponsorship;
 
 @Repository
@@ -24,4 +25,7 @@ public interface SponsorInvoiceRepository extends AbstractRepository {
 
 	@Query("SELECT i FROM Invoice i WHERE i.code = :invoiceCode")
 	Invoice findInvoiceByCode(String invoiceCode);
+
+	@Query("SELECT sc FROM SystemCurrency sc")
+	SystemCurrency findSystemCurrency();
 }

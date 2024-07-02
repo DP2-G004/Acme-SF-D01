@@ -18,8 +18,12 @@ sponsor.invoice.form.label.link=Enlace
 sponsor.invoice.form.label.draftMode=Modo borrador
 
 ----------------ERROR----------------
-sponsor.invoice.form.error.code=Código ya en uso
-sponsor.invoice.form.error.invalid-due-date=Fecha de vencimiento inválida. Debe ser 30 días después del registro
+sponsor.invoice.form.error.code-already-exists=Código ya existente
+sponsor.invoice.form.error.duration-not-enough=La fecha de vencimiento debe ser, al menos, 30 días despues que la de registro
+sponsor.invoice.form.error.dueDate-must-be-after-registration=La fecha de vencimiento debe ser posterior a la de registro
+sponsor.invoice.form.error.amount-must-be-positive=La cantidad debe ser positiva
+sponsor.invoice.form.error.currency-not-supported=La divisa no es soportada
+sponsor.invoice.form.error.sponsorship-currency-must-match-invoice-currency=La divisa de la factura debe ser la misma que la del patrocinio
 
 ----------------BUTTONS----------------
 sponsor.invoice.list.button.create=Crear

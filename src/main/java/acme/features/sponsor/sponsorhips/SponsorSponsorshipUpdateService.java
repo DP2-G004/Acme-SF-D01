@@ -66,12 +66,12 @@ public class SponsorSponsorshipUpdateService extends AbstractService<Sponsor, Sp
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
 			Sponsorship sponsorship;
 			sponsorship = this.repository.findSponsorshipByCode(object.getCode());
-			super.state(sponsorship == null, "code", "sponsor.sponsorship.form.error.code-already-exists");
+			super.state(sponsorship == null || sponsorship.equals(object), "code", "sponsor.sponsorship.form.error.code-already-exists");
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("amount")) {
 			// Amount must be positive
-			super.state(object.getAmount().getAmount() >= 0., "amount", "sponsor.sponsorship.form.error.amount-must-be-positive");
+			super.state(object.getAmount().getAmount() > 0., "amount", "sponsor.sponsorship.form.error.amount-must-be-positive");
 
 			// Currency not supported
 			List<Object> acceptedCurrencies = Arrays.asList(this.repository.findSystemCurrency().getAcceptedCurrencies().split("\\s*,\\s*"));
@@ -79,16 +79,18 @@ public class SponsorSponsorshipUpdateService extends AbstractService<Sponsor, Sp
 		}
 
 		// startDate must be after moment
-		if (!super.getBuffer().getErrors().hasErrors("startDate"))
-			super.state(MomentHelper.isAfter(object.getStartDate(), object.getMoment()), "startDate", "sponsor.sponsorship.form.error.start-date-must-be-after-moment");
+		if (object.getMoment() != null && object.getStartDate() != null)
+			if (!super.getBuffer().getErrors().hasErrors("startDate"))
+				super.state(MomentHelper.isAfter(object.getStartDate(), object.getMoment()), "startDate", "sponsor.sponsorship.form.error.start-date-must-be-after-moment");
 
-		if (!super.getBuffer().getErrors().hasErrors("endDate")) {
-			// End date must be after start date
-			super.state(MomentHelper.isAfter(object.getEndDate(), object.getStartDate()), "startDate", "sponsor.sponsorship.form.error.endDate-must-be-after-startDate");
+		if (object.getEndDate() != null && object.getStartDate() != null)
+			if (!super.getBuffer().getErrors().hasErrors("endDate")) {
+				// End date must be after start date
+				super.state(MomentHelper.isAfter(object.getEndDate(), object.getStartDate()), "startDate", "sponsor.sponsorship.form.error.endDate-must-be-after-startDate");
 
-			// At least 1 month between start and end
-			super.state(MomentHelper.isLongEnough(object.getStartDate(), object.getEndDate(), 1, ChronoUnit.MONTHS), "startDate", "sponsor.sponsorship.form.error.duration-not-enough");
-		}
+				// At least 1 month between start and end
+				super.state(MomentHelper.isLongEnough(object.getStartDate(), object.getEndDate(), 1, ChronoUnit.MONTHS), "startDate", "sponsor.sponsorship.form.error.duration-not-enough");
+			}
 	}
 
 	@Override

@@ -59,6 +59,11 @@ public class SponsorSponsorshipDeleteService extends AbstractService<Sponsor, Sp
 	@Override
 	public void validate(final Sponsorship object) {
 		assert object != null;
+
+		if (!super.getBuffer().getErrors().hasErrors("code")) {
+			Collection<Invoice> publishedInvoices = this.repository.findPublishedInvoicesBySponsorshipId(object.getId());
+			super.state(publishedInvoices.size() == 0, "code", "sponsor.sponsorship.form.error.delete-sponsorship-with-published-invoices");
+		}
 	}
 
 	@Override
