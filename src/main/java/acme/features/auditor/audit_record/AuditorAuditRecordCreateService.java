@@ -110,6 +110,8 @@ public class AuditorAuditRecordCreateService extends AbstractService<Auditor, Au
 	@Override
 	public void perform(final AuditRecord object) {
 		assert object != null;
+		//Para evitar que se modifique la peticion y crear un objeto de la entidad con un id ya existente
+		object.setId(0);
 		this.repository.save(object);
 	}
 

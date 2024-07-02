@@ -72,6 +72,8 @@ public class AuditorCodeAuditCreateService extends AbstractService<Auditor, Code
 	public void perform(final CodeAudit object) {
 		assert object != null;
 
+		//Para evitar que se modifique la peticion y crear un objeto de la entidad con un id ya existente
+		object.setId(0);
 		this.repository.save(object);
 	}
 
