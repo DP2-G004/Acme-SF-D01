@@ -65,6 +65,8 @@ public class ClientContractPublishService extends AbstractService<Client, Contra
 			final boolean budget = object.getBudget().getAmount() + contracts.stream().mapToDouble(x -> x.getBudget().getAmount()).sum() > object.getProject().getCost();
 			super.state(!budget, "budget", "client.contract.form.error.budget-total-cost");
 		}
+		final boolean draftLogs = this.repository.findAllDraftProgress(object.getId()).isEmpty();
+		super.state(draftLogs, "instantiation", "client.contract.form.error.draft-progress");
 	}
 
 	@Override
