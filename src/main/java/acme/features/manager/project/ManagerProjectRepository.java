@@ -10,8 +10,8 @@ import acme.client.repositories.AbstractRepository;
 import acme.entities.audit_record.AuditRecord;
 import acme.entities.code_audit.CodeAudit;
 import acme.entities.contract.Contract;
+import acme.entities.contract.Progress;
 import acme.entities.invoice.Invoice;
-import acme.entities.progress_log.ProgressLog;
 import acme.entities.project.Project;
 import acme.entities.project_userstory_link.ProjectUserStoryLink;
 import acme.entities.sponsorship.Sponsorship;
@@ -51,8 +51,8 @@ public interface ManagerProjectRepository extends AbstractRepository {
 	@Query("select c from Contract c where c.project.id = :projectId")
 	Collection<Contract> findAllContractsByProjectId(int projectId);
 
-	@Query("select p from ProgressLog p where p.contract.id = :contractId")
-	Collection<ProgressLog> findAllProgressLogsByContractId(int contractId);
+	@Query("select p from Progress p where p.contract.id = :contractId")
+	Collection<Progress> findAllProgressLogsByContractId(int contractId);
 
 	@Query("select s from Sponsorship s where s.project.id = :projectId")
 	Collection<Sponsorship> findAllSponsorshipsByProjectId(int projectId);

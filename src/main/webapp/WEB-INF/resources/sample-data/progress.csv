@@ -3,3 +3,6 @@ progress-log-01,PG-AA-0000,50.00,Comentario,2020/02/02 00:00,Responsable,false,c
 progress-log-02,PG-AA-0001,75.00,Comentario,2020/03/03 00:00,Responsable,false,contract-01
 progress-log-03,PG-AA-0002,35.35,Comentario,2020/03/03 00:00,Responsable,false,contract-02
 progress-log-04,PG-AA-0003,57.23,Comentario,2020/04/04 00:00,Responsable,false,contract-02
+progress-log-05,PG-AA-1000,90,Comentario,2022/04/04 00:00,Responsable,true,contract-03
+progress-log-06,PG-AA-1001,70,Comentario,2022/03/03 00:00,Responsable,true,contract-03
+progress-log-07,PG-AA-2000,90,Comentario,2020/04/04 00:00,Responsable,true,contract-04

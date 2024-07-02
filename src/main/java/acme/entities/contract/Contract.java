@@ -5,7 +5,6 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -36,6 +35,7 @@ public class Contract extends AbstractEntity {
 	@Pattern(regexp = "^[A-Z]{1,3}-[0-9]{3}$")
 	protected String			contractCode;
 
+	@NotNull
 	@Past
 	@Temporal(TemporalType.TIMESTAMP)
 	protected Date				instantiation;
@@ -56,12 +56,12 @@ public class Contract extends AbstractEntity {
 
 	@Valid
 	@ManyToOne
-	@JoinColumn(name = "project_id", nullable = false)
+	@NotNull
 	private Project				project;
 
 	@Valid
 	@ManyToOne
-	@JoinColumn(name = "client_id", nullable = false)
+	@NotNull
 	private Client				client;
 
 	//Custom restriction buget must be less than the project cost, that will be implemented on services, on future deliverable

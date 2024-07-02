@@ -60,14 +60,19 @@ public class ClientContractCreateService extends AbstractService<Client, Contrac
 
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
 			final boolean duplicatedCode = this.repository.findAllContracts().stream().anyMatch(e -> e.getContractCode().equals(object.getContractCode()));
-
 			super.state(!duplicatedCode, "contractCode", "client.contract.form.error.duplicated-code");
 		}
 
-		if (!super.getBuffer().getErrors().hasErrors("budget")) {
+		final boolean emptyProject = object.getProject() != null;
+		if (!emptyProject)
+			super.state(!emptyProject, "project", "client.contract.form.error.choose-project");
+
+		if (!super.getBuffer().getErrors().hasErrors("budget") && emptyProject) {
 			final boolean budget = object.getBudget().getAmount() > object.getProject().getCost();
 
 			super.state(!budget, "budget", "client.contract.form.error.budget-total-cost");
+			final boolean budget2 = object.getBudget().getAmount() < 0;
+			super.state(!budget2, "budget", "client.contract.form.error.budget-negative");
 		}
 
 	}
@@ -86,7 +91,7 @@ public class ClientContractCreateService extends AbstractService<Client, Contrac
 		Collection<Project> projects = this.repository.findAllProjects();
 		SelectChoices projectsChoices = SelectChoices.from(projects, "code", object.getProject());
 
-		projectsChoices = SelectChoices.from(projects, "contractCode", object.getProject());
+		projectsChoices = SelectChoices.from(projects, "code", object.getProject());
 
 		Dataset dataset = super.unbind(object, "contractCode", "instantiation", "providerName", "customerName", "goals", "budget", "project", "draftMode");
 
