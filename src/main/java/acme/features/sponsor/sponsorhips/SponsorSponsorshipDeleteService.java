@@ -10,6 +10,7 @@ import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
 import acme.entities.invoice.Invoice;
+import acme.entities.project.Project;
 import acme.entities.sponsorship.Sponsorship;
 import acme.entities.sponsorship.SponsorshipType;
 import acme.roles.Sponsor;
@@ -32,7 +33,7 @@ public class SponsorSponsorshipDeleteService extends AbstractService<Sponsor, Sp
 		sponsorshipId = super.getRequest().getData("id", int.class);
 		sponsorship = this.repository.findSponsorshipById(sponsorshipId);
 		sponsor = sponsorship == null ? null : sponsorship.getSponsor();
-		status = sponsorship != null && super.getRequest().getPrincipal().hasRole(sponsor);
+		status = sponsorship != null && sponsorship.isDraftMode() && super.getRequest().getPrincipal().hasRole(sponsor);
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -53,7 +54,15 @@ public class SponsorSponsorshipDeleteService extends AbstractService<Sponsor, Sp
 	public void bind(final Sponsorship object) {
 
 		assert object != null;
-		super.bind(object, "code", "moment", "startDate", "endDate", "amount", "type", "email", "link", "project");
+
+		Project project;
+
+		project = this.getRequest().getData("project", Project.class);
+		if (project != null)
+			project = this.repository.findProjectByCode(project.getCode());
+
+		super.bind(object, "code", "startDate", "endDate", "amount", "type", "email", "link");
+		object.setProject(project);
 	}
 
 	@Override
@@ -62,7 +71,7 @@ public class SponsorSponsorshipDeleteService extends AbstractService<Sponsor, Sp
 
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
 			Collection<Invoice> publishedInvoices = this.repository.findPublishedInvoicesBySponsorshipId(object.getId());
-			super.state(publishedInvoices.size() == 0, "code", "sponsor.sponsorship.form.error.delete-sponsorship-with-published-invoices");
+			super.state(publishedInvoices.size() == 0, "*", "sponsor.sponsorship.form.error.delete-sponsorship-with-published-invoices");
 		}
 	}
 
@@ -89,7 +98,7 @@ public class SponsorSponsorshipDeleteService extends AbstractService<Sponsor, Sp
 		SelectChoices types;
 
 		types = SelectChoices.from(SponsorshipType.class, object.getType());
-		projects = SelectChoices.from(this.repository.findAllProjects(), "code", object.getProject());
+		projects = SelectChoices.from(this.repository.findAllPublishedProjects(), "code", object.getProject());
 
 		dataset = super.unbind(object, "code", "moment", "startDate", "endDate", "amount", "type", "email", "link", "draftMode");
 

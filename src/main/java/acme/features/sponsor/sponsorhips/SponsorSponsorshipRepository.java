@@ -31,11 +31,11 @@ public interface SponsorSponsorshipRepository extends AbstractRepository {
 	@Query("SELECT i FROM Invoice i WHERE i.sponsorship.id = :sponsorshipId")
 	Collection<Invoice> findInvoicesBySponsorshipId(int sponsorshipId);
 
-	@Query("SELECT DISTINCT p FROM Project p")
-	Collection<Project> findAllProjects();
+	@Query("SELECT DISTINCT p FROM Project p WHERE p.draftMode = false")
+	Collection<Project> findAllPublishedProjects();
 
-	@Query("SELECT DISTINCT p FROM Project p WHERE p.draftMode = true")
-	Collection<Project> findAllProjectsDraftModeTrue();
+	@Query("SELECT p FROM Project p WHERE p.code = :code")
+	Project findProjectByCode(String code);
 
 	@Query("SELECT sc FROM SystemCurrency sc")
 	SystemCurrency findSystemCurrency();

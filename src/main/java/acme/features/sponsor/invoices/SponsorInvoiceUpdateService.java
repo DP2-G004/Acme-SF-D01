@@ -35,7 +35,7 @@ public class SponsorInvoiceUpdateService extends AbstractService<Sponsor, Invoic
 		invoice = this.repository.findInvoiceById(id);
 		sponsorship = invoice == null ? null : invoice.getSponsorship();
 		sponsor = sponsorship == null ? null : sponsorship.getSponsor();
-		status = invoice != null && super.getRequest().getPrincipal().hasRole(sponsor);
+		status = invoice != null && invoice.getDraftMode() && super.getRequest().getPrincipal().hasRole(sponsor);
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -55,7 +55,7 @@ public class SponsorInvoiceUpdateService extends AbstractService<Sponsor, Invoic
 	@Override
 	public void bind(final Invoice object) {
 		assert object != null;
-		super.bind(object, "code", "registrationTime", "dueDate", "quantity", "tax", "link");
+		super.bind(object, "code", "dueDate", "quantity", "tax", "link");
 	}
 
 	@Override
