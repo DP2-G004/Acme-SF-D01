@@ -117,12 +117,12 @@ ManagerDashboard
 -totalWontPriorityUserStories: int
 -averageUserStoryCost: Double
 -deviationUserStoryCost: Double
--minimumUserStoryCost: double
--maximumUserStoryCost: double
+-minimumUserStoryCost: int
+-maximumUserStoryCost: int
 -averageProjectCost: Double
 -deviationProjectCost: Double
--minimumProjectCost: double
--maximumProjectCost: double</panel_attributes>
+-minimumProjectCost: int
+-maximumProjectCost: int</panel_attributes>
     <additional_attributes/>
   </element>
   <element>

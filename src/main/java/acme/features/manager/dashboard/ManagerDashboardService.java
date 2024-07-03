@@ -83,8 +83,8 @@ public class ManagerDashboardService extends AbstractService<Manager, ManagerDas
 		} else {
 			dashboard.setAverageProjectCost(Double.NaN);
 			dashboard.setDeviationProjectCost(Double.NaN);
-			dashboard.setMinimumProjectCost(Double.NaN);
-			dashboard.setMaximumProjectCost(Double.NaN);
+			dashboard.setMinimumProjectCost(0);
+			dashboard.setMaximumProjectCost(0);
 		}
 		if (!userStories.isEmpty()) {
 			totalMustPriorityUserStories = this.repository.numUserStoriesByPriority(managerId, Priority.MUST);
@@ -114,8 +114,8 @@ public class ManagerDashboardService extends AbstractService<Manager, ManagerDas
 			dashboard.setTotalWontPriorityUserStories(0);
 			dashboard.setAverageUserStoryCost(Double.NaN);
 			dashboard.setDeviationUserStoryCost(Double.NaN);
-			dashboard.setMinimumUserStoryCost(Double.NaN);
-			dashboard.setMaximumUserStoryCost(Double.NaN);
+			dashboard.setMinimumUserStoryCost(0);
+			dashboard.setMaximumUserStoryCost(0);
 		}
 
 		// Saving the data
