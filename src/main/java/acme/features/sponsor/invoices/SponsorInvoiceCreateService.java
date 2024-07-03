@@ -33,7 +33,7 @@ public class SponsorInvoiceCreateService extends AbstractService<Sponsor, Invoic
 		sponsorshipId = super.getRequest().getData("sponsorshipId", int.class);
 		sponsorship = this.repository.findSponsorshipById(sponsorshipId);
 		sponsor = sponsorship == null ? null : sponsorship.getSponsor();
-		status = sponsorship != null && super.getRequest().getPrincipal().hasRole(sponsor);
+		status = sponsorship.isDraftMode() && sponsorship != null && super.getRequest().getPrincipal().hasRole(sponsor);
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -51,6 +51,7 @@ public class SponsorInvoiceCreateService extends AbstractService<Sponsor, Invoic
 		object = new Invoice();
 		object.setDraftMode(true);
 		object.setSponsorship(sponsorship);
+		object.setRegistrationTime(MomentHelper.getCurrentMoment());
 
 		super.getBuffer().addData(object);
 	}
@@ -59,7 +60,7 @@ public class SponsorInvoiceCreateService extends AbstractService<Sponsor, Invoic
 	public void bind(final Invoice object) {
 
 		assert object != null;
-		super.bind(object, "code", "registrationTime", "dueDate", "quantity", "tax", "link");
+		super.bind(object, "code", "dueDate", "quantity", "tax", "link");
 	}
 
 	@Override

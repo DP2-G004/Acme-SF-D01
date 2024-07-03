@@ -55,8 +55,8 @@ public class SponsorSponsorshipShowService extends AbstractService<Sponsor, Spon
 		SelectChoices types;
 
 		types = SelectChoices.from(SponsorshipType.class, object.getType());
-		projects = SelectChoices.from(this.repository.findAllProjects(), "code", object.getProject());
-
+		System.out.println(this.repository.findAllPublishedProjects() + "; AAAAAA: " + object.getProject());
+		projects = SelectChoices.from(this.repository.findAllPublishedProjects(), "code", object.getProject());
 		dataset = super.unbind(object, "code", "moment", "startDate", "endDate", "amount", "type", "email", "link", "draftMode");
 
 		dataset.put("types", types);

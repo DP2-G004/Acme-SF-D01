@@ -13,6 +13,7 @@ import acme.client.data.models.Dataset;
 import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
+import acme.entities.project.Project;
 import acme.entities.sponsorship.Sponsorship;
 import acme.entities.sponsorship.SponsorshipType;
 import acme.roles.Sponsor;
@@ -47,6 +48,7 @@ public class SponsorSponsorshipCreateService extends AbstractService<Sponsor, Sp
 		object = new Sponsorship();
 		object.setSponsor(sponsor);
 		object.setDraftMode(true);
+		object.setMoment(MomentHelper.getCurrentMoment());
 
 		super.getBuffer().addData(object);
 	}
@@ -55,7 +57,15 @@ public class SponsorSponsorshipCreateService extends AbstractService<Sponsor, Sp
 	public void bind(final Sponsorship object) {
 
 		assert object != null;
-		super.bind(object, "code", "moment", "startDate", "endDate", "amount", "type", "email", "link", "project");
+
+		Project project;
+
+		project = this.getRequest().getData("project", Project.class);
+		if (project != null)
+			project = this.repository.findProjectByCode(project.getCode());
+
+		super.bind(object, "code", "startDate", "endDate", "amount", "type", "email", "link");
+		object.setProject(project);
 	}
 
 	@Override
@@ -110,7 +120,7 @@ public class SponsorSponsorshipCreateService extends AbstractService<Sponsor, Sp
 		SelectChoices types;
 
 		types = SelectChoices.from(SponsorshipType.class, object.getType());
-		projects = SelectChoices.from(this.repository.findAllProjectsDraftModeTrue(), "code", object.getProject());
+		projects = SelectChoices.from(this.repository.findAllPublishedProjects(), "code", object.getProject());
 
 		dataset = super.unbind(object, "code", "moment", "startDate", "endDate", "amount", "type", "email", "link", "draftMode");
 
