@@ -4,7 +4,7 @@
 <%@taglib prefix="acme" uri="http://acme-framework.org/"%>
 
 <acme:list>
-	<acme:list-column code="client.contract.list.label.code" path="code"/>
+	<acme:list-column code="client.contract.list.label.contractCode" path="contractCode"/>
 	<acme:list-column code="client.contract.list.label.draftMode" path="draftMode"/>
 	<acme:list-column code="client.contract.list.label.project" path="project" width="10%"/>
 </acme:list>

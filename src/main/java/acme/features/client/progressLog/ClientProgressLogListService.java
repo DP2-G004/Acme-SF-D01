@@ -50,7 +50,7 @@ public class ClientProgressLogListService extends AbstractService<Client, Progre
 		final Dataset dataset = super.unbind(object, "record", "contract");
 
 		Collection<Contract> contracts = this.repository.findAllContract();
-		SelectChoices trainingModulesChoices = SelectChoices.from(contracts, "code", object.getContract());
+		SelectChoices trainingModulesChoices = SelectChoices.from(contracts, "contractCode", object.getContract());
 
 		dataset.put("contract", trainingModulesChoices.getSelected().getLabel());
 		dataset.put("contracts", trainingModulesChoices);

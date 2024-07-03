@@ -38,7 +38,7 @@ public interface ClientProgressLogRepository extends AbstractRepository {
 	@Query("SELECT d FROM Client d WHERE d.id = :id")
 	Client findClientById(int id);
 
-	@Query("SELECT t FROM Progress t")
+	@Query("SELECT t FROM Progress t WHERE t.draftMode = false")
 	Collection<Progress> findAllProgress();
 
 	@Query("select p from Project p")

@@ -60,10 +60,26 @@ public class ClientContractPublishService extends AbstractService<Client, Contra
 	public void validate(final Contract object) {
 		assert object != null;
 
-		if (!super.getBuffer().getErrors().hasErrors("budget")) {
+		if (!super.getBuffer().getErrors().hasErrors("code")) {
+			boolean duplicatedCode = this.repository.findAllContracts().stream().anyMatch(e -> e.getContractCode().equals(object.getContractCode()));
+			if (duplicatedCode)
+				duplicatedCode = !this.repository.findContractById(object.getId()).getContractCode().equals(object.getContractCode());
+			super.state(!duplicatedCode, "contractCode", "client.contract.form.error.duplicated-code");
+		}
+
+		final boolean emptyProject = object.getProject() != null;
+		if (!emptyProject)
+			super.state(!emptyProject, "project", "client.contract.form.error.choose-project");
+
+		if (!super.getBuffer().getErrors().hasErrors("budget") && emptyProject) {
 			Collection<Contract> contracts = this.repository.findAllContractsByProjectId(object.getProject().getId());
-			final boolean budget = object.getBudget().getAmount() + contracts.stream().mapToDouble(x -> x.getBudget().getAmount()).sum() > object.getProject().getCost();
-			super.state(!budget, "budget", "client.contract.form.error.budget-total-cost");
+			final boolean budget = object.getBudget().getAmount() + contracts.stream().mapToDouble(x -> x.getBudget().getAmount()).sum() > object.getProject().getCost() || object.getBudget().getAmount() < 0;
+			super.state(!budget, "budget", object.getBudget().getAmount() < 0 ? "client.contract.form.error.budget-negative" : "client.contract.form.error.budget-total-cost");
+		}
+		if (!super.getBuffer().getErrors().hasErrors("instantiation")) {
+			final boolean draftLogs = this.repository.findAllDraftProgress(object.getId()).isEmpty();
+			final boolean tooLate = !this.repository.findAllProgress(object.getId()).stream().anyMatch(e -> e.getRegistration().after(object.getInstantiation()));
+			super.state(draftLogs && tooLate, "instantiation", draftLogs ? "client.contract.form.error.published-log" : "client.contract.form.error.draft-progress");
 		}
 	}
 
