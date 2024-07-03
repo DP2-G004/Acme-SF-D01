@@ -32,3 +32,4 @@ developer.trainingModule.form.error.null-project=Every training module must be i
 developer.trainingModule.form.error.project-null=You must choose a project
 developer.trainingModule.form.error.trainingSession-empty=Can't publish without any training session associated 
 developer.trainingModule.form.error.trainingSession-draft=Can't publish with associated training sessions in draft mode
+developer.trainingModule.form.error.trainingSession-Nodraft=Can't delete with associated training sessions already published
