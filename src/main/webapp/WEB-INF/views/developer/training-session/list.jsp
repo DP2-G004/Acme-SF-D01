@@ -10,6 +10,6 @@
 	<acme:list-column code="developer.training-session.list.label.draft-mode" path="draftMode"/>			
 </acme:list>
 
-<jstl:if test="${_command == 'list-by-training-module'}">
+<jstl:if test="${showCreate}">
 	<acme:button code="developer.training-session.list.button.create" action="/developer/training-session/create?trainingModuleId=${trainingModuleId}"/>
 </jstl:if>

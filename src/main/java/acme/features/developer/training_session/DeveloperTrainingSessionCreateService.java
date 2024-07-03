@@ -31,7 +31,7 @@ public class DeveloperTrainingSessionCreateService extends AbstractService<Devel
 		trainingModuleId = super.getRequest().getData("trainingModuleId", int.class);
 		trainingModule = this.repository.findTrainingModuleById(trainingModuleId);
 
-		status = developerId == trainingModule.getDeveloper().getId();
+		status = developerId == trainingModule.getDeveloper().getId() && trainingModule.getDraftMode();
 		super.getResponse().setAuthorised(status);
 	}
 
@@ -98,6 +98,7 @@ public class DeveloperTrainingSessionCreateService extends AbstractService<Devel
 	@Override
 	public void perform(final TrainingSession object) {
 		assert object != null;
+		object.setId(0);
 		this.repository.save(object);
 	}
 
