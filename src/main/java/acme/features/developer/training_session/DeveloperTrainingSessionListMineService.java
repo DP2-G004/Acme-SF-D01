@@ -66,6 +66,7 @@ public class DeveloperTrainingSessionListMineService extends AbstractService<Dev
 		trainingModuleId = super.getRequest().getData("trainingModuleId", int.class);
 
 		super.getResponse().addGlobal("trainingModuleId", trainingModuleId);
+		super.getResponse().addGlobal("showCreate", object.getTrainingModule().getDraftMode());
 
 		super.getResponse().addData(dataset);
 	}

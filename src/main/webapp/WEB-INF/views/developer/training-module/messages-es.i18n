@@ -32,5 +32,5 @@ developer.trainingModule.form.error.null-project=Todos los módulos de entrenami
 developer.trainingModule.form.error.project-null=Debe elegir un proyecto
 developer.trainingModule.form.error.trainingSession-empty=No se puede publicar sin ninguna sesión de entrenamiento asociada
 developer.trainingModule.form.error.trainingSession-draft=No se puede publicar con sesiones de entrenamiento asociadas que estén en modo borrador 
-
+developer.trainingModule.form.error.trainingSession-Nodraft=No se puede eliminar con sesiones de entrenamiento asociadas que estén publicadas
 
