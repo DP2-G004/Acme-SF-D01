@@ -30,15 +30,16 @@ public class ClientProgressLogListService extends AbstractService<Client, Progre
 	public void authorise() {
 		final Principal principal = super.getRequest().getPrincipal();
 
-		final boolean authorise = principal.hasRole(Client.class);
-
+		int id = super.getRequest().getData("contractId", int.class);
+		Contract c = this.repository.findContractById(id);
+		final boolean authorise = principal.hasRole(Client.class) && c.getClient().getUserAccount().getId() == principal.getAccountId();
 		super.getResponse().setAuthorised(authorise);
 	}
 
 	@Override
 	public void load() {
-		final int clientId = super.getRequest().getPrincipal().getAccountId();
-		Collection<Progress> progress = this.repository.findProgressByClientId(clientId);
+		int id = super.getRequest().getData("contractId", int.class);
+		Collection<Progress> progress = this.repository.findProgressByContractId(id);
 
 		super.getBuffer().addData(progress);
 	}

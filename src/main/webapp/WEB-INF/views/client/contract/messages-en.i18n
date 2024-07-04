@@ -10,6 +10,7 @@ client.contract.form.label.project = Project
 client.contract.list.label.project = Project
 client.contract.form.label.draftMode = Is draft
 client.contract.list.label.draftMode = Is draft
+client.contract.form.button.list_progress = List progress logs of contract
 
 client.contract.form.button.update = Update
 client.contract.form.button.create = Create

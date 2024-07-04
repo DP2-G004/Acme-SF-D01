@@ -94,7 +94,6 @@ master.menu.sponsor.show-sponsor-dashboard=Panel de control
 
 master.menu.client = Cliente
 master.menu.list.contract = Contratos
-master.menu.list.progress = Progresos
 master.menu.show.client-dashboard = Tablero de datos
 
 # master.menu.user-account ####################################################

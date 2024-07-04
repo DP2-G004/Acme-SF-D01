@@ -14,7 +14,6 @@
 	<acme:input-select code="client.contract.form.label.project"
 		path="project" choices="${projects}" />
 
-
 	<jstl:choose>
 		<jstl:when
 			test="${acme:anyOf(_command, 'show|update|delete|publish') && draftMode == true}">
@@ -28,6 +27,8 @@
 				action="/client/contract/publish?id=${id}" />
 			<acme:button code="client.contract.form.button.add-progress"
 				action="/client/progress/create?contractId=${id}" />
+			<acme:button code="client.contract.form.button.list_progress"
+				action="/client/progress/list?contractId=${id}" />
 		</jstl:when>
 		<jstl:when test="${_command == 'create'}">
 			<acme:submit code="client.contract.form.button.create"
@@ -35,7 +36,9 @@
 		</jstl:when>
 		<jstl:otherwise> 
 			<acme:input-moment code="client.contract.form.label.instantiation"
-		path="instantiation" readonly = "true"/>
+				path="instantiation" readonly = "true"/>
+			<acme:button code="client.contract.form.button.list_progress"
+				action="/client/progress/list?contractId=${id}" />
 		</jstl:otherwise>
 	</jstl:choose>
 

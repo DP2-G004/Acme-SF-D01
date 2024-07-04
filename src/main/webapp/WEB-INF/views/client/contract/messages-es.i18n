@@ -27,3 +27,4 @@ client.contract.form.button.progress = Lista de registros de progreso del contra
 client.contract.form.button.add-progress = Agregar registro de progreso
 client.contract.form.title = Módulo de contrato
 client.contract.list.title = Módulos de contratos
+client.contract.form.button.list_progress = Listar registros de progreso del contrato

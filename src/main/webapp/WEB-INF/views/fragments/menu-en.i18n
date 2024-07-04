@@ -93,7 +93,6 @@ master.menu.sponsor.show-sponsor-dashboard=Dashboard
 
 master.menu.client = Client
 master.menu.list.contract = Contracts
-master.menu.list.progress = Progress
 master.menu.show.client-dashboard = Dashboard
 
 # master.menu.user-account ####################################################
