@@ -66,8 +66,23 @@ public class DeveloperTrainingSessionListMineService extends AbstractService<Dev
 		trainingModuleId = super.getRequest().getData("trainingModuleId", int.class);
 
 		super.getResponse().addGlobal("trainingModuleId", trainingModuleId);
-		super.getResponse().addGlobal("showCreate", object.getTrainingModule().getDraftMode());
 
 		super.getResponse().addData(dataset);
+	}
+
+	@Override
+	public void unbind(final Collection<TrainingSession> objects) {
+		assert objects != null;
+
+		int trainingModuleId;
+		TrainingModule trainingModule;
+		final boolean showCreate;
+
+		trainingModuleId = super.getRequest().getData("trainingModuleId", int.class);
+		trainingModule = this.repository.findTrainingModuleById(trainingModuleId);
+		showCreate = trainingModule.getDraftMode();
+
+		super.getResponse().addGlobal("trainingModuleId", trainingModuleId);
+		super.getResponse().addGlobal("showCreate", showCreate);
 	}
 }
