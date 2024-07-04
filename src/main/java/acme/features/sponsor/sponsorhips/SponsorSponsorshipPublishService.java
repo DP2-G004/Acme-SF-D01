@@ -93,7 +93,7 @@ public class SponsorSponsorshipPublishService extends AbstractService<Sponsor, S
 				if (!invoice.getDraftMode())
 					invoicesTotalAmount += invoice.getTotalAmount().getAmount();
 				else
-					super.state(true, "amount", "sponsor.sponsorship.form.error.all-invoices-must-be-published");
+					super.state(false, "*", "sponsor.sponsorship.form.error.all-invoices-must-be-published");
 
 			super.state(object.getAmount().getAmount().equals(invoicesTotalAmount), "amount", "sponsor.sponsorship.form.error.total-invoices-amount-must-be-equal-sponsorship-amount");
 

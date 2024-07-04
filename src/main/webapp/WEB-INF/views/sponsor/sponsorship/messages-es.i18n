@@ -30,6 +30,7 @@ sponsor.sponsorship.form.error.endDate-must-be-after-startDate=La fecha de fin d
 sponsor.sponsorship.form.error.duration-not-enough=La duración debe ser de, al menos, 30 días
 
 sponsor.sponsorship.form.error.total-invoices-amount-must-be-equal-sponsorship-amount=La cantidad de las facturas debe sumar la cantidad del patrocinio
+sponsor.sponsorship.form.error.all-invoices-must-be-published=Todas las facturas deben estar publicadas
 sponsor.sponsorship.form.error.delete-sponsorship-with-published-invoices=No se pueden eliminar patrocinios con facturas publicadas
 
 sponsor.sponsorship.form.error.cannot-change-currency=La divisa no puede ser modificada si ya existen facturas con la divisa antigua
