@@ -52,7 +52,6 @@ public class SponsorInvoiceCreateService extends AbstractService<Sponsor, Invoic
 		object.setDraftMode(true);
 		object.setSponsorship(sponsorship);
 		object.setRegistrationTime(MomentHelper.getCurrentMoment());
-
 		super.getBuffer().addData(object);
 	}
 
@@ -75,8 +74,8 @@ public class SponsorInvoiceCreateService extends AbstractService<Sponsor, Invoic
 		}
 
 		// Dates constraint
-		if (!(super.getBuffer().getErrors().hasErrors("dueDate") || !super.getBuffer().getErrors().hasErrors("registrationTime"))) {
-			super.state(MomentHelper.isLongEnough(object.getRegistrationTime(), object.getDueDate(), 1, ChronoUnit.MONTHS), "dueDate", "sponsor.invoice.form.error.duration-not-enough");
+		if (!(super.getBuffer().getErrors().hasErrors("dueDate") || super.getBuffer().getErrors().hasErrors("registrationTime"))) {
+			super.state(MomentHelper.isLongEnough(object.getDueDate(), object.getRegistrationTime(), 1, ChronoUnit.MONTHS), "dueDate", "sponsor.invoice.form.error.duration-not-enough");
 			super.state(MomentHelper.isAfter(object.getDueDate(), object.getRegistrationTime()), "dueDate", "sponsor.invoice.form.error.dueDate-must-be-after-registration");
 		}
 
