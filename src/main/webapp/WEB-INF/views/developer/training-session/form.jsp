@@ -9,8 +9,8 @@
 	<acme:input-moment code="developer.trainingSession.form.label.endPeriod" path="endPeriod"/>
 	<acme:input-textbox code="developer.trainingSession.form.label.location" path="location"/>
 	<acme:input-textbox code="developer.trainingSession.form.label.instructor" path="instructor"/>
-	<acme:input-textbox code="developer.trainingSession.form.label.email" path="email"/>
-	<acme:input-textbox code="developer.trainingSession.form.label.link" path="link"/>
+	<acme:input-email code="developer.trainingSession.form.label.email" path="email"/>
+	<acme:input-url code="developer.trainingSession.form.label.link" path="link"/>
 	
 	 <jstl:if test="${_command == 'create'}">
             <acme:submit code="developer.trainingSession.form.button.create" action="/developer/training-session/create?trainingModuleId=${trainingModuleId}"/>
