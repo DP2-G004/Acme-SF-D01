@@ -2,6 +2,7 @@
 package acme.features.sponsor.sponsorhips;
 
 import java.time.temporal.ChronoUnit;
+import java.util.Collection;
 import java.util.List;
 
 import org.assertj.core.util.Arrays;
@@ -12,6 +13,7 @@ import acme.client.data.models.Dataset;
 import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
+import acme.entities.invoice.Invoice;
 import acme.entities.project.Project;
 import acme.entities.sponsorship.Sponsorship;
 import acme.entities.sponsorship.SponsorshipType;
@@ -85,6 +87,10 @@ public class SponsorSponsorshipUpdateService extends AbstractService<Sponsor, Sp
 			// Currency not supported
 			List<Object> acceptedCurrencies = Arrays.asList(this.repository.findSystemCurrency().getAcceptedCurrencies().split("\\s*,\\s*"));
 			super.state(acceptedCurrencies.contains(object.getAmount().getCurrency()), "amount", "sponsor.sponsorship.form.error.currency-not-supported");
+
+			// Cannot change currency if there is a invoice
+			Collection<Invoice> invoices = this.repository.findInvoicesBySponsorshipId(object.getId());
+			super.state(invoices.stream().map(i -> i.getQuantity().getCurrency()).allMatch(currency -> currency.equals(object.getAmount().getCurrency())), "amount", "sponsor.sponsorship.form.error.cannot-change-currency");
 		}
 
 		// startDate must be after moment

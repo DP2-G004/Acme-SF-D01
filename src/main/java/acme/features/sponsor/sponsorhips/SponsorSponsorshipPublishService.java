@@ -96,6 +96,10 @@ public class SponsorSponsorshipPublishService extends AbstractService<Sponsor, S
 					super.state(true, "amount", "sponsor.sponsorship.form.error.all-invoices-must-be-published");
 
 			super.state(object.getAmount().getAmount().equals(invoicesTotalAmount), "amount", "sponsor.sponsorship.form.error.total-invoices-amount-must-be-equal-sponsorship-amount");
+
+			// Cannot change currency if there is a invoice
+			super.state(invoices.stream().map(i -> i.getQuantity().getCurrency()).allMatch(currency -> currency.equals(object.getAmount().getCurrency())), "amount", "sponsor.sponsorship.form.error.cannot-change-currency");
+
 		}
 
 		// startDate must be after moment
