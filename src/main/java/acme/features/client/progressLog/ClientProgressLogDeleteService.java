@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.client.data.accounts.Principal;
+import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
 import acme.entities.contract.Progress;
 import acme.roles.client.Client;
@@ -43,7 +44,7 @@ public class ClientProgressLogDeleteService extends AbstractService<Client, Prog
 	public void bind(final Progress object) {
 		assert object != null;
 
-		super.bind(object, "record", "completeness", "comment", "responsable");
+		super.bind(object, "record", "completeness", "comment", "responsable", "registration");
 	}
 
 	@Override
@@ -56,6 +57,15 @@ public class ClientProgressLogDeleteService extends AbstractService<Client, Prog
 		assert object != null;
 
 		this.repository.delete(object);
+	}
+
+	@Override
+	public void unbind(final Progress object) {
+		assert object != null;
+
+		Dataset dataset = super.unbind(object, "record", "completeness", "comment", "registration", "responsable", "draftMode");
+
+		super.getResponse().addData(dataset);
 	}
 
 }
