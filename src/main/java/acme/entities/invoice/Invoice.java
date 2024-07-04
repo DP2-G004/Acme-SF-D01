@@ -60,8 +60,8 @@ public class Invoice extends AbstractEntity {
 
 	@Transient
 	public Money getTotalAmount() {
-		double taxToApply = (100.0 - this.tax) / 100.0;
-		Double totalAmount = this.quantity.getAmount() * taxToApply;
+		Double totalAmount;
+		totalAmount = this.quantity.getAmount() + this.quantity.getAmount() * (this.tax / 100);
 
 		Money res = new Money();
 		res.setAmount(totalAmount);

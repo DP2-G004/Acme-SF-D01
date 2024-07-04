@@ -1,7 +1,7 @@
 key,code,moment,startDate,endDate,amount,type,email,link,draftMode,key:project,key:sponsor
 sponsorship-01,A-000,2020/08/11 00:44,2020/08/11 09:03,2020/10/11 11:12,EUR 312721.21,FINANCIAL,example@example.com,https://hola.com,true,project-01,sponsor-01
 sponsorship-02,AA-100,2020/09/15 10:22,2020/09/16 00:00,2020/11/15 00:00,USD 214829.98,FINANCIAL,sponsorship@example.com,https://random.com/124,true,project-01,sponsor-02
-sponsorship-03,AAA-010,2000/10/20 15:38,2018/10/20 00:00,2018/12/20 00:00,EUR 200.00,IN_KIND,example@sponsor.com,,false,project-02,sponsor-01
+sponsorship-03,AAA-010,2000/10/20 15:38,2018/10/20 00:00,2018/12/20 00:00,EUR 600.00,IN_KIND,example@sponsor.com,,false,project-02,sponsor-01
 sponsorship-04,BAB-990,2020/11/25 08:55,2021/11/25 00:00,2021/12/29 00:00,USD 1234.56,FINANCIAL,,,true,project-01,sponsor-01
 sponsorship-05,BA-230,2020/12/30 16:10,2021/10/30 00:00,2021/12/30 00:00,GBP 0.15,IN_KIND,javier@jav.com,https://typing.com/url/url,true,project-02,sponsor-02
 sponsorship-06,ABC-999,1974/12/30 16:10,1975/12/30 00:00,1976/12/30 00:00,GBP 2.00,IN_KIND,,,true,project-07,sponsor-02
