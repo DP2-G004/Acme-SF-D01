@@ -32,7 +32,7 @@ public class ClientProgressLogListService extends AbstractService<Client, Progre
 
 		int id = super.getRequest().getData("contractId", int.class);
 		Contract c = this.repository.findContractById(id);
-		final boolean authorise = principal.hasRole(Client.class) && c.getClient().getUserAccount().getId() == principal.getAccountId();
+		final boolean authorise = c != null && principal.hasRole(Client.class) && c.getClient().getUserAccount().getId() == principal.getAccountId();
 		super.getResponse().setAuthorised(authorise);
 	}
 
@@ -40,7 +40,8 @@ public class ClientProgressLogListService extends AbstractService<Client, Progre
 	public void load() {
 		int id = super.getRequest().getData("contractId", int.class);
 		Collection<Progress> progress = this.repository.findProgressByContractId(id);
-
+		Boolean draft = super.getRequest().getData("draft", boolean.class);
+		super.getResponse().addGlobal("draft", draft == null ? false : draft);
 		super.getBuffer().addData(progress);
 	}
 
@@ -52,7 +53,6 @@ public class ClientProgressLogListService extends AbstractService<Client, Progre
 
 		Collection<Contract> contracts = this.repository.findAllContract();
 		SelectChoices trainingModulesChoices = SelectChoices.from(contracts, "contractCode", object.getContract());
-
 		dataset.put("contract", trainingModulesChoices.getSelected().getLabel());
 		dataset.put("contracts", trainingModulesChoices);
 
@@ -61,7 +61,7 @@ public class ClientProgressLogListService extends AbstractService<Client, Progre
 			dataset.put("draftMode", local.equals(Locale.ENGLISH) ? "Yes" : "Sí");
 		} else
 			dataset.put("draftMode", "No");
-
+		super.getResponse().addGlobal("masterId", super.getRequest().getData("contractId", int.class));
 		super.getResponse().addData(dataset);
 	}
 

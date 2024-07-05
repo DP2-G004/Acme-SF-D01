@@ -28,9 +28,11 @@
 			<acme:button code="client.contract.form.button.add-progress"
 				action="/client/progress/create?contractId=${id}" />
 			<acme:button code="client.contract.form.button.list_progress"
-				action="/client/progress/list?contractId=${id}" />
+				action="/client/progress/list?contractId=${id}&draft=true" />
 		</jstl:when>
 		<jstl:when test="${_command == 'create'}">
+			<acme:input-moment code="client.contract.form.label.instantiation"
+				path="instantiation"/>
 			<acme:submit code="client.contract.form.button.create"
 				action="/client/contract/create" />
 		</jstl:when>
@@ -38,7 +40,7 @@
 			<acme:input-moment code="client.contract.form.label.instantiation"
 				path="instantiation" readonly = "true"/>
 			<acme:button code="client.contract.form.button.list_progress"
-				action="/client/progress/list?contractId=${id}" />
+				action="/client/progress/list?contractId=${id}&draft=false" />
 		</jstl:otherwise>
 	</jstl:choose>
 

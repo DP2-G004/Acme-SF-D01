@@ -8,3 +8,5 @@ authenticated.client.form.label.link = Link:
 
 authenticated.client.form.button.create = Register
 authenticated.client.form.button.update = Update
+
+authenticated.client.form.error.duplicated = Duplicated code

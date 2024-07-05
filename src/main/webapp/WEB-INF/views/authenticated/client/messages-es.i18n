@@ -6,3 +6,5 @@ authenticated.client.form.label.email = Correo electrónico:
 authenticated.client.form.label.link = Enlace:
 authenticated.client.form.button.create = Registrar
 authenticated.client.form.button.update = Actualizar
+
+authenticated.client.form.error.duplicated = Código de identificación duplicado
