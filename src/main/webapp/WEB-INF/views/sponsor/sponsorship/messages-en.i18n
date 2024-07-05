@@ -31,7 +31,10 @@ sponsor.sponsorship.form.error.endDate-must-be-after-startDate=The end date must
 sponsor.sponsorship.form.error.duration-not-enough=The duration must be 30 days at least
 
 sponsor.sponsorship.form.error.total-invoices-amount-must-be-equal-sponsorship-amount=The amount of the invoices must sum the sponsorship amount
+sponsor.sponsorship.form.error.all-invoices-must-be-published=All invoices must be published
 sponsor.sponsorship.form.error.delete-sponsorship-with-published-invoices=Sponsorships with published invoices cannot be deleted
+
+sponsor.sponsorship.form.error.cannot-change-currency=The currency cannot be changed if there are invoices with the old currency
 
 ----------------BUTTONS----------------
 sponsor.sponsorship.form.button.update=Update

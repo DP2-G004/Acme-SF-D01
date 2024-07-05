@@ -49,9 +49,13 @@ public class SponsorInvoiceListService extends AbstractService<Sponsor, Invoice>
 		assert objects != null;
 
 		int sponsorshipId;
+		Sponsorship sponsorship;
 
 		sponsorshipId = this.getRequest().getData("sponsorshipId", int.class);
+		sponsorship = this.repository.findSponsorshipById(sponsorshipId);
+
 		super.getResponse().addGlobal("sponsorshipId", sponsorshipId);
+		super.getResponse().addGlobal("showCreate", sponsorship.isDraftMode());
 	}
 
 	@Override
@@ -62,7 +66,6 @@ public class SponsorInvoiceListService extends AbstractService<Sponsor, Invoice>
 
 		dataset = super.unbind(object, "code", "dueDate");
 		dataset.put("totalAmount", object.getTotalAmount());
-		super.getResponse().addGlobal("showCreate", object.getSponsorship().isDraftMode());
 		super.getResponse().addData(dataset);
 	}
 
