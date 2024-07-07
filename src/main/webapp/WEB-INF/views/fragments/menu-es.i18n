@@ -31,6 +31,7 @@ master.menu.any=Cualquiera
 master.menu.any.claim=Reclamaciones
 master.menu.any.published-code-audits = Code Audits Publicados
 master.menu.any.list-sponsorships = Patrocinios publicados
+master.menu.any.trainingModule=Módulos de entrenamiento publicados
 
 # master.menu.authenticated #######################################################
 

@@ -19,6 +19,7 @@
 			<acme:menu-suboption code="master.menu.any.claim" action="/any/claim/list"/>
 			<acme:menu-suboption code="master.menu.any.published-code-audits" action="/any/code-audit/list-published"/>	
 			<acme:menu-suboption code="master.menu.any.list-sponsorships" action="/any/sponsorship/list"/>
+			<acme:menu-suboption code="master.menu.any.trainingModule" action="/any/training-module/list"/>
     	</acme:menu-option>
     	
     	<acme:menu-option code="master.menu.authenticated" access="isAuthenticated()">
