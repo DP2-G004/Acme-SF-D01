@@ -30,6 +30,7 @@ master.menu.any=Any
 master.menu.any.claim=Claims
 master.menu.any.published-code-audits = Published Code Audits
 master.menu.any.list-sponsorships= Published sponsorships
+master.menu.any.trainingModule=Published training modules
 
 # master.menu.authenticated #######################################################
 
