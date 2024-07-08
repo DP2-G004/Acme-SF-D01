@@ -5,6 +5,7 @@ authenticated.sponsor.form.label.expectedBenefits = Beneficios esperados
 authenticated.sponsor.form.label.web = Web
 authenticated.sponsor.form.label.email = Email
 
+authenticated.sponsor.form.button.create=Crear
 
 authenticated.sponsor.form.label.create = Crear
 authenticated.sponsor.form.label.update = Actualizar

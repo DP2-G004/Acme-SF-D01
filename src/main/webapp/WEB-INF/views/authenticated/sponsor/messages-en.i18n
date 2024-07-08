@@ -6,5 +6,7 @@ authenticated.sponsor.form.label.web = Web
 authenticated.sponsor.form.label.email = Email
 
 
+authenticated.sponsor.form.button.create=Create
+
 authenticated.sponsor.form.label.create = Create
 authenticated.sponsor.form.label.update = Update
