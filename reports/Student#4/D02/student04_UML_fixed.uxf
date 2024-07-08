@@ -18,8 +18,8 @@ Sponsorship
 + endDate: Date {Temporal(TIMESTAMP), NotNull}
 + amount: Money  {NotNull}
 + type: SponsorshipType 
-- email: String {Email}
-- link: String {URL, NotNull}</panel_attributes>
++ email: String {Email}
++ link: String {URL, NotNull}</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -80,7 +80,7 @@ Invoice
 + quantity: Money {NotNull}
 + tax: Double {Min(0), NotNull}
 + / totalAmount: Money {Transient	}
-- link: String {URL}</panel_attributes>
++ link: String {URL}</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -303,8 +303,8 @@ Sponsor
 --
 + name: String {NotBlank, Length(max=75)}
 + expectedBenefits: String {NotBlank, Length(max=100)}
-- web: String {URL}
-- email: String {Email}</panel_attributes>
++ web: String {URL}
++ email: String {Email}</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
